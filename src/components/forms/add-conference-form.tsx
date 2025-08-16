@@ -2,7 +2,7 @@
 "use client";
 import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, type FieldError } from "react-hook-form";
+import { useForm, type FieldError, useFieldArray } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -19,7 +19,7 @@ import { addConference } from "@/services/conferenceService";
 import { conferenceSchema, type AddConferenceData } from '@/lib/types';
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
-import { CalendarIcon, Check, ChevronsUpDown, ArrowLeft, ArrowRight } from "lucide-react";
+import { CalendarIcon, Check, ChevronsUpDown, ArrowLeft, ArrowRight, PlusCircle, Trash2 } from "lucide-react";
 import { Calendar } from "../ui/calendar";
 import { format } from "date-fns";
 import { Checkbox } from "../ui/checkbox";
@@ -30,6 +30,7 @@ import { countries } from "@/lib/countries";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import dynamic from 'next/dynamic';
 import { ScrollArea } from "../ui/scroll-area";
+import { Textarea } from "../ui/textarea";
 
 const RichTextEditorDynamic = dynamic(() => import('../ui/rich-text-editor'), { ssr: false });
 
@@ -80,11 +81,16 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
       peerReviewMethod: "",
       registrationFees: "",
       accommodationDetails: "",
-      faqs: "",
+      faqs: [{ question: "", answer: "" }],
       modeOfConference: [],
       paperCategories: [],
       editorChoice: "none",
     },
+  });
+
+   const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: "faqs",
   });
 
   React.useEffect(() => {
@@ -336,7 +342,7 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                                     </FormItem>
                                 )}
                             />
-                            <FormField
+                             <FormField
                                 control={form.control}
                                 name="editorialBoard"
                                 render={({ field }) => (
@@ -358,21 +364,6 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                     <section>
                         <h3 className="text-lg font-medium mb-4">Submission Details</h3>
                         <div className="space-y-6">
-                            <FormField
-                                control={form.control}
-                                name="tracks"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>List of Tracks / Themes (Optional)</FormLabel>
-                                        <RichTextEditorDynamic
-                                            value={field.value || ''}
-                                            onChange={field.onChange}
-                                            placeholder="e.g., AI in Healthcare, NLP Advances..."
-                                        />
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
                             <FormField control={form.control} name="keywords" render={({ field }) => ( <FormItem> <FormLabel>Keywords or SDG Tags (Optional)</FormLabel> <FormControl><Input placeholder="AI, Machine Learning, SDG 9, ..." {...field} /></FormControl> <FormDescription>Comma-separated values.</FormDescription> <FormMessage /> </FormItem> )} />
                             <FormField control={form.control} name="submissionInstructions" render={({ field }) => ( <FormItem> <FormLabel>Submission Instructions (Optional)</FormLabel> <FormControl><Input placeholder="Detail the submission guidelines..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                             <FormField control={form.control} name="paperTemplate" render={() => ( <FormItem> <FormLabel>Paper Template Upload (DOC/PDF) (Optional)</FormLabel> <FormControl><Input type="file" accept=".doc,.docx,.pdf" {...templateFileRef} /></FormControl> <FormDescription>Max file size: 4 MB</FormDescription> <FormMessage /> </FormItem> )} />
@@ -437,7 +428,43 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                         <div className="space-y-6">
                             <FormField control={form.control} name="registrationFees" render={({ field }) => ( <FormItem> <FormLabel>Registration & Fees (Optional)</FormLabel> <FormControl><RichTextEditorDynamic value={field.value || ''} onChange={field.onChange} placeholder="Detail the fee structure..."/></FormControl> <FormMessage /> </FormItem> )} />
                             <FormField control={form.control} name="accommodationDetails" render={({ field }) => ( <FormItem> <FormLabel>Accommodation Details (Optional)</FormLabel> <FormControl><RichTextEditorDynamic value={field.value || ''} onChange={field.onChange} placeholder="List nearby hotels or arrangements..."/></FormControl> <FormMessage /> </FormItem> )} />
-                            <FormField control={form.control} name="faqs" render={({ field }) => ( <FormItem> <FormLabel>FAQs (Optional)</FormLabel> <FormControl><RichTextEditorDynamic value={field.value || ''} onChange={field.onChange} placeholder="Provide answers to frequently asked questions..."/></FormControl> <FormMessage /> </FormItem> )} />
+                             <div>
+                                <FormLabel>FAQs (Optional)</FormLabel>
+                                <div className="space-y-4 mt-2">
+                                {fields.map((field, index) => (
+                                    <div key={field.id} className="p-4 border rounded-md space-y-4 relative">
+                                        <FormField
+                                            control={form.control}
+                                            name={`faqs.${index}.question`}
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Question {index + 1}</FormLabel>
+                                                    <FormControl><Input {...field} placeholder="e.g., What is the submission deadline?" /></FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name={`faqs.${index}.answer`}
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Answer {index + 1}</FormLabel>
+                                                    <FormControl><Textarea {...field} placeholder="e.g., The deadline is..." /></FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <Button type="button" variant="destructive" size="sm" className="absolute top-2 right-2" onClick={() => remove(index)}>
+                                            <Trash2 className="h-4 w-4"/>
+                                        </Button>
+                                    </div>
+                                ))}
+                                <Button type="button" variant="outline" size="sm" onClick={() => append({ question: "", answer: "" })}>
+                                    <PlusCircle className="mr-2 h-4 w-4" /> Add FAQ
+                                </Button>
+                                </div>
+                            </div>
                             <FormField control={form.control} name="editorChoice" render={({ field }) => ( 
                                 <FormItem className="flex flex-col">
                                     <FormLabel>Editor Choice (Assign Sub-Admin)</FormLabel>

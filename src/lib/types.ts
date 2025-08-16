@@ -1,6 +1,11 @@
 // src/lib/types.ts
 import { z } from 'zod';
 
+export const faqSchema = z.object({
+  question: z.string().min(1, "Question cannot be empty."),
+  answer: z.string().min(1, "Answer cannot be empty."),
+});
+
 // Zod schema for the new detailed conference form
 export const conferenceSchema = z.object({
   // --- Basic Details ---
@@ -46,7 +51,7 @@ export const conferenceSchema = z.object({
   // --- Additional Information ---
   registrationFees: z.string().optional(),
   accommodationDetails: z.string().optional(),
-  faqs: z.string().optional(),
+  faqs: z.array(faqSchema).optional(),
 
   // --- Admin ---
   editorChoice: z.string().optional()
@@ -84,7 +89,7 @@ export interface Conference {
   peerReviewMethod?: string;
   registrationFees?: string;
   accommodationDetails?: string;
-  faqs?: string;
+  faqs?: { question: string, answer: string }[];
   editorChoice?: string;
   createdAt: string;
   dateObject: Date; // For sorting
