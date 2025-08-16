@@ -10,9 +10,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { getPages, updatePageContent, type CmsPage } from "@/services/cmsService";
+import { getPages, type CmsPage } from "@/services/cmsService";
 import CmsPagesTable from "@/components/tables/cms-pages-table";
 import EditCmsPageForm from "@/components/forms/edit-cms-page-form";
+import EditFaqPageForm from "@/components/forms/edit-faq-page-form";
 
 export default function ManageCmsPagesPage() {
   const [pages, setPages] = React.useState<CmsPage[]>([]);
@@ -79,10 +80,17 @@ export default function ManageCmsPagesPage() {
           </DialogHeader>
           {selectedPage && (
             <div className="flex-grow overflow-y-auto pr-4 -mr-2">
-              <EditCmsPageForm
-                page={selectedPage}
-                onPageUpdated={handlePageUpdated}
-              />
+              {selectedPage.id === 'conference-faq' ? (
+                <EditFaqPageForm
+                  page={selectedPage}
+                  onPageUpdated={handlePageUpdated}
+                />
+              ) : (
+                <EditCmsPageForm
+                  page={selectedPage}
+                  onPageUpdated={handlePageUpdated}
+                />
+              )}
             </div>
           )}
         </DialogContent>

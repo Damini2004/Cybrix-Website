@@ -8,7 +8,7 @@ export interface CmsPage {
   id: string; // The document ID, which is the slug (e.g., "about")
   title: string;
   path: string;
-  content: string;
+  content: any; // Can be string (HTML) or an array of objects for FAQs
   createdAt: string;
   updatedAt: string | null;
 }
@@ -24,16 +24,22 @@ async function initializePages() {
     const pageRef = doc(db, 'pages', page.id);
     const docSnap = await getDoc(pageRef);
     if (!docSnap.exists()) {
-      let initialContent = `<p>This is the initial content for the ${page.title} page. Please edit it in the CMS.</p>`;
+      let initialContent: any = `<p>This is the initial content for the ${page.title} page. Please edit it in the CMS.</p>`;
       if (page.id === 'conference-faq') {
-        initialContent = `
-          <h2>General Questions</h2>
-          <p><strong>How do I submit an abstract?</strong><br>You can submit your abstract through the specific conference's page. Look for the 'Submit Paper' or 'Call for Papers' button.</p>
-          <p><strong>What are the registration fees?</strong><br>Registration fees vary depending on the conference and your category (e.g., student, academic, industry). Please check the individual conference page for details.</p>
-          <h2>Publishing</h2>
-          <p><strong>Will the conference proceedings be published?</strong><br>Yes, all accepted and presented papers will be published in the official conference proceedings, which are typically indexed in major scientific databases.</p>
-          <p><strong>Can I get a visa invitation letter?</strong><br>Yes, we provide visa invitation letters to registered authors and attendees who require one. You can request it during the registration process.</p>
-        `;
+        initialContent = [
+          {
+            question: "How do I submit an abstract?",
+            answer: "You can submit your abstract through the specific conference's page. Look for the 'Submit Paper' or 'Call for Papers' button."
+          },
+          {
+            question: "What are the registration fees?",
+            answer: "Registration fees vary depending on the conference and your category (e.g., student, academic, industry). Please check the individual conference page for details."
+          },
+          {
+            question: "Will the conference proceedings be published?",
+            answer: "Yes, all accepted and presented papers will be published in the official conference proceedings, which are typically indexed in major scientific databases."
+          }
+        ];
       }
       await setDoc(pageRef, {
         title: page.title,
@@ -74,7 +80,7 @@ export async function getPages(): Promise<CmsPage[]> {
   }
 }
 
-export async function getPageContent(pageId: string): Promise<{ success: boolean; content?: string; message: string }> {
+export async function getPageContent(pageId: string): Promise<{ success: boolean; content?: any; message: string }> {
   try {
     const pageRef = doc(db, 'pages', pageId);
     const docSnap = await getDoc(pageRef);
@@ -96,7 +102,7 @@ export async function getPageContent(pageId: string): Promise<{ success: boolean
 }
 
 
-export async function updatePageContent(pageId: string, content: string): Promise<{ success: boolean; message: string }> {
+export async function updatePageContent(pageId: string, content: any): Promise<{ success: boolean; message: string }> {
   try {
     if (!pageId) {
       return { success: false, message: 'Page ID is required.' };
