@@ -338,7 +338,7 @@ function ConferenceDetailClient() {
                              <AccordionItem value="item-4" className="bg-gradient-to-tr from-secondary/50 to-secondary/20 rounded-lg px-4 border-b-0">
                                 <AccordionTrigger className="hover:no-underline">Editorial Board Members / Track Chairs</AccordionTrigger>
                                 <AccordionContent>
-                                    {renderRichContent(conference.editorialBoard)}
+                                    <RenderCommittee htmlContent={conference.editorialBoard} />
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
