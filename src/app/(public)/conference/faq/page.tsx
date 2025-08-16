@@ -23,15 +23,15 @@ export default async function FaqPage() {
 
   return (
     <div className="bg-secondary/30">
-      <div className="py-16 md:py-24">
+      <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Frequently Asked Questions</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Find answers to common questions about our conferences.</p>
         </div>
         <Card className="max-w-3xl mx-auto shadow-lg">
-            <CardContent className="p-6">
+            <CardContent className="p-6 md:p-8">
                 <div 
-                    className="prose prose-lg max-w-none prose-headings:text-primary prose-p:text-muted-foreground"
+                    className="prose prose-lg max-w-none prose-headings:text-primary prose-headings:border-b prose-headings:pb-2 prose-strong:text-foreground prose-p:text-muted-foreground"
                     dangerouslySetInnerHTML={{ __html: content || "" }} 
                 />
             </CardContent>
