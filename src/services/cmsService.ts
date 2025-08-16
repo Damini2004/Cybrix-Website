@@ -16,6 +16,7 @@ export interface CmsPage {
 const pagesConfig = [
     { id: "about", title: "About Us", path: "/about" },
     { id: "privacy-policy", title: "Privacy Policy", path: "/privacy-policy" },
+    { id: "conference-faq", title: "Conference FAQs", path: "/conference/faq" },
 ];
 
 async function initializePages() {
@@ -23,10 +24,21 @@ async function initializePages() {
     const pageRef = doc(db, 'pages', page.id);
     const docSnap = await getDoc(pageRef);
     if (!docSnap.exists()) {
+      let initialContent = `<p>This is the initial content for the ${page.title} page. Please edit it in the CMS.</p>`;
+      if (page.id === 'conference-faq') {
+        initialContent = `
+          <h2>General Questions</h2>
+          <p><strong>How do I submit an abstract?</strong><br>You can submit your abstract through the specific conference's page. Look for the 'Submit Paper' or 'Call for Papers' button.</p>
+          <p><strong>What are the registration fees?</strong><br>Registration fees vary depending on the conference and your category (e.g., student, academic, industry). Please check the individual conference page for details.</p>
+          <h2>Publishing</h2>
+          <p><strong>Will the conference proceedings be published?</strong><br>Yes, all accepted and presented papers will be published in the official conference proceedings, which are typically indexed in major scientific databases.</p>
+          <p><strong>Can I get a visa invitation letter?</strong><br>Yes, we provide visa invitation letters to registered authors and attendees who require one. You can request it during the registration process.</p>
+        `;
+      }
       await setDoc(pageRef, {
         title: page.title,
         path: page.path,
-        content: `<p>This is the initial content for the ${page.title} page. Please edit it in the CMS.</p>`,
+        content: initialContent,
         createdAt: serverTimestamp(),
         updatedAt: null,
       });
