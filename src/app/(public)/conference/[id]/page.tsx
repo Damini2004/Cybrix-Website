@@ -1,3 +1,4 @@
+
 // src/app/(public)/conference/[id]/page.tsx
 "use client";
 
@@ -131,35 +132,39 @@ function ConferenceDetailClient() {
   };
 
   const RenderCommittee = ({ htmlContent }: { htmlContent?: string }) => {
-    if (!htmlContent) return <p className="text-muted-foreground">Not available.</p>;
-    if (typeof window === 'undefined') {
-      return <p className="text-muted-foreground">Loading...</p>;
-    }
+    const [members, setMembers] = React.useState<{ src: string; name: string }[]>([]);
 
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, 'text/html');
-    const members: { src: string; name: string }[] = [];
-    
-    const elements = Array.from(doc.body.children);
+    React.useEffect(() => {
+        if (!htmlContent || typeof window === 'undefined') return;
 
-    for (let i = 0; i < elements.length; i++) {
-        const element = elements[i];
-        if (element.tagName.toLowerCase() === 'figure' && element.querySelector('img')) {
-            const src = element.querySelector('img')!.src;
-            let name = '';
-            
-            // Look for the next element that is a paragraph
-            if (i + 1 < elements.length && elements[i + 1].tagName.toLowerCase() === 'p') {
-                name = elements[i + 1].textContent?.trim() || '';
-                i++; // Increment to skip the name paragraph in the next iteration
-            }
-            
-            if (src && name) {
-                members.push({ src, name });
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlContent, 'text/html');
+        const newMembers: { src: string; name: string }[] = [];
+        const elements = Array.from(doc.body.children);
+
+        for (let i = 0; i < elements.length; i++) {
+            const element = elements[i];
+            if (element.tagName.toLowerCase() === 'figure' && element.querySelector('img')) {
+                const src = element.querySelector('img')!.src;
+                let name = '';
+                
+                if (i + 1 < elements.length && elements[i + 1].tagName.toLowerCase() === 'p') {
+                    name = elements[i + 1].textContent?.trim() || 'Name not found';
+                    i++;
+                }
+                
+                if (src) {
+                    newMembers.push({ src, name });
+                }
             }
         }
-    }
+        setMembers(newMembers);
+    }, [htmlContent]);
 
+    if (!htmlContent) {
+        return <p className="text-muted-foreground">Not available.</p>;
+    }
+    
     if (members.length > 0) {
       return (
         <div className="flex flex-wrap justify-center gap-8 pt-4">
@@ -184,7 +189,7 @@ function ConferenceDetailClient() {
       );
     }
   
-    // Fallback if no image-name pairs are found
+    // Fallback if no image-name pairs are found, renders the raw HTML.
     return <RenderHtmlContent htmlContent={htmlContent} />;
   };
   
@@ -334,12 +339,6 @@ function ConferenceDetailClient() {
                                 <AccordionTrigger className="hover:no-underline">Editorial Board Members / Track Chairs</AccordionTrigger>
                                 <AccordionContent>
                                     {renderRichContent(conference.editorialBoard)}
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="item-3" className="bg-gradient-to-tr from-secondary/50 to-secondary/20 rounded-lg px-4 border-b-0">
-                                <AccordionTrigger className="hover:no-underline">Conference Tracks</AccordionTrigger>
-                                <AccordionContent>
-                                    {renderTracksAsCards(conference.tracks)}
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

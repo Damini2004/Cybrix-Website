@@ -14,7 +14,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { addConference } from "@/services/conferenceService";
 import { conferenceSchema, type AddConferenceData } from '@/lib/types';
@@ -337,7 +336,21 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                                     </FormItem>
                                 )}
                             />
-                            <FormField control={form.control} name="editorialBoard" render={({ field }) => ( <FormItem> <FormLabel>Editorial Board Members / Track Chairs (Optional)</FormLabel> <FormControl><Textarea placeholder="List members..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
+                            <FormField
+                                control={form.control}
+                                name="editorialBoard"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Editorial Board Members / Track Chairs (Optional)</FormLabel>
+                                    <RichTextEditorDynamic
+                                        value={field.value || ''}
+                                        onChange={field.onChange}
+                                        placeholder="List members..."
+                                    />
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
                         </div>
                     </section>
                 )}
@@ -361,7 +374,7 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                                 )}
                             />
                             <FormField control={form.control} name="keywords" render={({ field }) => ( <FormItem> <FormLabel>Keywords or SDG Tags (Optional)</FormLabel> <FormControl><Input placeholder="AI, Machine Learning, SDG 9, ..." {...field} /></FormControl> <FormDescription>Comma-separated values.</FormDescription> <FormMessage /> </FormItem> )} />
-                            <FormField control={form.control} name="submissionInstructions" render={({ field }) => ( <FormItem> <FormLabel>Submission Instructions (Optional)</FormLabel> <FormControl><Textarea placeholder="Detail the submission guidelines..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
+                            <FormField control={form.control} name="submissionInstructions" render={({ field }) => ( <FormItem> <FormLabel>Submission Instructions (Optional)</FormLabel> <FormControl><Input placeholder="Detail the submission guidelines..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                             <FormField control={form.control} name="paperTemplate" render={() => ( <FormItem> <FormLabel>Paper Template Upload (DOC/PDF) (Optional)</FormLabel> <FormControl><Input type="file" accept=".doc,.docx,.pdf" {...templateFileRef} /></FormControl> <FormDescription>Max file size: 4 MB</FormDescription> <FormMessage /> </FormItem> )} />
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <FormField control={form.control} name="submissionStartDate" render={({ field }) => ( <FormItem> <FormLabel>Submission Start Date</FormLabel> <Popover> <PopoverTrigger asChild><FormControl><Button variant={"outline"} className={cn("pl-3 text-left font-normal w-full", !field.value && "text-muted-foreground")}> {field.value ? (format(field.value, "PPP")) : (<span>Pick a date</span>)} <CalendarIcon className="ml-auto h-4 w-4 opacity-50" /> </Button></FormControl></PopoverTrigger> <PopoverContent className="w-auto p-0" align="start"> <Calendar mode="single" selected={field.value} onSelect={field.onChange} /> </PopoverContent> </Popover> <FormMessage /> </FormItem> )} />
@@ -414,7 +427,7 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                                 </FormItem>
                                 )}
                             />
-                            <FormField control={form.control} name="peerReviewMethod" render={({ field }) => ( <FormItem> <FormLabel>Peer Review Method (Optional)</FormLabel> <FormControl><Textarea placeholder="e.g., Single-Blind, Double-Blind, Open..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
+                            <FormField control={form.control} name="peerReviewMethod" render={({ field }) => ( <FormItem> <FormLabel>Peer Review Method (Optional)</FormLabel> <FormControl><Input placeholder="e.g., Single-Blind, Double-Blind, Open..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                         </div>
                     </section>
                 )}
@@ -422,9 +435,9 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                     <section>
                         <h3 className="text-lg font-medium mb-4">Final Details</h3>
                         <div className="space-y-6">
-                            <FormField control={form.control} name="registrationFees" render={({ field }) => ( <FormItem> <FormLabel>Registration & Fees (Optional)</FormLabel> <FormControl><Textarea placeholder="Detail the fee structure..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
-                            <FormField control={form.control} name="accommodationDetails" render={({ field }) => ( <FormItem> <FormLabel>Accommodation Details (Optional)</FormLabel> <FormControl><Textarea placeholder="List nearby hotels or arrangements..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
-                            <FormField control={form.control} name="faqs" render={({ field }) => ( <FormItem> <FormLabel>FAQs (Optional)</FormLabel> <FormControl><Textarea placeholder="Provide answers to frequently asked questions..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
+                            <FormField control={form.control} name="registrationFees" render={({ field }) => ( <FormItem> <FormLabel>Registration & Fees (Optional)</FormLabel> <FormControl><RichTextEditorDynamic value={field.value || ''} onChange={field.onChange} placeholder="Detail the fee structure..."/></FormControl> <FormMessage /> </FormItem> )} />
+                            <FormField control={form.control} name="accommodationDetails" render={({ field }) => ( <FormItem> <FormLabel>Accommodation Details (Optional)</FormLabel> <FormControl><RichTextEditorDynamic value={field.value || ''} onChange={field.onChange} placeholder="List nearby hotels or arrangements..."/></FormControl> <FormMessage /> </FormItem> )} />
+                            <FormField control={form.control} name="faqs" render={({ field }) => ( <FormItem> <FormLabel>FAQs (Optional)</FormLabel> <FormControl><RichTextEditorDynamic value={field.value || ''} onChange={field.onChange} placeholder="Provide answers to frequently asked questions..."/></FormControl> <FormMessage /> </FormItem> )} />
                             <FormField control={form.control} name="editorChoice" render={({ field }) => ( 
                                 <FormItem className="flex flex-col">
                                     <FormLabel>Editor Choice (Assign Sub-Admin)</FormLabel>
