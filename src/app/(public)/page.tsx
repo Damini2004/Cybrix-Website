@@ -1,18 +1,66 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
 import { ArrowRight, BookCheck, BrainCircuit, Microscope, Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { getConferences, Conference } from "@/services/conferenceService";
-import { getCurrentDateInIndia } from "@/lib/utils";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { getJournals, Journal } from "@/services/journalService";
+
+async function FeaturedJournals() {
+  const allJournals = await getJournals();
+  // Assuming getJournals doesn't sort by creation date, we'll take the first 4 active ones.
+  // In a real scenario, you'd sort by `createdAt` in the service.
+  const featuredJournals = allJournals.filter(j => j.status === 'Active').slice(0, 4);
+
+  return (
+    <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="space-y-2">
+             <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium">Publications</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Featured Journals</h2>
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Explore the latest research and publications from our community of scholars.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-12">
+          {featuredJournals.map(journal => (
+            <Card key={journal.id} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow">
+              <div className="relative">
+                <Image
+                  src={journal.imageSrc || "https://placehold.co/400x300.png"}
+                  alt={`Cover for ${journal.journalName}`}
+                  width={400}
+                  height={300}
+                  data-ai-hint="journal cover"
+                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 aspect-[4/3]"
+                />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              </div>
+              <div className="p-4 bg-background flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-foreground">{journal.journalName}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2 mt-1 flex-grow">{journal.description}</p>
+                <Button asChild variant="link" className="p-0 h-auto mt-2 self-start">
+                  <Link href="/publications">
+                    Read More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Button asChild>
+            <Link href="/publications">
+              Explore All Publications <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 
 export default function HomePage() {
@@ -111,88 +159,7 @@ export default function HomePage() {
           </div>
         </section>
         
-        <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium">Highlights</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Visuals from the Forefront of Research</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Explore stunning imagery and visualizations from papers published through Pure Research Insights.
-                </p>
-              </div>
-            </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-12">
-              <div className="relative group overflow-hidden rounded-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=400&h=600&auto=format&fit=crop"
-                  alt="Highlight 1"
-                  width={400}
-                  height={600}
-                  data-ai-hint="galaxy stars"
-                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <h3 className="text-lg font-bold text-white">Cosmic Structures</h3>
-                  <p className="text-sm text-white/80">Mapping the universe's web.</p>
-                </div>
-              </div>
-              <div className="relative group overflow-hidden rounded-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=400&h=600&auto=format&fit=crop"
-                  alt="Highlight 2"
-                  width={400}
-                  height={600}
-                  data-ai-hint="dna strand"
-                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <h3 className="text-lg font-bold text-white">Genetic Sequencing</h3>
-                  <p className="text-sm text-white/80">Visualizing the code of life.</p>
-                </div>
-              </div>
-              <div className="relative group overflow-hidden rounded-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1694833256053-53538407f354?q=80&w=400&h=600&auto=format&fit=crop"
-                  alt="Highlight 3"
-                  width={400}
-                  height={600}
-                  data-ai-hint="neural network"
-                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <h3 className="text-lg font-bold text-white">Neural Pathways</h3>
-                  <p className="text-sm text-white/80">The architecture of thought.</p>
-                </div>
-              </div>
-              <div className="relative group overflow-hidden rounded-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1554474812-70c7c394865f?q=80&w=400&h=600&auto=format&fit=crop"
-                  alt="Highlight 4"
-                  width={400}
-                  height={600}
-                  data-ai-hint="nanotechnology material"
-                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <h3 className="text-lg font-bold text-white">Nanomaterials</h3>
-                  <p className="text-sm text-white/80">Engineering at the atomic scale.</p>
-                </div>
-              </div>
-            </div>
-             <div className="mt-12 text-center">
-              <Button asChild>
-                <Link href="/publications">
-                  Explore All Publications <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <FeaturedJournals />
 
         <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container px-4 md:px-6">
