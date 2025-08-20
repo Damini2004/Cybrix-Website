@@ -10,25 +10,25 @@ const indexedJournalCategories = [
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.",
-    imageSrc: "https://placehold.co/600x400.png",
+    imageSrc: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "science research",
   },
   {
     title: "PubMed / MEDLINE Indexed Journals",
     description: "Crucial for researchers in the life sciences and biomedical fields for widespread visibility.",
-    imageSrc: "https://placehold.co/600x400.png",
+    imageSrc: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "medical biology",
   },
   {
     title: "IEEE Xplore Indexed Journals",
     description: "Access to the most cited publications in engineering, computer science, and technology.",
-    imageSrc: "https://placehold.co/600x400.png",
+    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "engineering technology",
   },
   {
     title: "UGC Care / Peer Review Journals",
     description: "Quality, peer-reviewed journals recognized for academic excellence and integrity.",
-    imageSrc: "https://placehold.co/600x400.png",
+    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "academic books",
   },
 ];
