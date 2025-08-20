@@ -1,61 +1,68 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
-import { ArrowRight, BookCheck, BrainCircuit, Microscope, Calendar, MapPin } from "lucide-react";
+import { ArrowRight, BookCheck, BrainCircuit, Microscope, ShieldCheck, Database, GitBranch } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
 
-async function FeaturedJournals() {
-  const allJournals = await getJournals();
-  // Assuming getJournals doesn't sort by creation date, we'll take the first 4 active ones.
-  // In a real scenario, you'd sort by `createdAt` in the service.
-  const featuredJournals = allJournals.filter(j => j.status === 'Active').slice(0, 4);
+const indexedJournalCategories = [
+  {
+    title: "Web of Science (WoS) Indexed Journals",
+    description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "PubMed / MEDLINE Indexed Journals",
+    description: "Crucial for researchers in the life sciences and biomedical fields for widespread visibility.",
+    icon: Microscope,
+  },
+  {
+    title: "IEEE Xplore Indexed Journals",
+    description: "Access to the most cited publications in engineering, computer science, and technology.",
+    icon: GitBranch,
+  },
+  {
+    title: "UGC Care / Peer Review Journals",
+    description: "Quality, peer-reviewed journals recognized for academic excellence and integrity.",
+    icon: Database,
+  },
+];
 
+function IndexedJournalsSection() {
   return (
     <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-             <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium">Publications</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Featured Journals</h2>
+             <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium">Indexed Journals</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Publish in High-Impact Journals</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Explore the latest research and publications from our community of scholars.
+              We provide comprehensive support for publishing in a wide range of prestigious, indexed journals.
             </p>
           </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-12">
-          {featuredJournals.map(journal => (
-            <Card key={journal.id} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow">
-              <div className="relative">
-                <Image
-                  src={journal.imageSrc || "https://placehold.co/400x300.png"}
-                  alt={`Cover for ${journal.journalName}`}
-                  width={400}
-                  height={300}
-                  data-ai-hint="journal cover"
-                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 aspect-[4/3]"
-                />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              </div>
-              <div className="p-4 bg-background flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-foreground">{journal.journalName}</h3>
-                <p className="text-sm text-muted-foreground line-clamp-2 mt-1 flex-grow">{journal.description}</p>
-                <Button asChild variant="link" className="p-0 h-auto mt-2 self-start">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-12">
+          {indexedJournalCategories.map(category => (
+            <Card key={category.title} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow bg-background/50 hover:border-primary/20">
+              <CardHeader className="items-center text-center p-6">
+                  <div className="p-4 rounded-full bg-primary/10 w-fit mb-3">
+                    <category.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:rotate-6" />
+                  </div>
+                  <CardTitle className="text-lg">{category.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center p-6 pt-0 flex-grow">
+                <p className="text-sm text-muted-foreground">{category.description}</p>
+              </CardContent>
+              <CardFooter className="p-4 bg-secondary/50">
+                 <Button asChild variant="link" className="w-full">
                   <Link href="/publications">
-                    Read More <ArrowRight className="ml-2 h-4 w-4" />
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-              </div>
+              </CardFooter>
             </Card>
           ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Button asChild>
-            <Link href="/publications">
-              Explore All Publications <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>
@@ -75,11 +82,10 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-7xl">
                     <span className="block">Streamline Your Research</span>
-                    <span className="block text-primary">with Pure Research Insights</span>
+                    <span className="block text-primary">Pure Research Insights</span>
                   </h1>
                   <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
-                    The ultimate platform for seamless journal submission, intelligent review, and publication management. Powered by AI.
-                  </p>
+                  Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence. </p>
                 </div>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Link href="/submit-journal">
@@ -159,7 +165,7 @@ export default function HomePage() {
           </div>
         </section>
         
-        <FeaturedJournals />
+        <IndexedJournalsSection />
 
         <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container px-4 md:px-6">
