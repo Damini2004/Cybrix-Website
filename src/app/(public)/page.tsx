@@ -10,22 +10,26 @@ const indexedJournalCategories = [
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.",
-    icon: ShieldCheck,
+    imageSrc: "https://placehold.co/600x400.png",
+    imageHint: "science research",
   },
   {
     title: "PubMed / MEDLINE Indexed Journals",
     description: "Crucial for researchers in the life sciences and biomedical fields for widespread visibility.",
-    icon: Microscope,
+    imageSrc: "https://placehold.co/600x400.png",
+    imageHint: "medical biology",
   },
   {
     title: "IEEE Xplore Indexed Journals",
     description: "Access to the most cited publications in engineering, computer science, and technology.",
-    icon: GitBranch,
+    imageSrc: "https://placehold.co/600x400.png",
+    imageHint: "engineering technology",
   },
   {
     title: "UGC Care / Peer Review Journals",
     description: "Quality, peer-reviewed journals recognized for academic excellence and integrity.",
-    icon: Database,
+    imageSrc: "https://placehold.co/600x400.png",
+    imageHint: "academic books",
   },
 ];
 
@@ -45,22 +49,19 @@ function IndexedJournalsSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-12">
           {indexedJournalCategories.map(category => (
             <Card key={category.title} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow bg-background/50 hover:border-primary/20">
-              <CardHeader className="items-center text-center p-6">
-                  <div className="p-4 rounded-full bg-primary/10 w-fit mb-3">
-                    <category.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:rotate-6" />
-                  </div>
-                  <CardTitle className="text-lg">{category.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center p-6 pt-0 flex-grow">
-                <p className="text-sm text-muted-foreground">{category.description}</p>
-              </CardContent>
-              <CardFooter className="p-4 bg-secondary/50">
-                 <Button asChild variant="link" className="w-full">
-                  <Link href="/publications">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
+              <div className="relative h-40 w-full">
+                  <Image
+                      src={category.imageSrc}
+                      alt={category.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      data-ai-hint={category.imageHint}
+                  />
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                  <CardTitle className="text-lg mb-2">{category.title}</CardTitle>
+                  <p className="text-sm text-muted-foreground flex-grow">{category.description}</p>
+              </div>
             </Card>
           ))}
         </div>
