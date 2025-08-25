@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -58,26 +59,38 @@ export default function JournalSelectionPage() {
         </div>
 
         <div className="mt-20 md:mt-28">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold tracking-tight">Key Selection Criteria</h2>
                 <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
                     Evaluate these key factors to make an informed decision and find the best home for your manuscript.
                 </p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {selectionCriteria.map((item, index) => (
-                    <Card key={index} className="bg-background/80 backdrop-blur-sm border-primary/10 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
-                        <CardHeader className="items-center text-center">
-                            <div className="p-4 bg-primary/10 rounded-full mb-3">
-                                <item.icon className="h-8 w-8 text-primary" />
+            <div className="relative max-w-3xl mx-auto">
+                {/* Vertical Line */}
+                <div className="absolute left-1/2 top-0 h-full w-px bg-border -translate-x-1/2" aria-hidden="true"></div>
+                
+                <div className="space-y-12">
+                    {selectionCriteria.map((item, index) => (
+                        <div key={index} className="relative flex items-center">
+                            {/* Icon & Circle */}
+                            <div className="absolute left-1/2 -translate-x-1/2 bg-background p-1 rounded-full border-2 border-border">
+                                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <item.icon className="h-6 w-6 text-primary" />
+                                </div>
                             </div>
-                            <CardTitle>{item.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-center text-muted-foreground">{item.description}</p>
-                        </CardContent>
-                    </Card>
-                ))}
+
+                            {/* Content Card */}
+                            <Card className={`w-[calc(50%-2.5rem)] shadow-lg transform transition-transform duration-300 hover:scale-105 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
+                                <CardHeader>
+                                    <CardTitle>{item.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground">{item.description}</p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
       </div>
