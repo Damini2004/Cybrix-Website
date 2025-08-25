@@ -1,24 +1,25 @@
+
 import JournalSubmissionForm from "@/components/forms/journal-submission-form";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
-import { FileUp, Sparkles, CheckCircle, ArrowRight } from "lucide-react";
+import { Globe, ShieldCheck, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const submissionBenefits = [
     {
-        icon: FileUp,
-        title: "Streamlined Process",
-        description: "Our submission form is simple, intuitive, and designed to get your research into our system quickly."
+        icon: Globe,
+        title: "Maximize Your Impact",
+        description: "Publish in prestigious, high-impact journals indexed in Scopus and Web of Science. We ensure your research reaches a global audience of innovators and thought leaders."
     },
     {
-        icon: Sparkles,
-        title: "AI-Powered Insights",
-        description: "Get intelligent keyword and tag suggestions to improve the discoverability of your work."
+        icon: Users,
+        title: "Expert End-to-End Support",
+        description: "From manuscript preparation and journal selection to navigating the complexities of peer review, our expert team provides dedicated support at every stage of your publication journey."
     },
     {
-        icon: CheckCircle,
-        title: "Rigorous Peer-Review",
-        description: "Your submission will be evaluated by experts in your field to ensure the highest academic standards."
+        icon: ShieldCheck,
+        title: "Commitment to Quality",
+        description: "Your submission will be evaluated by experts in your field through a rigorous, transparent peer-review process, upholding the highest standards of academic integrity."
     }
 ]
 
