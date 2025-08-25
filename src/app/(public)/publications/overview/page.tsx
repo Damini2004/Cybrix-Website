@@ -103,9 +103,9 @@ export default function PublicationsOverviewPage() {
 
             {/* Policies Grid */}
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-                <Card className="transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10">
+                <Card className="transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-destructive/20 border-t-4 border-destructive">
                     <CardHeader>
-                        <CardTitle className="text-2xl">Plagiarism Policy & Publication Ethics</CardTitle>
+                        <CardTitle className="text-2xl text-destructive">Plagiarism Policy & Publication Ethics</CardTitle>
                         <CardDescription>Maintaining the integrity of academic research.</CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -119,9 +119,9 @@ export default function PublicationsOverviewPage() {
                         </ul>
                     </CardContent>
                 </Card>
-                <Card className="transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10">
+                <Card className="transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 border-t-4 border-primary">
                     <CardHeader>
-                        <CardTitle className="text-2xl">Publication Terms & Conditions</CardTitle>
+                        <CardTitle className="text-2xl text-primary">Publication Terms & Conditions</CardTitle>
                          <CardDescription>Guidelines for authors submitting their work.</CardDescription>
                     </CardHeader>
                     <CardContent>
