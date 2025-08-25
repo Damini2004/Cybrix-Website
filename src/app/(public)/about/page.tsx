@@ -2,7 +2,7 @@
 import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import { Target, Eye } from "lucide-react";
+import { Target, Eye, Presentation, BookOpen, GraduationCap } from "lucide-react";
 
 async function getAboutContent() {
     const result = await getPageContent("about");
@@ -11,6 +11,24 @@ async function getAboutContent() {
     }
     return "<p>Error loading content. Please try again later.</p>";
 }
+
+const services = [
+    {
+        icon: Presentation,
+        title: "Conference Management",
+        description: "End-to-end support for organizing successful academic conferences and events."
+    },
+    {
+        icon: BookOpen,
+        title: "Publications Consultancy",
+        description: "Expert assistance with manuscript preparation and publishing in high-impact journals."
+    },
+    {
+        icon: GraduationCap,
+        title: "PhD Services",
+        description: "Comprehensive support and guidance throughout your entire PhD journey."
+    },
+]
 
 export default async function AboutPage() {
   const content = await getAboutContent();
@@ -78,6 +96,30 @@ export default async function AboutPage() {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+
+            <div className="mt-16 md:mt-24">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter">Our Services</h2>
+                    <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+                        We offer a comprehensive range of services to support your research and publication goals.
+                    </p>
+                </div>
+                <div className="grid gap-8 md:grid-cols-3">
+                    {services.map((service) => (
+                         <Card key={service.title} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                            <CardHeader className="items-center">
+                                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                                    <service.icon className="h-8 w-8 text-primary" />
+                                </div>
+                                <CardTitle>{service.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">{service.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
             </div>
         </div>
       </section>
