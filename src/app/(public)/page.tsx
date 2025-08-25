@@ -65,11 +65,6 @@ const keyServices = [
         title: "Publications Consultancy",
         description: "Assistance with manuscript preparation and publishing in high-impact journals."
     },
-    {
-        icon: Shield,
-        title: "Patent Consultancy",
-        description: "Protecting your intellectual property with expert patent filing support."
-    }
 ]
 
 function IndexedJournalsSection() {
@@ -169,7 +164,7 @@ export default function HomePage() {
                 <div className="mx-auto max-w-5xl mt-12">
                     <Card className="bg-background/50">
                         <CardContent className="p-8">
-                            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+                            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
                                 {keyServices.map((service) => (
                                     <div key={service.title} className="flex flex-col items-center text-center">
                                         <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4">
