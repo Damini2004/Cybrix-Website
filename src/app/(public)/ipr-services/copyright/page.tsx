@@ -58,18 +58,24 @@ export default function CopyrightPage() {
                 </div>
             </section>
             
-            <section className="w-full py-12 md:py-24 lg:py-32">
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
                 <div className="container px-4 md:px-6">
-                    <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold tracking-tight">Understanding Copyright Protection</h2>
+                        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+                            Learn about the key aspects of securing your intellectual property.
+                        </p>
+                    </div>
+                    <div className="mx-auto grid max-w-5xl items-stretch gap-8 lg:grid-cols-3">
                         {copyrightInfo.map((item) => (
-                            <Card key={item.title} className="text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                            <Card key={item.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
                                 <CardHeader className="items-center">
-                                    <div className="p-4 bg-primary/10 rounded-full">
+                                    <div className="p-4 bg-primary/10 rounded-full mb-2">
                                       <item.icon className="h-8 w-8 text-primary" />
                                     </div>
-                                    <CardTitle className="mt-2">{item.title}</CardTitle>
+                                    <CardTitle className="mt-2 text-xl">{item.title}</CardTitle>
                                 </CardHeader>
-                                <CardContent>
+                                <CardContent className="flex-grow">
                                     <p className="text-muted-foreground">{item.description}</p>
                                 </CardContent>
                             </Card>
