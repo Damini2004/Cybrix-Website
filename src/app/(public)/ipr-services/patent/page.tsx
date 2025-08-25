@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -55,26 +56,39 @@ export default function PatentPage() {
             
             <section className="bg-background py-16 md:py-24">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
+                    <div className="text-center mb-20">
                         <h2 className="text-3xl font-bold tracking-tight">Our Patent Process</h2>
                         <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
                             We offer end-to-end support to transform your innovative ideas into protected assets.
                         </p>
                     </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {patentServices.map((service, index) => (
-                             <Card key={index} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                                <CardHeader className="items-center">
-                                    <div className="p-4 bg-primary/10 rounded-full mb-3">
-                                        <service.icon className="h-8 w-8 text-primary" />
+                    <div className="relative max-w-3xl mx-auto">
+                        {/* The vertical line */}
+                        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2" aria-hidden="true"></div>
+
+                        <div className="space-y-16">
+                            {patentServices.map((service, index) => (
+                                <div key={index} className="relative flex items-center justify-center">
+                                    <div className={`flex w-full items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                                        <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                                            <Card className={`shadow-lg border-primary/10 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                                                <CardHeader>
+                                                    <CardTitle className="text-lg text-primary">{service.title}</CardTitle>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <p className="text-muted-foreground">{service.description}</p>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
                                     </div>
-                                    <CardTitle>{service.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">{service.description}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
+                                    <div className="absolute left-1/2 -translate-x-1/2 bg-background p-1 rounded-full border-2 border-primary/20">
+                                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <service.icon className="w-8 h-8 text-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
