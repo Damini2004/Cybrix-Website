@@ -47,39 +47,41 @@ export default function AboutConferencePage() {
         
         <section className="py-12 md:py-24">
             <div className="container px-4 md:px-6">
-                <Card className="shadow-xl overflow-hidden border-primary/10">
-                    <div className="grid md:grid-cols-2 items-center">
-                        <div className="relative h-64 md:h-full min-h-[400px]">
-                            <Image
-                                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&h=600&auto=format&fit=crop"
-                                alt="Conference collaboration"
-                                data-ai-hint="team meeting"
-                                fill
-                                className="object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="max-w-5xl mx-auto">
+                    <Card className="shadow-xl overflow-hidden border-primary/10">
+                        <div className="grid md:grid-cols-2 items-center">
+                            <div className="relative h-64 md:h-full min-h-[400px]">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&h=600&auto=format&fit=crop"
+                                    alt="Conference collaboration"
+                                    data-ai-hint="team meeting"
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                            </div>
+                            <div className="p-8 md:p-12">
+                                <CardHeader className="p-0">
+                                    <CardTitle>Our Mission in Conferencing</CardTitle>
+                                    <CardDescription className="pt-2">
+                                        At PRI, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="p-0 mt-8">
+                                    <h3 className="font-semibold mb-4">Core Principles</h3>
+                                    <ul className="space-y-4">
+                                        {corePrinciples.map((principle, index) => (
+                                            <li key={index} className="flex items-start">
+                                                <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                                                <span className="text-muted-foreground text-sm">{principle}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </div>
                         </div>
-                        <div className="p-8 md:p-12">
-                            <CardHeader className="p-0">
-                                <CardTitle>Our Mission in Conferencing</CardTitle>
-                                <CardDescription className="pt-2">
-                                    At PRI, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent className="p-0 mt-8">
-                                <h3 className="font-semibold mb-4">Core Principles</h3>
-                                <ul className="space-y-4">
-                                    {corePrinciples.map((principle, index) => (
-                                        <li key={index} className="flex items-start">
-                                            <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-muted-foreground text-sm">{principle}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </CardContent>
-                        </div>
-                    </div>
-                </Card>
+                    </Card>
+                </div>
             </div>
         </section>
         
