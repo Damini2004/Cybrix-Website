@@ -1,3 +1,4 @@
+// src/app/(public)/publications/conference-proceedings/page.tsx
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileCheck2, Presentation, Globe } from "lucide-react";
@@ -49,27 +50,36 @@ export default function ConferenceProceedingsPage() {
             
             <section className="w-full py-16 md:py-24 bg-background">
                 <div className="container px-4 md:px-6">
-                    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Why Publish With Us?</div>
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Amplify Your Research Impact</h2>
-                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Our conference proceedings offer a unique platform to disseminate your findings, gain valuable feedback, and connect with a global network of researchers and industry leaders.
-                        </p>
-                    </div>
-                    <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {benefits.map((benefit) => (
-                            <Card key={benefit.title} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-primary/10">
-                                <CardHeader className="items-center">
-                                    <div className="p-4 bg-primary/10 rounded-full">
-                                      <benefit.icon className="h-8 w-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="mt-4">{benefit.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">{benefit.description}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
+                            <Image
+                                src="https://images.unsplash.com/photo-1556761175-b413da4b248a?q=80&w=500&h=500&auto=format&fit=crop"
+                                alt="Researchers collaborating"
+                                data-ai-hint="research collaboration"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <div className="space-y-6">
+                             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Why Publish With Us?</div>
+                            <h2 className="text-3xl font-bold tracking-tighter">Amplify Your Research Impact</h2>
+                            <p className="text-muted-foreground">
+                                Our conference proceedings offer a unique platform to disseminate your findings, gain valuable feedback, and connect with a global network of researchers and industry leaders.
+                            </p>
+                            <ul className="space-y-4">
+                                {benefits.map((benefit) => (
+                                    <li key={benefit.title} className="flex items-start gap-4">
+                                        <div className="p-3 bg-primary/10 rounded-full mt-1">
+                                            <benefit.icon className="h-5 w-5 text-primary" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold">{benefit.title}</h4>
+                                            <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
