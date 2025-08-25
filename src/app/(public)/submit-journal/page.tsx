@@ -1,4 +1,5 @@
 
+
 import JournalSubmissionForm from "@/components/forms/journal-submission-form";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
@@ -29,7 +30,7 @@ export default function SubmitJournalPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
           <Image
-              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto-format&fit=crop"
               alt="Researcher writing"
               data-ai-hint="research writing"
               fill
@@ -80,16 +81,8 @@ export default function SubmitJournalPage() {
       {/* Form Section */}
       <section id="submission-form" className="w-full py-16 md:py-24 bg-background">
           <div className="container px-4 md:px-6">
-              <Card className="max-w-4xl mx-auto shadow-xl border-primary/10">
-                  <CardHeader className="text-center p-8 md:p-10">
-                      <CardTitle className="text-3xl">Submission Details</CardTitle>
-                      <CardDescription>
-                          Fill out the form below to submit your manuscript for review.
-                      </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-8 md:p-10 pt-0">
-                      <JournalSubmissionForm />
-                  </CardContent>
+              <Card className="max-w-4xl mx-auto shadow-xl border-primary/10 overflow-hidden">
+                  <JournalSubmissionForm />
               </Card>
           </div>
       </section>
