@@ -51,7 +51,7 @@ export default function PeerReviewPage() {
                                         </div>
                                     </div>
                                 </div>
-                                <h3 className="font-semibold text-lg text-foreground mb-1">{step.title}</h3>
+                                <h3 className="font-semibold text-base text-foreground mb-1">{step.title}</h3>
                                 <p className="text-sm text-muted-foreground">{step.description}</p>
                             </div>
 
