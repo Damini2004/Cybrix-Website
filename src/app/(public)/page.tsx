@@ -1,7 +1,8 @@
 
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
-import { ArrowRight, BookCheck, BrainCircuit, Microscope, ShieldCheck, Database, GitBranch } from "lucide-react";
+import { ArrowRight, BookCheck, BrainCircuit, Microscope, ShieldCheck, Database, GitBranch, Cpu, Presentation, GraduationCap, Award, Briefcase, BookOpen, FileText, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
@@ -32,6 +33,49 @@ const indexedJournalCategories = [
     imageHint: "academic books",
   },
 ];
+
+const keyServices = [
+    {
+        icon: Cpu,
+        title: "Software Solutions",
+        description: "RAMS & SDGMapper for reliability and sustainable development goal tracking."
+    },
+    {
+        icon: Presentation,
+        title: "Conference Management",
+        description: "End-to-end support for organizing successful academic conferences."
+    },
+    {
+        icon: GraduationCap,
+        title: "Higher Studies Proposals",
+        description: "Guidance for crafting impactful PhD and Postdoctoral research proposals."
+    },
+    {
+        icon: Award,
+        title: "EB-1 Consultancy",
+        description: "Expert assistance for navigating the EB-1 visa application process."
+    },
+    {
+        icon: Briefcase,
+        title: "Internship Services",
+        description: "Connecting talented students with valuable research internship opportunities."
+    },
+    {
+        icon: BookOpen,
+        title: "PhD Services",
+        description: "Comprehensive support throughout your entire PhD journey."
+    },
+    {
+        icon: FileText,
+        title: "Publications Consultancy",
+        description: "Assistance with manuscript preparation and publishing in high-impact journals."
+    },
+    {
+        icon: Shield,
+        title: "Patent Consultancy",
+        description: "Protecting your intellectual property with expert patent filing support."
+    }
+]
 
 function IndexedJournalsSection() {
   return (
@@ -164,6 +208,36 @@ export default function HomePage() {
               </Card>
             </div>
           </div>
+        </section>
+
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+            <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div className="space-y-2">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Key Services</h2>
+                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                            Get expert consultancy and support with our advisory firm that stands by your side always.
+                        </p>
+                    </div>
+                </div>
+                <div className="mx-auto max-w-5xl mt-12">
+                    <Card className="bg-background/50">
+                        <CardContent className="p-8">
+                            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+                                {keyServices.map((service) => (
+                                    <div key={service.title} className="flex flex-col items-center text-center">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4">
+                                            <service.icon className="h-6 w-6 text-primary" />
+                                        </div>
+                                        <h3 className="text-md font-bold">{service.title}</h3>
+                                        <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
         </section>
         
         <IndexedJournalsSection />
