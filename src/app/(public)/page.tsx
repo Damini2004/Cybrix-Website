@@ -46,11 +46,6 @@ const keyServices = [
         description: "End-to-end support for organizing successful academic conferences."
     },
     {
-        icon: GraduationCap,
-        title: "Higher Studies Proposals",
-        description: "Guidance for crafting impactful PhD and Postdoctoral research proposals."
-    },
-    {
         icon: Award,
         title: "EB-1 Consultancy",
         description: "Expert assistance for navigating the EB-1 visa application process."
