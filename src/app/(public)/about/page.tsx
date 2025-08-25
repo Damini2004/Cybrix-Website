@@ -1,8 +1,8 @@
 // src/app/(public)/about/page.tsx
 import { getPageContent } from "@/services/cmsService";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import { CheckCircle } from "lucide-react";
+import { Target, Eye } from "lucide-react";
 
 async function getAboutContent() {
     const result = await getPageContent("about");
@@ -44,6 +44,38 @@ export default async function AboutPage() {
             </div>
           </div>
         </Card>
+
+        <div className="mt-16 md:mt-24">
+          <div className="grid gap-12 md:grid-cols-2">
+            <Card className="shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <CardHeader className="items-center text-center">
+                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                  <Target className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Our Mission</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-center">
+                  To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <CardHeader className="items-center text-center">
+                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                  <Eye className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Our Vision</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-center">
+                  To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
       </div>
     </div>
   );
