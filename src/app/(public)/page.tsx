@@ -160,7 +160,7 @@ export default function HomePage() {
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto max-w-5xl mt-12">
+                <div className="mt-12">
                     <Card className="bg-secondary">
                         <CardContent className="p-8">
                             <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
