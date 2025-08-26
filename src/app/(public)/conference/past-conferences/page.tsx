@@ -64,7 +64,7 @@ export default function PastConferencesPage() {
   }, [currentDate, toast]);
 
   return (
-    <div className="py-12 md:py-24">
+    <div className="container mx-auto px-4 py-12 md:py-24">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           Past Conferences

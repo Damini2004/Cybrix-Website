@@ -61,13 +61,13 @@ export default function InternshipPage() {
 
 
   return (
-    <div className="py-12 md:py-24">
+    <div className="container mx-auto px-4 py-12 md:py-24">
       <div className="text-center mb-12 px-4">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Internship Opportunities</h1>
         <p className="mt-4 text-lg text-muted-foreground">Gain hands-on experience in the world of academic publishing and research.</p>
       </div>
 
-      <section className="container mx-auto px-4">
+      <section>
         {isLoading ? (
           <div className="flex items-center justify-center py-24">
               <Logo className="h-32 w-32" />
