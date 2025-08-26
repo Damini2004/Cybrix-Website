@@ -116,7 +116,6 @@ export default function HomePage() {
               <div className="flex flex-col items-start text-left space-y-6">
                 <div className="space-y-4">
                   <h1 className="text-4xl sm:text-4xl font-extrabold tracking-tight xl:text-7xl">
-                    <span className="block">Streamline Your Research</span>
                     <span className="block text-primary">Pure Research Insights</span>
                   </h1>
                   <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
