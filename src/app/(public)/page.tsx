@@ -113,7 +113,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/50 to-background z-0"></div>
           <div className="container px-4 md:px-6 z-10 relative">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+              <div className="flex flex-col items-start text-left space-y-6">
                 <div className="space-y-4">
                   <h1 className="text-4xl sm:text-4xl font-extrabold tracking-tight xl:text-7xl">
                     <span className="block">Streamline Your Research</span>
@@ -151,7 +151,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="space-y-2">
@@ -162,7 +162,7 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className="mx-auto max-w-5xl mt-12">
-                    <Card className="bg-background/50">
+                    <Card className="bg-secondary">
                         <CardContent className="p-8">
                             <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
                                 {keyServices.map((service) => (
