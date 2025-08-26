@@ -80,7 +80,7 @@ function IndexedJournalsSection() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-4 mt-12">
+        <div className="mx-auto grid items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-4 mt-12">
           {indexedJournalCategories.map(category => (
             <Card key={category.title} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow bg-background/50 hover:border-primary/20">
               <div className="relative h-40 w-full">
@@ -116,7 +116,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start text-left space-y-6">
                 <div className="space-y-4">
                   <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl">
-                    <span className="block text-foreground">Pure Research Insights</span>
+                    <span className="block text-foreground text-4xl">Pure Research Insights</span>
                   </h1>
                   <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
                   Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence. </p>
