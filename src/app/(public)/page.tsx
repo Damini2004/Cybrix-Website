@@ -1,5 +1,6 @@
 
 
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
 import { ArrowRight, BookCheck, BrainCircuit, Microscope, ShieldCheck, Database, GitBranch, Cpu, Presentation, GraduationCap, Award, Briefcase, BookOpen, FileText, Shield } from "lucide-react";
@@ -70,35 +71,33 @@ const keyServices = [
 function IndexedJournalsSection() {
   return (
     <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium">Indexed Journals</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Publish in High-Impact Journals</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              We provide comprehensive support for publishing in a wide range of prestigious, indexed journals.
-            </p>
-          </div>
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium">Indexed Journals</div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Publish in High-Impact Journals</h2>
+          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            We provide comprehensive support for publishing in a wide range of prestigious, indexed journals.
+          </p>
         </div>
-        <div className="mx-auto grid items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-4 mt-12">
-          {indexedJournalCategories.map(category => (
-            <Card key={category.title} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow bg-background/50 hover:border-primary/20">
-              <div className="relative h-40 w-full">
-                  <Image
-                      src={category.imageSrc}
-                      alt={category.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      data-ai-hint={category.imageHint}
-                  />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                  <CardTitle className="text-lg mb-2">{category.title}</CardTitle>
-                  <p className="text-sm text-muted-foreground flex-grow">{category.description}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+      </div>
+      <div className="mx-auto grid items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-4 mt-12">
+        {indexedJournalCategories.map(category => (
+          <Card key={category.title} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow bg-background/50 hover:border-primary/20">
+            <div className="relative h-40 w-full">
+                <Image
+                    src={category.imageSrc}
+                    alt={category.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={category.imageHint}
+                />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+                <CardTitle className="text-lg mb-2">{category.title}</CardTitle>
+                <p className="text-sm text-muted-foreground flex-grow">{category.description}</p>
+            </div>
+          </Card>
+        ))}
       </div>
     </section>
   )
@@ -111,7 +110,7 @@ export default function HomePage() {
       <main className="flex-1">
         <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/50 to-background z-0"></div>
-          <div className="container mx-auto px-4 md:px-6 z-10 relative">
+          <div className="z-10 relative">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="flex flex-col items-start text-left space-y-6">
                 <div className="space-y-4">
@@ -151,54 +150,50 @@ export default function HomePage() {
         </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div className="space-y-2">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Key Services</h2>
-                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Get expert consultancy and support with our advisory firm that stands by your side always.
-                        </p>
-                    </div>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Key Services</h2>
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                        Get expert consultancy and support with our advisory firm that stands by your side always.
+                    </p>
                 </div>
-                <div className="mt-12">
-                    <Card className="bg-secondary">
-                        <CardContent className="p-8">
-                            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-                                {keyServices.map((service) => (
-                                    <div key={service.title} className="flex flex-col items-center text-center">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4">
-                                            <service.icon className="h-6 w-6 text-primary" />
-                                        </div>
-                                        <h3 className="text-md font-bold">{service.title}</h3>
-                                        <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
+            </div>
+            <div className="mt-12">
+                <Card className="bg-secondary">
+                    <CardContent className="p-8">
+                        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+                            {keyServices.map((service) => (
+                                <div key={service.title} className="flex flex-col items-center text-center">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4">
+                                        <service.icon className="h-6 w-6 text-primary" />
                                     </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
+                                    <h3 className="text-md font-bold">{service.title}</h3>
+                                    <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </CardContent>
+                </Card>
             </div>
         </section>
         
         <IndexedJournalsSection />
 
         <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Associations & Partners</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  We are proud to collaborate with leading institutions and organizations in the academic community.
-                </p>
-              </div>
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Associations & Partners</h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                We are proud to collaborate with leading institutions and organizations in the academic community.
+              </p>
             </div>
-            <div className="mx-auto grid grid-cols-2 items-center justify-items-center gap-y-12 gap-x-6 py-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              <Image src="https://logodix.com/logo/2038481.png" width={150} height={60} alt="Partner Logo 1" data-ai-hint="logo company" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/1993463.png" width={150} height={60} alt="Partner Logo 2" data-ai-hint="logo brand" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/1712867.png" width={150} height={60} alt="Partner Logo 3" data-ai-hint="logo business" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/1101923.png" width={150} height={60} alt="Partner Logo 4" data-ai-hint="logo tech" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/647339.png" width={150} height={60} alt="Partner Logo 5" data-ai-hint="logo education" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-            </div>
+          </div>
+          <div className="mx-auto grid grid-cols-2 items-center justify-items-center gap-y-12 gap-x-6 py-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <Image src="https://logodix.com/logo/2038481.png" width={150} height={60} alt="Partner Logo 1" data-ai-hint="logo company" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
+            <Image src="https://logodix.com/logo/1993463.png" width={150} height={60} alt="Partner Logo 2" data-ai-hint="logo brand" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
+            <Image src="https://logodix.com/logo/1712867.png" width={150} height={60} alt="Partner Logo 3" data-ai-hint="logo business" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
+            <Image src="https://logodix.com/logo/1101923.png" width={150} height={60} alt="Partner Logo 4" data-ai-hint="logo tech" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
+            <Image src="https://logodix.com/logo/647339.png" width={150} height={60} alt="Partner Logo 5" data-ai-hint="logo education" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
           </div>
         </section>
       </main>
