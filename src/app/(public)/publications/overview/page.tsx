@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, AlertTriangle } from "lucide-react";
 import Image from "next/image";
@@ -26,7 +27,7 @@ const termsAndConditions = [
 export default function PublicationsOverviewPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
             {/* Header Section with Carousel */}
             <div className="relative mb-16 rounded-xl overflow-hidden shadow-lg">
                 <Carousel

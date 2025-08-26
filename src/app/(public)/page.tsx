@@ -111,7 +111,7 @@ export default function HomePage() {
       <main className="flex-1">
         <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/50 to-background z-0"></div>
-          <div className="container px-4 md:px-6 z-10 relative">
+          <div className="container mx-auto px-4 md:px-6 z-10 relative">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="flex flex-col items-start text-left space-y-6">
                 <div className="space-y-4">
@@ -151,7 +151,7 @@ export default function HomePage() {
         </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Key Services</h2>
