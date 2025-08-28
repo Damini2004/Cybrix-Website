@@ -83,7 +83,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     
-                    {/* Column 4: Subscribe & Brand */}
+                    {/* Column 4: Subscribe */}
                     <div className="space-y-6">
                         <div>
                            <h3 className="text-lg font-semibold mb-4 relative">
@@ -97,15 +97,6 @@ const Footer = () => {
                                     <Send className="h-5 w-5" />
                                 </Button>
                             </form>
-                        </div>
-                         <div>
-                           <h3 className="text-lg font-semibold mb-4 relative">
-                                Our Brand
-                                <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
-                            </h3>
-                            <div className="bg-white p-2 rounded-md inline-block">
-                                <Image src="https://logodix.com/logo/796417.png" width={150} height={80} alt="Our Brand" data-ai-hint="logo brand" />
-                            </div>
                         </div>
                     </div>
                 </div>
