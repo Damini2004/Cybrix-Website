@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getConferenceById } from "@/services/conferenceService";
 import type { Conference } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
@@ -430,8 +430,8 @@ export default function ConferenceDetailPage({ params }: { params: { id: string 
   );
 
   return (
-    <Suspense fallback={<LoadingSkeleton />}>
+    <React.Suspense fallback={<LoadingSkeleton />}>
       <ConferenceDetailClient conferenceId={params.id} />
-    </Suspense>
+    </React.Suspense>
   );
 }
