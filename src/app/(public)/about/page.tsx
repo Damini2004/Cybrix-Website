@@ -35,7 +35,7 @@ export default async function AboutPage() {
   
   return (
     <div className="w-full bg-secondary/30">
-      <section className="py-12 md:py-24 lg:py-32 text-center">
+      <section className="py-12 md:py-16 text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">About Pure Research Insights</h1>
         <p className="mt-4 max-w-[900px] mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
