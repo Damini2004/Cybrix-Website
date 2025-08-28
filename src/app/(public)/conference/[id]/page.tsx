@@ -20,8 +20,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { RenderHtmlContent } from "@/components/ui/render-html-content";
 
-function ConferenceDetailClient({ params }: { params: { id: string } }) {  
-  const conferenceId = params.id;
+function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {  
   const [conference, setConference] = useState<Conference | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
@@ -432,7 +431,7 @@ export default function ConferenceDetailPage({ params }: { params: { id: string 
 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <ConferenceDetailClient params={params} />
+      <ConferenceDetailClient conferenceId={params.id} />
     </Suspense>
   );
 }
