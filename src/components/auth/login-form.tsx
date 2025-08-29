@@ -26,6 +26,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { verifySubAdminCredentials } from "@/services/subAdminService";
+import { verifySuperAdminCredentials } from "@/services/superAdminService";
 import * as React from "react";
 
 const formSchema = z.object({
@@ -53,9 +54,8 @@ export default function LoginForm() {
     setIsSubmitting(true);
 
     if (values.role === 'super-admin') {
-      // This is a mock login for super-admin. 
-      // In a real app, you'd have a separate verification.
-      if (values.email === 'superadmin@pureresearchinsights.com' && values.password === 'password') {
+      const result = await verifySuperAdminCredentials(values.email, values.password);
+      if (result.success) {
           toast({
             title: "Login Successful",
             description: "Redirecting to super-admin dashboard...",
@@ -64,7 +64,7 @@ export default function LoginForm() {
       } else {
            toast({
             title: "Login Failed",
-            description: "Invalid credentials for super admin.",
+            description: result.message,
             variant: "destructive",
           });
       }
