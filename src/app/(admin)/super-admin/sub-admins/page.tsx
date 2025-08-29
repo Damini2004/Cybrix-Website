@@ -87,7 +87,7 @@ export default function ManageSubAdminsPage() {
               Add Sub Admin
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] max-h-[90vh] flex flex-col">
             <DialogHeader>
               <DialogTitle>Add New Sub Admin</DialogTitle>
               <DialogDescription>
@@ -95,7 +95,9 @@ export default function ManageSubAdminsPage() {
                 set to 'Pending' status by default.
               </DialogDescription>
             </DialogHeader>
-            <AddSubAdminForm onAdminAdded={handleAdminAdded} />
+            <div className="flex-grow overflow-y-auto pr-4 -mr-2">
+                <AddSubAdminForm onAdminAdded={handleAdminAdded} />
+            </div>
           </DialogContent>
         </Dialog>
       </div>
