@@ -52,7 +52,7 @@ export default function AboutConferencePage() {
                         <div className="grid md:grid-cols-2 items-center">
                             <div className="relative h-64 md:h-full min-h-[400px]">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&h=600&auto=format&fit=crop"
+                                    src="https://fourwaves.com/media/jjtaaupz/conference-speaker.jpg?quality=100&rnd=132864618244570000"
                                     alt="Conference collaboration"
                                     data-ai-hint="team meeting"
                                     fill
