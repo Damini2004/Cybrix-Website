@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import * as React from "react";
@@ -206,7 +205,6 @@ export default function JournalSubmissionForm() {
               </div>
 
               <div className="space-y-6">
-                   <h3 className="text-lg font-semibold flex items-center gap-2 text-primary"><UploadCloud /> Manuscript & Content</h3>
                    <FormField control={form.control} name="manuscriptFile" render={({ field }) => ( <FormItem> <FormLabel>Manuscript File (PDF, DOC, DOCX)</FormLabel> <FormControl><Input type="file" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" {...fileRef} /></FormControl> <FormMessage /> </FormItem> )} />
                    <FormField control={form.control} name="content" render={({ field }) => ( <FormItem> <FormLabel>Abstract / Content</FormLabel> <FormControl><Textarea placeholder="Paste the abstract or a summary of your work here..." className="min-h-[150px]" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                    <FormField control={form.control} name="resubmissionId" render={({ field }) => ( <FormItem> <FormLabel>Re-submission ID (Optional)</FormLabel> <FormControl><Input placeholder="Enter the ID if you are re-submitting a revised manuscript" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
