@@ -21,7 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Search, CheckCircle, XCircle, Edit, Trash2, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { SubAdmin, updateSubAdminStatus } from "@/services/subAdminService";
 import { useToast } from "@/hooks/use-toast";
@@ -49,6 +49,10 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
   const [isUpdating, setIsUpdating] = useState<string | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [selectedAdmin, setSelectedAdmin] = useState<SubAdmin | null>(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
 
   const handleStatusUpdate = async (id: string, status: 'approved' | 'denied') => {
     setIsUpdating(id);
@@ -90,6 +94,13 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
       return searchMatch && statusMatch;
     }
   );
+
+  const totalPages = Math.ceil(filteredAdmins.length / rowsPerPage);
+  const paginatedAdmins = filteredAdmins.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
+  );
+
 
   const handleEditClick = (admin: SubAdmin) => {
     setSelectedAdmin(admin);
@@ -149,8 +160,8 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
                 <TableRow>
                   <TableCell colSpan={8} className="h-24 text-center">Loading...</TableCell>
                 </TableRow>
-              ) : filteredAdmins.length > 0 ? (
-                filteredAdmins.map((admin) => {
+              ) : paginatedAdmins.length > 0 ? (
+                paginatedAdmins.map((admin) => {
                   const statusInfo = statusConfig[admin.status as keyof typeof statusConfig];
                   return (
                     <TableRow key={admin.id}>
@@ -213,6 +224,55 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
             </TableBody>
           </Table>
         </CardContent>
+        <CardFooter className="flex items-center justify-between">
+            <div className="text-sm text-muted-foreground">
+                Showing {Math.min(rowsPerPage, paginatedAdmins.length)} of {filteredAdmins.length} admins.
+            </div>
+            <div className="flex items-center gap-4">
+                 <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium">Rows per page</p>
+                    <Select
+                        value={`${rowsPerPage}`}
+                        onValueChange={(value) => {
+                            setRowsPerPage(Number(value))
+                            setCurrentPage(1)
+                        }}
+                    >
+                        <SelectTrigger className="h-8 w-[70px]">
+                            <SelectValue placeholder={rowsPerPage} />
+                        </SelectTrigger>
+                        <SelectContent side="top">
+                            {[10, 20, 30, 40, 50].map((pageSize) => (
+                                <SelectItem key={pageSize} value={`${pageSize}`}>
+                                    {pageSize}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="text-sm font-medium">
+                    Page {currentPage} of {totalPages}
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </div>
+        </CardFooter>
       </Card>
       
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
