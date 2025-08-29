@@ -48,7 +48,7 @@ export default function JournalSelectionPage() {
           </div>
            <div className="relative aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
              <Image 
-                src="https://images.unsplash.com/photo-1521714161819-15534968fc5f?q=80&w=600&h=800&auto=format&fit=crop"
+                src="https://photos.demandstudios.com/getty/article/79/59/492797683.jpg"
                 alt="Researcher making a choice"
                 data-ai-hint="decision choice"
                 fill
