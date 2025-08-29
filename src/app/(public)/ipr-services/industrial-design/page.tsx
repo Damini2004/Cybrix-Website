@@ -55,7 +55,7 @@ export default function IndustrialDesignPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                             <Image 
-                                src="https://images.unsplash.com/photo-1525972776854-3ed3413337a7?q=80&w=500&h=500&auto=format&fit=crop"
+                                src="/photo6.webp"
                                 alt="Stylish product design"
                                 data-ai-hint="product design"
                                 fill

@@ -43,7 +43,7 @@ export default function PatentPage() {
                     </div>
                     <div className="flex justify-center">
                         <Image
-                            src="https://images.unsplash.com/photo-1554497103-93ba3e71d222?q=80&w=500&h=500&auto=format&fit=crop"
+                            src="/photo4.png"
                             width={500}
                             height={500}
                             alt="Patent Document"

@@ -53,7 +53,7 @@ export default function ConferenceProceedingsPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                             <Image
-                                src="https://images.unsplash.com/photo-1556761175-b413da4b248a?q=80&w=500&h=500&auto=format&fit=crop"
+                                src="/photo3.jpg"
                                 alt="Researchers collaborating"
                                 data-ai-hint="research collaboration"
                                 fill
