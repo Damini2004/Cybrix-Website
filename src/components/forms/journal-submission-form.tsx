@@ -27,7 +27,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { getJournals, type Journal } from "@/services/journalService";
 import { getConferences, type Conference } from "@/services/conferenceService";
-import { getInternships, type Internship } from "@/services/internshipService";
 import { addSubmission } from "@/services/submissionService";
 import { useRouter } from "next/navigation";
 import { getCurrentDateInIndia } from "@/lib/utils";
@@ -100,9 +99,6 @@ export default function JournalSubmissionForm() {
         const currentDate = getCurrentDateInIndia();
         const upcomingConferences = conferences.filter(conf => conf.dateObject && conf.dateObject.getTime() >= currentDate.getTime());
         fetchedItems = upcomingConferences.map(c => ({ id: c.id, name: c.title }));
-      } else if (type === 'internship') {
-        const internships = await getInternships();
-        fetchedItems = internships.map(i => ({ id: i.id, name: i.name }));
       }
       setItems(fetchedItems);
     } catch (error) {
@@ -204,7 +200,7 @@ export default function JournalSubmissionForm() {
                   <h3 className="text-lg font-semibold flex items-center gap-2 text-primary"><FileText /> Submission Information</h3>
                   <FormField control={form.control} name="title" render={({ field }) => ( <FormItem> <FormLabel>Manuscript Title / Application Subject</FormLabel> <FormControl><Input placeholder="A Study on..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField control={form.control} name="submissionType" render={({ field }) => ( <FormItem> <FormLabel>Submission Type</FormLabel> <Select onValueChange={(value) => { field.onChange(value); handleTypeChange(value); }} defaultValue={field.value}> <FormControl><SelectTrigger><SelectValue placeholder="Select a type" /></SelectTrigger></FormControl> <SelectContent> <SelectItem value="journal">Journal</SelectItem> <SelectItem value="conference">Conference</SelectItem> <SelectItem value="internship">Internship</SelectItem> </SelectContent> </Select> <FormMessage /> </FormItem> )} />
+                      <FormField control={form.control} name="submissionType" render={({ field }) => ( <FormItem> <FormLabel>Submission Type</FormLabel> <Select onValueChange={(value) => { field.onChange(value); handleTypeChange(value); }} defaultValue={field.value}> <FormControl><SelectTrigger><SelectValue placeholder="Select a type" /></SelectTrigger></FormControl> <SelectContent> <SelectItem value="journal">Journal</SelectItem> <SelectItem value="conference">Conference</SelectItem> </SelectContent> </Select> <FormMessage /> </FormItem> )} />
                       <FormField control={form.control} name="targetId" render={({ field }) => ( <FormItem> <FormLabel>Select {submissionType ? submissionType.charAt(0).toUpperCase() + submissionType.slice(1) : 'Target'}</FormLabel> <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isItemsLoading || !submissionType} value={field.value}> <FormControl><SelectTrigger><SelectValue placeholder={ isItemsLoading ? `Loading ${submissionType}s...` : !submissionType ? 'First, select a type' : `Select a ${submissionType}` } /></SelectTrigger></FormControl> <SelectContent> {items.map((item) => ( <SelectItem key={item.id} value={item.id}>{item.name}</SelectItem> ))} </SelectContent> </Select> <FormMessage /> </FormItem> )} />
                   </div>
               </div>
