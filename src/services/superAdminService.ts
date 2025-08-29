@@ -2,7 +2,7 @@
 'use server';
 
 import { db } from '@/lib/firebase';
-import { collection, getDocs, doc, setDoc, limit, query } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, limit, query, updateDoc } from 'firebase/firestore';
 import { z } from 'zod';
 
 export interface SuperAdmin {
@@ -15,6 +15,12 @@ const defaultSuperAdmin = {
     email: 'superadmin@pureresearchinsights.com',
     password: 'password',
 };
+
+// Zod schema for updating credentials
+const updateAdminSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6, "Password must be at least 6 characters."),
+});
 
 // Function to ensure the default super admin exists
 async function initializeSuperAdmin(): Promise<void> {
@@ -30,7 +36,7 @@ async function initializeSuperAdmin(): Promise<void> {
   }
 }
 
-async function getSuperAdminCredentials(): Promise<Omit<SuperAdmin, 'id'> | null> {
+async function getSuperAdminCredentials(): Promise<SuperAdmin | null> {
     await initializeSuperAdmin(); // Ensure the default admin exists if none do
 
     const superAdminRef = collection(db, 'super-admins');
@@ -41,8 +47,27 @@ async function getSuperAdminCredentials(): Promise<Omit<SuperAdmin, 'id'> | null
         return null;
     }
     const adminDoc = snapshot.docs[0];
-    return adminDoc.data() as Omit<SuperAdmin, 'id'>;
+    const data = adminDoc.data();
+    return {
+        id: adminDoc.id,
+        email: data.email,
+        password: data.password
+    };
 }
+
+export async function getSuperAdmin(): Promise<{ success: boolean; admin: SuperAdmin | null; message: string }> {
+    try {
+        const admin = await getSuperAdminCredentials();
+        if (admin) {
+            return { success: true, admin, message: "Super admin found." };
+        }
+        return { success: false, admin: null, message: "Super admin account not found or configured." };
+    } catch (error) {
+        const message = error instanceof Error ? error.message : "An unexpected error occurred.";
+        return { success: false, admin: null, message };
+    }
+}
+
 
 export async function verifySuperAdminCredentials(email: string, password_provided: string): Promise<{ success: boolean; message: string }> {
   try {
@@ -61,4 +86,21 @@ export async function verifySuperAdminCredentials(email: string, password_provid
     console.error("Error verifying super-admin credentials:", error);
     return { success: false, message: 'An unexpected error occurred during super admin login.' };
   }
+}
+
+export async function updateSuperAdmin(id: string, data: z.infer<typeof updateAdminSchema>): Promise<{ success: boolean; message: string }> {
+    try {
+        const validation = updateAdminSchema.safeParse(data);
+        if (!validation.success) {
+            return { success: false, message: validation.error.errors[0].message };
+        }
+        
+        const adminRef = doc(db, 'super-admins', id);
+        await updateDoc(adminRef, validation.data);
+        
+        return { success: true, message: "Super admin credentials updated." };
+    } catch (error) {
+        const message = error instanceof Error ? error.message : "An unexpected error occurred.";
+        return { success: false, message };
+    }
 }
