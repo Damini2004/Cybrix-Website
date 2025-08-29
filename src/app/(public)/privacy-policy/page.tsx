@@ -1,18 +1,23 @@
 // src/app/(public)/privacy-policy/page.tsx
+'use client';
+
+import * as React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck } from "lucide-react";
 import { getPageContent } from "@/services/cmsService";
 
-async function getPolicyContent() {
-    const result = await getPageContent("privacy-policy");
-    if (result.success) {
-        return result.content;
-    }
-    return "<p>Error loading content. Please try again later.</p>";
-}
+export default function PrivacyPolicyPage() {
+  const [content, setContent] = React.useState("<p>Loading content...</p>");
+  const [lastUpdated, setLastUpdated] = React.useState<string | null>(null);
 
-export default async function PrivacyPolicyPage() {
-  const content = await getPolicyContent();
+  React.useEffect(() => {
+    async function fetchContent() {
+      const result = await getPageContent("privacy-policy");
+      setContent(result.success ? result.content : "<p>Error loading content. Please try again later.</p>");
+    }
+    fetchContent();
+    setLastUpdated(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
   
   return (
     <div className="bg-secondary/50 py-16 md:py-24">
@@ -21,7 +26,7 @@ export default async function PrivacyPolicyPage() {
           <ShieldCheck className="mx-auto h-12 w-12 text-primary mb-4" />
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Privacy Policy</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {lastUpdated ? `Last Updated: ${lastUpdated}` : 'Loading...'}
           </p>
         </div>
 

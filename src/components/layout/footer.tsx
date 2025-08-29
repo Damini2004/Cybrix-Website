@@ -48,11 +48,11 @@ const Footer = () => {
                             </p>
                             <p className="flex items-start gap-2">
                                 <Phone className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>+91-7020996341 | +91-8530698242</span>
+                                <span>+91-8446723800</span>
                             </p>
                             <p className="flex items-start gap-2">
                                 <Mail className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <Link href="mailto:support@pureresearchinsights.com" className="hover:text-[#D32F2F]">support@pureresearchinsights.com</Link>
+                                <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-[#D32F2F]">pureresearchinsights@gmail.com</Link>
                             </p>
                         </div>
                     </div>

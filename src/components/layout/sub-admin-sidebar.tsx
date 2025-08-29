@@ -51,7 +51,7 @@ export default function SubAdminSidebar({ journalCount = 0, conferenceCount = 0,
           {menuItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
-              <SidebarMenuItem key={item.href}>
+              <SidebarMenuItem key={item.href} asChild>
                 <Link href={item.href}>
                   <SidebarMenuButton
                     isActive={isActive}
@@ -76,9 +76,11 @@ export default function SubAdminSidebar({ journalCount = 0, conferenceCount = 0,
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter>
-        <Link href="/">
-          <SidebarMenuButton icon={<LogOut />} tooltip="Logout">Logout</SidebarMenuButton>
-        </Link>
+        <SidebarMenuItem asChild>
+            <Link href="/login">
+                <SidebarMenuButton icon={<LogOut />} tooltip="Logout">Logout</SidebarMenuButton>
+            </Link>
+        </SidebarMenuItem>
       </SidebarFooter>
     </Sidebar>
   );

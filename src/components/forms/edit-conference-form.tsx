@@ -54,7 +54,7 @@ const paperCategories = [
 
 const totalSteps = 4;
 
-const parseDate = (dateString?: string): Date | undefined => {
+const parseDate = (dateString?: string | null): Date | undefined => {
     if (!dateString) return undefined;
     const date = new Date(dateString);
     return isNaN(date.getTime()) ? undefined : date;

@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { getConferenceById } from "@/services/conferenceService";
 import type { Conference } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
@@ -129,6 +129,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
 
   const RenderCommittee = ({ htmlContent }: { htmlContent?: string }) => {
     const [members, setMembers] = React.useState<{ src: string; name: string }[]>([]);
+    const [cleanedHtml, setCleanedHtml] = React.useState<string | null>(null);
 
     React.useEffect(() => {
         if (!htmlContent || typeof window === 'undefined') return;
@@ -136,24 +137,25 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlContent, 'text/html');
         const newMembers: { src: string; name: string }[] = [];
-        const elements = Array.from(doc.body.children);
+        const elementsToRemove: Element[] = [];
 
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            if (element.tagName.toLowerCase() === 'figure' && element.querySelector('img')) {
-                const src = element.querySelector('img')!.src;
-                let name = '';
-                
-                if (i + 1 < elements.length && elements[i + 1].tagName.toLowerCase() === 'p') {
-                    name = elements[i + 1].textContent?.trim() || 'Name not found';
-                    i++;
-                }
-                
-                if (src) {
-                    newMembers.push({ src, name });
+        doc.body.childNodes.forEach((node, index) => {
+            if (node.nodeType === Node.ELEMENT_NODE && (node as Element).tagName.toLowerCase() === 'figure') {
+                const figure = node as Element;
+                const img = figure.querySelector('img');
+                const nextNode = doc.body.childNodes[index + 1];
+
+                if (img && nextNode && nextNode.nodeType === Node.ELEMENT_NODE && (nextNode as Element).tagName.toLowerCase() === 'p') {
+                    const name = nextNode.textContent?.trim() || 'Name not found';
+                    newMembers.push({ src: img.src, name });
+                    elementsToRemove.push(figure);
+                    elementsToRemove.push(nextNode as Element);
                 }
             }
-        }
+        });
+
+        elementsToRemove.forEach(el => el.remove());
+        setCleanedHtml(doc.body.innerHTML);
         setMembers(newMembers);
     }, [htmlContent]);
 
@@ -161,32 +163,39 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
         return <p className="text-muted-foreground">Not available.</p>;
     }
     
-    if (members.length > 0) {
-      return (
-        <div className="flex flex-wrap justify-center gap-8 pt-4">
-          {members.map((member, index) => (
-            <Card key={index} className="text-center group flex flex-col items-center p-4 border hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-48">
-                <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden shadow-lg">
-                    <Image
-                        src={member.src}
-                        alt={member.name}
-                        data-ai-hint="person portrait"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 33vw"
-                        className="object-cover"
-                    />
+    return (
+        <>
+            {members.length > 0 && (
+                <div className="flex flex-wrap justify-center gap-8 pt-4">
+                {members.map((member, index) => (
+                    <Card key={index} className="text-center group flex flex-col items-center p-4 border hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-48">
+                        <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden shadow-lg">
+                            <Image
+                                src={member.src}
+                                alt={member.name}
+                                data-ai-hint="person portrait"
+                                fill
+                                sizes="(max-width: 768px) 50vw, 33vw"
+                                className="object-cover"
+                            />
+                        </div>
+                        <CardContent className="p-0">
+                            <h4 className="font-semibold text-sm text-foreground tracking-tight">{member.name}</h4>
+                        </CardContent>
+                    </Card>
+                ))}
                 </div>
-                <CardContent className="p-0">
-                    <h4 className="font-semibold text-sm text-foreground tracking-tight">{member.name}</h4>
-                </CardContent>
-            </Card>
-          ))}
-        </div>
-      );
-    }
-  
-    // Fallback if no image-name pairs are found, renders the raw HTML.
-    return <RenderHtmlContent htmlContent={htmlContent} />;
+            )}
+            {cleanedHtml && cleanedHtml.trim() !== "" && (
+                 <div className="mt-6">
+                    <RenderHtmlContent htmlContent={cleanedHtml} />
+                 </div>
+            )}
+            {members.length === 0 && (!cleanedHtml || cleanedHtml.trim() === "") && (
+                 <RenderHtmlContent htmlContent={htmlContent} />
+            )}
+        </>
+    );
   };
   
   const getPaperCategoryLabel = (id: string) => {
@@ -430,8 +439,8 @@ export default function ConferenceDetailPage({ params }: { params: { id: string 
   );
 
   return (
-    <React.Suspense fallback={<LoadingSkeleton />}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <ConferenceDetailClient conferenceId={params.id} />
-    </React.Suspense>
+    </Suspense>
   );
 }
