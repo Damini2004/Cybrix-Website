@@ -12,25 +12,25 @@ const indexedJournalCategories = [
   {
     title: "Scopus Indexed Journals",
     description: "Scopus Q1/Q2, A Scopus journal is a scholarly journal that is indexed (listed) in Scopus, which is one of the largest abstract and citation databases of peer-reviewed literature, maintained by Elsevier.",
-    imageSrc: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&h=400&auto=format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&h=400&auto-format&fit=crop",
     imageHint: "medical biology",
   },
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.Globally recognized journals ensuring high-quality, impactful research",
-    imageSrc: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&h=400&auto=format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&h=400&auto-format&fit=crop",
     imageHint: "science research",
   },
   {
     title: "IEEE Xplore Indexed Journals",
     description: "IEEE Xplore is a leading digital library that hosts high-quality journals, conference papers, and standards in engineering, technology, and computer science.",
-    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto=format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto-format&fit=crop",
     imageHint: "engineering technology",
   },
   {
     title: "UGC Care / Peer Review Journals",
     description: "Trusted journals approved by UGC for authentic and credible research publications. Scholarly articles reviewed by experts to ensure quality, accuracy, and reliability.",
-    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&h=400&auto=format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&h=400&auto-format&fit=crop",
     imageHint: "academic books",
   },
 ];
@@ -146,14 +146,16 @@ export default function HomePage() {
               </div>
               <div className="relative group w-full max-w-2xl mx-auto lg:mx-0 aspect-video">
                  <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                <iframe 
-                  className="relative w-full h-full rounded-xl" 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0"
-                  title="YouTube video player" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen>
-                </iframe>
+                <video 
+                  className="relative w-full h-full rounded-xl object-cover" 
+                  src="/pri video.mp4" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
