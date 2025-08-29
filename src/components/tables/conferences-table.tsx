@@ -26,7 +26,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, MoreHorizontal, Trash2, Edit } from "lucide-react";
 import { deleteConference } from "@/services/conferenceService";
@@ -34,6 +34,7 @@ import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import type { Conference } from "@/lib/types";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 interface ConferencesTableProps {
   conferences: Conference[];
@@ -47,6 +48,9 @@ export default function ConferencesTable({ conferences, isLoading, onEdit, onCon
   const [filter, setFilter] = React.useState("");
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
   const [selectedConference, setSelectedConference] = React.useState<Conference | null>(null);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   
   const handleDeleteClick = (conference: Conference) => {
     setSelectedConference(conference);
@@ -73,8 +77,13 @@ export default function ConferencesTable({ conferences, isLoading, onEdit, onCon
   const filteredConferences = conferences.filter(
     (conference) =>
       conference.title.toLowerCase().includes(filter.toLowerCase()) ||
-      conference.description.toLowerCase().includes(filter.toLowerCase()) ||
       conference.location.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredConferences.length / rowsPerPage);
+  const paginatedConferences = filteredConferences.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
   );
 
   return (
@@ -86,10 +95,10 @@ export default function ConferencesTable({ conferences, isLoading, onEdit, onCon
           <div className="relative mt-2">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Filter by title, description, or location..."
+              placeholder="Filter by title or location..."
               className="pl-8"
               value={filter}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={(e) => {setFilter(e.target.value); setCurrentPage(1);}}
             />
           </div>
         </CardHeader>
@@ -111,14 +120,14 @@ export default function ConferencesTable({ conferences, isLoading, onEdit, onCon
                     Loading conferences...
                   </TableCell>
                 </TableRow>
-              ) : filteredConferences.length === 0 ? (
+              ) : paginatedConferences.length === 0 ? (
                   <TableRow>
                       <TableCell colSpan={5} className="text-center h-24">
                           No conferences found.
                       </TableCell>
                   </TableRow>
               ) : (
-                filteredConferences.map((conference) => (
+                paginatedConferences.map((conference) => (
                   <TableRow key={conference.id}>
                     <TableCell>
                       <Image
@@ -166,6 +175,55 @@ export default function ConferencesTable({ conferences, isLoading, onEdit, onCon
             </TableBody>
           </Table>
         </CardContent>
+         <CardFooter className="flex items-center justify-between">
+            <div className="text-sm text-muted-foreground">
+                Showing {paginatedConferences.length} of {filteredConferences.length} conferences.
+            </div>
+            <div className="flex items-center gap-4">
+                 <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium">Rows per page</p>
+                    <Select
+                        value={`${rowsPerPage}`}
+                        onValueChange={(value) => {
+                            setRowsPerPage(Number(value))
+                            setCurrentPage(1)
+                        }}
+                    >
+                        <SelectTrigger className="h-8 w-[70px]">
+                            <SelectValue placeholder={`${rowsPerPage}`} />
+                        </SelectTrigger>
+                        <SelectContent side="top">
+                            {[10, 20, 30, 40, 50].map((pageSize) => (
+                                <SelectItem key={pageSize} value={`${pageSize}`}>
+                                    {pageSize}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="text-sm font-medium">
+                    Page {currentPage} of {totalPages}
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </div>
+        </CardFooter>
       </Card>
       
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>

@@ -34,14 +34,15 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, Edit, Trash2, MoreHorizontal } from "lucide-react";
-import { getJournals, Journal, updateJournalStatus, deleteJournal } from "@/services/journalService";
+import { getJournals, Journal, deleteJournal } from "@/services/journalService";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import EditJournalForm from "../forms/edit-journal-form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 const statusVariant: { [key in Journal['status']]: "default" | "secondary" | "destructive" } = {
   Active: "default",
@@ -49,14 +50,23 @@ const statusVariant: { [key in Journal['status']]: "default" | "secondary" | "de
   Archived: "destructive",
 }
 
+const statusOptions = ["Active", "Inactive", "Archived"];
+
 export default function AllJournalsTable() {
   const { toast } = useToast();
   const [journals, setJournals] = React.useState<Journal[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [filter, setFilter] = React.useState("");
+  
+  const [searchFilter, setSearchFilter] = React.useState("");
+  const [statusFilter, setStatusFilter] = React.useState("all");
+
   const [isEditDialogOpen, setIsEditDialogOpen] = React.useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
   const [selectedJournal, setSelectedJournal] = React.useState<Journal | null>(null);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
 
   React.useEffect(() => {
     async function fetchJournals() {
@@ -113,9 +123,18 @@ export default function AllJournalsTable() {
   };
 
   const filteredJournals = journals.filter(
-    (journal) =>
-      journal.journalName.toLowerCase().includes(filter.toLowerCase()) ||
-      journal.description.toLowerCase().includes(filter.toLowerCase())
+    (journal) => {
+      const searchMatch = journal.journalName.toLowerCase().includes(searchFilter.toLowerCase()) ||
+                          journal.description.toLowerCase().includes(searchFilter.toLowerCase());
+      const statusMatch = statusFilter === 'all' || journal.status === statusFilter;
+      return searchMatch && statusMatch;
+    }
+  );
+
+  const totalPages = Math.ceil(filteredJournals.length / rowsPerPage);
+  const paginatedJournals = filteredJournals.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
   );
 
   return (
@@ -124,14 +143,27 @@ export default function AllJournalsTable() {
         <CardHeader>
           <CardTitle>All Journals</CardTitle>
           <CardDescription>View, manage, edit, and delete journals in the system.</CardDescription>
-          <div className="relative mt-2">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Filter by name or description..."
-              className="pl-8"
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-            />
+          <div className="flex flex-col md:flex-row gap-4 justify-between pt-4">
+            <div className="relative flex-1">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                placeholder="Filter by name or description..."
+                className="pl-8"
+                value={searchFilter}
+                onChange={(e) => { setSearchFilter(e.target.value); setCurrentPage(1); }}
+                />
+            </div>
+             <Select value={statusFilter} onValueChange={(value) => { setStatusFilter(value); setCurrentPage(1); }}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                    <SelectValue placeholder="Filter by status" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="all">All Statuses</SelectItem>
+                    {statusOptions.map(status => (
+                        <SelectItem key={status} value={status}>{status}</SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
           </div>
         </CardHeader>
         <CardContent>
@@ -152,14 +184,14 @@ export default function AllJournalsTable() {
                     Loading journals...
                   </TableCell>
                 </TableRow>
-              ) : filteredJournals.length === 0 ? (
+              ) : paginatedJournals.length === 0 ? (
                   <TableRow>
                       <TableCell colSpan={5} className="text-center h-24">
                           No journals found.
                       </TableCell>
                   </TableRow>
               ) : (
-                filteredJournals.map((journal) => (
+                paginatedJournals.map((journal) => (
                   <TableRow key={journal.id}>
                     <TableCell>
                       <Image
@@ -211,6 +243,55 @@ export default function AllJournalsTable() {
             </TableBody>
           </Table>
         </CardContent>
+         <CardFooter className="flex items-center justify-between">
+            <div className="text-sm text-muted-foreground">
+                Showing {paginatedJournals.length} of {filteredJournals.length} journals.
+            </div>
+            <div className="flex items-center gap-4">
+                 <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium">Rows per page</p>
+                    <Select
+                        value={`${rowsPerPage}`}
+                        onValueChange={(value) => {
+                            setRowsPerPage(Number(value))
+                            setCurrentPage(1)
+                        }}
+                    >
+                        <SelectTrigger className="h-8 w-[70px]">
+                            <SelectValue placeholder={`${rowsPerPage}`} />
+                        </SelectTrigger>
+                        <SelectContent side="top">
+                            {[10, 20, 30, 40, 50].map((pageSize) => (
+                                <SelectItem key={pageSize} value={`${pageSize}`}>
+                                    {pageSize}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="text-sm font-medium">
+                    Page {currentPage} of {totalPages}
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </div>
+        </CardFooter>
       </Card>
       
       {/* Edit Dialog */}

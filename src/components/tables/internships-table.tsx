@@ -26,13 +26,14 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, MoreHorizontal, Trash2 } from "lucide-react";
 import { deleteInternship, Internship } from "@/services/internshipService";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 interface InternshipsTableProps {
   internships: Internship[];
@@ -45,6 +46,9 @@ export default function InternshipsTable({ internships, isLoading, onInternshipD
   const [filter, setFilter] = React.useState("");
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
   const [selectedInternship, setSelectedInternship] = React.useState<Internship | null>(null);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   
   const handleDeleteClick = (internship: Internship) => {
     setSelectedInternship(internship);
@@ -74,6 +78,13 @@ export default function InternshipsTable({ internships, isLoading, onInternshipD
       internship.description.toLowerCase().includes(filter.toLowerCase())
   );
 
+  const totalPages = Math.ceil(filteredInternships.length / rowsPerPage);
+  const paginatedInternships = filteredInternships.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
+  );
+
+
   return (
     <>
       <Card>
@@ -86,7 +97,7 @@ export default function InternshipsTable({ internships, isLoading, onInternshipD
               placeholder="Filter by name or description..."
               className="pl-8"
               value={filter}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={(e) => {setFilter(e.target.value); setCurrentPage(1);}}
             />
           </div>
         </CardHeader>
@@ -107,14 +118,14 @@ export default function InternshipsTable({ internships, isLoading, onInternshipD
                     Loading internships...
                   </TableCell>
                 </TableRow>
-              ) : filteredInternships.length === 0 ? (
+              ) : paginatedInternships.length === 0 ? (
                   <TableRow>
                       <TableCell colSpan={4} className="text-center h-24">
                           No internships found.
                       </TableCell>
                   </TableRow>
               ) : (
-                filteredInternships.map((internship) => (
+                paginatedInternships.map((internship) => (
                   <TableRow key={internship.id}>
                     <TableCell>
                       <Image
@@ -159,6 +170,55 @@ export default function InternshipsTable({ internships, isLoading, onInternshipD
             </TableBody>
           </Table>
         </CardContent>
+        <CardFooter className="flex items-center justify-between">
+            <div className="text-sm text-muted-foreground">
+                Showing {paginatedInternships.length} of {filteredInternships.length} internships.
+            </div>
+            <div className="flex items-center gap-4">
+                 <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium">Rows per page</p>
+                    <Select
+                        value={`${rowsPerPage}`}
+                        onValueChange={(value) => {
+                            setRowsPerPage(Number(value))
+                            setCurrentPage(1)
+                        }}
+                    >
+                        <SelectTrigger className="h-8 w-[70px]">
+                            <SelectValue placeholder={`${rowsPerPage}`} />
+                        </SelectTrigger>
+                        <SelectContent side="top">
+                            {[10, 20, 30, 40, 50].map((pageSize) => (
+                                <SelectItem key={pageSize} value={`${pageSize}`}>
+                                    {pageSize}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="text-sm font-medium">
+                    Page {currentPage} of {totalPages}
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </div>
+        </CardFooter>
       </Card>
       
       {/* Delete Confirmation Dialog */}
