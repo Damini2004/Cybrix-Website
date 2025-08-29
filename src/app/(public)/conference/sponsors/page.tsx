@@ -123,22 +123,6 @@ export default function SponsorsPage() {
                 </Card>
             </section>
 
-            <section>
-                <Card className="text-center p-8 md:p-12 shadow-lg border-primary/20">
-                    <CardTitle className="text-3xl">Become a Partner</CardTitle>
-                    <CardDescription className="mt-2 max-w-xl mx-auto">
-                        We offer a variety of sponsorship and exhibition packages to suit your needs. Download our sponsorship prospectus to learn more or contact our team to create a custom package.
-                    </CardDescription>
-                    <div className="mt-6 flex justify-center gap-4">
-                        <Button size="lg">Download Prospectus</Button>
-                        <Button size="lg" variant="outline" asChild>
-                            <Link href="/contact-us">
-                                Contact Us <ArrowRight className="ml-2 h-5 w-5" />
-                            </Link>
-                        </Button>
-                    </div>
-                </Card>
-            </section>
         </div>
     </div>
   );
