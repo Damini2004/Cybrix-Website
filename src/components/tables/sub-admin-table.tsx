@@ -18,12 +18,22 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Search, CheckCircle, XCircle, Edit, Trash2, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { SubAdmin, updateSubAdminStatus } from "@/services/subAdminService";
+import { SubAdmin, updateSubAdminStatus, deleteSubAdmin } from "@/services/subAdminService";
 import { useToast } from "@/hooks/use-toast";
 import EditSubAdminForm from "../forms/edit-sub-admin-form";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
@@ -48,6 +58,7 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
   const { toast } = useToast();
   const [isUpdating, setIsUpdating] = useState<string | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [selectedAdmin, setSelectedAdmin] = useState<SubAdmin | null>(null);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -105,6 +116,31 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
   const handleEditClick = (admin: SubAdmin) => {
     setSelectedAdmin(admin);
     setIsEditDialogOpen(true);
+  };
+
+  const handleDeleteClick = (admin: SubAdmin) => {
+    setSelectedAdmin(admin);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!selectedAdmin) return;
+    const result = await deleteSubAdmin(selectedAdmin.id);
+    if (result.success) {
+        toast({
+            title: "Sub Admin Deleted",
+            description: `The account for ${selectedAdmin.name} has been removed.`,
+        });
+        onAdminChange();
+    } else {
+        toast({
+            title: "Error Deleting Admin",
+            description: result.message,
+            variant: "destructive",
+        });
+    }
+    setIsDeleteDialogOpen(false);
+    setSelectedAdmin(null);
   };
 
   const handleEditSuccess = (updatedAdmin: SubAdmin) => {
@@ -204,7 +240,7 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
                                 Edit
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-destructive">
+                            <DropdownMenuItem className="text-destructive" onSelect={() => handleDeleteClick(admin)}>
                                 <Trash2 className="mr-2 h-4 w-4"/>
                                 Delete
                             </DropdownMenuItem>
@@ -239,7 +275,7 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
                         }}
                     >
                         <SelectTrigger className="h-8 w-[70px]">
-                            <SelectValue placeholder={rowsPerPage} />
+                            <SelectValue placeholder={`${rowsPerPage}`} />
                         </SelectTrigger>
                         <SelectContent side="top">
                             {[10, 20, 30, 40, 50].map((pageSize) => (
@@ -294,6 +330,24 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
           )}
         </DialogContent>
       </Dialog>
+
+       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the
+              account for "{selectedAdmin?.name}".
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDeleteConfirm}>
+              Continue
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }

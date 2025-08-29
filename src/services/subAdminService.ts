@@ -2,7 +2,7 @@
 'use server';
 
 import { db } from '@/lib/firebase';
-import { collection, addDoc, getDocs, DocumentData, QueryDocumentSnapshot, query, where, limit, orderBy, doc, updateDoc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, DocumentData, QueryDocumentSnapshot, query, where, limit, orderBy, doc, updateDoc, getDoc, deleteDoc } from 'firebase/firestore';
 import { z } from 'zod';
 
 export interface SubAdmin {
@@ -291,4 +291,18 @@ export async function updateSubAdmin(id: string, data: Partial<UpdateSubAdminDat
     const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
     return { success: false, message: `Failed to update sub-admin: ${errorMessage}` };
   }
+}
+
+export async function deleteSubAdmin(id: string): Promise<{ success: boolean; message: string }> {
+    try {
+        if (!id) {
+            return { success: false, message: 'Sub-admin ID is required.' };
+        }
+        await deleteDoc(doc(db, 'subAdmins', id));
+        return { success: true, message: 'Sub-admin deleted successfully.' };
+    } catch (error) {
+        console.error("Error deleting sub-admin:", error);
+        const message = error instanceof Error ? error.message : 'An unexpected error occurred.';
+        return { success: false, message: `Failed to delete sub-admin: ${message}` };
+    }
 }
