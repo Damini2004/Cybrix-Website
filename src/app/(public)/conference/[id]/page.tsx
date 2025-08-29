@@ -415,7 +415,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
   );
 }
 
-export default function ConferenceDetailPage({ params }: { params: { id: string } }) {
+export default function ConferenceDetailPage({ params: { id } }: { params: { id: string } }) {
   const LoadingSkeleton = () => (
     <div className="container py-12 md:py-24">
       <div className="space-y-4">
@@ -440,7 +440,7 @@ export default function ConferenceDetailPage({ params }: { params: { id: string 
 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <ConferenceDetailClient conferenceId={params.id} />
+      <ConferenceDetailClient conferenceId={id} />
     </Suspense>
   );
 }
