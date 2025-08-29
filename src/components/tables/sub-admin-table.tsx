@@ -27,6 +27,7 @@ import { SubAdmin, updateSubAdminStatus } from "@/services/subAdminService";
 import { useToast } from "@/hooks/use-toast";
 import EditSubAdminForm from "../forms/edit-sub-admin-form";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 const statusConfig = {
     approved: { label: "Approved", icon: CheckCircle, color: "text-green-500" },
@@ -42,7 +43,8 @@ interface SubAdminTableProps {
 }
 
 export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onAdminUpdated }: SubAdminTableProps) {
-  const [filter, setFilter] = useState("");
+  const [searchFilter, setSearchFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
   const { toast } = useToast();
   const [isUpdating, setIsUpdating] = useState<string | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
@@ -77,11 +79,16 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
   };
 
   const filteredAdmins = subAdmins.filter(
-    (admin) =>
-      admin.name.toLowerCase().includes(filter.toLowerCase()) ||
-      admin.email.toLowerCase().includes(filter.toLowerCase()) ||
-      admin.phone.toLowerCase().includes(filter.toLowerCase()) ||
-      admin.address.toLowerCase().includes(filter.toLowerCase())
+    (admin) => {
+      const searchMatch = (
+        admin.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
+        admin.email.toLowerCase().includes(searchFilter.toLowerCase()) ||
+        admin.phone.toLowerCase().includes(searchFilter.toLowerCase()) ||
+        admin.address.toLowerCase().includes(searchFilter.toLowerCase())
+      );
+      const statusMatch = statusFilter === 'all' || admin.status === statusFilter;
+      return searchMatch && statusMatch;
+    }
   );
 
   const handleEditClick = (admin: SubAdmin) => {
@@ -98,14 +105,27 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
       <Card>
         <CardHeader>
           <CardTitle>All Sub Admins</CardTitle>
-          <div className="relative mt-2">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input 
-                  placeholder="Filter by name, email, phone..." 
-                  className="pl-8"
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-              />
+          <div className="flex flex-col md:flex-row gap-4 justify-between pt-2">
+            <div className="relative flex-1">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input 
+                    placeholder="Filter by name, email, phone..." 
+                    className="pl-8"
+                    value={searchFilter}
+                    onChange={(e) => setSearchFilter(e.target.value)}
+                />
+            </div>
+             <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                    <SelectValue placeholder="Filter by status" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="all">All Statuses</SelectItem>
+                    <SelectItem value="approved">Approved</SelectItem>
+                    <SelectItem value="pending">Pending</SelectItem>
+                    <SelectItem value="denied">Denied</SelectItem>
+                </SelectContent>
+            </Select>
           </div>
         </CardHeader>
         <CardContent>
