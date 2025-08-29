@@ -69,14 +69,15 @@ export default function PublicationsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredJournals.map(journal => (
                 <Card key={journal.id} className="hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
-                    <Image 
-                        src={journal.imageSrc}
-                        alt={`Cover for ${journal.journalName}`}
-                        width={400}
-                        height={300}
-                        data-ai-hint="journal cover"
-                        className="w-full object-cover aspect-[4/3]"
-                    />
+                    <div className="relative w-full aspect-[4/3]">
+                        <Image 
+                            src={journal.imageSrc}
+                            alt={`Cover for ${journal.journalName}`}
+                            fill
+                            data-ai-hint="journal cover"
+                            className="object-cover"
+                        />
+                    </div>
                     <div className="flex flex-col flex-grow">
                         <CardHeader>
                             <CardTitle className="text-xl leading-snug">{journal.journalName}</CardTitle>
