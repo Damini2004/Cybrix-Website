@@ -60,30 +60,32 @@ export default function DigitalLibraryPage() {
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {filteredJournals.map(journal => (
-                    <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50">
-                        <CardHeader className="items-center pt-8">
-                             <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden shadow-lg border-4 border-white group-hover:border-primary/20 transition-colors duration-300">
-                                <Image 
-                                    src={journal.imageSrc}
-                                    alt={`Cover for ${journal.journalName}`}
-                                    fill
-                                    sizes="(max-width: 768px) 30vw, (max-width: 1200px) 20vw, 15vw"
-                                    data-ai-hint="journal cover"
-                                    className="object-cover"
-                                />
-                            </div>
-                            <CardTitle className="text-base font-bold leading-snug h-12 line-clamp-2">{journal.journalName}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                             <p className="text-sm text-muted-foreground line-clamp-3 h-16">{journal.description}</p>
-                        </CardContent>
-                        <CardFooter>
-                            <Button asChild className="w-full">
-                                <Link href="#">
-                                    Explore Journal <ArrowRight className="ml-2 h-4 w-4" />
-                                </Link>
-                            </Button>
-                        </CardFooter>
+                    <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50 overflow-hidden">
+                        <div className="relative w-full h-48">
+                            <Image 
+                                src={journal.imageSrc}
+                                alt={`Cover for ${journal.journalName}`}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                data-ai-hint="journal cover"
+                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="flex flex-col flex-grow p-4">
+                            <CardHeader className="p-0 items-center">
+                                <CardTitle className="text-base font-bold leading-snug h-12 line-clamp-2">{journal.journalName}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0 flex-grow pt-2">
+                                <p className="text-sm text-muted-foreground line-clamp-3 h-16">{journal.description}</p>
+                            </CardContent>
+                            <CardFooter className="p-0 pt-4">
+                                <Button asChild className="w-full">
+                                    <Link href="#">
+                                        Explore Journal <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Link>
+                                </Button>
+                            </CardFooter>
+                        </div>
                     </Card>
                 ))}
             </div>
