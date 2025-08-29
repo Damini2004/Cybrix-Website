@@ -67,6 +67,14 @@ const keyServices = [
     },
 ]
 
+const partnerLogos = [
+  { src: "https://logodix.com/logo/2038481.png", alt: "Partner Logo 1", hint: "logo company" },
+  { src: "https://logodix.com/logo/1993463.png", alt: "Partner Logo 2", hint: "logo brand" },
+  { src: "https://logodix.com/logo/1712867.png", alt: "Partner Logo 3", hint: "logo business" },
+  { src: "https://logodix.com/logo/1101923.png", alt: "Partner Logo 4", hint: "logo tech" },
+  { src: "https://logodix.com/logo/647339.png", alt: "Partner Logo 5", hint: "logo education" },
+]
+
 function IndexedJournalsSection() {
   return (
     <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-background">
@@ -109,7 +117,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-16 lg:py-20 relative overflow-hidden">
+        <section className="w-full py-8 md:py-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/50 to-background z-0"></div>
           <div className="container px-4 md:px-6 z-10 relative">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -192,12 +200,20 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid grid-cols-2 items-center justify-items-center gap-y-12 gap-x-6 py-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              <Image src="https://logodix.com/logo/2038481.png" width={150} height={60} alt="Partner Logo 1" data-ai-hint="logo company" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/1993463.png" width={150} height={60} alt="Partner Logo 2" data-ai-hint="logo brand" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/1712867.png" width={150} height={60} alt="Partner Logo 3" data-ai-hint="logo business" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/1101923.png" width={150} height={60} alt="Partner Logo 4" data-ai-hint="logo tech" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              <Image src="https://logodix.com/logo/647339.png" width={150} height={60} alt="Partner Logo 5" data-ai-hint="logo education" className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0" />
+             <div className="relative mt-12 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+                <div className="flex w-max animate-scroll-x">
+                    {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                        <Image 
+                            key={index}
+                            src={logo.src} 
+                            width={150} 
+                            height={60} 
+                            alt={logo.alt} 
+                            data-ai-hint={logo.hint}
+                            className="mx-8 h-16 w-auto object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" 
+                        />
+                    ))}
+                </div>
             </div>
           </div>
         </section>
