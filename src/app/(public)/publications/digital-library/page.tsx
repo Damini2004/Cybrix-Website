@@ -4,7 +4,7 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, BookOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
@@ -58,37 +58,33 @@ export default function DigitalLibraryPage() {
          </div>
       ) : (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {filteredJournals.map(journal => (
-                <Card key={journal.id} className="hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
-                    <Image 
-                        src={journal.imageSrc}
-                        alt={`Cover for ${journal.journalName}`}
-                        width={400}
-                        height={300}
-                        data-ai-hint="journal cover"
-                        className="w-full object-cover"
-                    />
-                    <div className="flex flex-col flex-grow">
-                        <CardHeader>
-                            <CardTitle className="text-xl leading-snug">{journal.journalName}</CardTitle>
-                            <CardDescription className="pt-1 line-clamp-2">{journal.description}</CardDescription>
+                    <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50">
+                        <CardHeader className="items-center pt-8">
+                             <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden shadow-lg border-4 border-white group-hover:border-primary/20 transition-colors duration-300">
+                                <Image 
+                                    src={journal.imageSrc}
+                                    alt={`Cover for ${journal.journalName}`}
+                                    fill
+                                    sizes="(max-width: 768px) 30vw, (max-width: 1200px) 20vw, 15vw"
+                                    data-ai-hint="journal cover"
+                                    className="object-cover"
+                                />
+                            </div>
+                            <CardTitle className="text-base font-bold leading-snug h-12 line-clamp-2">{journal.journalName}</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-grow space-y-2">
-                            <p className="text-sm text-muted-foreground">Status: {journal.status}</p>
-                            <Link href="#" className="text-sm text-primary hover:underline">
-                                Read more...
-                            </Link>
+                        <CardContent className="flex-grow">
+                             <p className="text-sm text-muted-foreground line-clamp-3 h-16">{journal.description}</p>
                         </CardContent>
                         <CardFooter>
-                            <Button asChild variant="secondary" className="w-full">
+                            <Button asChild className="w-full">
                                 <Link href="#">
-                                    View Full Text <ArrowRight className="ml-2 h-4 w-4" />
+                                    Explore Journal <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
                         </CardFooter>
-                    </div>
-                </Card>
+                    </Card>
                 ))}
             </div>
             {filteredJournals.length > 0 && (
