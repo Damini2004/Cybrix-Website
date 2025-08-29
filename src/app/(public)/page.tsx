@@ -144,16 +144,16 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative group w-full max-w-2xl mx-auto lg:mx-0">
+              <div className="relative group w-full max-w-2xl mx-auto lg:mx-0 aspect-video">
                  <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                <Image
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&h=400&auto=format&fit=crop"
-                  width="600"
-                  height="400"
-                  alt="Hero"
-                  data-ai-hint="research academic"
-                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full relative"
-                />
+                <iframe 
+                  className="relative w-full h-full rounded-xl" 
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0"
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen>
+                </iframe>
               </div>
             </div>
           </div>
