@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Search, MoreHorizontal, Trash2 } from "lucide-react";
+import { Search, MoreHorizontal, Trash2, Edit } from "lucide-react";
 import { deleteWebinar, Webinar } from "@/services/webinarService";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
@@ -38,10 +38,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 interface WebinarsTableProps {
   webinars: Webinar[];
   isLoading: boolean;
+  onEdit: (webinar: Webinar) => void;
   onWebinarDeleted: () => void;
 }
 
-export default function WebinarsTable({ webinars, isLoading, onWebinarDeleted }: WebinarsTableProps) {
+export default function WebinarsTable({ webinars, isLoading, onEdit, onWebinarDeleted }: WebinarsTableProps) {
   const { toast } = useToast();
   const [filter, setFilter] = React.useState("");
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
@@ -152,6 +153,10 @@ export default function WebinarsTable({ webinars, isLoading, onWebinarDeleted }:
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
+                          <DropdownMenuItem onSelect={() => onEdit(webinar)}>
+                            <Edit className="mr-2 h-4 w-4" />
+                            Edit
+                          </DropdownMenuItem>
                           <DropdownMenuItem 
                             className="text-destructive"
                             onSelect={() => handleDeleteClick(webinar)}

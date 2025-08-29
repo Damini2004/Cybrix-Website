@@ -2,7 +2,7 @@
 'use server';
 
 import { db } from '@/lib/firebase';
-import { collection, addDoc, getDocs, DocumentData, QueryDocumentSnapshot, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
+import { collection, addDoc, getDocs, DocumentData, QueryDocumentSnapshot, deleteDoc, doc, orderBy, query, updateDoc } from 'firebase/firestore';
 import { z } from 'zod';
 import { format } from 'date-fns';
 
@@ -97,6 +97,29 @@ export async function getWebinars(): Promise<Webinar[]> {
     } catch (error) {
         console.error("Error fetching webinars from service: ", error);
         throw error;
+    }
+}
+
+export async function updateWebinar(id: string, data: Partial<AddWebinarData> & { imageSrc?: string }): Promise<{ success: boolean; message: string }> {
+    try {
+        const validationResult = webinarSchema.partial().safeParse(data);
+        if (!validationResult.success) {
+            return { success: false, message: validationResult.error.errors[0].message };
+        }
+        
+        const dataToSave = validationResult.data;
+        if (data.brochureUrl === "") {
+             (dataToSave as any).brochureUrl = null;
+        }
+        
+        const webinarRef = doc(db, 'webinars', id);
+        await updateDoc(webinarRef, { ...dataToSave, updatedAt: new Date() });
+
+        return { success: true, message: 'Webinar updated successfully!' };
+    } catch (error) {
+        console.error("Error updating webinar:", error);
+        const message = error instanceof Error ? error.message : 'An unexpected error occurred.';
+        return { success: false, message: `Failed to update webinar: ${message}` };
     }
 }
 

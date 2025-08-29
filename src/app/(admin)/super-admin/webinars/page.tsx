@@ -25,10 +25,13 @@ import WebinarsTable from "@/components/tables/webinars-table";
 import { useState, useEffect, useCallback } from "react";
 import { getWebinars, Webinar } from "@/services/webinarService";
 import { useToast } from "@/hooks/use-toast";
+import EditWebinarForm from "@/components/forms/edit-webinar-form";
 
 export default function ManageWebinarsPage() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isSuccessAlertOpen, setIsSuccessAlertOpen] = useState(false);
+  const [selectedWebinar, setSelectedWebinar] = useState<Webinar | null>(null);
   const [webinars, setWebinars] = useState<Webinar[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
@@ -59,12 +62,27 @@ export default function ManageWebinarsPage() {
     fetchWebinars(); // Re-fetch the data
   };
 
+  const handleWebinarUpdated = () => {
+    setIsEditDialogOpen(false);
+    setSelectedWebinar(null);
+    toast({
+        title: "Webinar Updated!",
+        description: "The webinar details have been successfully saved."
+    });
+    fetchWebinars();
+  }
+
   const handleWebinarDeleted = () => {
     toast({
       title: "Webinar Deleted",
       description: "The webinar has been removed from the list.",
     });
     fetchWebinars(); // Re-fetch the data
+  }
+
+  const handleEditClick = (webinar: Webinar) => {
+    setSelectedWebinar(webinar);
+    setIsEditDialogOpen(true);
   }
 
   return (
@@ -98,8 +116,28 @@ export default function ManageWebinarsPage() {
       <WebinarsTable 
         webinars={webinars}
         isLoading={isLoading}
+        onEdit={handleEditClick}
         onWebinarDeleted={handleWebinarDeleted}
       />
+
+      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+        <DialogContent className="sm:max-w-[625px] max-h-[90vh] flex flex-col">
+            <DialogHeader>
+                <DialogTitle>Edit Webinar</DialogTitle>
+                <DialogDescription>
+                    Update the details for this webinar.
+                </DialogDescription>
+            </DialogHeader>
+            {selectedWebinar && (
+                <div className="flex-grow overflow-y-auto pr-4 -mr-2">
+                    <EditWebinarForm 
+                        webinar={selectedWebinar}
+                        onWebinarUpdated={handleWebinarUpdated}
+                    />
+                </div>
+            )}
+        </DialogContent>
+      </Dialog>
       
       <AlertDialog open={isSuccessAlertOpen} onOpenChange={setIsSuccessAlertOpen}>
         <AlertDialogContent>
