@@ -25,10 +25,13 @@ import InternshipsTable from "@/components/tables/internships-table";
 import { useState, useEffect, useCallback } from "react";
 import { getInternships, Internship } from "@/services/internshipService";
 import { useToast } from "@/hooks/use-toast";
+import EditInternshipForm from "@/components/forms/edit-internship-form";
 
 export default function ManageInternshipsPage() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isSuccessAlertOpen, setIsSuccessAlertOpen] = useState(false);
+  const [selectedInternship, setSelectedInternship] = useState<Internship | null>(null);
   const [internships, setInternships] = useState<Internship[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
@@ -58,6 +61,16 @@ export default function ManageInternshipsPage() {
     setIsSuccessAlertOpen(true);
     fetchInternships(); // Re-fetch the data
   };
+  
+  const handleInternshipUpdated = () => {
+    setIsEditDialogOpen(false);
+    setSelectedInternship(null);
+    toast({
+        title: "Internship Updated!",
+        description: "The internship details have been successfully saved."
+    });
+    fetchInternships();
+  }
 
   const handleInternshipDeleted = () => {
     toast({
@@ -65,6 +78,11 @@ export default function ManageInternshipsPage() {
       description: "The internship has been removed from the list.",
     });
     fetchInternships(); // Re-fetch the data
+  }
+  
+  const handleEditClick = (internship: Internship) => {
+    setSelectedInternship(internship);
+    setIsEditDialogOpen(true);
   }
 
   return (
@@ -98,8 +116,28 @@ export default function ManageInternshipsPage() {
       <InternshipsTable 
         internships={internships}
         isLoading={isLoading}
+        onEdit={handleEditClick}
         onInternshipDeleted={handleInternshipDeleted}
       />
+
+      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+        <DialogContent className="sm:max-w-[625px] max-h-[90vh] flex flex-col">
+            <DialogHeader>
+                <DialogTitle>Edit Internship</DialogTitle>
+                <DialogDescription>
+                    Update the details for this internship opportunity.
+                </DialogDescription>
+            </DialogHeader>
+            {selectedInternship && (
+                <div className="flex-grow overflow-y-auto pr-4 -mr-2">
+                    <EditInternshipForm 
+                        internship={selectedInternship}
+                        onInternshipUpdated={handleInternshipUpdated}
+                    />
+                </div>
+            )}
+        </DialogContent>
+      </Dialog>
       
       <AlertDialog open={isSuccessAlertOpen} onOpenChange={setIsSuccessAlertOpen}>
         <AlertDialogContent>

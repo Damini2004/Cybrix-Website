@@ -3,7 +3,7 @@
 'use server';
 
 import { db } from '@/lib/firebase';
-import { collection, addDoc, getDocs, DocumentData, QueryDocumentSnapshot, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
+import { collection, addDoc, getDocs, DocumentData, QueryDocumentSnapshot, deleteDoc, doc, orderBy, query, updateDoc, getDoc } from 'firebase/firestore';
 import { z } from 'zod';
 
 export interface Internship {
@@ -82,6 +82,29 @@ export async function getInternships(): Promise<Internship[]> {
         console.error("Error fetching internships from service: ", error);
         // Re-throw the error so the component can catch it
         throw error;
+    }
+}
+
+export async function updateInternship(id: string, data: Partial<AddInternshipData>): Promise<{ success: boolean; message: string }> {
+    try {
+        const validationResult = internshipSchema.partial().safeParse(data);
+        if (!validationResult.success) {
+            return { success: false, message: validationResult.error.errors[0].message };
+        }
+        
+        const dataToSave = validationResult.data;
+        if (data.brochureUrl === "") {
+             (dataToSave as any).brochureUrl = null;
+        }
+
+        const internshipRef = doc(db, 'internships', id);
+        await updateDoc(internshipRef, { ...dataToSave, updatedAt: new Date() });
+
+        return { success: true, message: 'Internship updated successfully!' };
+    } catch (error) {
+        console.error("Error updating internship:", error);
+        const message = error instanceof Error ? error.message : 'An unexpected error occurred.';
+        return { success: false, message: `Failed to update internship: ${message}` };
     }
 }
 

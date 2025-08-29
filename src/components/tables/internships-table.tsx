@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Search, MoreHorizontal, Trash2 } from "lucide-react";
+import { Search, MoreHorizontal, Trash2, Edit } from "lucide-react";
 import { deleteInternship, Internship } from "@/services/internshipService";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
@@ -38,10 +38,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 interface InternshipsTableProps {
   internships: Internship[];
   isLoading: boolean;
+  onEdit: (internship: Internship) => void;
   onInternshipDeleted: () => void;
 }
 
-export default function InternshipsTable({ internships, isLoading, onInternshipDeleted }: InternshipsTableProps) {
+export default function InternshipsTable({ internships, isLoading, onEdit, onInternshipDeleted }: InternshipsTableProps) {
   const { toast } = useToast();
   const [filter, setFilter] = React.useState("");
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
@@ -154,6 +155,10 @@ export default function InternshipsTable({ internships, isLoading, onInternshipD
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
+                           <DropdownMenuItem onSelect={() => onEdit(internship)}>
+                            <Edit className="mr-2 h-4 w-4" />
+                            Edit
+                          </DropdownMenuItem>
                           <DropdownMenuItem 
                             className="text-destructive"
                             onSelect={() => handleDeleteClick(internship)}
