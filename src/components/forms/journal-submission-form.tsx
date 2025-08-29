@@ -188,7 +188,6 @@ export default function JournalSubmissionForm() {
           </CardHeader>
           <CardContent className="p-8 md:p-10 space-y-8">
               <div className="space-y-6">
-                  <h3 className="text-lg font-semibold flex items-center gap-2 text-primary"><User /> Author Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField control={form.control} name="fullName" render={({ field }) => ( <FormItem> <FormLabel>Full Name</FormLabel> <FormControl><Input placeholder="John Doe" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                       <FormField control={form.control} name="email" render={({ field }) => ( <FormItem> <FormLabel>Email Address</FormLabel> <FormControl><Input placeholder="you@example.com" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
