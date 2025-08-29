@@ -34,7 +34,7 @@ export default function JournalSupportPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-video lg:aspect-auto lg:h-full rounded-2xl overflow-hidden shadow-2xl">
              <Image 
-                src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=600&h=800&auto=format&fit=crop"
+                src="https://topazconsultancy.in/images/consultancy.jpg"
                 alt="Scientist in a lab"
                 data-ai-hint="researcher scientist"
                 fill
