@@ -12,25 +12,25 @@ const indexedJournalCategories = [
   {
     title: "Scopus Indexed Journals",
     description: "Scopus Q1/Q2, A Scopus journal is a scholarly journal that is indexed (listed) in Scopus, which is one of the largest abstract and citation databases of peer-reviewed literature, maintained by Elsevier.",
-    imageSrc: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&h=400&auto-format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "medical biology",
   },
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.Globally recognized journals ensuring high-quality, impactful research",
-    imageSrc: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&h=400&auto-format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "science research",
   },
   {
     title: "IEEE Xplore Indexed Journals",
     description: "IEEE Xplore is a leading digital library that hosts high-quality journals, conference papers, and standards in engineering, technology, and computer science.",
-    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto-format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "engineering technology",
   },
   {
     title: "UGC Care / Peer Review Journals",
     description: "Trusted journals approved by UGC for authentic and credible research publications. Scholarly articles reviewed by experts to ensure quality, accuracy, and reliability.",
-    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&h=400&auto-format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&h=400&auto=format&fit=crop",
     imageHint: "academic books",
   },
 ];
