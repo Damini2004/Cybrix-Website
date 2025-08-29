@@ -196,7 +196,7 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
       </Card>
       
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[425px] max-h-[90vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>Edit Sub Admin</DialogTitle>
             <DialogDescription>
@@ -204,11 +204,13 @@ export default function SubAdminTable({ subAdmins, isLoading, onAdminChange, onA
             </DialogDescription>
           </DialogHeader>
           {selectedAdmin && (
-            <EditSubAdminForm
-              admin={selectedAdmin}
-              onAdminUpdated={handleEditSuccess}
-              onClose={() => setIsEditDialogOpen(false)}
-            />
+             <div className="flex-grow overflow-y-auto pr-4 -mr-2">
+              <EditSubAdminForm
+                admin={selectedAdmin}
+                onAdminUpdated={handleEditSuccess}
+                onClose={() => setIsEditDialogOpen(false)}
+              />
+            </div>
           )}
         </DialogContent>
       </Dialog>
