@@ -40,11 +40,10 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Column 1: Info */}
                     <div className="space-y-4 md:col-span-2 lg:col-span-1">
-                        <Logo className="h-24 w-24 text-[#D32F2F]" />
                         <div className="space-y-2 text-sm text-gray-400">
                             <p className="flex items-start gap-2">
                                 <MapPin className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>No. 374 Chaurai Nagar, Somatne Phata, Talegaon Dabhade, Maharashtra 410506</span>
+                                <span>202, Researcher Connect, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
                             </p>
                             <p className="flex items-start gap-2">
                                 <Phone className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />

@@ -238,10 +238,15 @@ export default function ConferencesPage() {
                         </CardHeader>
                         <CardContent className="p-4">
                              <div className="grid grid-cols-2 gap-4">
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/2038481.png" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/1993463.png" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/1712867.png" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/1101923.png" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (1).png" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (2).png" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (3).png" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (4).png" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (5).png" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (6).png" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (7).png" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (8).png" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
+                           
                            </div>
                         </CardContent>
                     </Card>
