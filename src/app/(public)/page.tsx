@@ -237,7 +237,7 @@ export default function HomePage() {
                             height={60} 
                             alt={logo.alt} 
                             data-ai-hint={logo.hint}
-                            className="mx-8 h-16 w-auto object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" 
+                            className="mx-8 h-16 w-auto object-contain" 
                         />
                     ))}
                 </div>
