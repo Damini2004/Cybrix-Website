@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, use } from "react";
 import { getConferenceById } from "@/services/conferenceService";
 import type { Conference } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
@@ -415,7 +415,9 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
   );
 }
 
-export default function ConferenceDetailPage({ params: { id } }: { params: { id: string } }) {
+export default function ConferenceDetailPage({ params }: { params: { id: string } }) {
+  const { id } = use(Promise.resolve(params));
+
   const LoadingSkeleton = () => (
     <div className="container py-12 md:py-24">
       <div className="space-y-4">
