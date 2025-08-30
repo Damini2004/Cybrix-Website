@@ -33,6 +33,8 @@ export default function UpcomingConferencesPage() {
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
   const [currentDate, setCurrentDate] = useState<Date | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
    useEffect(() => {
     setCurrentDate(getCurrentDateInIndia());
@@ -66,6 +68,13 @@ export default function UpcomingConferencesPage() {
   useEffect(() => {
     fetchAndFilterConferences();
   }, [fetchAndFilterConferences]);
+
+  const totalPages = Math.ceil(upcomingConferences.length / rowsPerPage);
+  const paginatedConferences = upcomingConferences.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
+  );
+
 
   return (
     <div className="bg-secondary/30">
@@ -136,8 +145,8 @@ export default function UpcomingConferencesPage() {
                                 [...Array(5)].map((_, i) => (
                                     <Card key={i} className="p-4"><Skeleton className="h-24 w-full" /></Card>
                                 ))
-                            ) : upcomingConferences.length > 0 ? (
-                                upcomingConferences.map(conference => (
+                            ) : paginatedConferences.length > 0 ? (
+                                paginatedConferences.map(conference => (
                                     <Card key={conference.id} className="overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                                         <div className="p-4 flex flex-col md:flex-row items-center gap-4">
                                             <Image src={conference.imageSrc || 'https://placehold.co/120x120.png'} alt={conference.shortTitle} width={120} height={120} className="w-28 h-28 object-contain" data-ai-hint="logo brand"/>
@@ -163,13 +172,54 @@ export default function UpcomingConferencesPage() {
                             )}
                         </div>
                          {upcomingConferences.length > 0 && (
-                            <div className="flex justify-center mt-8">
-                                <nav className="flex rounded-md shadow-sm">
-                                    <Button variant="outline" className="rounded-r-none">1</Button>
-                                    <Button variant="outline" className="rounded-none">2</Button>
-                                    <Button variant="outline" className="rounded-none">3</Button>
-                                    <Button variant="outline" className="rounded-l-none">4</Button>
-                                </nav>
+                            <div className="flex items-center justify-between mt-8">
+                                <div className="text-sm text-muted-foreground">
+                                    Showing {paginatedConferences.length} of {upcomingConferences.length} conferences.
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-sm font-medium">Rows per page</p>
+                                        <Select
+                                            value={`${rowsPerPage}`}
+                                            onValueChange={(value) => {
+                                                setRowsPerPage(Number(value))
+                                                setCurrentPage(1)
+                                            }}
+                                        >
+                                            <SelectTrigger className="h-8 w-[70px]">
+                                                <SelectValue placeholder={`${rowsPerPage}`} />
+                                            </SelectTrigger>
+                                            <SelectContent side="top">
+                                                {[5, 10, 20, 30].map((pageSize) => (
+                                                    <SelectItem key={pageSize} value={`${pageSize}`}>
+                                                        {pageSize}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                    <div className="text-sm font-medium">
+                                        Page {currentPage} of {totalPages}
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                                            disabled={currentPage === 1}
+                                        >
+                                            Previous
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                                            disabled={currentPage === totalPages}
+                                        >
+                                            Next
+                                        </Button>
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </section>
