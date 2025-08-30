@@ -416,7 +416,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
 }
 
 export default function ConferenceDetailPage({ params }: { params: { id: string } }) {
-  const { id } = use(params);
+  const { id } = use(Promise.resolve(params));
 
   const LoadingSkeleton = () => (
     <div className="container py-12 md:py-24">
