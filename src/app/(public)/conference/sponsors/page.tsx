@@ -74,7 +74,7 @@ export default function SponsorsPage() {
                     </p>
                 </div>
                 <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-                    <div className="flex w-max animate-[scroll-x_30s_linear_infinite]">
+                    <div className="flex w-max animate-scroll-x">
                         {[...sponsorLogos, ...sponsorLogos].map((logo, index) => (
                              <Image 
                                 key={index}

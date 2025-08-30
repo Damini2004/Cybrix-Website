@@ -18,7 +18,7 @@ const indexedJournalCategories = [
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.Globally recognized journals ensuring high-quality, impactful research",
-    imageSrc: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&h=400&auto=format&fit=crop",
+    imageSrc: "/photo8.png",
     imageHint: "science research",
   },
   {
@@ -30,7 +30,7 @@ const indexedJournalCategories = [
   {
     title: "UGC Care / Peer Review Journals",
     description: "Trusted journals approved by UGC for authentic and credible research publications. Scholarly articles reviewed by experts to ensure quality, accuracy, and reliability.",
-    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&h=400&auto=format&fit=crop",
+    imageSrc: "/photo7.png",
     imageHint: "academic books",
   },
 ];
@@ -69,11 +69,35 @@ const keyServices = [
 ]
 
 const partnerLogos = [
-  { src: "https://logodix.com/logo/2038481.png", alt: "Partner Logo 1", hint: "logo company" },
-  { src: "https://logodix.com/logo/1993463.png", alt: "Partner Logo 2", hint: "logo brand" },
-  { src: "https://logodix.com/logo/1712867.png", alt: "Partner Logo 3", hint: "logo business" },
-  { src: "https://logodix.com/logo/1101923.png", alt: "Partner Logo 4", hint: "logo tech" },
-  { src: "https://logodix.com/logo/647339.png", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/army institute.png", alt: "army institute", hint: "logo company" },
+  { src: "/Bharti vidyapith.png", alt: "Bharti vidyapith", hint: "logo company" },
+  { src: "/city university punjab.jpeg", alt: "city university punjab", hint: "logo company" },
+  { src: "/csmss.jpeg", alt: "csmss", hint: "logo company" },
+  { src: "/data meghe wardha.png", alt: "data meghe wardha", hint: "logo company" },
+  { src: "/deogiri aurangabad.jpeg", alt: "deogiri aurangabad", hint: "logo brand" },
+  { src: "/dypatil.jpeg", alt: "Partner Logo 3", hint: "logo business" },
+  { src: "/iiit.jpeg", alt: "Partner Logo 4", hint: "logo tech" },
+  { src: "/kkr guntur.png", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/krishana.png", alt: "deogiri aurangabad", hint: "logo brand" },
+  { src: "/lovely university.png", alt: "Partner Logo 3", hint: "logo business" },
+  { src: "/Mahsa Malaysiaya.png", alt: "Partner Logo 4", hint: "logo tech" },
+  { src: "/manipal.png", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/modern institute.jpeg", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/nitwarangal.png", alt: "deogiri aurangabad", hint: "logo brand" },
+  { src: "/noida.png", alt: "Partner Logo 3", hint: "logo business" },
+  { src: "/Nus.png", alt: "Partner Logo 4", hint: "logo tech" },
+  { src: "/priyadarshani.png", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/ramdeobaba.jpeg", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/rl jalapa.png", alt: "deogiri aurangabad", hint: "logo brand" },
+  { src: "/sanjevini kopargoa.png", alt: "Partner Logo 3", hint: "logo business" },
+  { src: "/ssvps.png", alt: "Partner Logo 4", hint: "logo tech" },
+  { src: "/priyadarshani.png", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/suryodaya.jpeg", alt: "Partner Logo 5", hint: "logo education" },
+  { src: "/syboisis.png", alt: "deogiri aurangabad", hint: "logo brand" },
+  { src: "/sanjevini kopargoa.png", alt: "Partner Logo 3", hint: "logo business" },
+  { src: "/vincentpalloti.jpeg", alt: "Partner Logo 4", hint: "logo tech" },
+  { src: "/Vnit.jpeg", alt: "Partner Logo 5", hint: "logo education" },
+  
 ]
 
 function IndexedJournalsSection() {
