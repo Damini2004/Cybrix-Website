@@ -106,7 +106,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'width-pulse': 'width-pulse 3s ease-in-out infinite',
         'dance': 'dance 0.5s ease-in-out infinite',
-        'scroll-x': 'scroll-x 30s linear infinite',
+        'scroll-x': 'scroll-x 60s linear infinite',
       },
     },
   },
