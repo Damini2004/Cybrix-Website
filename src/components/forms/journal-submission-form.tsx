@@ -195,7 +195,6 @@ export default function JournalSubmissionForm() {
               </div>
 
               <div className="space-y-6">
-                  <h3 className="text-lg font-semibold flex items-center gap-2 text-primary"><FileText /> Submission Information</h3>
                   <FormField control={form.control} name="title" render={({ field }) => ( <FormItem> <FormLabel>Manuscript Title / Application Subject</FormLabel> <FormControl><Input placeholder="A Study on..." {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField control={form.control} name="submissionType" render={({ field }) => ( <FormItem> <FormLabel>Submission Type</FormLabel> <Select onValueChange={(value) => { field.onChange(value); handleTypeChange(value); }} defaultValue={field.value}> <FormControl><SelectTrigger><SelectValue placeholder="Select a type" /></SelectTrigger></FormControl> <SelectContent> <SelectItem value="journal">Journal</SelectItem> <SelectItem value="conference">Conference</SelectItem> </SelectContent> </Select> <FormMessage /> </FormItem> )} />
