@@ -41,7 +41,7 @@ export default function ContactUsPage() {
                     <Phone className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                <p className="text-muted-foreground">+91-8446723800</p>
                 <p className="text-muted-foreground">Mon-Fri, 9am-5pm EST</p>
             </Card>
             <Card className="p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
