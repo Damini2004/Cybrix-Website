@@ -43,11 +43,6 @@ export default function ConferencesPage() {
   const { toast } = useToast();
   const [currentDate, setCurrentDate] = useState<Date | null>(null);
   
-  // Filtering state
-  const [topicFilter, setTopicFilter] = useState<string>("all");
-  const [countryFilter, setCountryFilter] = useState<string>("all");
-  const [monthFilter, setMonthFilter] = useState<string>("all");
-
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -77,47 +72,25 @@ export default function ConferencesPage() {
     fetchConferences();
   }, [fetchConferences]);
 
-  const { upcomingConferences, uniqueTopics } = useMemo(() => {
-    if (!currentDate) return { upcomingConferences: [], uniqueTopics: [] };
+  const { upcomingConferences } = useMemo(() => {
+    if (!currentDate) return { upcomingConferences: [] };
     
     const upcoming = allConferences
       .filter(conf => conf.dateObject && conf.dateObject.getTime() >= currentDate.getTime())
       .sort((a, b) => a.dateObject.getTime() - b.dateObject.getTime());
 
-    const topics = new Set<string>();
-    upcoming.forEach(conf => {
-        if (conf.keywords) {
-            conf.keywords.split(',').forEach(k => topics.add(k.trim()));
-        }
-    });
-
     return { 
         upcomingConferences: upcoming, 
-        uniqueTopics: Array.from(topics).sort() 
     };
   }, [allConferences, currentDate]);
 
 
-  const filteredConferences = useMemo(() => {
-    return upcomingConferences.filter(conf => {
-      const topicMatch = topicFilter === 'all' || (conf.keywords && conf.keywords.toLowerCase().includes(topicFilter.toLowerCase()));
-      const countryMatch = countryFilter === 'all' || conf.country === countryFilter;
-      const monthMatch = monthFilter === 'all' || conf.dateObject.getUTCMonth() === parseInt(monthFilter);
-      return topicMatch && countryMatch && monthMatch;
-    });
-  }, [upcomingConferences, topicFilter, countryFilter, monthFilter]);
-
-  const totalPages = Math.ceil(filteredConferences.length / rowsPerPage);
-  const paginatedConferences = filteredConferences.slice(
+  const totalPages = Math.ceil(upcomingConferences.length / rowsPerPage);
+  const paginatedConferences = upcomingConferences.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
   
-  // Reset page to 1 when filters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [topicFilter, countryFilter, monthFilter]);
-
   return (
     <div className="bg-secondary/30">
         
@@ -173,17 +146,6 @@ export default function ConferencesPage() {
                 {/* Main Content */}
                 <div className="lg:col-span-8">
                     <section>
-                        <div className="max-w-5xl mx-auto border-t-4 border-red-600 shadow-lg rounded-b-lg mb-12 relative bg-background">
-                            <div className="p-6">
-                                <h3 className="font-bold text-center mb-4">Find International Conference</h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                    <Select value={topicFilter} onValueChange={setTopicFilter}><SelectTrigger><SelectValue placeholder="Select Topic" /></SelectTrigger><SelectContent><SelectItem value="all">All Topics</SelectItem>{uniqueTopics.map(topic => <SelectItem key={topic} value={topic}>{topic}</SelectItem>)}</SelectContent></Select>
-                                    <Select value={countryFilter} onValueChange={setCountryFilter}><SelectTrigger><SelectValue placeholder="Select Country" /></SelectTrigger><SelectContent><SelectItem value="all">All Countries</SelectItem>{countries.map(c => <SelectItem key={c.code} value={c.name}>{c.name}</SelectItem>)}</SelectContent></Select>
-                                    <Select value={monthFilter} onValueChange={setMonthFilter}><SelectTrigger><SelectValue placeholder="Select Month" /></SelectTrigger><SelectContent><SelectItem value="all">All Months</SelectItem>{months.map(m => <SelectItem key={m.value} value={String(m.value)}>{m.name}</SelectItem>)}</SelectContent></Select>
-                                </div>
-                            </div>
-                        </div>
-
                         <div className="space-y-6">
                             {isLoading ? (
                                 [...Array(5)].map((_, i) => (
@@ -213,15 +175,15 @@ export default function ConferencesPage() {
                             ) : (
                                 <div className="text-center py-16">
                                     <p className="text-muted-foreground">
-                                        No upcoming conferences found for the selected criteria. Please try a different search.
+                                        No upcoming conferences found. Please check back later.
                                     </p>
                                 </div>
                             )}
                         </div>
-                         {filteredConferences.length > 0 && (
+                         {upcomingConferences.length > 0 && (
                              <div className="flex items-center justify-between mt-8">
                                 <div className="text-sm text-muted-foreground">
-                                    Showing {paginatedConferences.length} of {filteredConferences.length} conferences.
+                                    Showing {paginatedConferences.length} of {upcomingConferences.length} conferences.
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <div className="flex items-center gap-2">
