@@ -130,11 +130,11 @@ export default function UserHeader() {
                 </nav>
             </div>
             <div className="col-span-7 p-4 bg-secondary/30">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2">
                     {conferenceSubMenuItems.map(item => (
-                        <Link key={item.label} href={item.href} className={cn("group flex flex-col items-center justify-center text-center p-4 text-foreground rounded-md transition-all duration-300", item.color)}>
-                            <item.icon className="h-10 w-10 mb-2 transition-transform duration-300 group-hover:rotate-6 text-primary" />
-                            <span className="text-sm font-semibold">{item.label}</span>
+                        <Link key={item.label} href={item.href} className={cn("group flex flex-col items-center justify-center text-center p-2 text-foreground rounded-md transition-all duration-300", item.color)}>
+                            <item.icon className="h-8 w-8 mb-2 transition-transform duration-300 group-hover:rotate-6 text-primary" />
+                            <span className="text-xs font-semibold">{item.label}</span>
                         </Link>
                     ))}
                 </div>
