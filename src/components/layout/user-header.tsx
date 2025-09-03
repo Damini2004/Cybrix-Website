@@ -58,8 +58,6 @@ const iprServicesSubMenu = [
     { href: "/ipr-services/patent", label: "Patent", icon: Award },
     { href: "/ipr-services/copyright", label: "Copyright", icon: FileText },
     { href: "/ipr-services/trademark", label: "Trademark", icon: TrendingUp },
-    { href: "/ipr-services/industrial-design", label: "Industrial Design", icon: DraftingCompass },
-    { href: "/ipr-services/global-ip", label: "Global IP", icon: Globe },
 ]
 
 const conferenceSubMenuLinks = [
