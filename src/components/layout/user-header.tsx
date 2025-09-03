@@ -67,7 +67,6 @@ const iprServicesSubMenu = [
 const conferenceSubMenuLinks = [
     { href: "/conference/about-conference", label: "About PRI Conference", icon: Info },
     { href: "/conference/plan-conference", label: "Plan a Scientific Conference", icon: BookOpen },
-    { href: "/conference/sponsors", label: "Sponsors & Exhibitors", icon: Handshake },
     { href: "/conference/awards", label: "Awards & Recognition", icon: Award },
     { href: "/conference/workshops", label: "Workshops & Courses", icon: PenTool },
     { href: "/conference/faq", label: "Conference FAQ", icon: HelpCircle },
