@@ -30,6 +30,24 @@ const patentServices = [
 export default function PatentPage() {
     return (
         <div className="bg-secondary/30">
+            <section className="relative w-full py-20 md:py-32 bg-primary/5 flex items-center justify-center text-center px-4">
+                <Image
+                    src="https://images.unsplash.com/photo-1518107689113-575aa95c342a?q=80&w=1600&h=600&auto=format&fit=crop"
+                    alt="Patent Law"
+                    data-ai-hint="legal documents"
+                    fill
+                    className="object-cover opacity-10"
+                />
+                <div className="relative z-10">
+                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                        Patent Services
+                    </h1>
+                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                        Secure exclusive rights to your inventions with our comprehensive patent services.
+                    </p>
+                </div>
+            </section>
+
             <section className="container mx-auto px-4 py-16 md:py-24">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
