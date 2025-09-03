@@ -24,7 +24,24 @@ const copyrightInfo = [
 export default function CopyrightPage() {
     return (
         <div>
-            <section className="w-full py-20 md:py-32 bg-primary/5">
+             <section className="relative w-full py-20 md:py-32 bg-primary/5 flex items-center justify-center text-center px-4">
+                <Image
+                    src="https://images.unsplash.com/photo-1611117775522-5a26c0af0968?q=80&w=1600&h=600&auto=format&fit=crop"
+                    alt="Copyright Law"
+                    data-ai-hint="legal books"
+                    fill
+                    className="object-cover opacity-10"
+                />
+                <div className="relative z-10">
+                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                        Copyright Services
+                    </h1>
+                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                        We provide expert assistance to ensure your original literary, artistic, and musical works are legally protected from unauthorized use.
+                    </p>
+                </div>
+            </section>
+            <section className="w-full py-20 md:py-32 bg-background">
                 <div className="container px-4 md:px-6">
                     <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
                          <Image
@@ -37,9 +54,9 @@ export default function CopyrightPage() {
                         />
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                 <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Copyright Services</div>
+                                 <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Protect Your Creations</div>
                                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                                    Protect Your Creative Works
+                                    Secure Your Creative Works
                                 </h1>
                                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                                     Safeguard your literary, artistic, and musical creations with formal copyright registration. We provide expert assistance to ensure your original works are legally protected from unauthorized use.
@@ -58,7 +75,7 @@ export default function CopyrightPage() {
                 </div>
             </section>
             
-            <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
                 <div className="container px-4 md:px-6">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold tracking-tight">Understanding Copyright Protection</h2>
