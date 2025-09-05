@@ -35,14 +35,26 @@ export default async function AboutPage() {
   
   return (
     <div className="w-full bg-secondary/30">
-      <section className="py-12 md:py-16 text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">About Pure Research Insights</h1>
-        <p className="mt-4 max-w-[900px] mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
-        </p>
+      <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+        <Image
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&h=400&auto=format&fit=crop"
+          alt="Our Team"
+          data-ai-hint="team collaboration"
+          fill
+          className="object-cover opacity-10"
+        />
+        <div className="relative z-10">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                About Pure Research Insights
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
+            </p>
+        </div>
       </section>
 
-      <section className="pb-12 md:pb-24 lg:pb-32">
+
+      <section className="pb-12 md:pb-24 lg:pb-32 pt-16">
         <Card className="shadow-xl overflow-hidden border-primary/10">
           <div className="grid md:grid-cols-2 items-center">
             <div className="relative h-64 md:h-full min-h-[300px]">
