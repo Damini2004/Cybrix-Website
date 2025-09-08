@@ -7,11 +7,11 @@ import Link from "next/link";
 
 const galleryItems = [
     { src: "https://picsum.photos/800/600", alt: "Scientific Poster 1", title: "Quantum Entanglement", author: "Dr. Evelyn Reed", hint: "science research" },
-    { src: "https://picsum.photos/600/800", alt: "Scientific Poster 2", title: "AI in Medicine", author: "Dr. Samuel Chen", hint: "medical technology" },
-    { src: "https://picsum.photos/800/800", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
-    { src: "https://picsum.photos/800/500", alt: "Scientific Poster 3", title: "Climate Change Models", author: "Dr. Aisha Khan", hint: "earth climate" },
-    { src: "https://picsum.photos/600/700", alt: "Event Photo 2", title: "Networking Session", author: "Symposium 2024", hint: "team collaboration" },
-    { src: "https://picsum.photos/800/600", alt: "Scientific Poster 4", title: "Nanotechnology Breakthroughs", author: "Dr. Ben Carter", hint: "science technology" },
+    { src: "https://picsum.photos/800/601", alt: "Scientific Poster 2", title: "AI in Medicine", author: "Dr. Samuel Chen", hint: "medical technology" },
+    { src: "https://picsum.photos/800/602", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
+    { src: "https://picsum.photos/800/603", alt: "Scientific Poster 3", title: "Climate Change Models", author: "Dr. Aisha Khan", hint: "earth climate" },
+    { src: "https://picsum.photos/800/604", alt: "Event Photo 2", title: "Networking Session", author: "Symposium 2024", hint: "team collaboration" },
+    { src: "https://picsum.photos/800/605", alt: "Scientific Poster 4", title: "Nanotechnology Breakthroughs", author: "Dr. Ben Carter", hint: "science technology" },
 ];
 
 export default function ScientificGalleryPage() {
@@ -19,7 +19,7 @@ export default function ScientificGalleryPage() {
     <div className="bg-secondary/30">
       <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
         <Image
-          src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=1600&h=400&auto=format&fit=crop"
+          src="https://picsum.photos/1600/400"
           alt="Abstract background"
           data-ai-hint="abstract background"
           fill
@@ -48,16 +48,6 @@ export default function ScientificGalleryPage() {
                             data-ai-hint={item.hint}
                             className="w-full h-auto object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="p-4 flex flex-col justify-end h-full text-white">
-                                <h3 className="font-bold text-lg">{item.title}</h3>
-                                <p className="text-sm">{item.author}</p>
-                                <div className="flex gap-2 mt-2">
-                                    <Button size="sm" variant="secondary"><Eye className="mr-2 h-4 w-4" /> View</Button>
-                                    <Button size="sm" variant="secondary"><Download className="mr-2 h-4 w-4" /> Download</Button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 ))}
             </div>
@@ -72,7 +62,7 @@ export default function ScientificGalleryPage() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                       <Image
-                          src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&h=600&auto=format&fit=crop"
+                          src="https://picsum.photos/800/600"
                           alt="Submit your work"
                           data-ai-hint="team presentation"
                           fill
