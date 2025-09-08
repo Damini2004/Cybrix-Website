@@ -14,6 +14,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const galleryItems = [
     { src: "/scientific-gallery.png", alt: "Scientific Poster 1", title: "Quantum Entanglement", author: "Dr. Evelyn Reed", hint: "science research" },
@@ -24,6 +25,15 @@ const galleryItems = [
     { src: "/scientific-gallery.png", alt: "Scientific Poster 4", title: "Nanotechnology Breakthroughs", author: "Dr. Ben Carter", hint: "science technology" },
     { src: "/scientific-gallery.png", alt: "Scientific Poster 5", title: "Genomic Sequencing", author: "Dr. Lena Petrova", hint: "dna helix" },
     { src: "/scientific-gallery.png", alt: "Event Photo 3", title: "Poster Session", author: "Innovation Summit 2024", hint: "poster session" },
+];
+
+const moreGalleryItems = [
+    { src: "/scientific-gallery.png", alt: "Gallery Image 1", hint: "science research" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 2", hint: "medical technology" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 3", hint: "conference presentation" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 4", hint: "earth climate" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 5", hint: "team collaboration" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 6", hint: "science technology" },
 ];
 
 export default function ScientificGalleryPage() {
@@ -121,6 +131,36 @@ export default function ScientificGalleryPage() {
               </Carousel>
             </div>
         </div>
+      </section>
+
+      <section className="w-full pb-16 md:pb-24">
+          <div className="container px-4 md:px-6">
+              <div className="text-center mb-12">
+                  <h2 className="text-3xl font-bold tracking-tighter">More Highlights</h2>
+                  <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+                      A visual showcase of groundbreaking research and memorable moments from our events.
+                  </p>
+              </div>
+              <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                  {moreGalleryItems.map((item, index) => (
+                      <div key={index} className="break-inside-avoid group relative overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+                          <Image 
+                              src={item.src}
+                              alt={item.alt}
+                              width={800}
+                              height={600}
+                              data-ai-hint={item.hint}
+                              className="w-full h-auto object-cover"
+                          />
+                      </div>
+                  ))}
+              </div>
+              <div className="text-center mt-12">
+                  <Button size="lg" variant="outline">
+                      Load More Photos
+                  </Button>
+              </div>
+          </div>
       </section>
     </div>
   );
