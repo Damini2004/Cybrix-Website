@@ -35,7 +35,7 @@ export default function PeerReviewPage() {
         <div>
             <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1583321500900-82a78e443229?q=80&w=1600&h=400&auto=format&fit=crop"
+                    src="/peer-review.png"
                     alt="Peer Review Process"
                     data-ai-hint="research paper"
                     fill

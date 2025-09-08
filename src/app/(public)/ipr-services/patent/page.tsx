@@ -32,7 +32,7 @@ export default function PatentPage() {
         <div className="bg-secondary/30">
             <section className="relative w-full py-20 md:py-32 bg-primary/5 flex items-center justify-center text-center px-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1518107689113-575aa95c342a?q=80&w=1600&h=600&auto=format&fit=crop"
+                    src="/patent-services.png"
                     alt="Patent Law"
                     data-ai-hint="legal documents"
                     fill

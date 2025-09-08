@@ -26,7 +26,7 @@ export default function CopyrightPage() {
         <div>
              <section className="relative w-full py-20 md:py-32 bg-primary/5 flex items-center justify-center text-center px-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1611117775522-5a26c0af0968?q=80&w=1600&h=600&auto=format&fit=crop"
+                    src="/copyright-registration.png"
                     alt="Copyright Law"
                     data-ai-hint="legal books"
                     fill

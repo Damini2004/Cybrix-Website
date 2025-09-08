@@ -1,7 +1,7 @@
 // src/app/(public)/publications/conference-proceedings/page.tsx
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, FileCheck2, Presentation, Globe } from "lucide-react";
+import { ArrowRight, FileCheck2, Presentation, Globe, Database, Link as LinkIcon, BookLock } from "lucide-react";
 import Image from "next/image";
 
 const benefits = [
@@ -22,12 +22,30 @@ const benefits = [
     }
 ];
 
+const services = [
+    {
+        icon: Database,
+        title: "Indexing & Archiving",
+        description: "We ensure your proceedings are indexed in major academic databases like Scopus and Web of Science for maximum visibility and citation."
+    },
+    {
+        icon: LinkIcon,
+        title: "DOI Assignment",
+        description: "Every paper published in our proceedings is assigned a unique Digital Object Identifier (DOI) for permanent and reliable citation."
+    },
+    {
+        icon: BookLock,
+        title: "Open Access Options",
+        description: "We offer flexible open access publishing options to make your research freely available to a global audience, increasing its impact."
+    }
+]
+
 export default function ConferenceProceedingsPage() {
     return (
         <div>
             <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1587825140708-df876c1b3df1?q=80&w=1600&h=400&auto=format&fit=crop"
+                    src="/conference-proceeding.png"
                     alt="Conference Presentation"
                     data-ai-hint="conference presentation"
                     fill
@@ -80,6 +98,32 @@ export default function ConferenceProceedingsPage() {
                                 ))}
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+             <section className="w-full py-16 md:py-24 bg-secondary/30">
+                <div className="container px-4 md:px-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold tracking-tighter">Our Services</h2>
+                        <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+                            We provide a complete suite of services to ensure your work is published professionally and reaches the widest possible audience.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {services.map((service) => (
+                            <Card key={service.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                                <CardHeader className="items-center">
+                                    <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                                        <service.icon className="h-8 w-8 text-primary" />
+                                    </div>
+                                    <CardTitle>{service.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex-grow">
+                                    <p className="text-muted-foreground">{service.description}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </div>
             </section>

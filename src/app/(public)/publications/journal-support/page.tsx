@@ -32,7 +32,7 @@ export default function JournalSupportPage() {
     <div className="bg-secondary/50">
         <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
             <Image
-                src="https://images.unsplash.com/photo-1581093450021-4a7362aa96b8?q=80&w=1600&h=400&auto=format&fit=crop"
+                src="/journal-support.png"
                 alt="Journal Support"
                 data-ai-hint="researcher writing"
                 fill
