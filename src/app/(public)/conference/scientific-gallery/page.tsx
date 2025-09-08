@@ -72,6 +72,9 @@ export default function ScientificGalleryPage() {
     <div className="bg-secondary/30">
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6">
+            <div className="text-center mb-12">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Scientific Gallery</h1>
+            </div>
             <div className="space-y-4 max-w-5xl mx-auto">
               <Carousel 
                 setApi={setMainApi} 
