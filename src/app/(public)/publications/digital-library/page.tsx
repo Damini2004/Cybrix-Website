@@ -40,7 +40,7 @@ export default function DigitalLibraryPage() {
     <div className="bg-secondary/30">
         <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
             <Image
-                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&h=400&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&h=400&auto-format&fit=crop"
                 alt="Digital Library"
                 data-ai-hint="library books"
                 fill
@@ -57,17 +57,28 @@ export default function DigitalLibraryPage() {
         </section>
 
         <div className="container py-12 md:py-24 px-4 md:px-6">
-        <div className="text-center mb-12">
-            <div className="relative mt-6 max-w-lg mx-auto">
-            <Input 
-                placeholder="Search by title, or description..." 
-                className="pl-10 h-12"
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-            />
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            </div>
-        </div>
+        <Card className="max-w-3xl mx-auto mb-16 shadow-lg border-primary/10">
+          <CardHeader className="text-center">
+              <CardTitle className="text-3xl">Explore Our Digital Library</CardTitle>
+              <CardDescription>Search our extensive collection of journals by title or keyword.</CardDescription>
+          </CardHeader>
+          <CardContent>
+              <form className="flex items-center gap-2" onSubmit={(e) => e.preventDefault()}>
+                  <div className="relative flex-grow">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <Input 
+                          placeholder="Search by title, or description..." 
+                          className="pl-10 h-12 w-full"
+                          value={filter}
+                          onChange={(e) => setFilter(e.target.value)}
+                      />
+                  </div>
+                  <Button type="submit" size="lg" className="h-12">
+                      Search
+                  </Button>
+              </form>
+          </CardContent>
+      </Card>
 
         {isLoading ? (
             <div className="flex items-center justify-center py-24">
