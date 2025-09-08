@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -32,6 +33,10 @@ export default function ScientificGalleryPage() {
   const [mainApi, setMainApi] = React.useState<CarouselApi>()
   const [thumbApi, setThumbApi] = React.useState<CarouselApi>()
   const [selectedIndex, setSelectedIndex] = React.useState(0)
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
 
   const onThumbClick = React.useCallback(
     (index: number) => {
@@ -74,7 +79,13 @@ export default function ScientificGalleryPage() {
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6">
             <div className="space-y-4 max-w-5xl mx-auto">
-              <Carousel setApi={setMainApi} className="w-full">
+              <Carousel 
+                setApi={setMainApi} 
+                className="w-full"
+                plugins={[plugin.current]}
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+              >
                 <CarouselContent>
                   {galleryItems.map((item, index) => (
                     <CarouselItem key={index}>
