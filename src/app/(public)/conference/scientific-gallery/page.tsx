@@ -34,6 +34,8 @@ const moreGalleryItems = [
     { src: "/scientific-gallery.png", alt: "Gallery Image 4", hint: "earth climate" },
     { src: "/scientific-gallery.png", alt: "Gallery Image 5", hint: "team collaboration" },
     { src: "/scientific-gallery.png", alt: "Gallery Image 6", hint: "science technology" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 7", hint: "science lab" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 8", hint: "researcher writing" },
 ];
 
 export default function ScientificGalleryPage() {
@@ -133,7 +135,7 @@ export default function ScientificGalleryPage() {
         </div>
       </section>
 
-      <section className="w-full pb-16 md:pb-24">
+      <section className="w-full pb-16 md:pb-24 overflow-hidden">
           <div className="container px-4 md:px-6">
               <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold tracking-tighter">More Highlights</h2>
@@ -141,24 +143,20 @@ export default function ScientificGalleryPage() {
                       A visual showcase of groundbreaking research and memorable moments from our events.
                   </p>
               </div>
-              <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-                  {moreGalleryItems.map((item, index) => (
-                      <div key={index} className="break-inside-avoid group relative overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+          </div>
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+              <div className="flex w-max animate-scroll-x">
+                  {[...moreGalleryItems, ...moreGalleryItems].map((item, index) => (
+                      <div key={index} className="relative aspect-[4/3] w-80 mx-4 shrink-0 overflow-hidden rounded-lg shadow-lg">
                           <Image 
                               src={item.src}
                               alt={item.alt}
-                              width={800}
-                              height={600}
+                              fill
                               data-ai-hint={item.hint}
-                              className="w-full h-auto object-cover"
+                              className="w-full h-full object-cover"
                           />
                       </div>
                   ))}
-              </div>
-              <div className="text-center mt-12">
-                  <Button size="lg" variant="outline">
-                      Load More Photos
-                  </Button>
               </div>
           </div>
       </section>
