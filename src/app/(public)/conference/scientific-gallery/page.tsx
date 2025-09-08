@@ -61,21 +61,6 @@ export default function ScientificGalleryPage() {
 
   return (
     <div className="bg-secondary/30">
-      <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
-        <Image
-          src="/scientific-gallery.png"
-          alt="Abstract background"
-          data-ai-hint="abstract background"
-          fill
-          className="object-cover opacity-10"
-        />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            Scientific Gallery
-          </h1>
-        </div>
-      </section>
-
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6">
             <div className="space-y-4 max-w-5xl mx-auto">
