@@ -30,6 +30,24 @@ const supportInfo = [
 export default function JournalSupportPage() {
   return (
     <div className="bg-secondary/50">
+        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+            <Image
+                src="https://images.unsplash.com/photo-1581093450021-4a7362aa96b8?q=80&w=1600&h=400&auto=format&fit=crop"
+                alt="Journal Support"
+                data-ai-hint="researcher writing"
+                fill
+                className="object-cover opacity-10"
+            />
+            <div className="relative z-10">
+                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Journal Publication Support
+                </h1>
+                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                    Navigating the path to publication with expert guidance and dedicated support.
+                </p>
+            </div>
+        </section>
+
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-video lg:aspect-auto lg:h-full rounded-2xl overflow-hidden shadow-2xl">
