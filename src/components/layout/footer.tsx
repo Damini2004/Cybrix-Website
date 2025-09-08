@@ -101,11 +101,6 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-gray-700 mt-10 pt-6">
-                    <p className="text-center text-sm font-semibold uppercase tracking-wider relative">
-                        A Venture of Pure Research Insights Innovation Educational Research and Welfare Foundation.
-                        <span className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 h-0.5 w-20 bg-[#D32F2F]"></span>
-                    </p>
-
                     <div className="flex flex-col items-center mt-10">
                         <h4 className="font-semibold mb-4">Follow us</h4>
                         <div className="flex items-center space-x-3">
