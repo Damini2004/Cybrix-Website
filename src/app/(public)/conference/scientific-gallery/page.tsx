@@ -68,9 +68,6 @@ export default function ScientificGalleryPage() {
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             Scientific Gallery
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            A visual showcase of groundbreaking research, innovative posters, and memorable moments from our conferences.
-          </p>
         </div>
       </section>
 
