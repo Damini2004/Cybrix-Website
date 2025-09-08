@@ -13,9 +13,6 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const galleryItems = [
@@ -124,34 +121,6 @@ export default function ScientificGalleryPage() {
               </Carousel>
             </div>
         </div>
-      </section>
-
-      <section className="w-full py-16 md:py-24 bg-background">
-          <div className="container px-4 md:px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                      <Image
-                          src="/scientific-gallery.png"
-                          alt="Submit your work"
-                          data-ai-hint="team presentation"
-                          fill
-                          className="object-cover"
-                      />
-                  </div>
-                  <div className="space-y-6">
-                      <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Contribute to Our Gallery</div>
-                      <h2 className="text-3xl font-bold tracking-tighter">Showcase Your Research</h2>
-                      <p className="text-muted-foreground text-justify">
-                          Have an impactful poster or presentation to share? We invite you to contribute to our ever-growing gallery of scientific achievements. Presenting your work is an excellent opportunity to gain visibility, receive feedback, and connect with a global community of peers. All submissions are reviewed for quality and relevance.
-                      </p>
-                      <Button asChild size="lg">
-                        <Link href="/submit-journal">
-                            Submit Your Work <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                      </Button>
-                  </div>
-              </div>
-          </div>
       </section>
     </div>
   );
