@@ -1,50 +1,107 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ArrowRight, CalendarCheck, Megaphone, Users, BookOpen } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
-const planningSteps = [
-    "Initial Consultation: Reach out to us with your conference idea, including the theme, expected audience, and potential dates.",
-    "Proposal & Budgeting: We'll work with you to develop a detailed proposal and a comprehensive budget.",
-    "Venue & Logistics: Our team will handle venue selection, and all logistical arrangements.",
-    "Marketing & Promotion: We'll launch a targeted marketing campaign to attract speakers and attendees.",
-    "Execution & Management: On-site management to ensure everything runs smoothly from start to finish.",
-    "Post-Conference Support: Assistance with publishing proceedings and gathering feedback."
+const planningServices = [
+    {
+        icon: CalendarCheck,
+        title: "End-to-End Event Management",
+        description: "From initial concept to post-conference follow-up, we handle all logistics, including venue selection, scheduling, and on-site coordination to ensure a seamless experience."
+    },
+    {
+        icon: Megaphone,
+        title: "Strategic Marketing & Promotion",
+        description: "We design and execute targeted promotional campaigns across multiple channels to attract a diverse and engaged audience of speakers and attendees."
+    },
+    {
+        icon: Users,
+        title: "Speaker & Sponsor Coordination",
+        description: "Our team manages invitations, communications, and logistics for keynote speakers, presenters, and sponsors, fostering valuable partnerships for your event."
+    },
+    {
+        icon: BookOpen,
+        title: "Proceedings & Publication",
+        description: "We oversee the entire publication process for your conference proceedings, including peer review, formatting, and indexing in major academic databases."
+    }
 ];
 
 export default function PlanConferencePage() {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-24">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Plan a Scientific Conference</h1>
-        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">Collaborate with us to organize your next scientific event. We provide end-to-end support to ensure your conference is a resounding success.</p>
-      </div>
-      <Card className="max-w-4xl mx-auto shadow-lg">
-        <CardHeader>
-          <CardTitle>Our Partnership Process</CardTitle>
-          <CardDescription>
-            We follow a structured process to bring your vision to life.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-4">
-            {planningSteps.map((step, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
-                <span>{step}</span>
-              </li>
-            ))}
-          </ul>
-           <div className="mt-8 text-center">
-                <Button asChild size="lg">
-                    <Link href="/contact-us">
-                        Start Planning Today
-                    </Link>
-                </Button>
+    <div className="bg-secondary/30">
+        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+            <Image
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=400&auto=format&fit=crop"
+                alt="Conference planning session"
+                data-ai-hint="team meeting"
+                fill
+                className="object-cover opacity-10"
+            />
+            <div className="relative z-10">
+                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Partner with Us on Your Next Conference
+                </h1>
+                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                    Collaborate with our experienced team to organize a successful and impactful scientific event. We provide end-to-end support to bring your vision to life.
+                </p>
             </div>
-        </CardContent>
-      </Card>
+        </section>
+        
+        <section className="w-full py-16 md:py-24 bg-background">
+            <div className="container px-4 md:px-6">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                     <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
+                         <Image
+                            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&auto=format&fit=crop"
+                            alt="Collaboration"
+                            data-ai-hint="team collaboration"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                    <div className="space-y-6">
+                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">A Partnership for Success</div>
+                        <h2 className="text-3xl font-bold tracking-tighter">Your Vision, Our Expertise</h2>
+                        <p className="text-muted-foreground text-justify">
+                            Planning a scientific conference requires meticulous attention to detail and a deep understanding of the academic landscape. By partnering with Pure Research Insights, you gain access to a dedicated team of professionals who are committed to making your event a resounding success. We work closely with you to understand your goals, develop a comprehensive strategy, and execute every aspect of the conference with precision and care.
+                        </p>
+                        <Button asChild>
+                            <Link href="/contact-us">
+                                Inquire About Partnership <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section className="w-full py-16 md:py-24">
+            <div className="container px-4 md:px-6">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter">Our Conference Planning Services</h2>
+                    <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+                        We offer a full suite of services to manage every detail of your conference.
+                    </p>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {planningServices.map((service) => (
+                        <Card key={service.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                            <CardHeader className="items-center">
+                                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                                    <service.icon className="h-8 w-8 text-primary" />
+                                </div>
+                                <CardTitle>{service.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                                <p className="text-muted-foreground">{service.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </section>
     </div>
   );
 }
