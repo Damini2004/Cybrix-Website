@@ -5,13 +5,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAojn8bWZM_s19xhK9kn8F0CpB0JcW2bjA",
-  authDomain: "journellisting.firebaseapp.com",
-  projectId: "journellisting",
-  storageBucket: "journellisting.appspot.com",
-  messagingSenderId: "96866013897",
-  appId: "1:96866013897:web:5d3d2ad16b83610b907318",
-  measurementId: "G-30NMKYLKQG"
+  apiKey: "AIzaSyAD7HC9rZerF1dSpZzeiNylfCVJFMTlV08",
+  authDomain: "pure-research-insights.firebaseapp.com",
+  projectId: "pure-research-insights",
+  storageBucket: "pure-research-insights.firebasestorage.app",
+  messagingSenderId: "633801776834",
+  appId: "1:633801776834:web:7c944b51a6daded1b9a55b",
+  measurementId: "G-TJR558GW98"
 };
 
 // Initialize Firebase
