@@ -42,84 +42,92 @@ export default function ConferenceVideosPage() {
   );
 
   return (
-    <div className="bg-secondary/30">
-        <section className="w-full py-16 md:py-24">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-12">
-                    <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Conference Videos & Galleries</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-muted-foreground md:text-xl/relaxed">
-                        Watch sessions, view photos, and relive the key moments from our premier conferences and events.
-                    </p>
-                </div>
-                 <Carousel
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    plugins={[plugin.current]}
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
-                    className="w-full max-w-6xl mx-auto"
-                >
-                    <CarouselContent className="-ml-8">
-                    {galleryItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-1/3">
-                        <div className="p-1">
-                            <Card className="overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                                <CardContent className="p-0 relative aspect-video">
-                                <Image 
-                                    src={item.src}
-                                    alt={item.alt}
-                                    fill
-                                    data-ai-hint={item.hint}
-                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-                                    <div className="text-white">
-                                        <h3 className="text-xl font-bold">{item.title}</h3>
-                                        <p className="text-sm opacity-90">{item.author}</p>
-                                    </div>
-                                </div>
-                                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <PlayCircle className="h-16 w-16 text-white/80 transform scale-0 group-hover:scale-100 transition-transform duration-300" />
-                                </div>
-                                </CardContent>
-                            </Card>
+    <div className="bg-background">
+      <section className="relative w-full py-20 md:py-32">
+        <Image
+            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&h=900&auto=format&fit=crop"
+            alt="Conference background"
+            data-ai-hint="conference event"
+            fill
+            className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="container relative z-10 mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Conference Videos & Galleries</h1>
+            <p className="mt-4 max-w-3xl mx-auto text-white/80 md:text-xl/relaxed">
+              Watch sessions, view photos, and relive the key moments from our premier conferences and events.
+            </p>
+          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent className="-ml-8">
+              {galleryItems.map((item, index) => (
+                <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl bg-white/10 backdrop-blur-sm">
+                      <CardContent className="p-0 relative aspect-video">
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          data-ai-hint={item.hint}
+                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                          <div className="text-white">
+                            <h3 className="text-xl font-bold">{item.title}</h3>
+                            <p className="text-sm opacity-90">{item.author}</p>
+                          </div>
                         </div>
-                        </CarouselItem>
-                    ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 bg-background/80 hover:bg-background" />
-                    <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 bg-background/80 hover:bg-background" />
-                </Carousel>
-            </div>
-        </section>
+                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <PlayCircle className="h-16 w-16 text-white/80 transform scale-0 group-hover:scale-100 transition-transform duration-300" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 bg-background/80 hover:bg-background" />
+            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 bg-background/80 hover:bg-background" />
+          </Carousel>
+        </div>
+      </section>
 
-        <section className="w-full pb-16 md:pb-24 overflow-hidden">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter">More Highlights</h2>
-                    <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-                        A visual showcase of groundbreaking research and memorable moments from our events.
-                    </p>
-                </div>
-            </div>
-            <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-                <div className="flex w-max animate-scroll-x">
-                    {[...moreGalleryItems, ...moreGalleryItems].map((item, index) => (
-                        <div key={index} className="relative aspect-[4/3] w-80 mx-4 shrink-0 overflow-hidden rounded-lg shadow-lg">
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+      <section className="w-full py-16 md:py-24 overflow-hidden bg-secondary/30">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter">More Highlights</h2>
+            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+              A visual showcase of groundbreaking research and memorable moments from our events.
+            </p>
+          </div>
+        </div>
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+          <div className="flex w-max animate-scroll-x">
+            {[...moreGalleryItems, ...moreGalleryItems].map((item, index) => (
+              <div key={index} className="relative aspect-[4/3] w-80 mx-4 shrink-0 overflow-hidden rounded-lg shadow-lg">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  data-ai-hint={item.hint}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
