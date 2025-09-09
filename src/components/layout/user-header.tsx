@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, BookOpen, ChevronDown, FileText, Book, Presentation, MessageSquare, ThumbsUp, Library, Users, Award, DraftingCompass, TrendingUp, Globe, ArrowRight, User, Info, Handshake, PenTool, HelpCircle } from "lucide-react";
+import { Menu, BookOpen, ChevronDown, FileText, Book, Presentation, MessageSquare, ThumbsUp, Library, Users, Award, DraftingCompass, TrendingUp, Globe, ArrowRight, User, Info, Handshake, PenTool, HelpCircle, Briefcase } from "lucide-react";
 import { Logo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -58,6 +58,7 @@ const iprServicesSubMenu = [
     { href: "/ipr-services/patent", label: "Patent", icon: Award },
     { href: "/ipr-services/copyright", label: "Copyright", icon: FileText },
     { href: "/ipr-services/trademark", label: "Trademark", icon: TrendingUp },
+    { href: "/ipr-services/eb1-consultancy", label: "EB1 Consultancy", icon: Briefcase },
 ]
 
 const conferenceSubMenuLinks = [
