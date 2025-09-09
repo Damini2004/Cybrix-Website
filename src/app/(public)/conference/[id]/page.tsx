@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { useEffect, useState, Suspense, use } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { getConferenceById } from "@/services/conferenceService";
 import type { Conference } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
@@ -19,6 +19,7 @@ import ConferenceCountdown from "@/components/ui/conference-countdown";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { RenderHtmlContent } from "@/components/ui/render-html-content";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {  
   const [conference, setConference] = useState<Conference | null>(null);
@@ -126,6 +127,51 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
         />
     );
   };
+
+    const RenderRegistrationTable = ({ htmlContent }: { htmlContent?: string }) => {
+        if (!htmlContent || typeof window === 'undefined') {
+            return <p className="text-muted-foreground">Not available.</p>;
+        }
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlContent, 'text/html');
+        const table = doc.querySelector('table');
+        if (!table) {
+            // Fallback to rich text if no table is found
+            return <RenderHtmlContent htmlContent={htmlContent} />;
+        }
+
+        const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent);
+        const rows = Array.from(table.querySelectorAll('tbody tr')).map(tr => 
+            Array.from(tr.querySelectorAll('td')).map(td => td.innerHTML)
+        );
+
+        return (
+            <Table className="border rounded-lg">
+                <TableHeader>
+                    <TableRow>
+                        {headers.map((header, index) => (
+                            <TableHead key={index} className="font-semibold">{header}</TableHead>
+                        ))}
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {rows.map((row, rowIndex) => (
+                        <TableRow key={rowIndex}>
+                            {row.map((cell, cellIndex) => (
+                                <TableCell 
+                                    key={cellIndex} 
+                                    className={cellIndex === 0 ? 'font-medium' : 'text-muted-foreground'}
+                                    dangerouslySetInnerHTML={{ __html: cell }}
+                                />
+                            ))}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        );
+    };
+
 
   const RenderCommittee = ({ htmlContent }: { htmlContent?: string }) => {
     const [members, setMembers] = React.useState<{ src: string; name: string }[]>([]);
@@ -261,7 +307,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
     <div className="bg-secondary/30">
        <section className="relative w-full h-[500px] bg-gray-800 text-white">
         <Image
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=500&auto-format&fit=crop"
+          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=500&auto=format&fit=crop"
           alt="Conference background"
           fill
           className="object-cover opacity-20"
@@ -377,7 +423,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
                                 <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><Banknote className="h-5 w-5 text-primary/80 transition-transform duration-300 group-hover:animate-dance"/>Registration &amp; Fees</h3>
                                 <Separator className="my-2 bg-primary/20 animate-width-pulse" />
                                 <div className="pt-4">
-                                    {renderRichContent(conference.registrationFees)}
+                                    <RenderRegistrationTable htmlContent={conference.registrationFees} />
                                 </div>
                             </div>
                         )}
@@ -416,7 +462,6 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
 }
 
 export default function ConferenceDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params;
   const LoadingSkeleton = () => (
     <div className="container py-12 md:py-24">
       <div className="space-y-4">
@@ -441,7 +486,7 @@ export default function ConferenceDetailPage({ params }: { params: { id: string 
 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <ConferenceDetailClient conferenceId={id} />
+      <ConferenceDetailClient conferenceId={params.id} />
     </Suspense>
   );
 }
