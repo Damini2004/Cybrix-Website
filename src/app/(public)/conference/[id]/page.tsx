@@ -161,7 +161,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
                             {row.map((cell, cellIndex) => (
                                 <TableCell 
                                     key={cellIndex} 
-                                    className={cellIndex === 0 ? 'font-medium' : 'text-muted-foreground'}
+                                    className={cn(cellIndex === 0 ? 'font-medium' : 'text-muted-foreground')}
                                     dangerouslySetInnerHTML={{ __html: cell }}
                                 />
                             ))}
