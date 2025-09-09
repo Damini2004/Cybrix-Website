@@ -1,3 +1,4 @@
+
 // src/app/(public)/conference/conference-videos/page.tsx
 "use client"
 
@@ -45,7 +46,7 @@ export default function ConferenceVideosPage() {
     <div className="bg-background">
       <section className="relative w-full py-20 md:py-32">
         <Image
-            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&h=900&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&h=900&auto=format=fit=crop"
             alt="Conference background"
             data-ai-hint="conference event"
             fill
@@ -65,22 +66,20 @@ export default function ConferenceVideosPage() {
               loop: true,
             }}
             plugins={[plugin.current]}
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
             className="w-full max-w-6xl mx-auto"
           >
             <CarouselContent className="-ml-8">
               {galleryItems.map((item, index) => (
                 <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl bg-white/10 backdrop-blur-sm">
+                    <Card className="overflow-hidden border-2 border-transparent bg-white/10 backdrop-blur-sm">
                       <CardContent className="p-0 relative aspect-video">
                         <Image
                           src={item.src}
                           alt={item.alt}
                           fill
                           data-ai-hint={item.hint}
-                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-auto object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                           <div className="text-white">
@@ -88,7 +87,7 @@ export default function ConferenceVideosPage() {
                             <p className="text-sm opacity-90">{item.author}</p>
                           </div>
                         </div>
-                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                           
                         </div>
                       </CardContent>
