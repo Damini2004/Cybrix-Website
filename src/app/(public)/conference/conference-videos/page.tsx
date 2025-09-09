@@ -13,6 +13,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PlayCircle } from "lucide-react";
 
 const galleryItems = [
     { src: "/scientific-gallery.png", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
@@ -58,26 +59,29 @@ export default function ConferenceVideosPage() {
                     plugins={[plugin.current]}
                     onMouseEnter={plugin.current.stop}
                     onMouseLeave={plugin.current.reset}
-                    className="w-full max-w-4xl mx-auto"
+                    className="w-full max-w-6xl mx-auto"
                 >
                     <CarouselContent className="-ml-8">
                     {galleryItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-1/2">
+                        <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-1/3">
                         <div className="p-1">
-                            <Card className="overflow-hidden group">
+                            <Card className="overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
                                 <CardContent className="p-0 relative aspect-video">
                                 <Image 
                                     src={item.src}
                                     alt={item.alt}
                                     fill
                                     data-ai-hint={item.hint}
-                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                                     <div className="text-white">
                                         <h3 className="text-xl font-bold">{item.title}</h3>
                                         <p className="text-sm opacity-90">{item.author}</p>
                                     </div>
+                                </div>
+                                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <PlayCircle className="h-16 w-16 text-white/80 transform scale-0 group-hover:scale-100 transition-transform duration-300" />
                                 </div>
                                 </CardContent>
                             </Card>
@@ -85,8 +89,8 @@ export default function ConferenceVideosPage() {
                         </CarouselItem>
                     ))}
                     </CarouselContent>
-                    <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8" />
-                    <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8" />
+                    <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 bg-background/80 hover:bg-background" />
+                    <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 bg-background/80 hover:bg-background" />
                 </Carousel>
             </div>
         </section>
