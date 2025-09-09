@@ -141,48 +141,38 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-8 md:py-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/50 to-background z-0"></div>
-          <div className="container px-4 md:px-6 z-10 relative">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="flex flex-col items-start text-left space-y-6">
-                <div className="space-y-4">
+      <section className="relative h-[600px] w-full flex items-center justify-center overflow-hidden">
+          <video
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 z-0"
+              src="/pri video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+          />
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+              <div className="mx-auto max-w-3xl">
                   <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl">
-                    <span className="block text-foreground text-4xl">Pure Research Insights</span>
+                      Pure Research Insights
                   </h1>
-                  <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
-                  Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence. </p>
-                </div>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link href="/submit-journal">
-                    <Button size="lg" className="w-full sm:w-auto">
-                      Submit Your Paper
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <Link href="/about">
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
+                  <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                      Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
+                  </p>
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+                      <Button size="lg" asChild>
+                          <Link href="/submit-journal">
+                              Submit Your Paper
+                              <ArrowRight className="ml-2 h-5 w-5" />
+                          </Link>
+                      </Button>
+                      <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
+                           <Link href="/about">Learn More</Link>
+                      </Button>
+                  </div>
               </div>
-              <div className="relative group w-full max-w-2xl mx-auto lg:mx-0 aspect-video">
-                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                <video 
-                  className="relative w-full h-full rounded-xl object-cover" 
-                  src="/pri video.mp4" 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
           </div>
-        </section>
+      </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container px-4 md:px-6">
