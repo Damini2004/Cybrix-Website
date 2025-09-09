@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { CheckCircle, Presentation, BookOpen, Users, Award } from "lucide-react";
 import Image from "next/image";
@@ -52,7 +53,7 @@ export default function AboutConferencePage() {
             </div>
         </section>
         
-        <section className="py-12 md:py-24">
+        <section className="w-full py-12 md:py-24">
             <div className="container px-4 md:px-6">
                 <div className="max-w-5xl mx-auto">
                     <Card className="shadow-xl overflow-hidden border-primary/10">
