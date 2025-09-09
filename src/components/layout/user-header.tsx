@@ -55,10 +55,10 @@ const publicationSubMenu = [
 ]
 
 const iprServicesSubMenu = [
+    { href: "/ipr-services/eb1-consultancy", label: "EB1 Consultancy", icon: Briefcase },
     { href: "/ipr-services/patent", label: "Patent", icon: Award },
     { href: "/ipr-services/copyright", label: "Copyright", icon: FileText },
     { href: "/ipr-services/trademark", label: "Trademark", icon: TrendingUp },
-    { href: "/ipr-services/eb1-consultancy", label: "EB1 Consultancy", icon: Briefcase },
 ]
 
 const conferenceSubMenuLinks = [
