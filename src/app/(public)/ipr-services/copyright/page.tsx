@@ -76,7 +76,7 @@ export default function CopyrightPage() {
             </section>
             
             <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
-                <div className="container px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold tracking-tight">Understanding Copyright Protection</h2>
                         <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
