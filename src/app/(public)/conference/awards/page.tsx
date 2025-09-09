@@ -71,7 +71,7 @@ export default function AwardsPage() {
         </section>
 
         <section className="w-full pb-16 md:pb-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter">Award Categories</h2>
                     <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
