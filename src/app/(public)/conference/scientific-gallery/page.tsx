@@ -71,7 +71,7 @@ export default function ScientificGalleryPage() {
   return (
     <div className="bg-secondary/30">
       <section className="w-full py-16 md:py-24">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Scientific Gallery</h1>
             </div>
@@ -139,7 +139,7 @@ export default function ScientificGalleryPage() {
       </section>
 
       <section className="w-full pb-16 md:pb-24 overflow-hidden">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
               <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold tracking-tighter">More Highlights</h2>
                   <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
