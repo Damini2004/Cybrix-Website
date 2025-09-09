@@ -16,23 +16,23 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const galleryItems = [
-    { src: "https://picsum.photos/1200/675?random=1", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
-    { src: "https://picsum.photos/1200/675?random=2", alt: "Event Photo 2", title: "Networking Session", author: "Symposium 2024", hint: "team collaboration" },
-    { src: "https://picsum.photos/1200/675?random=3", alt: "Event Photo 3", title: "Poster Session", author: "Innovation Summit 2024", hint: "poster session" },
-    { src: "https://picsum.photos/1200/675?random=4", alt: "Event Photo 4", title: "Panel Discussion", author: "Tech Conference 2024", hint: "panel discussion" },
-    { src: "https://picsum.photos/1200/675?random=5", alt: "Event Photo 5", title: "Award Ceremony", author: "Annual Gala 2023", hint: "awards ceremony" },
-    { src: "https://picsum.photos/1200/675?random=6", alt: "Event Photo 6", title: "Workshop Activity", author: "Skills Workshop 2024", hint: "team working" },
+    { src: "/scientific-gallery.png", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
+    { src: "/scientific-gallery.png", alt: "Event Photo 2", title: "Networking Session", author: "Symposium 2024", hint: "team collaboration" },
+    { src: "/scientific-gallery.png", alt: "Event Photo 3", title: "Poster Session", author: "Innovation Summit 2024", hint: "poster session" },
+    { src: "/scientific-gallery.png", alt: "Event Photo 4", title: "Panel Discussion", author: "Tech Conference 2024", hint: "panel discussion" },
+    { src: "/scientific-gallery.png", alt: "Event Photo 5", title: "Award Ceremony", author: "Annual Gala 2023", hint: "awards ceremony" },
+    { src: "/scientific-gallery.png", alt: "Event Photo 6", title: "Workshop Activity", author: "Skills Workshop 2024", hint: "team working" },
 ];
 
 const moreGalleryItems = [
-    { src: "https://picsum.photos/800/600?random=7", alt: "Gallery Image 1", hint: "conference audience" },
-    { src: "https://picsum.photos/800/600?random=8", alt: "Gallery Image 2", hint: "speaker presentation" },
-    { src: "https://picsum.photos/800/600?random=9", alt: "Gallery Image 3", hint: "group discussion" },
-    { src: "https://picsum.photos/800/600?random=10", alt: "Gallery Image 4", hint: "research poster" },
-    { src: "https://picsum.photos/800/600?random=11", alt: "Gallery Image 5", hint: "team collaboration" },
-    { src: "https://picsum.photos/800/600?random=12", alt: "Gallery Image 6", hint: "science technology" },
-    { src: "https://picsum.photos/800/600?random=13", alt: "Gallery Image 7", hint: "science lab" },
-    { src: "https://picsum.photos/800/600?random=14", alt: "Gallery Image 8", hint: "researcher writing" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 1", hint: "conference audience" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 2", hint: "speaker presentation" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 3", hint: "group discussion" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 4", hint: "research poster" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 5", hint: "team collaboration" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 6", hint: "science technology" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 7", hint: "science lab" },
+    { src: "/scientific-gallery.png", alt: "Gallery Image 8", hint: "researcher writing" },
 ];
 
 
