@@ -36,10 +36,17 @@ const conferenceServices = [
 export default function AboutConferencePage() {
   return (
     <div className="bg-secondary/30">
-        <section className="py-12 md:py-24 text-center bg-background">
-            <div className="container px-4 md:px-6">
+        <section className="relative w-full py-20 md:py-32 text-center text-white bg-gray-800">
+             <Image
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop"
+                alt="Conference audience"
+                fill
+                className="object-cover opacity-20"
+                data-ai-hint="conference audience"
+            />
+            <div className="container relative z-10 px-4 md:px-6">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">About PRI Conferences</h1>
-                <p className="mt-4 max-w-[900px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                <p className="mt-4 max-w-[900px] mx-auto text-white/90 md:text-xl/relaxed">
                     Advancing knowledge and fostering innovation by connecting the brightest minds from around the globe.
                 </p>
             </div>
