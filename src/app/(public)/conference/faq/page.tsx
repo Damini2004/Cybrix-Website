@@ -31,7 +31,7 @@ export default async function FaqPage() {
     <div className="bg-secondary/30">
         <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
             <Image
-                src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600&h=400&auto-format&fit=crop"
+                src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Support"
                 data-ai-hint="questions support"
                 fill
