@@ -50,8 +50,8 @@ export default function PlanConferencePage() {
         </section>
         
         <section className="w-full py-16 md:py-24 bg-background">
-            <div className="container px-4 md:px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="container mx-auto px-4 md:px-6">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
                      <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                          <Image
                             src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&auto=format&fit=crop"
