@@ -52,7 +52,7 @@ export default function PeerReviewPage() {
             </section>
 
              <section className="w-full py-16 md:py-24 bg-background">
-                <div className="container px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                             <Image
