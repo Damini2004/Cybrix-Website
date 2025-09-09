@@ -89,7 +89,7 @@ export default function ConferenceVideosPage() {
                           </div>
                         </div>
                         <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <PlayCircle className="h-16 w-16 text-white/80 transform scale-0 group-hover:scale-100 transition-transform duration-300" />
+                          
                         </div>
                       </CardContent>
                     </Card>
