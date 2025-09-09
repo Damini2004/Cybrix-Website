@@ -1,38 +1,112 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { CheckCircle, FileText, BarChart, Search, Palette, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const supportServices = [
-  "Manuscript Editing & Formatting",
-  "Statistical Analysis & Consultation",
-  "Plagiarism Checking",
-  "Graphical Abstract Design",
-  "Journal Selection Assistance",
+  {
+    icon: FileText,
+    title: "Manuscript Editing & Formatting",
+    description: "Our expert editors will refine your manuscript for clarity, grammar, and style, ensuring it meets the specific formatting requirements of your target journal."
+  },
+  {
+    icon: BarChart,
+    title: "Statistical Analysis & Consultation",
+    description: "Get expert help with your data. We offer statistical analysis, data visualization, and consultation to ensure your results are robust and clearly presented."
+  },
+  {
+    icon: Search,
+    title: "Plagiarism Checking",
+    description: "We provide comprehensive plagiarism checks using industry-leading software to ensure the originality of your work before submission."
+  },
+  {
+    icon: Palette,
+    title: "Graphical Abstract & Figure Design",
+    description: "Enhance the visual appeal and impact of your research with professionally designed graphical abstracts, figures, and charts."
+  },
+  {
+    icon: ArrowRight,
+    title: "Journal Selection Assistance",
+    description: "Navigating the vast number of journals can be daunting. We help you identify the most suitable journals for your manuscript based on scope, impact, and audience."
+  }
 ];
 
 export default function ResearchSupportPage() {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-24">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Research Support Services</h1>
-        <p className="mt-4 text-lg text-muted-foreground">From manuscript preparation to post-publication, we're here to help.</p>
-      </div>
+    <div className="bg-secondary/30">
+        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+            <Image
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&h=400&auto=format&fit=crop"
+                alt="Research Support"
+                data-ai-hint="team collaboration"
+                fill
+                className="object-cover opacity-10"
+            />
+            <div className="relative z-10">
+                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Research Support Services
+                </h1>
+                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                    From manuscript preparation to post-publication, we provide comprehensive support to help you achieve your research goals.
+                </p>
+            </div>
+        </section>
 
-      <Card className="max-w-3xl mx-auto">
-        <CardHeader>
-          <CardTitle>Our Support Services</CardTitle>
-          <CardDescription>We offer a range of services to help you produce high-quality research and increase your chances of publication.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-4">
-            {supportServices.map((service, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
-                <span>{service}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
+        <section className="w-full py-16 md:py-24 bg-background">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
+                         <Image
+                            src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&h=600&auto=format&fit=crop"
+                            alt="Research collaboration"
+                            data-ai-hint="team meeting"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                    <div className="space-y-6">
+                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Your Research Partner</div>
+                        <h2 className="text-3xl font-bold tracking-tighter">Navigating the Path to Publication</h2>
+                        <p className="text-muted-foreground text-justify">
+                            The journey from research idea to published paper is complex. At Pure Research Insights, we offer a suite of specialized support services designed to assist you at every stage. Our team of experienced editors, statisticians, and publication experts is dedicated to helping you produce high-quality, impactful research and navigate the submission process with confidence.
+                        </p>
+                         <Button asChild>
+                            <Link href="/contact-us">
+                                Get Support Today <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section className="w-full pb-16 md:pb-24">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter">Our Support Services</h2>
+                    <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+                        We offer a range of services to help you produce high-quality research and increase your chances of publication.
+                    </p>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {supportServices.map((service, index) => (
+                    <Card key={index} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-primary/10">
+                    <CardHeader className="items-center">
+                        <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                        <service.icon className="h-8 w-8 text-primary" />
+                        </div>
+                        <CardTitle>{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <p className="text-muted-foreground">{service.description}</p>
+                    </CardContent>
+                    </Card>
+                ))}
+                </div>
+            </div>
+        </section>
     </div>
   );
 }
