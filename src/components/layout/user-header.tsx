@@ -92,7 +92,7 @@ const mainNavLinks = [
   },
   { 
     href: "/ipr-services", 
-    label: "IPR Services",
+    label: "Services",
     children: iprServicesSubMenu
   },
   { href: "/internship", label: "Internship" },
