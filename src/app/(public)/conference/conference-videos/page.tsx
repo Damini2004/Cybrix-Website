@@ -9,7 +9,6 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -37,34 +36,9 @@ const moreGalleryItems = [
 
 
 export default function ConferenceVideosPage() {
-  const [mainApi, setMainApi] = React.useState<CarouselApi>()
-  const [thumbApi, setThumbApi] = React.useState<CarouselApi>()
-  const [selectedIndex, setSelectedIndex] = React.useState(0)
-
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
-  )
-
-  const onThumbClick = React.useCallback(
-    (index: number) => {
-      if (!mainApi || !thumbApi) return
-      mainApi.scrollTo(index)
-    },
-    [mainApi, thumbApi]
-  )
-
-  const onSelect = React.useCallback(() => {
-    if (!mainApi || !thumbApi) return
-    setSelectedIndex(mainApi.selectedScrollSnap())
-    thumbApi.scrollTo(mainApi.selectedScrollSnap())
-  }, [mainApi, thumbApi, setSelectedIndex])
-
-  React.useEffect(() => {
-    if (!mainApi) return
-    onSelect()
-    mainApi.on("select", onSelect)
-    mainApi.on("reInit", onSelect)
-  }, [mainApi, onSelect])
+  );
 
   return (
     <div className="bg-secondary/30">
@@ -76,72 +50,44 @@ export default function ConferenceVideosPage() {
                         Watch sessions, view photos, and relive the key moments from our premier conferences and events.
                     </p>
                 </div>
-                <div className="space-y-4 max-w-5xl mx-auto">
-                <Carousel 
-                    setApi={setMainApi} 
-                    className="w-full"
+                 <Carousel
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
                     plugins={[plugin.current]}
                     onMouseEnter={plugin.current.stop}
                     onMouseLeave={plugin.current.reset}
+                    className="w-full max-w-4xl mx-auto"
                 >
-                    <CarouselContent>
+                    <CarouselContent className="-ml-8">
                     {galleryItems.map((item, index) => (
-                        <CarouselItem key={index}>
-                        <Card className="overflow-hidden">
-                            <CardContent className="p-0 relative aspect-video">
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-auto object-cover"
-                            />
-                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
-                                <div className="text-white">
-                                    <h3 className="text-xl font-bold">{item.title}</h3>
-                                    <p className="text-sm opacity-90">{item.author}</p>
+                        <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-1/2">
+                        <div className="p-1">
+                            <Card className="overflow-hidden group">
+                                <CardContent className="p-0 relative aspect-video">
+                                <Image 
+                                    src={item.src}
+                                    alt={item.alt}
+                                    fill
+                                    data-ai-hint={item.hint}
+                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                    <div className="text-white">
+                                        <h3 className="text-xl font-bold">{item.title}</h3>
+                                        <p className="text-sm opacity-90">{item.author}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            </CardContent>
-                        </Card>
-                        </CarouselItem>
-                    ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2" />
-                    <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
-                </Carousel>
-                <Carousel
-                    setApi={setThumbApi}
-                    opts={{
-                    align: "start",
-                    containScroll: "keepSnaps",
-                    dragFree: true,
-                    }}
-                    className="w-full"
-                >
-                    <CarouselContent className="p-1 -ml-2">
-                    {galleryItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-2 basis-1/4 md:basis-1/5 lg:basis-1/6">
-                        <div
-                            onClick={() => onThumbClick(index)}
-                            className={cn(
-                            "block aspect-video relative rounded-md overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-2",
-                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                            )}
-                        >
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-auto object-cover"
-                            />
+                                </CardContent>
+                            </Card>
                         </div>
                         </CarouselItem>
                     ))}
                     </CarouselContent>
+                    <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8" />
+                    <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8" />
                 </Carousel>
-                </div>
             </div>
         </section>
 
