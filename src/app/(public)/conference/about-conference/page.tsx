@@ -94,14 +94,14 @@ export default function AboutConferencePage() {
         </section>
         
         <section className="pb-12 md:pb-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                  <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter">Conference Services</h2>
                     <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
                         We offer a comprehensive range of services to make your conference a success.
                     </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
                     {conferenceServices.map((service) => (
                          <Card key={service.title} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                             <CardHeader className="items-center">
