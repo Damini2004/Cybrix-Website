@@ -26,7 +26,7 @@ const submissionBenefits = [
 
 export default function SubmitJournalPage() {
   return (
-    <div className="bg-background">
+    <>
       {/* Hero Section */}
       <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
           <Image
@@ -86,6 +86,6 @@ export default function SubmitJournalPage() {
               </Card>
           </div>
       </section>
-    </div>
+    </>
   );
 }

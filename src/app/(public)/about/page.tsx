@@ -34,7 +34,7 @@ export default async function AboutPage() {
   const content = await getAboutContent();
   
   return (
-    <div className="w-full bg-secondary/30">
+    <>
       <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
         <Image
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&h=400&auto=format&fit=crop"
@@ -54,7 +54,7 @@ export default async function AboutPage() {
       </section>
 
 
-      <section className="pb-12 md:pb-24 lg:pb-32 pt-16">
+      <section className="container mx-auto px-4 md:px-6 pb-12 md:pb-24 lg:pb-32 pt-16">
         <Card className="shadow-xl overflow-hidden border-primary/10">
           <div className="grid md:grid-cols-2 items-center">
             <div className="relative h-64 md:h-full min-h-[300px]">
@@ -131,6 +131,6 @@ export default async function AboutPage() {
             </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
