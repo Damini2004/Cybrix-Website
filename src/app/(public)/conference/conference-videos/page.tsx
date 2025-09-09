@@ -93,8 +93,6 @@ export default function ConferenceVideosPage() {
                                 src={item.src}
                                 alt={item.alt}
                                 fill
-                                width={1200}
-                                height={675}
                                 data-ai-hint={item.hint}
                                 className="w-full h-auto object-cover"
                             />
@@ -135,8 +133,6 @@ export default function ConferenceVideosPage() {
                                 src={item.src}
                                 alt={item.alt}
                                 fill
-                                width={200}
-                                height={112}
                                 data-ai-hint={item.hint}
                                 className="w-full h-auto object-cover"
                             />
@@ -166,8 +162,6 @@ export default function ConferenceVideosPage() {
                                 src={item.src}
                                 alt={item.alt}
                                 fill
-                                width={800}
-                                height={600}
                                 data-ai-hint={item.hint}
                                 className="w-full h-full object-cover"
                             />

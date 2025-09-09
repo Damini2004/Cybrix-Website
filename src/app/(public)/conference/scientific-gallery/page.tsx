@@ -14,7 +14,6 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 const galleryItems = [
     { src: "/scientific-gallery.png", alt: "Scientific Poster 1", title: "Quantum Entanglement", author: "Dr. Evelyn Reed", hint: "science research" },
