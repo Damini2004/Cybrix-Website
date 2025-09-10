@@ -3,8 +3,19 @@ import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Pure Research Insights',
-  description: 'The leading platform for academic journal submissions and management.',
+  title: {
+    default: 'Pure Research Insights',
+    template: '%s | Pure Research Insights',
+  },
+  description: 'The leading platform for academic journal submissions, conference management, and publication support.',
+  keywords: ['academic publishing', 'research journals', 'scientific conferences', 'manuscript submission', 'peer review'],
+  openGraph: {
+    title: 'Pure Research Insights',
+    description: 'The leading platform for academic journal submissions and management.',
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://www.pureresearchinsights.com', // Replace with your actual domain
+  },
 };
 
 export default function RootLayout({

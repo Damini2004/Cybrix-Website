@@ -1,11 +1,16 @@
-
-
+import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
 import { ArrowRight, BookCheck, BrainCircuit, Microscope, ShieldCheck, Database, GitBranch, Cpu, Presentation, GraduationCap, Award, Briefcase, BookOpen, FileText, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
+
+export const metadata: Metadata = {
+  title: 'Home | Academic Publishing & Conference Management',
+  description: 'Pure Research Insights offers expert solutions for journal submissions, conference organization, and publication consultancy to empower researchers and businesses worldwide.',
+};
+
 
 const indexedJournalCategories = [
 
