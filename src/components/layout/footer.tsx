@@ -47,7 +47,7 @@ const Footer = () => {
                             </p>
                             <p className="flex items-start gap-2">
                                 <Phone className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>+91-8446723800</span>
+                                <span>+91-7020095748</span>
                             </p>
                             <p className="flex items-start gap-2">
                                 <Mail className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
@@ -82,20 +82,24 @@ const Footer = () => {
                         </ul>
                     </div>
                     
-                    {/* Column 4: Subscribe */}
+                    {/* Column 4: Map */}
                     <div className="space-y-6">
                         <div>
                            <h3 className="text-lg font-semibold mb-4 relative">
-                                Subscribe
+                                Our Location
                                 <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
                             </h3>
-                            <p className="text-sm text-gray-400 mb-4">Don't miss out on our updates! Subscribe to our newsletter by filling out the form below.</p>
-                            <form className="flex items-center">
-                                <Input type="email" placeholder="Email Address" className="bg-white text-black rounded-full rounded-r-none border-none h-11 focus-visible:ring-offset-0 focus-visible:ring-2 focus-visible:ring-[#D32F2F]" />
-                                <Button type="submit" size="icon" className="bg-[#D32F2F] hover:bg-[#b71c1c] rounded-full rounded-l-none h-11 w-12 flex-shrink-0">
-                                    <Send className="h-5 w-5" />
-                                </Button>
-                            </form>
+                            <div className="overflow-hidden rounded-md">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.019106962364!2d79.0823523149339!3d21.11186668595304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c05296819c09%3A0x2fe355953c856645!2sPure%20Research%20Insights!5e0!3m2!1sen!2sin!4v1678886 Pure Research Insights!5e0!3m2!1sen!2sin" 
+                                    width="100%" 
+                                    height="150" 
+                                    style={{ border: 0 }}
+                                    allowFullScreen={false}
+                                    loading="lazy" 
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                ></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>

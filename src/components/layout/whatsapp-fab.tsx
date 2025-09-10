@@ -19,7 +19,7 @@ export default function WhatsappFab() {
       asChild
       className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-[#25D366] hover:bg-[#128C7E] shadow-lg"
     >
-      <Link href="https://wa.me/8446723800" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <Link href="https://wa.me/7020095748" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <WhatsAppIcon />
       </Link>
     </Button>
