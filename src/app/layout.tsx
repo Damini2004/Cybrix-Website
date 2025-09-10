@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'The leading platform for academic journal submissions and management.',
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.pureresearchinsights.com', // Replace with your actual domain
+    url: 'https://www.pureresearchinsights.com', 
   },
 };
 

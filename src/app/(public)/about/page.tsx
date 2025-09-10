@@ -3,6 +3,13 @@ import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Target, Eye, Presentation, BookOpen, GraduationCap } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about Pure Research Insights' mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe through conference management, publications, and PhD services.",
+  keywords: ["about us", "mission", "vision", "academic services", "conference management"],
+};
 
 async function getAboutContent() {
     const result = await getPageContent("about");
@@ -38,7 +45,7 @@ export default async function AboutPage() {
       <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
         <Image
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&h=400&auto=format&fit=crop"
-          alt="Our Team"
+          alt="A diverse team collaborating on a project in a modern office"
           data-ai-hint="team collaboration"
           fill
           className="object-cover opacity-10"
@@ -60,7 +67,7 @@ export default async function AboutPage() {
             <div className="relative h-64 md:h-full min-h-[300px]">
               <Image
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop"
-                alt="About Us Image"
+                alt="A group of professionals working together around a laptop"
                 data-ai-hint="team collaboration"
                 fill
                 className="object-cover"

@@ -2,6 +2,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 import ContactForm from "@/components/forms/contact-form";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with the Pure Research Insights team. Contact us via our form, email, or phone for support, questions, or partnership inquiries.",
+  keywords: ["contact", "support", "inquiry", "email", "phone number", "address"],
+};
+
 
 export default function ContactUsPage() {
   return (
