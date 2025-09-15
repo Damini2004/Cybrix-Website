@@ -21,7 +21,7 @@ const exploreLinks = [
 ]
 
 const socialLinks = [
-    { href: "#", icon: Linkedin },
+    { href: "https://www.linkedin.com/company/pure-researcher-insights/", icon: Linkedin },
     { href: "https://www.youtube.com/@PureResearchInsights", icon: Youtube },
     { href: "#", icon: Facebook },
     { href: "https://www.instagram.com/pure_research_insights?igsh=ZjdqZXN5NHRtemhn", icon: Instagram },
@@ -114,11 +114,6 @@ const Footer = () => {
                                     </Button>
                                 </Link>
                             ))}
-                             <Link href="#">
-                                <Button variant="outline" size="icon" className="bg-transparent border-white rounded-full text-white hover:bg-white hover:text-black transition-colors">
-                                    <WhatsAppIcon />
-                                </Button>
-                            </Link>
                         </div>
                     </div>
                 </div>
