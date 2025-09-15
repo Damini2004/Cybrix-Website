@@ -22,10 +22,9 @@ const exploreLinks = [
 
 const socialLinks = [
     { href: "#", icon: Linkedin },
-    { href: "#", icon: Twitter },
-    { href: "#", icon: Youtube },
+    { href: "https://www.youtube.com/@PureResearchInsights", icon: Youtube },
     { href: "#", icon: Facebook },
-    { href: "#", icon: Instagram },
+    { href: "https://www.instagram.com/pure_research_insights?igsh=ZjdqZXN5NHRtemhn", icon: Instagram },
 ]
 
 const WhatsAppIcon = () => (
@@ -43,7 +42,7 @@ const Footer = () => {
                         <div className="space-y-2 text-sm text-gray-400">
                             <p className="flex items-start gap-2">
                                 <MapPin className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>201-Pure Research Insights, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
+                                <span>202-Pure Research Insights, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
                             </p>
                             <p className="flex items-start gap-2">
                                 <Phone className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />

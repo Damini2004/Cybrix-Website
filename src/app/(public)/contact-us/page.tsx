@@ -57,7 +57,7 @@ export default function ContactUsPage() {
                     <MapPin className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Office</h3>
-                <p className="text-muted-foreground">201-Pure Research Insights, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</p>
+                <p className="text-muted-foreground">202-Pure Research Insights, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</p>
             </Card>
         </div>
       </div>
