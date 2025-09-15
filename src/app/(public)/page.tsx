@@ -8,7 +8,7 @@ import { getJournals, Journal } from "@/services/journalService";
 
 export const metadata: Metadata = {
   title: 'Home | Academic Publishing & Conference Management',
-  description: 'Pure Research Insights offers expert solutions for journal submissions, conference organization, and publication consultancy to empower researchers and businesses worldwide.',
+  description: 'Pure Research Insights empowers researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.',
 };
 
 
