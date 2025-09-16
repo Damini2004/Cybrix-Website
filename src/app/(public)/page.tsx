@@ -1,3 +1,4 @@
+
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
@@ -194,7 +195,7 @@ export default function HomePage() {
                         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
                             {keyServices.map((service) => (
                                 <div key={service.title} className="flex flex-col items-center text-center">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4 animate-dance">
                                         <service.icon className="h-6 w-6 text-primary" />
                                     </div>
                                     <h3 className="text-md font-bold">{service.title}</h3>
