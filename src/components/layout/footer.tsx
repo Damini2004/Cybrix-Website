@@ -89,8 +89,7 @@ const Footer = () => {
                                 <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
                             </h3>
                             <div className="overflow-hidden rounded-md">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3852957519916!2d79.08936257549144!3d21.09719988056929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf3c2df0a41d%3A0x7e626dcf327dd653!2sResearcher%20Connect!5e0!3m2!1sen!2sin!4v1757938854644!5m2!1sen!2sin" title="Pure Research Insights" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3852957519916!2d79.08936257549144!3d21.09719988056929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf3c2df0a41d%3A0x7e626dcf327dd653!2sResearcher%20Connect!5e0!3m2!1sen!2sin!4v1758016197892!5m2!1sen!2sin" width="600" height="450" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>                            </div>
                         </div>
                     </div>
                 </div>
