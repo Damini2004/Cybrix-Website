@@ -12,7 +12,7 @@ export interface SuperAdmin {
 }
 
 const defaultSuperAdmin = {
-    email: 'superadmin@pureresearchinsights.com',
+    email: 'superadmin@cybrix.com',
     password: 'password',
 };
 

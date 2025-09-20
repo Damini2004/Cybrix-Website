@@ -274,7 +274,7 @@ export default function UserHeader() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Logo className="h-16 w-16" />
             <span className="hidden font-bold sm:inline-block text-xl">
-              Pure Research Insights
+              Cybrix
             </span>
           </Link>
         </div>
@@ -315,7 +315,7 @@ export default function UserHeader() {
                     onClick={() => setMenuOpen(false)}
                     >
                     <Logo className="h-8 w-8" />
-                    <span className="font-bold">Pure Research Insights</span>
+                    <span className="font-bold">Cybrix</span>
                 </Link>
             </SheetHeader>
             <ScrollArea className="flex-1">

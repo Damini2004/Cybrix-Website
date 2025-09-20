@@ -14,7 +14,7 @@ const quickLinks = [
 ]
 
 const exploreLinks = [
-    { href: "#", label: "Pure Research Insights" },
+    { href: "#", label: "Cybrix" },
     { href: "/about", label: "Careers" },
     { href: "/research-support", label: "Research Support" },
     { href: "/contact-us", label: "Contact Us" },
@@ -42,7 +42,7 @@ const Footer = () => {
                         <div className="space-y-2 text-sm text-gray-400">
                             <p className="flex items-start gap-2">
                                 <MapPin className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>202-Pure Research Insights, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
+                                <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
                             </p>
                             <p className="flex items-start gap-2">
                                 <Phone className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
@@ -89,7 +89,7 @@ const Footer = () => {
                                 <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
                             </h3>
                             <div className="overflow-hidden rounded-md">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3424623913434!2d79.08999457549149!3d21.098908680568048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bfc7aff3723f%3A0x3008e412fdbad687!2sPure%20Research%20Insights!5e0!3m2!1sen!2sin!4v1758197039783!5m2!1sen!2sin" width="600" height="450" style={{ border:0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3424623913434!2d79.08999457549149!3d21.098908680568048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bfc7aff3723f%3A0x3008e412fdbad687!2sCybrix!5e0!3m2!1sen!2sin!4v1758197039783!5m2!1sen!2sin" width="600" height="450" style={{ border:0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>

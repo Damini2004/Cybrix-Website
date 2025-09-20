@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Pure Research Insights' mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe through conference management, publications, and PhD services.",
+  description: "Learn about Cybrix's mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe through conference management, publications, and PhD services.",
   keywords: ["about us", "mission", "vision", "academic services", "conference management"],
 };
 
@@ -52,7 +52,7 @@ export default async function AboutPage() {
         />
         <div className="relative z-10">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                About Pure Research Insights
+                About Cybrix
             </h1>
             <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
                 Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
