@@ -29,9 +29,9 @@ export default function BannerCarousel({ images, children, className }: BannerCa
                 className="absolute inset-0 w-full h-full"
                 opts={{ loop: true }}
             >
-                <CarouselContent className="-ml-0">
+                <CarouselContent className="-ml-0 h-full">
                     {images.map((image, index) => (
-                        <CarouselItem key={index} className="pl-0">
+                        <CarouselItem key={index} className="pl-0 h-full relative">
                             <Image
                                 src={image.src}
                                 alt={image.alt}
