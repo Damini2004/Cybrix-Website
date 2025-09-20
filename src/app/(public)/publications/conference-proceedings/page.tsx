@@ -44,7 +44,7 @@ const services = [
 export default function ConferenceProceedingsPage() {
     return (
         <div>
-            <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+            <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
                 <Image
                     src="/conference-proceeding.png"
                     alt="Conference Presentation"
@@ -52,18 +52,21 @@ export default function ConferenceProceedingsPage() {
                     fill
                     className="object-cover opacity-10"
                 />
-                <div className="relative z-10">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                        Conference Proceedings
-                    </h1>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Share your research on a global stage. All accepted abstracts from our conferences are published in our prestigious, indexed Conference Proceedings.
-                    </p>
-                    <Button size="lg" className="mt-8" asChild>
-                        <a href="/conference">
-                            View Upcoming Conferences <ArrowRight className="ml-2 h-5 w-5" />
-                        </a>
-                    </Button>
+                <div className="absolute inset-0 bg-black/60 z-10" />
+                <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+                    <div className="mx-auto max-w-3xl">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                            Conference Proceedings
+                        </h1>
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                            Share your research on a global stage. All accepted abstracts from our conferences are published in our prestigious, indexed Conference Proceedings.
+                        </p>
+                         <Button size="lg" className="mt-8" asChild>
+                            <a href="/conference">
+                                View Upcoming Conferences <ArrowRight className="ml-2 h-5 w-5" />
+                            </a>
+                        </Button>
+                    </div>
                 </div>
             </section>
             

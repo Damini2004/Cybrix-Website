@@ -6,21 +6,24 @@ import { Search, Edit, ShieldCheck, ArrowRight } from "lucide-react";
 export default function TrademarkPage() {
     return (
         <div className="bg-background">
-            <section className="relative w-full py-20 md:py-32 bg-primary/5 flex items-center justify-center text-center px-4">
+            <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
                 <Image
                     src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1600&h=600&auto=format&fit=crop"
                     alt="Trademark Registration"
                     data-ai-hint="legal brand"
                     fill
-                    className="object-cover opacity-10"
+                    className="object-cover"
                 />
-                <div className="relative z-10">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                        Trademark Registration
-                    </h1>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Secure your brand identity. A trademark protects your brand names, logos, and slogans, distinguishing your goods and services from the competition.
-                    </p>
+                <div className="absolute inset-0 bg-black/60 z-10" />
+                <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+                    <div className="mx-auto max-w-3xl">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                            Trademark Registration
+                        </h1>
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                            Secure your brand identity. A trademark protects your brand names, logos, and slogans, distinguishing your goods and services from the competition.
+                        </p>
+                    </div>
                 </div>
             </section>
             <div className="container mx-auto px-4 py-12 md:py-20">

@@ -42,21 +42,24 @@ export default async function AboutPage() {
   
   return (
     <>
-      <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+      <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&h=400&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop"
           alt="A diverse team collaborating on a project in a modern office"
           data-ai-hint="team collaboration"
           fill
-          className="object-cover opacity-10"
+          className="object-cover"
         />
-        <div className="relative z-10">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+          <div className="mx-auto max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                 About Cybrix
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
                 Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
             </p>
+          </div>
         </div>
       </section>
 

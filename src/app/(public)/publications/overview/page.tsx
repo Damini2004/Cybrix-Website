@@ -9,8 +9,8 @@ const plagiarismPolicies = [
     { text: "Plagiarized articles will be rejected (Must be 20% below including references).", icon: AlertTriangle, iconColor: "text-destructive" },
     { text: "Copying of contents from other articles is strictly prohibited.", icon: AlertTriangle, iconColor: "text-destructive" },
     { text: "Only articles with 80% original content should be submitted with the expectation of being accepted for our conferences and journals.", icon: CheckCircle, iconColor: "text-green-500" },
-    { text: "PRI keenly discourages plagiarism in research articles, proposals and thesis submitted to us.", icon: CheckCircle, iconColor: "text-green-500" },
-    { text: "All articles submitted to PRI Conferences and Publications first undergo a plagiarism check before being sent to our editorial board for review.", icon: CheckCircle, iconColor: "text-green-500" },
+    { text: "Cybrix keenly discourages plagiarism in research articles, proposals and thesis submitted to us.", icon: CheckCircle, iconColor: "text-green-500" },
+    { text: "All articles submitted to Cybrix Conferences and Publications first undergo a plagiarism check before being sent to our editorial board for review.", icon: CheckCircle, iconColor: "text-green-500" },
     { text: "Articles failing plagiarism check will be subjected to rejection.", icon: AlertTriangle, iconColor: "text-destructive" },
 ];
 
@@ -29,55 +29,22 @@ export default function PublicationsOverviewPage() {
     <div className="bg-background">
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
             {/* Header Section with Carousel */}
-            <div className="relative mb-16 rounded-xl overflow-hidden shadow-lg">
-                <Carousel
-                    className="w-full"
-                    opts={{
-                        loop: true,
-                    }}
-                >
-                    <CarouselContent>
-                        <CarouselItem>
-                            <Image
-                                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200&h=400&auto=format&fit=crop"
-                                alt="Background 1"
-                                data-ai-hint="library books"
-                                width={1200}
-                                height={400}
-                                className="w-full h-[400px] object-cover"
-                            />
-                        </CarouselItem>
-                        <CarouselItem>
-                             <Image
-                                src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?q=80&w=1200&h=400&auto=format&fit=crop"
-                                alt="Background 2"
-                                data-ai-hint="research lab"
-                                width={1200}
-                                height={400}
-                                className="w-full h-[400px] object-cover"
-                            />
-                        </CarouselItem>
-                         <CarouselItem>
-                             <Image
-                                src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=1200&h=400&auto=format&fit=crop"
-                                alt="Background 3"
-                                data-ai-hint="academic conference"
-                                width={1200}
-                                height={400}
-                                className="w-full h-[400px] object-cover"
-                            />
-                        </CarouselItem>
-                    </CarouselContent>
-                </Carousel>
-                <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                    <div className="text-center text-white p-4">
-                        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                            <span className="text-primary">PRI</span> Publications
-                        </h1>
-                        <p className="mt-6 text-lg text-white/90 max-w-3xl mx-auto">
-                            PRI Journals are peer-reviewed and collaborative journals that strive to publish the most fascinating and dependable source of current information on Arts & Science, Management, Engineering, and Technology.
-                        </p>
-                    </div>
+            <div className="relative mb-16 rounded-xl overflow-hidden shadow-lg h-[400px] flex items-center justify-center">
+                <Image
+                    src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200&h=400&auto=format&fit=crop"
+                    alt="Background 1"
+                    data-ai-hint="library books"
+                    fill
+                    className="w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="relative z-10 text-center text-white p-4 max-w-3xl mx-auto">
+                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                        <span className="text-primary">Cybrix</span> Publications
+                    </h1>
+                    <p className="mt-6 text-lg text-white/90">
+                        Cybrix Journals are peer-reviewed and collaborative journals that strive to publish the most fascinating and dependable source of current information on Arts & Science, Management, Engineering, and Technology.
+                    </p>
                 </div>
             </div>
 
@@ -87,7 +54,7 @@ export default function PublicationsOverviewPage() {
                     <div className="p-8 md:p-10 flex flex-col justify-center">
                         <h2 className="text-3xl font-bold tracking-tight text-primary mb-4">Expert Publishing Assistance</h2>
                         <p className="text-muted-foreground text-lg">
-                            PRI provides help, assistance, and direction in preparation for SCI and SCIE journal publishing. The SCI & SCIE Indexed Journal Search might be exhausting. Get help with SCI and SCIE Indexed journal publishing.
+                            Cybrix provides help, assistance, and direction in preparation for SCI and SCIE journal publishing. The SCI & SCIE Indexed Journal Search might be exhausting. Get help with SCI and SCIE Indexed journal publishing.
                         </p>
                     </div>
                     <div className="relative min-h-[300px] md:min-h-0">

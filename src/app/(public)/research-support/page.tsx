@@ -36,21 +36,24 @@ const supportServices = [
 export default function ResearchSupportPage() {
   return (
     <div className="bg-secondary/30">
-        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+        <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
             <Image
                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Research Support"
                 data-ai-hint="team collaboration"
                 fill
-                className="object-cover opacity-10"
+                className="object-cover"
             />
-            <div className="relative z-10">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    Research Support Services
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                    From manuscript preparation to post-publication, we provide comprehensive support to help you achieve your research goals.
-                </p>
+            <div className="absolute inset-0 bg-black/60 z-10" />
+            <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+                <div className="mx-auto max-w-3xl">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Research Support Services
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                        From manuscript preparation to post-publication, we provide comprehensive support to help you achieve your research goals.
+                    </p>
+                </div>
             </div>
         </section>
 

@@ -30,7 +30,7 @@ const supportInfo = [
 export default function JournalSupportPage() {
   return (
     <div className="bg-secondary/50">
-        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+        <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
             <Image
                 src="/journal-support.png"
                 alt="Journal Support"
@@ -38,13 +38,16 @@ export default function JournalSupportPage() {
                 fill
                 className="object-cover opacity-10"
             />
-            <div className="relative z-10">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    Journal Publication Support
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                    Navigating the path to publication with expert guidance and dedicated support.
-                </p>
+            <div className="absolute inset-0 bg-black/60 z-10" />
+            <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+                <div className="mx-auto max-w-3xl">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Journal Publication Support
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                        Navigating the path to publication with expert guidance and dedicated support.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -66,7 +69,7 @@ export default function JournalSupportPage() {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Abstract Submission Guidelines</h1>
             <p className="text-lg text-muted-foreground">
-                PRI’s Conferences, Meetings, Summits, and Workshops offer vibrant scientific programs with the opportunity for attendees to submit and present their groundbreaking data.
+                Cybrix’s Conferences, Meetings, Summits, and Workshops offer vibrant scientific programs with the opportunity for attendees to submit and present their groundbreaking data.
             </p>
             <Button size="lg" asChild>
                 <a href="/submit-journal">

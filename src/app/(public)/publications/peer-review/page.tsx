@@ -33,7 +33,7 @@ const reviewSteps = [
 export default function PeerReviewPage() {
     return (
         <div>
-            <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+            <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
                 <Image
                     src="/peer-review.png"
                     alt="Peer Review Process"
@@ -41,13 +41,16 @@ export default function PeerReviewPage() {
                     fill
                     className="object-cover opacity-10"
                 />
-                <div className="relative z-10">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                        Upholding Academic Integrity
-                    </h1>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Our commitment to quality through a rigorous, transparent, and constructive peer-review process.
-                    </p>
+                <div className="absolute inset-0 bg-black/60 z-10" />
+                <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+                    <div className="mx-auto max-w-3xl">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                            Upholding Academic Integrity
+                        </h1>
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                            Our commitment to quality through a rigorous, transparent, and constructive peer-review process.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -67,7 +70,7 @@ export default function PeerReviewPage() {
                              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Our Philosophy</div>
                             <h2 className="text-3xl font-bold tracking-tighter">A Foundation of Trust & Quality</h2>
                             <p className="text-muted-foreground text-justify">
-                                At Pure Research Insights, we believe that rigorous peer review is the cornerstone of high-quality academic publishing. Our process is designed not only to validate research but also to provide constructive feedback that enhances the final publication. By engaging independent experts, we ensure that every article meets the highest standards of scientific merit, originality, and significance, thereby fostering trust within the global research community.
+                                At Cybrix, we believe that rigorous peer review is the cornerstone of high-quality academic publishing. Our process is designed not only to validate research but also to provide constructive feedback that enhances the final publication. By engaging independent experts, we ensure that every article meets the highest standards of scientific merit, originality, and significance, thereby fostering trust within the global research community.
                             </p>
                         </div>
                     </div>

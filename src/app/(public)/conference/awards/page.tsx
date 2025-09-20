@@ -29,21 +29,24 @@ const awardCategories = [
 export default function AwardsPage() {
   return (
     <div className="bg-secondary/30">
-        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+        <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
             <Image
                 src="https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Awards Ceremony"
                 data-ai-hint="awards ceremony"
                 fill
-                className="object-cover opacity-10"
+                className="object-cover"
             />
-            <div className="relative z-10">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    Awards & Recognition
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                    PRI is committed to celebrating excellence in research and innovation. Our awards honor the outstanding contributions of researchers and scholars who are pushing the boundaries of knowledge.
-                </p>
+            <div className="absolute inset-0 bg-black/60 z-10" />
+            <div className="container px-4 md:px-6 z-20 relative text-center text-white">
+                <div className="mx-auto max-w-3xl">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Awards & Recognition
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                        Cybrix is committed to celebrating excellence in research and innovation. Our awards honor the outstanding contributions of researchers and scholars who are pushing the boundaries of knowledge.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -63,7 +66,7 @@ export default function AwardsPage() {
                          <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Celebrating Excellence</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Honoring Groundbreaking Research</h2>
                         <p className="text-muted-foreground text-justify">
-                            The PRI Awards program is designed to recognize and celebrate the exceptional achievements of individuals and teams whose work demonstrates scientific rigor, innovation, and the potential for significant impact. By acknowledging these contributions, we aim to inspire the next generation of researchers and foster a culture of excellence within the global academic community. Each award is a testament to the dedication and intellectual curiosity that drives scientific progress forward.
+                            The Cybrix Awards program is designed to recognize and celebrate the exceptional achievements of individuals and teams whose work demonstrates scientific rigor, innovation, and the potential for significant impact. By acknowledging these contributions, we aim to inspire the next generation of researchers and foster a culture of excellence within the global academic community. Each award is a testament to the dedication and intellectual curiosity that drives scientific progress forward.
                         </p>
                     </div>
                 </div>
