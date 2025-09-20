@@ -1,6 +1,7 @@
 import { FileUp, Search, UserCheck, MessageSquare, CheckCircle, ShieldCheck } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 const reviewSteps = [
     {
@@ -33,7 +34,7 @@ const reviewSteps = [
 export default function PeerReviewPage() {
     return (
         <div>
-            <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
+            <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
                     src="/peer-review.png"
                     alt="Peer Review Process"
@@ -41,17 +42,17 @@ export default function PeerReviewPage() {
                     fill
                     className="object-cover opacity-10"
                 />
-                <div className="absolute inset-0 bg-black/60 z-10" />
-                <div className="container px-4 md:px-6 z-20 relative text-center text-white">
-                    <div className="mx-auto max-w-3xl">
+                <div className="absolute inset-0 bg-black/50 z-10" />
+                <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                    <CardContent className="p-8 md:p-12">
                         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                             Upholding Academic Integrity
                         </h1>
-                        <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
                             Our commitment to quality through a rigorous, transparent, and constructive peer-review process.
                         </p>
-                    </div>
-                </div>
+                    </CardContent>
+                </Card>
             </section>
 
              <section className="w-full py-16 md:py-24 bg-background">

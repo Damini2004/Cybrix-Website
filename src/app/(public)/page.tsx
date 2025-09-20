@@ -146,7 +146,7 @@ function IndexedJournalsSection() {
 export default function HomePage() {
   return (
     <>
-      <section className="relative h-[600px] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[600px] w-full flex items-center justify-center p-4">
         <Image
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop"
           alt="Business meeting"
@@ -154,14 +154,14 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60 z-10" />
-        <div className="container px-4 md:px-6 z-20 relative text-center text-white">
-          <div className="mx-auto max-w-3xl">
-            <p className="font-semibold text-primary-foreground/80 tracking-widest uppercase">Creative Portfolio</p>
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+          <CardContent className="p-8 md:p-12">
+            <p className="font-semibold text-foreground/80 tracking-widest uppercase">Creative Portfolio</p>
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
               WE PROVIDE EFFECTIVE FOR BUSINESS SOLUTIONS
             </h1>
-            <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+            <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
               Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -170,12 +170,12 @@ export default function HomePage() {
                   Learn More
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
+              <Button size="lg" variant="outline" asChild>
                 <Link href="/publications">View Portfolio</Link>
               </Button>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">

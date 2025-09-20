@@ -30,7 +30,7 @@ const supportInfo = [
 export default function JournalSupportPage() {
   return (
     <div className="bg-secondary/50">
-        <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
+        <section className="relative h-[500px] w-full flex items-center justify-center p-4">
             <Image
                 src="/journal-support.png"
                 alt="Journal Support"
@@ -38,17 +38,17 @@ export default function JournalSupportPage() {
                 fill
                 className="object-cover opacity-10"
             />
-            <div className="absolute inset-0 bg-black/60 z-10" />
-            <div className="container px-4 md:px-6 z-20 relative text-center text-white">
-                <div className="mx-auto max-w-3xl">
+            <div className="absolute inset-0 bg-black/50 z-10" />
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                         Journal Publication Support
                     </h1>
-                    <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
                         Navigating the path to publication with expert guidance and dedicated support.
                     </p>
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         </section>
 
       <div className="container mx-auto px-4 py-12 md:py-20">

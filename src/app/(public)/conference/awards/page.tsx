@@ -29,7 +29,7 @@ const awardCategories = [
 export default function AwardsPage() {
   return (
     <div className="bg-secondary/30">
-        <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
+        <section className="relative h-[500px] w-full flex items-center justify-center p-4">
             <Image
                 src="https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Awards Ceremony"
@@ -37,17 +37,17 @@ export default function AwardsPage() {
                 fill
                 className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/60 z-10" />
-            <div className="container px-4 md:px-6 z-20 relative text-center text-white">
-                <div className="mx-auto max-w-3xl">
+            <div className="absolute inset-0 bg-black/50 z-10" />
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                         Awards & Recognition
                     </h1>
-                    <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
                         Cybrix is committed to celebrating excellence in research and innovation. Our awards honor the outstanding contributions of researchers and scholars who are pushing the boundaries of knowledge.
                     </p>
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         </section>
 
         <section className="w-full py-16 md:py-24 bg-background">

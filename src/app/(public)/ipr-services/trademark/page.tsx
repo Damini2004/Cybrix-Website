@@ -6,7 +6,7 @@ import { Search, Edit, ShieldCheck, ArrowRight } from "lucide-react";
 export default function TrademarkPage() {
     return (
         <div className="bg-background">
-            <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
+            <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
                     src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1600&h=600&auto=format&fit=crop"
                     alt="Trademark Registration"
@@ -14,17 +14,17 @@ export default function TrademarkPage() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/60 z-10" />
-                <div className="container px-4 md:px-6 z-20 relative text-center text-white">
-                    <div className="mx-auto max-w-3xl">
+                <div className="absolute inset-0 bg-black/50 z-10" />
+                <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                    <CardContent className="p-8 md:p-12">
                         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                             Trademark Registration
                         </h1>
-                        <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
                             Secure your brand identity. A trademark protects your brand names, logos, and slogans, distinguishing your goods and services from the competition.
                         </p>
-                    </div>
-                </div>
+                    </CardContent>
+                </Card>
             </section>
             <div className="container mx-auto px-4 py-12 md:py-20">
                 <Card className="grid md:grid-cols-2 items-center mb-16 shadow-lg border-primary/20">

@@ -26,7 +26,7 @@ const eb1Criteria = [
 export default function EB1ConsultancyPage() {
     return (
         <div className="bg-secondary/30">
-            <section className="relative h-[400px] w-full flex items-center justify-center overflow-hidden">
+            <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
                     src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop"
                     alt="EB1 Consultancy"
@@ -34,17 +34,17 @@ export default function EB1ConsultancyPage() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/60 z-10" />
-                <div className="container px-4 md:px-6 z-20 relative text-center text-white">
-                    <div className="mx-auto max-w-3xl">
+                <div className="absolute inset-0 bg-black/50 z-10" />
+                <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                    <CardContent className="p-8 md:p-12">
                         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                             EB-1 Visa Consultancy
                         </h1>
-                        <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
                             Expert guidance for individuals of extraordinary ability seeking to achieve their American dream. We specialize in preparing and filing petitions for the EB-1 visa category.
                         </p>
-                    </div>
-                </div>
+                    </CardContent>
+                </Card>
             </section>
 
             <section className="w-full py-16 md:py-24 bg-background">
