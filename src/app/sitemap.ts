@@ -3,7 +3,7 @@ import { getConferences } from '@/services/conferenceService';
 import { getJournals } from '@/services/journalService';
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://www.pureresearchinsights.com'; // Replace with your actual domain
+const BASE_URL = 'https://www.cybrix.com'; // Replace with your actual domain
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages

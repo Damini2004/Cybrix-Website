@@ -48,7 +48,7 @@ export default function PublicationsPage() {
     <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Our Publications</h1>
-        <p className="mt-4 text-lg text-muted-foreground">Browse through the latest research published with Pure Research Insights.</p>
+        <p className="mt-4 text-lg text-muted-foreground">Browse through the latest research published with Cybrix.</p>
         <div className="relative mt-6 max-w-lg mx-auto">
           <Input 
             placeholder="Search journals by title or description..." 

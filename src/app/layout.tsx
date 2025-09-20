@@ -4,13 +4,13 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Pure Research Insights',
-    template: '%s | Pure Research Insights',
+    default: 'Cybrix',
+    template: '%s | Cybrix',
   },
   description: 'The leading platform for academic journal submissions, conference management, and publication support.',
   keywords: ['academic publishing', 'research journals', 'scientific conferences', 'manuscript submission', 'peer review'],
   openGraph: {
-    title: 'Pure Research Insights',
+    title: 'Cybrix',
     description: 'The leading platform for academic journal submissions and management.',
     type: 'website',
     locale: 'en_US',

@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with the Pure Research Insights team. Contact us via our form, email, or phone for support, questions, or partnership inquiries.",
+  description: "Get in touch with the Cybrix team. Contact us via our form, email, or phone for support, questions, or partnership inquiries.",
   keywords: ["contact", "support", "inquiry", "email", "phone number", "address"],
 };
 
@@ -57,7 +57,7 @@ export default function ContactUsPage() {
                     <MapPin className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Office</h3>
-                <p className="text-muted-foreground">202-Pure Research Insights, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</p>
+                <p className="text-muted-foreground">202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</p>
             </Card>
         </div>
       </div>

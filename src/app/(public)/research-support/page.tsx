@@ -70,7 +70,7 @@ export default function ResearchSupportPage() {
                          <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Your Research Partner</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Navigating the Path to Publication</h2>
                         <p className="text-muted-foreground text-justify">
-                            The journey from research idea to published paper is complex. At Pure Research Insights, we offer a suite of specialized support services designed to assist you at every stage. Our team of experienced editors, statisticians, and publication experts is dedicated to helping you produce high-quality, impactful research and navigate the submission process with confidence.
+                            The journey from research idea to published paper is complex. At Cybrix, we offer a suite of specialized support services designed to assist you at every stage. Our team of experienced editors, statisticians, and publication experts is dedicated to helping you produce high-quality, impactful research and navigate the submission process with confidence.
                         </p>
                          <Button asChild>
                             <Link href="/contact-us">

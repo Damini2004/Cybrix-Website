@@ -9,7 +9,7 @@ import { getJournals, Journal } from "@/services/journalService";
 
 export const metadata: Metadata = {
   title: 'Home | Academic Publishing & Conference Management',
-  description: 'Pure Research Insights empowers researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.',
+  description: 'Cybrix empowers researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.',
 };
 
 
@@ -159,7 +159,7 @@ export default function HomePage() {
           <div className="container px-4 md:px-6 z-20 relative text-center text-white">
               <div className="mx-auto max-w-3xl">
                   <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl">
-                      Pure Research Insights
+                      Cybrix
                   </h1>
                   <p className="mt-6 max-w-xl mx-auto text-lg text-white/90 md:text-xl">
                       Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
