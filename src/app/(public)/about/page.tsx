@@ -1,9 +1,11 @@
+
 // src/app/(public)/about/page.tsx
 import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Target, Eye, Presentation, BookOpen, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -39,18 +41,14 @@ const services = [
 
 export default async function AboutPage() {
   const content = await getAboutContent();
+  const bannerImages = [
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "A diverse team collaborating on a project in a modern office", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop", alt: "A group of professionals working together around a laptop", hint: "team working" }
+  ];
   
   return (
     <>
-      <section className="relative h-[500px] w-full flex items-center justify-center p-4">
-        <Image
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop"
-          alt="A diverse team collaborating on a project in a modern office"
-          data-ai-hint="team collaboration"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50 z-10" />
+      <BannerCarousel images={bannerImages}>
         <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
             <CardContent className="p-8 md:p-12">
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
@@ -61,7 +59,7 @@ export default async function AboutPage() {
                 </p>
             </CardContent>
         </Card>
-      </section>
+      </BannerCarousel>
 
 
       <section className="container mx-auto px-4 md:px-6 pb-12 md:pb-24 lg:pb-32 pt-16">

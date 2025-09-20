@@ -6,6 +6,7 @@ import { ArrowRight, BookCheck, BrainCircuit, Microscope, ShieldCheck, Database,
 import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
+import BannerCarousel from '@/components/ui/banner-carousel';
 
 export const metadata: Metadata = {
   title: 'Home | Academic Publishing & Conference Management',
@@ -144,17 +145,15 @@ function IndexedJournalsSection() {
 
 
 export default function HomePage() {
+  const bannerImages = [
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "Business meeting", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop", alt: "Team working", hint: "business meeting" },
+    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop", alt: "Conference presentation", hint: "presentation" }
+  ];
+
   return (
     <>
-      <section className="relative h-[600px] w-full flex items-center justify-center p-4">
-        <Image
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop"
-          alt="Business meeting"
-          data-ai-hint="team collaboration"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50 z-10" />
+      <BannerCarousel images={bannerImages}>
         <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
           <CardContent className="p-8 md:p-12">
             <p className="font-semibold text-foreground/80 tracking-widest uppercase">Creative Portfolio</p>
@@ -176,7 +175,7 @@ export default function HomePage() {
             </div>
           </CardContent>
         </Card>
-      </section>
+      </BannerCarousel>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6">

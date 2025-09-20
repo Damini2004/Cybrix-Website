@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Image from "next/image";
 import { Globe, ShieldCheck, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 const submissionBenefits = [
     {
@@ -25,18 +26,14 @@ const submissionBenefits = [
 ]
 
 export default function SubmitJournalPage() {
+    const bannerImages = [
+        { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Researcher writing", hint: "research writing" },
+        { src: "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop", alt: "Open book", hint: "book study" }
+    ];
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[500px] w-full flex items-center justify-center p-4">
-          <Image
-              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop"
-              alt="Researcher writing"
-              data-ai-hint="research writing"
-              fill
-              className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50 z-10" />
+      <BannerCarousel images={bannerImages}>
             <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
@@ -52,7 +49,7 @@ export default function SubmitJournalPage() {
                     </Button>
                 </CardContent>
             </Card>
-      </section>
+      </BannerCarousel>
 
       {/* Benefits Section */}
       <section className="w-full py-16 md:py-24 bg-secondary">

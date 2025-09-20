@@ -1,7 +1,9 @@
+
 // src/app/(public)/conference/awards/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, BookOpen, UserCheck, Lightbulb } from "lucide-react";
 import Image from "next/image";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 const awardCategories = [
     {
@@ -27,17 +29,13 @@ const awardCategories = [
 ];
 
 export default function AwardsPage() {
+    const bannerImages = [
+        { src: "https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Awards Ceremony", hint: "awards ceremony" },
+        { src: "https://images.unsplash.com/photo-1639149545952-3023a953d613?q=80&w=800&h=600&auto=format&fit=crop", alt: "Award Trophy", hint: "award trophy" }
+    ];
   return (
     <div className="bg-secondary/30">
-        <section className="relative h-[500px] w-full flex items-center justify-center p-4">
-            <Image
-                src="https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop"
-                alt="Awards Ceremony"
-                data-ai-hint="awards ceremony"
-                fill
-                className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/50 z-10" />
+        <BannerCarousel images={bannerImages}>
             <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
@@ -48,7 +46,7 @@ export default function AwardsPage() {
                     </p>
                 </CardContent>
             </Card>
-        </section>
+        </BannerCarousel>
 
         <section className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
