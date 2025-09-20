@@ -5,19 +5,25 @@ import * as React from "react";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
 
 interface BannerCarouselProps {
     images: { src: string; alt: string; hint: string }[];
     children: React.ReactNode;
+    className?: string;
 }
 
-export default function BannerCarousel({ images, children }: BannerCarouselProps) {
+export default function BannerCarousel({ images, children, className }: BannerCarouselProps) {
     const plugin = React.useRef(
         Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
     );
 
+    const hasContent = React.Children.count(children) > 0 && 
+                       (React.Children.toArray(children)[0] as React.ReactElement).type !== 'div';
+
+
     return (
-        <section className="relative h-[600px] w-full">
+        <section className={cn("relative h-[600px] w-full", className)}>
             <Carousel
                 plugins={[plugin.current]}
                 className="absolute inset-0 w-full h-full"
@@ -38,10 +44,14 @@ export default function BannerCarousel({ images, children }: BannerCarouselProps
                     ))}
                 </CarouselContent>
             </Carousel>
-            <div className="absolute inset-0 bg-black/50 z-10" />
-            <div className="relative z-20 h-full w-full flex items-center justify-center p-4">
-                {children}
-            </div>
+            {hasContent && (
+                <>
+                    <div className="absolute inset-0 bg-black/50 z-10" />
+                    <div className="relative z-20 h-full w-full flex items-center justify-center p-4">
+                        {children}
+                    </div>
+                </>
+            )}
         </section>
     );
 }

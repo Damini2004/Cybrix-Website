@@ -153,29 +153,37 @@ export default function HomePage() {
 
   return (
     <>
-      <BannerCarousel images={bannerImages}>
-        <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
-          <CardContent className="p-8 md:p-12">
-            <p className="font-semibold text-foreground/80 tracking-widest uppercase">Creative Portfolio</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-              WE PROVIDE EFFECTIVE FOR BUSINESS SOLUTIONS
-            </h1>
-            <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
-              Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" asChild>
-                <Link href="/about">
-                  Learn More
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/publications">View Portfolio</Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </BannerCarousel>
+      <section className="w-full bg-secondary">
+          <div className="container mx-auto">
+              <div className="grid lg:grid-cols-2 min-h-[600px]">
+                  <div className="flex flex-col justify-center p-8 md:p-12 text-center lg:text-left">
+                      <p className="font-semibold text-primary tracking-widest uppercase">Creative Portfolio</p>
+                      <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                          WE PROVIDE EFFECTIVE FOR BUSINESS SOLUTIONS
+                      </h1>
+                      <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl mx-auto lg:mx-0">
+                          Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
+                      </p>
+                      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+                          <Button size="lg" asChild>
+                              <Link href="/about">
+                                  Learn More
+                              </Link>
+                          </Button>
+                          <Button size="lg" variant="outline" asChild>
+                              <Link href="/publications">View Portfolio</Link>
+                          </Button>
+                      </div>
+                  </div>
+                  <div className="relative min-h-[300px] lg:min-h-0">
+                      <BannerCarousel images={bannerImages}>
+                          {/* This children is now just a placeholder for the component structure but won't be rendered */}
+                          <div />
+                      </BannerCarousel>
+                  </div>
+              </div>
+          </div>
+      </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6">
