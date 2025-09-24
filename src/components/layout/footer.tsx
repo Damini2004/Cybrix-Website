@@ -34,23 +34,23 @@ const WhatsAppIcon = () => (
 
 const Footer = () => {
     return (
-        <footer className="bg-blue-950 text-white">
+        <footer className="bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Column 1: Info */}
                     <div className="space-y-4 md:col-span-2 lg:col-span-1">
                         <div className="space-y-2 text-sm text-gray-300">
                             <p className="flex items-start gap-2">
-                                <MapPin className="h-4 w-4 mt-0.5 text-yellow-400 flex-shrink-0" />
+                                <MapPin className="h-4 w-4 mt-0.5 text-secondary flex-shrink-0" />
                                 <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
                             </p>
                             <p className="flex items-start gap-2">
-                                <Phone className="h-4 w-4 mt-0.5 text-yellow-400 flex-shrink-0" />
+                                <Phone className="h-4 w-4 mt-0.5 text-secondary flex-shrink-0" />
                                 <span>+91-7020095748</span>
                             </p>
                             <p className="flex items-start gap-2">
-                                <Mail className="h-4 w-4 mt-0.5 text-yellow-400 flex-shrink-0" />
-                                <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-yellow-400">pureresearchinsights@gmail.com</Link>
+                                <Mail className="h-4 w-4 mt-0.5 text-secondary flex-shrink-0" />
+                                <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-secondary">pureresearchinsights@gmail.com</Link>
                             </p>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-4 relative">
                             Quick Links
-                            <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-yellow-400"></span>
+                            <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-secondary"></span>
                         </h3>
                         <ul className="space-y-2 text-sm text-gray-300">
                             {quickLinks.map(link => (
@@ -72,7 +72,7 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-4 relative">
                             Explore
-                             <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-yellow-400"></span>
+                             <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-secondary"></span>
                         </h3>
                         <ul className="space-y-2 text-sm text-gray-300">
                             {exploreLinks.map(link => (
@@ -86,7 +86,7 @@ const Footer = () => {
                         <div>
                            <h3 className="text-lg font-semibold mb-4 relative">
                                 Our Location
-                                <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-yellow-400"></span>
+                                <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-secondary"></span>
                             </h3>
                             <div className="overflow-hidden rounded-md">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3424623913434!2d79.08999457549149!3d21.098908680568048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bfc7aff3723f%3A0x3008e412fdbad687!2sCybrix!5e0!3m2!1sen!2sin!4v1758197039783!5m2!1sen!2sin" width="600" height="450" style={{ border:0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
