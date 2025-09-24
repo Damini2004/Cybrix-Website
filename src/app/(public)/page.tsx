@@ -77,68 +77,59 @@ const keyServices = [
 
 const partnerLogos = [
   { src: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 1', hint: 'team meeting' },
-  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
-  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 3', hint: 'business meeting' },
-  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 4', hint: 'office work' },
-  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 5', hint: 'team working' },
-  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 6', hint: 'group discussion' },
-  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 7', hint: 'presentation' },
-  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 8', hint: 'business workshop' },
-  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 9', hint: 'tech team' },
-  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 10', hint: 'diverse team' },
+  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
+  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 3', hint: 'business meeting' },
+  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 4', hint: 'office work' },
+  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 5', hint: 'team working' },
+  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 6', hint: 'group discussion' },
+  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 7', hint: 'presentation' },
+  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 8', hint: 'business workshop' },
+  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 9', hint: 'tech team' },
+  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 10', hint: 'diverse team' },
 ];
                                                       
 
 function IndexedJournalsSection() {
   return (
-    <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
+    <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Indexed Journals</div>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Indexed Journals</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Publish in High-Impact Journals</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               We provide comprehensive support for publishing in a wide range of prestigious, indexed journals.
             </p>
           </div>
         </div>
-        <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-6xl mx-auto mt-12"
-        >
-            <CarouselContent className="-ml-8">
-               {indexedJournalCategories.map(category => (
-                <CarouselItem key={category.title} className="pl-8 md:basis-1/2 lg:basis-1/3">
-                    <Card className="highlight-card h-full flex flex-col">
-                        <div className="visual">
-                            <Image
-                                src={category.imageSrc}
-                                alt={category.title}
-                                width={384}
-                                height={192}
-                                className="img"
-                                data-ai-hint={category.imageHint}
-                            />
-                        </div>
-                        <div className="content">
-                            <div className="content-wrapper">
-                            <h3 className="title">{category.title}</h3>
-                            <p className="desc">{category.description}</p>
-                            </div>
-                            <Link href="/publications" className="card-link">
-                                Learn more
-                            </Link>
-                        </div>
-                    </Card>
-                </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-[-50px]" />
-            <CarouselNext className="right-[-50px]" />
-        </Carousel>
+        <div className="mx-auto mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {indexedJournalCategories.map(category => (
+            <Card key={category.title} className="group overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
+              <div className="relative h-48 w-full">
+                <Image
+                  src={category.imageSrc}
+                  alt={category.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-300 group-hover:scale-105"
+                  data-ai-hint={category.imageHint}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold text-primary">{category.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{category.description}</p>
+              </CardContent>
+              <CardFooter>
+                 <Button variant="link" asChild className="p-0">
+                    <Link href="/publications">
+                        Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                 </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -150,10 +141,10 @@ export default function HomePage() {
     <>
       <section className="relative w-full h-[600px] bg-secondary/30 overflow-hidden">
         <Image
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format=fit=crop"
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop"
             alt="Team collaborating in a modern office"
             fill
-            className="object-cover opacity-55"
+            className="object-cover opacity-10"
             data-ai-hint="team collaboration"
         />
         <div className="container mx-auto px-4 h-full grid md:grid-cols-2 gap-8 items-center">
@@ -178,7 +169,7 @@ export default function HomePage() {
                 {[...partnerLogos, ...partnerLogos].map((logo, index) => (
                     <div 
                         key={index} 
-                        className="p-2 rounded-lg shadow-md w-80 h-40 flex items-center justify-center border-4 border-primary/50"
+                        className="p-2 rounded-lg shadow-md w-80 h-40 flex items-center justify-center"
                     >
                         <Image 
                             src={logo.src} 
@@ -258,4 +249,5 @@ export default function HomePage() {
         </section>
     </>
   );
-}
+
+    
