@@ -99,6 +99,10 @@ export default {
         'scroll-x': {
           'from': { transform: 'translateX(0)' },
           'to': { transform: 'translateX(-50%)' },
+        },
+        'scroll-y': {
+          'from': { transform: 'translateY(0)' },
+          'to': { transform: 'translateY(-50%)' },
         }
       },
       animation: {
@@ -107,6 +111,7 @@ export default {
         'width-pulse': 'width-pulse 3s ease-in-out infinite',
         'dance': 'dance 0.5s ease-in-out infinite',
         'scroll-x': 'scroll-x 60s linear infinite',
+        'scroll-y': 'scroll-y 90s linear infinite',
       },
     },
   },

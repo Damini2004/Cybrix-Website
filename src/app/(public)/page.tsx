@@ -163,34 +163,44 @@ function IndexedJournalsSection() {
 
 
 export default function HomePage() {
-  const bannerImages = [
-    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "Business meeting", hint: "team collaboration" },
-    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop", alt: "Team working", hint: "business meeting" },
-    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop", alt: "Conference presentation", hint: "presentation" }
-  ];
-
   return (
     <>
-      <BannerCarousel images={bannerImages}>
-        <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
-            <CardContent className="p-8 md:p-12">
-                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-                    Creative Portfolio
-                </h1>
-                <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
-                   Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
-                </p>
-                 <div className="flex justify-center gap-4 mt-8">
-                    <Button size="lg" asChild>
-                        <Link href="/about">Learn More</Link>
-                    </Button>
-                    <Button size="lg" variant="outline" asChild>
-                        <Link href="/publications">View Portfolio</Link>
-                    </Button>
-                </div>
-            </CardContent>
-        </Card>
-      </BannerCarousel>
+      <section className="relative w-full h-[600px] bg-secondary/30 overflow-hidden">
+        <div className="container mx-auto px-4 h-full grid md:grid-cols-2 gap-8 items-center">
+          <div className="z-10">
+              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                  Creative Portfolio
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">
+                  Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
+              </p>
+              <div className="flex gap-4 mt-8">
+                  <Button size="lg" asChild>
+                      <Link href="/about">Learn More</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                      <Link href="/publications">View Portfolio</Link>
+                  </Button>
+              </div>
+          </div>
+           <div className="relative h-full w-full hidden md:flex items-center justify-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]">
+              <div className="w-max animate-scroll-y space-y-4">
+                  {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                      <div key={index} className="bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-md w-48 h-24 flex items-center justify-center">
+                        <Image 
+                            src={logo.src} 
+                            width={150} 
+                            height={60} 
+                            alt={logo.alt} 
+                            data-ai-hint={logo.hint}
+                            className="h-full w-auto object-contain" 
+                        />
+                      </div>
+                  ))}
+              </div>
+          </div>
+        </div>
+      </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6">

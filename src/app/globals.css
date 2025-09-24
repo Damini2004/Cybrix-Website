@@ -238,7 +238,6 @@
         color: hsl(var(--primary));
         text-decoration: none;
         display: flex;
-        gap: theme(spacing.2);
         align-items: center;
 
     }
@@ -268,6 +267,14 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+   @keyframes scroll-y {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
     }
   }
 }
