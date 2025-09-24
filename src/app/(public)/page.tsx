@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 
 
 const indexedJournalCategories = [
-
   {
     title: "Scopus Indexed Journals",
     description: "Scopus Q1/Q2, A Scopus journal is a scholarly journal that is indexed (listed) in Scopus, which is one of the largest abstract and citation databases of peer-reviewed literature, maintained by a Elsevier.",
@@ -166,7 +165,7 @@ function IndexedJournalsSection() {
 export default function HomePage() {
   const bannerImages = [
     { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "Business meeting", hint: "team collaboration" },
-    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop", alt: "Team working", hint: "business meeting" },
+    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format=fit=crop", alt: "Team working", hint: "business meeting" },
     { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop", alt: "Conference presentation", hint: "presentation" }
   ];
 
