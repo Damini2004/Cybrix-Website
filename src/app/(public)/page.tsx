@@ -153,7 +153,7 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format=fit=crop"
             alt="Team collaborating in a modern office"
             fill
-            className="object-cover opacity-10"
+            className="object-cover opacity-55"
             data-ai-hint="team collaboration"
         />
         <div className="container mx-auto px-4 h-full grid md:grid-cols-2 gap-8 items-center">
@@ -173,26 +173,31 @@ export default function HomePage() {
                   </Button>
               </div>
           </div>
-           <div className="relative h-full w-full hidden md:flex items-center justify-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]">
-              <div className="w-max animate-scroll-y space-y-4">
-                  {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-                      <div key={index} className="p-4 rounded-lg shadow-md w-64 h-32 flex items-center justify-center">
+          <div className="relative h-full w-full hidden md:flex items-center justify-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]">
+            <div className="w-max animate-scroll-y space-y-4">
+                {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                    <div 
+                        key={index} 
+                        className="p-2 rounded-lg shadow-md w-80 h-40 flex items-center justify-center border-4 border-primary/50"
+                    >
                         <Image 
                             src={logo.src} 
-                            width={200} 
-                            height={80} 
+                            width={400} 
+                            height={220} 
                             alt={logo.alt} 
                             data-ai-hint={logo.hint}
-                            className="h-full w-full object-cover" 
+                            className="h-full w-full object-cover rounded-lg"
                         />
-                      </div>
-                  ))}
-              </div>
-          </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+
         </div>
       </section>
 
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -202,22 +207,22 @@ export default function HomePage() {
                     </p>
                 </div>
             </div>
-            <div className="mt-12">
-                <Card className="bg-secondary">
-                    <CardContent className="p-8">
-                        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-                            {keyServices.map((service) => (
-                                <div key={service.title} className="flex flex-col items-center text-center">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-full border bg-background mb-4 animate-dance">
-                                        <service.icon className="h-6 w-6 text-primary" />
-                                    </div>
-                                    <h3 className="text-md font-bold">{service.title}</h3>
-                                    <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
+             <div className="relative mt-12 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+                <div className="flex w-max animate-scroll-x">
+                    {[...keyServices, ...keyServices].map((service, index) => (
+                        <Card key={index} className="m-4 w-[350px] shrink-0 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
+                             <CardHeader className="items-center text-center">
+                                <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-primary/20 bg-primary/10 mb-4 transition-all duration-300 group-hover:scale-110">
+                                    <service.icon className="h-8 w-8 text-primary" />
                                 </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
+                                <CardTitle className="text-lg">{service.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="text-center">
+                                <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
             </div>
           </div>
         </section>
