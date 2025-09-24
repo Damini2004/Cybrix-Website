@@ -149,6 +149,13 @@ export default function HomePage() {
   return (
     <>
       <section className="relative w-full h-[600px] bg-secondary/30 overflow-hidden">
+        <Image
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop"
+            alt="Team collaborating in a modern office"
+            fill
+            className="object-cover opacity-10"
+            data-ai-hint="team collaboration"
+        />
         <div className="container mx-auto px-4 h-full grid md:grid-cols-2 gap-8 items-center">
           <div className="z-10">
               <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
@@ -176,7 +183,7 @@ export default function HomePage() {
                             height={80} 
                             alt={logo.alt} 
                             data-ai-hint={logo.hint}
-                            className="h-full w-auto object-cover" 
+                            className="h-full w-full object-cover" 
                         />
                       </div>
                   ))}
