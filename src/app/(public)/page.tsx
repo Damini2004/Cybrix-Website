@@ -172,33 +172,125 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="w-full bg-secondary">
-          <div className="container mx-auto">
-              <div className="grid lg:grid-cols-2 min-h-[600px]">
-                  <div className="flex flex-col justify-center p-8 md:p-12 text-center lg:text-left">
-                      <p className="font-semibold text-primary tracking-widest uppercase">Creative Portfolio</p>
-                      <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-                          WE PROVIDE EFFECTIVE FOR BUSINESS SOLUTIONS
-                      </h1>
-                      <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl mx-auto lg:mx-0">
-                          Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
-                      </p>
-                      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-                          <Button size="lg" asChild>
-                              <Link href="/about">
-                                  Learn More
-                              </Link>
-                          </Button>
-                          <Button size="lg" variant="outline" asChild>
-                              <Link href="/publications">View Portfolio</Link>
-                          </Button>
-                      </div>
-                  </div>
-                  <div className="relative min-h-[300px] lg:min-h-0">
-                      <BannerCarousel images={bannerImages} />
-                  </div>
+      <section className="section">
+        <ul className="cards">
+          <li className="card">
+            <div className="visual">
+              <Image
+                className="img"
+                width="384"
+                height="192"
+                src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/refs/heads/main/hdr-palettes-astro-op/src/assets/images/img-1.avif"
+                alt="A modern skyscraper with glass facade reflecting a vibrant sunset sky."
+              />
+            </div>
+            <div className="content">
+              <div className="content-wrapper">
+                <h3 className="title">AI-Powered Supply Chains</h3>
+                <p className="desc">
+                  Explore how real-time data and automation are transforming logistics and redefining global supply chain
+                  resilience.
+                </p>
               </div>
-          </div>
+              <a href="" className="card-link"> Learn more </a>
+            </div>
+          </li>
+          <li className="card">
+            <div className="visual">
+              <Image
+                className="img"
+                width="384"
+                height="192"
+                src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/refs/heads/main/hdr-palettes-astro-op/src/assets/images/img-2.avif"
+                alt="Low-angle view of a modern glass skyscraper against a clear blue sky in Montreal, Canada."
+              />
+            </div>
+            <div className="content">
+              <div className="content-wrapper">
+                <h3 className="title">Building Trust with Responsible AI</h3>
+                <p className="desc">Companies are putting transparency and ethics at the center of their AI development.</p>
+              </div>
+              <a href="" className="card-link"> Learn more </a>
+            </div>
+          </li>
+          <li className="card">
+            <div className="visual">
+              <Image
+                className="img"
+                width="384"
+                height="192"
+                src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/refs/heads/main/hdr-palettes-astro-op/src/assets/images/img-3.avif"
+                alt="Stunning Panama City skyline reflecting on water at twilight, showcasing modern architecture."
+              />
+            </div>
+            <div className="content">
+              <div className="content-wrapper">
+                <h3 className="title">Energy Innovation at Scale</h3>
+                <p className="desc">
+                  Digital twins and analytics are helping speed up the transition to cleaner energy systems.
+                </p>
+              </div>
+              <a href="" className="card-link"> Learn more </a>
+            </div>
+          </li>
+          <li className="card">
+            <div className="visual">
+              <Image
+                className="img"
+                width="384"
+                height="192"
+                src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/refs/heads/main/hdr-palettes-astro-op/src/assets/images/img-4.avif"
+                alt="Breathtaking Kowloon skyline with skyscrapers and harbor at sunset, showcasing Hong Kong's urban beauty."
+              />
+            </div>
+            <div className="content">
+              <div className="content-wrapper">
+                <h3 className="title">The Future of Smart Manufacturing</h3>
+                <p className="desc">See how automation and IoT are enabling fast, precise production at scale.</p>
+              </div>
+              <a href="" className="card-link"> Learn more </a>
+            </div>
+          </li>
+          <li className="card">
+            <div className="visual">
+              <Image
+                className="img"
+                width="384"
+                height="192"
+                src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/refs/heads/main/hdr-palettes-astro-op/src/assets/images/img-5.avif"
+                alt="Large warehouse interior with docked truck, ideal for logistics and warehousing."
+              />
+            </div>
+            <div className="content">
+              <div className="content-wrapper">
+                <h3 className="title">Connected Construction</h3>
+                <p className="desc">
+                  See how real-time collaboration tools and automation are streamlining complex building projects from
+                  design to delivery.
+                </p>
+              </div>
+              <a href="" className="card-link"> Learn more </a>
+            </div>
+          </li>
+          <li className="card">
+            <div className="visual">
+              <Image
+                className="img"
+                width="384"
+                height="192"
+                src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/refs/heads/main/hdr-palettes-astro-op/src/assets/images/img-6.avif"
+                alt="Low angle view of modern skyscrapers in Chicago, showcasing urban architecture."
+              />
+            </div>
+            <div className="content">
+              <div className="content-wrapper">
+                <h3 className="title">Financial Services Reimagined</h3>
+                <p className="desc">AI and cloud infrastructure are redefining fraud detection and client experiences.</p>
+              </div>
+              <a href="" className="card-link"> Learn more </a>
+            </div>
+          </li>
+        </ul>
       </section>
 
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
