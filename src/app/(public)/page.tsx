@@ -165,7 +165,7 @@ function IndexedJournalsSection() {
 export default function HomePage() {
   const bannerImages = [
     { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "Business meeting", hint: "team collaboration" },
-    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format=fit=crop", alt: "Team working", hint: "business meeting" },
+    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop", alt: "Team working", hint: "business meeting" },
     { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop", alt: "Conference presentation", hint: "presentation" }
   ];
 

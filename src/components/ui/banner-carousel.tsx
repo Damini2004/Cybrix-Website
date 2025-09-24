@@ -18,9 +18,7 @@ export default function BannerCarousel({ images, children, className }: BannerCa
         Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
     );
 
-    const hasContent = React.Children.count(children) > 0 && 
-                       (React.Children.toArray(children)[0] as React.ReactElement).type !== 'div';
-
+    const hasContent = React.Children.count(children) > 0;
 
     return (
         <section className={cn("relative h-[600px] w-full", className)}>
