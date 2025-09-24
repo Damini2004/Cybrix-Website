@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
 import BannerCarousel from '@/components/ui/banner-carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export const metadata: Metadata = {
   title: 'Home | Academic Publishing & Conference Management',
@@ -108,36 +109,54 @@ const partnerLogos = [
 
 function IndexedJournalsSection() {
   return (
-    <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+    <section id="highlights" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium">Indexed Journals</div>
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Indexed Journals</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Publish in High-Impact Journals</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               We provide comprehensive support for publishing in a wide range of prestigious, indexed journals.
             </p>
           </div>
         </div>
-        <div className="mx-auto grid items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-4 mt-12">
-          {indexedJournalCategories.map(category => (
-            <Card key={category.title} className="group overflow-hidden rounded-xl flex flex-col hover:shadow-lg transition-shadow bg-background/50 hover:border-primary/20">
-              <div className="relative h-40 w-full">
-                  <Image
-                      src={category.imageSrc}
-                      alt={category.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      data-ai-hint={category.imageHint}
-                  />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                  <CardTitle className="text-lg mb-2">{category.title}</CardTitle>
-                  <p className="text-sm text-muted-foreground flex-grow">{category.description}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto mt-12"
+        >
+            <CarouselContent className="-ml-8">
+               {indexedJournalCategories.map(category => (
+                <CarouselItem key={category.title} className="pl-8 md:basis-1/2 lg:basis-1/3">
+                    <Card className="highlight-card h-full flex flex-col">
+                        <div className="visual">
+                            <Image
+                                src={category.imageSrc}
+                                alt={category.title}
+                                width={384}
+                                height={192}
+                                className="img"
+                                data-ai-hint={category.imageHint}
+                            />
+                        </div>
+                        <div className="content">
+                            <div className="content-wrapper">
+                            <h3 className="title">{category.title}</h3>
+                            <p className="desc">{category.description}</p>
+                            </div>
+                            <Link href="/publications" className="card-link">
+                                Learn more
+                            </Link>
+                        </div>
+                    </Card>
+                </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-[-50px]" />
+            <CarouselNext className="right-[-50px]" />
+        </Carousel>
       </div>
     </section>
   )
@@ -147,7 +166,7 @@ function IndexedJournalsSection() {
 export default function HomePage() {
   const bannerImages = [
     { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "Business meeting", hint: "team collaboration" },
-    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format=fit=crop", alt: "Team working", hint: "business meeting" },
+    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop", alt: "Team working", hint: "business meeting" },
     { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop", alt: "Conference presentation", hint: "presentation" }
   ];
 
@@ -176,10 +195,7 @@ export default function HomePage() {
                       </div>
                   </div>
                   <div className="relative min-h-[300px] lg:min-h-0">
-                      <BannerCarousel images={bannerImages}>
-                          {/* This children is now just a placeholder for the component structure but won't be rendered */}
-                          <div />
-                      </BannerCarousel>
+                      <BannerCarousel images={bannerImages} />
                   </div>
               </div>
           </div>
