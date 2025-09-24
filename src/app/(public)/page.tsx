@@ -19,25 +19,25 @@ const indexedJournalCategories = [
   {
     title: "Scopus Indexed Journals",
     description: "Scopus Q1/Q2, A Scopus journal is a scholarly journal that is indexed (listed) in Scopus, which is one of the largest abstract and citation databases of peer-reviewed literature, maintained by a Elsevier.",
-    imageSrc: "/scopus.png",
+    imageSrc: "https://images.unsplash.com/photo-1579547945413-49751d66aa68?q=80&w=800&auto=format&fit=crop",
     imageHint: "medical biology",
   },
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.Globally recognized journals ensures high-quality, impactful research",
-    imageSrc: "/wos.png",
+    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
     imageHint: "science research",
   },
   {
     title: "IEEE Xplore Indexed Journals",
     description: "IEEE Xplore is a leading digital library that hosts high-quality journals, conference papers, Journals and standards in engineering, technology, and computer science.",
-    imageSrc: "/IEEE.png",
+    imageSrc: "https://images.unsplash.com/photo-1532187644165-ba22fb5d6d36?q=80&w=800&auto=format&fit=crop",
     imageHint: "engineering technology",
   },
   {
     title: "UGC Care / Peer Review Journals",
     description: "Trusted journals approved by UGC for authentic and credible research publications. Scholarly articles reviewed by experts to ensure quality, accuracy, and reliability.",
-    imageSrc: "/photo7.png",
+    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format&fit=crop",
     imageHint: "academic books",
   },
 ];
@@ -76,35 +76,18 @@ const keyServices = [
 ]
 
 const partnerLogos = [
-  { src: "/army institute.png", alt: "army institute", hint: "logo company" },
-  { src: "/Bharti vidyapith.png", alt: "Bharti vidyapith", hint: "logo company" },
-    { src: "/city university punjab.jpeg", alt: "city university punjab", hint: "logo company" },
-      { src: "/csmss.jpeg", alt: "csmss", hint: "logo company" },
-        { src: "/data meghe wardha.png", alt: "data meghe wardha", hint: "logo company" },
-          { src: "/deogiri aurangabad.jpeg", alt: "deogiri aurangabad", hint: "logo brand" },
-            { src: "/dypatil.jpeg", alt: "Partner Logo 3", hint: "logo business" },
-              { src: "/iiit.jpeg", alt: "Partner Logo 4", hint: "logo tech" },
-                { src: "/kkr guntur.png", alt: "Partner Logo 5", hint: "logo education" },
-                  { src: "/krishana.png", alt: "deogiri aurangabad", hint: "logo brand" },
-                    { src: "/lovely university.png", alt: "Partner Logo 3", hint: "logo business" },
-                      { src: "/Mahsa Malaysiaya.png", alt: "Partner Logo 4", hint: "logo tech" },
-                        { src: "/manipal.png", alt: "Partner Logo 5", hint: "logo education" },
-                          { src: "/modern institute.jpeg", alt: "Partner Logo 5", hint: "logo education" },
-                            { src: "/nitwarangal.png", alt: "deogiri aurangabad", hint: "logo brand" },
-                              { src: "/noida.png", alt: "Partner Logo 3", hint: "logo business" },
-                                { src: "/Nus.png", alt: "Partner Logo 4", hint: "logo tech" },
-                                  { src: "/priyadarshani.png", alt: "Partner Logo 5", hint: "logo education" },
-                                    { src: "/ramdeobaba.jpeg", alt: "Partner Logo 5", hint: "logo education" },
-                                      { src: "/rl jalapa.png", alt: "deogiri aurangabad", hint: "logo brand" },
-                                        { src: "/sanjevini kopargoa.png", alt: "Partner Logo 3", hint: "logo business" },
-                                          { src: "/ssvps.png", alt: "Partner Logo 4", hint: "logo tech" },
-                                            { src: "/priyadarshani.png", alt: "Partner Logo 5", hint: "logo education" },
-                                              { src: "/suryodaya.jpeg", alt: "Partner Logo 5", hint: "logo education" },
-                                                { src: "/syboisis.png", alt: "deogiri aurangabad", hint: "logo brand" },
-                                                  { src: "/sanjevini kopargoa.png", alt: "Partner Logo 3", hint: "logo business" },
-                                                    { src: "/vincentpalloti.jpeg", alt: "Partner Logo 4", hint: "logo tech" },
-                                                      { src: "/Vnit.jpeg", alt: "Partner Logo 5", hint: "logo education" },
-                                                      ]
+  { src: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 1', hint: 'team meeting' },
+  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
+  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 3', hint: 'business meeting' },
+  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 4', hint: 'office work' },
+  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 5', hint: 'team working' },
+  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 6', hint: 'group discussion' },
+  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 7', hint: 'presentation' },
+  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 8', hint: 'business workshop' },
+  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 9', hint: 'tech team' },
+  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 10', hint: 'diverse team' },
+];
+                                                      
 
 function IndexedJournalsSection() {
   return (
@@ -193,7 +176,7 @@ export default function HomePage() {
                             height={60} 
                             alt={logo.alt} 
                             data-ai-hint={logo.hint}
-                            className="h-full w-auto object-contain" 
+                            className="h-full w-auto object-cover" 
                         />
                       </div>
                   ))}
