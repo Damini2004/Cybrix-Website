@@ -169,11 +169,11 @@ export default function HomePage() {
            <div className="relative h-full w-full hidden md:flex items-center justify-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]">
               <div className="w-max animate-scroll-y space-y-4">
                   {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-                      <div key={index} className="bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-md w-48 h-24 flex items-center justify-center">
+                      <div key={index} className="bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-md w-64 h-32 flex items-center justify-center">
                         <Image 
                             src={logo.src} 
-                            width={150} 
-                            height={60} 
+                            width={200} 
+                            height={80} 
                             alt={logo.alt} 
                             data-ai-hint={logo.hint}
                             className="h-full w-auto object-cover" 
