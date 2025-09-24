@@ -77,15 +77,15 @@ const keyServices = [
 
 const partnerLogos = [
   { src: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 1', hint: 'team meeting' },
-  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
-  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 3', hint: 'business meeting' },
-  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 4', hint: 'office work' },
-  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 5', hint: 'team working' },
-  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 6', hint: 'group discussion' },
-  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 7', hint: 'presentation' },
-  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 8', hint: 'business workshop' },
-  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 9', hint: 'tech team' },
-  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 10', hint: 'diverse team' },
+  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
+  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 3', hint: 'business meeting' },
+  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 4', hint: 'office work' },
+  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 5', hint: 'team working' },
+  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 6', hint: 'group discussion' },
+  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 7', hint: 'presentation' },
+  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 8', hint: 'business workshop' },
+  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 9', hint: 'tech team' },
+  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 10', hint: 'diverse team' },
 ];
                                                       
 
@@ -220,7 +220,7 @@ export default function HomePage() {
         
         <IndexedJournalsSection />
 
-        <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+        <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -233,15 +233,19 @@ export default function HomePage() {
              <div className="relative mt-12 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
                 <div className="flex w-max animate-scroll-x">
                     {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-                        <Image 
+                        <div 
                             key={index}
-                            src={logo.src} 
-                            width={150} 
-                            height={60} 
-                            alt={logo.alt} 
-                            data-ai-hint={logo.hint}
-                            className="mx-8 h-16 w-auto object-contain" 
-                        />
+                            className="mx-8 flex h-16 w-auto items-center justify-center"
+                        >
+                            <Image 
+                                src={logo.src} 
+                                width={150} 
+                                height={60} 
+                                alt={logo.alt} 
+                                data-ai-hint={logo.hint}
+                                className="h-16 w-auto object-contain" 
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
@@ -249,5 +253,4 @@ export default function HomePage() {
         </section>
     </>
   );
-
-    
+}

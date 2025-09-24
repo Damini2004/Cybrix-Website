@@ -277,4 +277,7 @@
       transform: translateY(-50%);
     }
   }
+  .animation-paused {
+    animation-play-state: paused;
+  }
 }
