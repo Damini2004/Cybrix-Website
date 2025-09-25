@@ -1,7 +1,8 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { BookCopy, Edit, Shield, FileText, ArrowRight } from "lucide-react";
+import { BookCopy, Shield, FileText, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const copyrightInfo = [
     {
@@ -23,79 +24,75 @@ const copyrightInfo = [
 
 export default function CopyrightPage() {
     return (
-        <div>
+        <div className="bg-background">
              <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
                     src="/copyright-registration.png"
                     alt="Copyright Law"
                     data-ai-hint="legal books"
                     fill
-                    className="object-cover opacity-10"
+                    className="object-cover opacity-20"
                 />
-                <div className="absolute inset-0 bg-black/50 z-10" />
-                <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <div className="absolute inset-0 bg-black/60 z-10" />
+                <Card className="relative z-20 w-full max-w-3xl bg-transparent border-0 text-center text-white shadow-none">
                     <CardContent className="p-8 md:p-12">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2 text-shadow-lg">
                             Copyright Services
                         </h1>
-                        <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                        <p className="mt-6 max-w-2xl mx-auto text-lg text-white/90 md:text-xl text-shadow">
                             We provide expert assistance to ensure your original literary, artistic, and musical works are legally protected from unauthorized use.
                         </p>
                     </CardContent>
                 </Card>
             </section>
-            <section className="w-full py-20 md:py-32 bg-background">
+            <section className="w-full py-16 md:py-24">
                 <div className="container px-4 md:px-6">
-                    <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
+                    <div className="grid gap-12 lg:grid-cols-2 items-center">
                          <Image
                             src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop"
                             width="600"
                             height="400"
                             alt="Copyright Symbol"
                             data-ai-hint="copyright symbol"
-                            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover order-last lg:order-first"
+                            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl transform transition-transform duration-500 hover:scale-105"
                         />
-                        <div className="flex flex-col justify-center space-y-4">
-                            <div className="space-y-2">
-                                 <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Protect Your Creations</div>
-                                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                                    Secure Your Creative Works
-                                </h1>
-                                <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                                    Safeguard your literary, artistic, and musical creations with formal copyright registration. We provide expert assistance to ensure your original works are legally protected from unauthorized use.
-                                </p>
-                            </div>
-                            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                                <Button asChild size="lg">
-                                    <a href="/contact-us">
-                                        Register Your Copyright <ArrowRight className="ml-2 h-5 w-5" />
-                                    </a>
-                                </Button>
-                            </div>
+                        <div className="space-y-6">
+                            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">Protect Your Creations</div>
+                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+                                Secure Your Creative Works
+                            </h2>
+                            <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                                Safeguard your literary, artistic, and musical creations with formal copyright registration. We provide expert assistance to ensure your original works are legally protected from unauthorized use.
+                            </p>
+                            <Button asChild size="lg">
+                                <Link href="/contact-us">
+                                    Register Your Copyright <ArrowRight className="ml-2 h-5 w-5" />
+                                </Link>
+                            </Button>
                         </div>
                        
                     </div>
                 </div>
             </section>
             
-            <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
+            <section className="w-full py-12 md:py-24 bg-secondary/30">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold tracking-tight">Understanding Copyright Protection</h2>
-                        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Understanding Copyright Protection</h2>
+                        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto md:text-xl/relaxed">
                             Learn about the key aspects of securing your intellectual property.
                         </p>
                     </div>
                     <div className="mx-auto grid max-w-5xl items-stretch gap-8 lg:grid-cols-3">
                         {copyrightInfo.map((item) => (
-                            <Card key={item.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
-                                <CardHeader className="items-center">
-                                    <div className="p-4 bg-primary/10 rounded-full mb-2">
+                            <Card key={item.title} className="text-center p-6 border-0 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
+                                 <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
                                       <item.icon className="h-8 w-8 text-primary" />
                                     </div>
+                                <CardHeader className="p-0">
                                     <CardTitle className="mt-2 text-xl">{item.title}</CardTitle>
                                 </CardHeader>
-                                <CardContent className="flex-grow">
+                                <CardContent className="flex-grow mt-2 p-0">
                                     <p className="text-muted-foreground">{item.description}</p>
                                 </CardContent>
                             </Card>
