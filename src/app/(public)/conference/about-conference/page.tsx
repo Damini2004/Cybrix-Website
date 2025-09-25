@@ -100,23 +100,22 @@ export default function AboutConferencePage() {
         
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4 md:px-6">
-                 <div className="text-center mb-12">
+                <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tighter">Conference Services</h2>
                     <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
                         We offer a comprehensive range of services to make your conference a success.
                     </p>
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
-                    {conferenceServices.map((service) => (
-                         <Card key={service.title} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <CardHeader className="items-center">
-                                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
-                                    <service.icon className="h-8 w-8 text-primary" />
+                    {conferenceServices.map((service, index) => (
+                        <Card key={service.title} className="group relative overflow-hidden rounded-xl border bg-background text-center shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2">
+                            <CardContent className="p-6">
+                                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
+                                    <service.icon className="h-8 w-8 text-primary transition-colors duration-300 group-hover:text-white" />
                                 </div>
-                                <CardTitle>{service.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">{service.description}</p>
+                                <h3 className="text-lg font-bold text-foreground">{service.title}</h3>
+                                <p className="mt-2 text-sm text-muted-foreground">{service.description}</p>
                             </CardContent>
                         </Card>
                     ))}
