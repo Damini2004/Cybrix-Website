@@ -78,19 +78,21 @@ export default function AboutConferencePage() {
                              At PRI, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
                         </p>
                     </div>
-                    <div className="space-y-6">
-                        {corePrinciples.map((principle) => (
-                            <Card key={principle.title} className="bg-background/80 backdrop-blur-sm border-white/20">
-                                <CardHeader className="flex flex-row items-center gap-4">
-                                    <div className="p-3 bg-primary/10 rounded-full">
-                                        <principle.icon className="h-6 w-6 text-primary" />
-                                    </div>
-                                    <div>
-                                        <CardTitle className="text-lg text-card-foreground">{principle.title}</CardTitle>
-                                    </div>
-                                </CardHeader>
-                            </Card>
-                        ))}
+                    <div className="relative h-96 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]">
+                        <div className="w-full animate-scroll-y space-y-4">
+                            {[...corePrinciples, ...corePrinciples].map((principle, index) => (
+                                <Card key={`${principle.title}-${index}`} className="bg-background/80 backdrop-blur-sm border-white/20">
+                                    <CardHeader className="flex flex-row items-center gap-4">
+                                        <div className="p-3 bg-primary/10 rounded-full">
+                                            <principle.icon className="h-6 w-6 text-primary" />
+                                        </div>
+                                        <div>
+                                            <CardTitle className="text-lg text-card-foreground">{principle.title}</CardTitle>
+                                        </div>
+                                    </CardHeader>
+                                </Card>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
