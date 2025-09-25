@@ -1,4 +1,3 @@
-
 // src/app/(public)/about/page.tsx
 import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -123,16 +122,16 @@ export default async function AboutPage() {
                 </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
-                {services.map((service) => (
-                    <Card key={service.title} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl bg-secondary/30 border-primary/10">
+                {services.map((service, index) => (
+                    <Card key={service.title} className="text-center group transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-primary/20 border-2 border-transparent bg-secondary/30">
                         <CardHeader className="items-center">
-                            <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                            <div className="p-4 bg-white rounded-full w-fit mb-3 shadow-inner group-hover:scale-110 transition-transform duration-300">
                                 <service.icon className="h-8 w-8 text-primary" />
                             </div>
-                            <CardTitle>{service.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-muted-foreground">{service.description}</p>
+                           <CardTitle className="mb-2 text-lg">{service.title}</CardTitle>
+                            <p className="text-muted-foreground text-sm">{service.description}</p>
                         </CardContent>
                     </Card>
                 ))}
