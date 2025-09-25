@@ -69,12 +69,12 @@ export default function AboutConferencePage() {
             </div>
         </section>
         
-        <section className="relative w-full py-16 md:py-24 bg-primary text-white">
+        <section className="relative w-full py-16 md:py-24">
             <div className="container relative z-10 mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 className="text-3xl font-bold tracking-tight mb-4">Our Mission in Conferencing</h2>
-                        <p className="text-lg text-white/80">
+                        <p className="text-lg text-muted-foreground">
                              At PRI, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
                         </p>
                     </div>
