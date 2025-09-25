@@ -69,18 +69,10 @@ export default function AboutConferencePage() {
             </div>
         </section>
         
-        <section className="relative w-full py-16 md:py-24">
-            <Image
-                src="https://fourwaves.com/media/jjtaaupz/conference-speaker.jpg?quality=100&rnd=132864618244570000"
-                alt="Conference collaboration"
-                data-ai-hint="team meeting"
-                fill
-                className="object-cover"
-            />
-            <div className="absolute inset-0 bg-primary/90" />
+        <section className="relative w-full py-16 md:py-24 bg-primary text-white">
             <div className="container relative z-10 mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="text-white">
+                    <div>
                         <h2 className="text-3xl font-bold tracking-tight mb-4">Our Mission in Conferencing</h2>
                         <p className="text-lg text-white/80">
                              At PRI, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
@@ -94,7 +86,7 @@ export default function AboutConferencePage() {
                                         <principle.icon className="h-6 w-6 text-primary" />
                                     </div>
                                     <div>
-                                        <CardTitle className="text-lg">{principle.title}</CardTitle>
+                                        <CardTitle className="text-lg text-card-foreground">{principle.title}</CardTitle>
                                     </div>
                                 </CardHeader>
                             </Card>
