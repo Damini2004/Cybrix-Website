@@ -90,8 +90,8 @@ export default function PatentPage() {
                     </div>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {patentServices.map((service) => (
-                             <Card key={service.title} className="text-center flex flex-col items-center p-6 border-0 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-                                <div className="p-4 bg-primary/10 rounded-full mb-4">
+                             <Card key={service.title} className="text-center flex flex-col items-center p-6 bg-background border-border/50 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
+                                <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
                                   <service.icon className="h-8 w-8 text-primary" />
                                 </div>
                                 <CardHeader className="p-0">
