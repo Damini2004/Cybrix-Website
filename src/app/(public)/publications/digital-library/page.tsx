@@ -10,11 +10,15 @@ import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
 import { useState, useEffect } from "react";
 import { Logo } from "@/components/icons";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 export default function DigitalLibraryPage() {
   const [journals, setJournals] = useState<Journal[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("");
+  const bannerImages = [
+        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Digital Library", hint: "library books" },
+  ];
 
   useEffect(() => {
     const fetchJournals = async () => {
@@ -38,15 +42,7 @@ export default function DigitalLibraryPage() {
 
   return (
     <div className="bg-secondary/30">
-        <section className="relative h-[500px] w-full flex items-center justify-center p-4">
-            <Image
-                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&h=400&auto=format&fit=crop"
-                alt="Digital Library"
-                data-ai-hint="library books"
-                fill
-                className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/50 z-10" />
+        <BannerCarousel images={bannerImages}>
             <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
@@ -57,7 +53,7 @@ export default function DigitalLibraryPage() {
                     </p>
                 </CardContent>
             </Card>
-        </section>
+        </BannerCarousel>
 
         <section className="container mx-auto px-4 md:px-6 py-12 md:py-24">
             <Card className="max-w-3xl mx-auto mb-16 shadow-lg border-primary/10">
@@ -91,7 +87,7 @@ export default function DigitalLibraryPage() {
                 <>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {filteredJournals.map(journal => (
-                            <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50 overflow-hidden">
+                             <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50 overflow-hidden">
                                 <div className="relative w-full h-48">
                                     <Image 
                                         src={journal.imageSrc}
@@ -112,7 +108,7 @@ export default function DigitalLibraryPage() {
                                     <CardFooter className="p-0 pt-4">
                                         <Button asChild className="w-full">
                                             <Link href="#">
-                                                Explore Journal <ArrowRight className="ml-2 h-4 w-4" />
+                                                Explore Journal <ArrowRight className="ml-2 h-4 w-4 icon-pulse" />
                                             </Link>
                                         </Button>
                                     </CardFooter>
@@ -122,7 +118,7 @@ export default function DigitalLibraryPage() {
                     </div>
                     {filteredJournals.length > 0 && (
                         <div className="mt-12 text-center">
-                            <Button size="lg">Load More Publications</Button>
+                            <Button size="lg" variant="outline">Load More Publications</Button>
                         </div>
                     )}
                     {filteredJournals.length === 0 && (

@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,12 +11,17 @@ import { getJournals, Journal } from "@/services/journalService";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Logo } from "@/components/icons";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 export default function PublicationsPage() {
   const [journals, setJournals] = useState<Journal[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const { toast } = useToast();
+   const bannerImages = [
+        { src: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Library shelf", hint: "library books" },
+        { src: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Open book on a table", hint: "open book" }
+    ];
 
   useEffect(() => {
     const fetchJournals = async () => {
@@ -45,73 +49,89 @@ export default function PublicationsPage() {
   );
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Our Publications</h1>
-        <p className="mt-4 text-lg text-muted-foreground">Browse through the latest research published with Cybrix.</p>
-        <div className="relative mt-6 max-w-lg mx-auto">
-          <Input 
-            placeholder="Search journals by title or description..." 
-            className="pl-10 h-12"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          />
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-        </div>
-      </div>
+    <div className="bg-secondary/30">
+        <BannerCarousel images={bannerImages}>
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Our Publications
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                        Explore our comprehensive collection of peer-reviewed journals and discover the latest advancements in research and innovation.
+                    </p>
+                </CardContent>
+            </Card>
+        </BannerCarousel>
 
-      {isLoading ? (
-         <div className="flex items-center justify-center py-24">
-            <Logo className="h-32 w-32" />
-         </div>
-      ) : (
-        <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredJournals.map(journal => (
-                <Card key={journal.id} className="hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden">
-                    <div className="relative w-full aspect-[4/3]">
-                        <Image 
-                            src={journal.imageSrc}
-                            alt={`Cover for ${journal.journalName}`}
-                            fill
-                            data-ai-hint="journal cover"
-                            className="object-cover"
-                        />
-                    </div>
-                    <div className="flex flex-col flex-grow">
-                        <CardHeader>
-                            <CardTitle className="text-xl leading-snug">{journal.journalName}</CardTitle>
-                            <CardDescription className="pt-1 line-clamp-2">{journal.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="flex-grow space-y-2">
-                            <p className="text-sm text-muted-foreground">Status: {journal.status}</p>
-                            <Link href="#" className="text-sm text-primary hover:underline">
-                                Read more...
-                            </Link>
-                        </CardContent>
-                        <CardFooter>
-                            <Button asChild variant="secondary" className="w-full">
-                                <Link href="#">
-                                    View Journal <ArrowRight className="ml-2 h-4 w-4" />
-                                </Link>
-                            </Button>
-                        </CardFooter>
-                    </div>
-                </Card>
-                ))}
-            </div>
-            {filteredJournals.length > 0 && (
-                <div className="mt-12 text-center">
-                    <Button size="lg" variant="outline">Load More Journals</Button>
+        <section className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+            <Card className="max-w-3xl mx-auto mb-16 shadow-lg border-primary/10">
+                <CardHeader className="text-center">
+                    <CardTitle className="text-3xl">Search Our Journals</CardTitle>
+                    <CardDescription>Find publications by title or subject matter.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form className="flex items-center gap-2" onSubmit={(e) => e.preventDefault()}>
+                        <div className="relative flex-grow">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                            <Input 
+                                placeholder="Search journals by title, or description..." 
+                                className="pl-10 h-12 w-full"
+                                value={filter}
+                                onChange={(e) => setFilter(e.target.value)}
+                            />
+                        </div>
+                        <Button type="submit" size="lg" className="h-12">
+                            Search
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
+
+            {isLoading ? (
+                <div className="flex items-center justify-center py-24">
+                    <Logo className="h-32 w-32" />
                 </div>
+            ) : (
+                <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredJournals.map(journal => (
+                            <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50 overflow-hidden">
+                                <div className="relative w-full h-48">
+                                    <Image 
+                                        src={journal.imageSrc}
+                                        alt={`Cover for ${journal.journalName}`}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        data-ai-hint="journal cover"
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div className="flex flex-col flex-grow p-4">
+                                    <CardHeader className="p-0 items-center">
+                                        <CardTitle className="text-base font-bold leading-snug h-12 line-clamp-2">{journal.journalName}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="p-0 flex-grow pt-2">
+                                        <p className="text-sm text-muted-foreground line-clamp-3 h-16">{journal.description}</p>
+                                    </CardContent>
+                                    <CardFooter className="p-0 pt-4">
+                                        <Button asChild className="w-full">
+                                            <Link href="/publications/digital-library">
+                                                Explore Journal <ArrowRight className="ml-2 h-4 w-4 icon-pulse" />
+                                            </Link>
+                                        </Button>
+                                    </CardFooter>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+                    {filteredJournals.length === 0 && !isLoading && (
+                        <div className="text-center py-16 text-muted-foreground">
+                            <p>No journals found matching your search criteria.</p>
+                        </div>
+                    )}
+                </>
             )}
-            {filteredJournals.length === 0 && !isLoading && (
-                 <div className="text-center py-16 text-muted-foreground">
-                    <p>No journals found matching your search criteria.</p>
-                </div>
-            )}
-        </>
-      )}
+        </section>
     </div>
   );
 }
