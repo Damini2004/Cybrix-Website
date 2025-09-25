@@ -1,3 +1,4 @@
+
 // src/app/(public)/conference/[id]/page.tsx
 "use client";
 

@@ -1,3 +1,4 @@
+
 // src/app/(public)/conference/scientific-gallery/page.tsx
 "use client"
 

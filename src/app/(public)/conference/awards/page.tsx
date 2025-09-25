@@ -30,7 +30,7 @@ const awardCategories = [
 
 export default function AwardsPage() {
     const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Awards Ceremony", hint: "awards ceremony" },
+        { src: "https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Awards Ceremony", hint: "awards ceremony" },
         { src: "https://images.unsplash.com/photo-1639149545952-3023a953d613?q=80&w=800&h=600&auto=format&fit=crop", alt: "Award Trophy", hint: "award trophy" }
     ];
   return (

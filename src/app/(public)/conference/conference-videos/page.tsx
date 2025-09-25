@@ -46,7 +46,7 @@ export default function ConferenceVideosPage() {
     <div className="bg-background">
       <section className="relative w-full py-20 md:py-32">
         <Image
-            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&h=900&auto=format=fit=crop"
+            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&h=900&auto=format&fit=crop"
             alt="Conference background"
             data-ai-hint="conference event"
             fill
