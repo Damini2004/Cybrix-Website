@@ -43,7 +43,7 @@ const Footer = () => {
                             className="h-12 bg-primary-foreground/10 border-sidebar-border text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20"
                         />
                         <Button type="submit" size="lg" className="h-12 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                            <Send className="mr-2 h-4 w-4 icon-pulse" /> Subscribe
+                            <Send className="mr-2 h-4 w-4" /> Subscribe
                         </Button>
                     </form>
                 </div>
@@ -82,15 +82,15 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold">Contact Info</h3>
                         <div className="space-y-2 text-sm text-primary-foreground/70">
                              <p className="flex items-start gap-2">
-                                <MapPin className="h-4 w-4 mt-1 flex-shrink-0 icon-pulse" />
+                                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                                 <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
                             </p>
                              <p className="flex items-start gap-2">
-                                <Phone className="h-4 w-4 mt-1 flex-shrink-0 icon-pulse" />
+                                <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
                                 <span>+91-7020095748</span>
                             </p>
                              <p className="flex items-start gap-2">
-                                <Mail className="h-4 w-4 mt-1 flex-shrink-0 icon-pulse" />
+                                <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
                                 <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-white">pureresearchinsights@gmail.com</Link>
                             </p>
                         </div>
@@ -105,7 +105,7 @@ const Footer = () => {
                     <div className="flex items-center space-x-4 mt-4 sm:mt-0">
                         {socialLinks.map(link => (
                             <Link key={link.label} href={link.href} className="text-primary-foreground/70 hover:text-white transition-colors" aria-label={link.label}>
-                                <link.icon className="h-5 w-5 icon-pulse" />
+                                <link.icon className="h-5 w-5" />
                             </Link>
                         ))}
                     </div>

@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Lexend', 'sans-serif'],
+        body: ['"PT Sans"', 'sans-serif'],
+        headline: ['Poppins', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -103,7 +103,7 @@ export default {
         'scroll-y': {
           'from': { transform: 'translateY(0)' },
           'to': { transform: 'translateY(-50%)' },
-        }
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',

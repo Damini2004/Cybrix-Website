@@ -281,7 +281,4 @@
     animation-play-state: paused;
   }
   
-  .icon-pulse {
-      @apply animate-pulse;
-  }
 }
