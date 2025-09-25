@@ -52,7 +52,7 @@ export default function EB1ConsultancyPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                             <Image
-                                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&h=600&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&h=600&auto=format=fit=crop"
                                 alt="Innovation"
                                 data-ai-hint="team innovation"
                                 fill
@@ -85,14 +85,14 @@ export default function EB1ConsultancyPage() {
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
                         {eb1Criteria.map((service) => (
-                            <Card key={service.title} className="text-center p-6 border-0 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-                                <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
-                                    <service.icon className="h-8 w-8 text-primary" />
-                                </div>
-                                <CardHeader className="p-0">
+                            <Card key={service.title} className="flex flex-col text-center p-6 border-border/50 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 bg-background">
+                                <CardHeader className="items-center p-0">
+                                    <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
+                                        <service.icon className="h-8 w-8 text-primary" />
+                                    </div>
                                     <CardTitle className="text-xl">{service.title}</CardTitle>
                                 </CardHeader>
-                                <CardContent className="flex-grow mt-2 p-0">
+                                <CardContent className="flex-grow mt-4 p-0">
                                     <p className="text-muted-foreground">{service.description}</p>
                                 </CardContent>
                             </Card>
