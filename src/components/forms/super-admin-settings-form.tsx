@@ -101,7 +101,7 @@ export default function SuperAdminSettingsForm({ currentAdmin }: SuperAdminSetti
           )}
         />
         <Button type="submit" disabled={isSubmitting}>
-            <Save className="mr-2 h-4 w-4" />
+            <Save className="mr-2 h-4 w-4 icon-pulse" />
             {isSubmitting ? "Saving..." : "Save Credentials"}
         </Button>
       </form>

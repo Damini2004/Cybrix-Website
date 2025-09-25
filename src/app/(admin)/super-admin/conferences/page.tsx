@@ -96,7 +96,7 @@ export default function ManageConferencesPage() {
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button>
-                <PlusCircle className="mr-2 h-4 w-4" />
+                <PlusCircle className="mr-2 h-4 w-4 icon-pulse" />
                 Add Conference
             </Button>
           </DialogTrigger>

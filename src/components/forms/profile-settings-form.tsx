@@ -148,7 +148,7 @@ export default function ProfileSettingsForm() {
           )}
         />
         <Button type="submit" disabled={isSubmitting}>
-            <Send className="mr-2 h-4 w-4" />
+            <Send className="mr-2 h-4 w-4 icon-pulse" />
             {isSubmitting ? "Sending..." : "Send Update Request"}
         </Button>
       </form>

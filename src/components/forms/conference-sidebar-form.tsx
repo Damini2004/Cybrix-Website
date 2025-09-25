@@ -62,7 +62,7 @@ export default function ConferenceSidebarForm() {
             </Label>
           </div>
           <Button className="w-full">
-            <Send className="mr-2 h-4 w-4" />
+            <Send className="mr-2 h-4 w-4 icon-pulse" />
             Submit
           </Button>
         </form>

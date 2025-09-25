@@ -186,7 +186,7 @@ export default function AlertAuthorForm({ submission, onAlertSent }: AlertAuthor
         />
         <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Send Message"}
-            <Send className="ml-2 h-4 w-4" />
+            <Send className="ml-2 h-4 w-4 icon-pulse" />
         </Button>
       </form>
     </Form>

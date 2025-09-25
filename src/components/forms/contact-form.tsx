@@ -303,7 +303,7 @@ export default function ContactForm({ inquiryType, details }: ContactFormProps) 
         <div className="text-center pt-4">
             <Button type="submit" size="lg" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : (isInternshipApplication ? "Submit Application" : (isWebinarRegistration ? "Register for Webinar" : "Send Message"))}
-                <Send className="ml-2 h-4 w-4" />
+                <Send className="ml-2 h-4 w-4 icon-pulse" />
             </Button>
         </div>
       </form>
