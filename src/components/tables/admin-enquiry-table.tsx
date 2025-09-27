@@ -149,7 +149,7 @@ export default function AdminEnquiryTable() {
                   <TableCell>
                     <div className="flex items-center gap-2 text-sm">
                         <span className="text-muted-foreground">{request.currentEmail}</span>
-                        <ArrowRight className="h-4 w-4"/>
+                        <ArrowRight className="h-4 w-4 icon-pulse"/>
                         <span className="font-semibold">{request.requestedEmail}</span>
                     </div>
                   </TableCell>
@@ -161,11 +161,11 @@ export default function AdminEnquiryTable() {
                      {request.status === 'Pending' && (
                         <div className="flex gap-2">
                             <Button variant="outline" size="sm" onClick={() => handleAction(request.id, 'approve')} disabled={isProcessing === request.id}>
-                                {isProcessing === request.id ? <RefreshCw className="mr-2 h-4 w-4 animate-spin"/> : <Check className="mr-2 h-4 w-4 text-green-500"/>} 
+                                {isProcessing === request.id ? <RefreshCw className="mr-2 h-4 w-4 animate-spin"/> : <Check className="mr-2 h-4 w-4 text-green-500 icon-pulse"/>} 
                                 Approve
                             </Button>
                             <Button variant="outline" size="sm" onClick={() => handleAction(request.id, 'deny')} disabled={isProcessing === request.id}>
-                                {isProcessing === request.id ? <RefreshCw className="mr-2 h-4 w-4 animate-spin"/> : <X className="mr-2 h-4 w-4 text-red-500"/>} 
+                                {isProcessing === request.id ? <RefreshCw className="mr-2 h-4 w-4 animate-spin"/> : <X className="mr-2 h-4 w-4 text-red-500 icon-pulse"/>} 
                                 Deny
                             </Button>
                         </div>

@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Target, Eye, Presentation, BookOpen, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
+import BannerCarousel from "@/components/ui/banner-carousel";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -39,82 +41,80 @@ const services = [
 
 export default async function AboutPage() {
   const content = await getAboutContent();
+  const bannerImages = [
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "A diverse team collaborating on a project in a modern office", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop", alt: "A group of professionals working together around a laptop", hint: "team working" }
+  ];
   
   return (
     <>
-      <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
-        <Image
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&h=400&auto=format&fit=crop"
-          alt="A diverse team collaborating on a project in a modern office"
-          data-ai-hint="team collaboration"
-          fill
-          className="object-cover opacity-10"
-        />
-        <div className="relative z-10">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                About Cybrix
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
-            </p>
+      <BannerCarousel images={bannerImages}>
+        <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+            <CardContent className="p-8 md:p-12">
+                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                    About Cybrix
+                </h1>
+                <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                    Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
+                </p>
+            </CardContent>
+        </Card>
+      </BannerCarousel>
+
+
+      <section className="bg-background">
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+            <Card className="shadow-xl overflow-hidden border-primary/10 bg-secondary/30">
+            <div className="grid md:grid-cols-2 items-center">
+                <div className="relative h-64 md:h-full min-h-[400px]">
+                <Image
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop"
+                    alt="A group of professionals working together around a laptop"
+                    data-ai-hint="team collaboration"
+                    fill
+                    className="object-cover"
+                />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="p-8 md:p-12">
+                    <div 
+                    className="prose prose-lg max-w-none prose-img:rounded-lg prose-img:shadow-md prose-img:mx-auto text-foreground"
+                    dangerouslySetInnerHTML={{ __html: content || "" }} 
+                    />
+                </div>
+            </div>
+            </Card>
         </div>
       </section>
 
-
-      <section className="container mx-auto px-4 md:px-6 pb-12 md:pb-24 lg:pb-32 pt-16">
-        <Card className="shadow-xl overflow-hidden border-primary/10">
-          <div className="grid md:grid-cols-2 items-center">
-            <div className="relative h-64 md:h-full min-h-[300px]">
-              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop"
-                alt="A group of professionals working together around a laptop"
-                data-ai-hint="team collaboration"
-                fill
-                className="object-cover"
-              />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-            </div>
-              <div className="p-8 md:p-12">
-                <div 
-                  className="prose prose-lg max-w-none prose-img:rounded-lg prose-img:shadow-md prose-img:mx-auto text-card-foreground"
-                  dangerouslySetInnerHTML={{ __html: content || "" }} 
-                />
-            </div>
-          </div>
-        </Card>
-
-        <div className="mt-16 md:mt-24">
-          <div className="grid gap-12 md:grid-cols-2">
-            <Card className="shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              <CardHeader className="items-center text-center">
-                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
-                  <Target className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle>Our Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-center">
-                  To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              <CardHeader className="items-center text-center">
-                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
-                  <Eye className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle>Our Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-center">
-                  To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
-                </p>
-              </CardContent>
-            </Card>
+      <section className="bg-secondary/30">
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+          <div className="relative grid md:grid-cols-2 gap-x-12 max-w-5xl mx-auto">
+              <Separator orientation="vertical" className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 hidden md:block" />
+              <div className="flex flex-col items-center md:items-end text-center md:text-right p-8">
+                  <div className="p-4 bg-primary/10 rounded-full w-fit mb-4">
+                      <Target className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
+                  <p className="text-muted-foreground">
+                      To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
+                  </p>
+              </div>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left p-8">
+                  <div className="p-4 bg-primary/10 rounded-full w-fit mb-4">
+                      <Eye className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Our Vision</h3>
+                  <p className="text-muted-foreground">
+                      To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
+                  </p>
+              </div>
           </div>
         </div>
+      </section>
 
-        <div className="mt-16 md:mt-24">
+      <section className="bg-background">
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter">Our Services</h2>
                 <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
@@ -122,16 +122,16 @@ export default async function AboutPage() {
                 </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
-                {services.map((service) => (
-                      <Card key={service.title} className="text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                {services.map((service, index) => (
+                    <Card key={service.title} className="text-center group transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-primary/20 border-2 border-transparent bg-secondary/30">
                         <CardHeader className="items-center">
-                            <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                            <div className="p-4 bg-white rounded-full w-fit mb-3 shadow-inner group-hover:scale-110 transition-transform duration-300">
                                 <service.icon className="h-8 w-8 text-primary" />
                             </div>
-                            <CardTitle>{service.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-muted-foreground">{service.description}</p>
+                           <CardTitle className="mb-2 text-lg">{service.title}</CardTitle>
+                            <p className="text-muted-foreground text-sm">{service.description}</p>
                         </CardContent>
                     </Card>
                 ))}

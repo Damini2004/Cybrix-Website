@@ -4,112 +4,112 @@ import { Logo } from "@/components/icons";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Phone, Send, Linkedin, Twitter, Youtube, Facebook, Instagram } from "lucide-react";
-import Image from "next/image";
 
 const quickLinks = [
-    { href: "#", label: "Talk to an Expert" },
-    { href: "#", label: "Our Policies" },
-    { href: "/about", label: "Blog" },
-    { href: "/internship", label: "Internship" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact-us", label: "Contact" },
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/conference/faq", label: "FAQ" },
 ]
 
-const exploreLinks = [
-    { href: "#", label: "Cybrix" },
-    { href: "/about", label: "Careers" },
-    { href: "/research-support", label: "Research Support" },
-    { href: "/contact-us", label: "Contact Us" },
+const serviceLinks = [
+    { href: "/publications", label: "Publications" },
+    { href: "/conference", label: "Conferences" },
+    { href: "/ipr-services", label: "IPR Services" },
+    { href: "/internship", label: "Internships" },
 ]
 
 const socialLinks = [
-    { href: "https://www.linkedin.com/company/pure-researcher-insights/", icon: Linkedin },
-    { href: "https://www.youtube.com/@PureResearchInsights", icon: Youtube },
-    { href: "#", icon: Facebook },
-    { href: "https://www.instagram.com/pure_research_insights?igsh=ZjdqZXN5NHRtemhn", icon: Instagram },
+    { href: "https://www.linkedin.com/company/pure-researcher-insights/", icon: Linkedin, label: "LinkedIn" },
+    { href: "https://www.youtube.com/@PureResearchInsights", icon: Youtube, label: "YouTube" },
+    { href: "#", icon: Facebook, label: "Facebook" },
+    { href: "https://www.instagram.com/pure_research_insights?igsh=ZjdqZXN5NHRtemhn", icon: Instagram, label: "Instagram" },
 ]
-
-const WhatsAppIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-)
-
 
 const Footer = () => {
     return (
-        <footer className="bg-[#212121] text-white">
-            <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Column 1: Info */}
-                    <div className="space-y-4 md:col-span-2 lg:col-span-1">
-                        <div className="space-y-2 text-sm text-gray-400">
-                            <p className="flex items-start gap-2">
-                                <MapPin className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
-                            </p>
-                            <p className="flex items-start gap-2">
-                                <Phone className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <span>+91-7020095748</span>
-                            </p>
-                            <p className="flex items-start gap-2">
-                                <Mail className="h-4 w-4 mt-0.5 text-[#D32F2F] flex-shrink-0" />
-                                <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-[#D32F2F]">pureresearchinsights@gmail.com</Link>
-                            </p>
-                        </div>
+        <footer className="bg-primary text-primary-foreground">
+            <div className="container mx-auto px-4 pt-16 pb-8">
+                {/* Top section with Newsletter */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 border-b border-sidebar-border pb-12">
+                    <div>
+                        <h2 className="text-3xl font-headline font-bold">Stay Updated with Cybrix</h2>
+                        <p className="mt-2 text-primary-foreground/70">Subscribe to our newsletter for the latest news on conferences, publications, and more.</p>
+                    </div>
+                    <form className="flex w-full max-w-md items-center space-x-2">
+                        <Input 
+                            type="email" 
+                            placeholder="Enter your email address" 
+                            className="h-12 bg-primary-foreground/10 border-sidebar-border text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20"
+                        />
+                        <Button type="submit" size="lg" className="h-12 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                            <Send className="mr-2 h-4 w-4" /> Subscribe
+                        </Button>
+                    </form>
+                </div>
+
+                {/* Main footer content */}
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                    <div className="col-span-2 lg:col-span-1 space-y-4">
+                        <Link href="/" className="flex items-center space-x-2">
+                            <Logo className="h-12 w-12" />
+                            <span className="font-bold text-2xl font-headline">Cybrix</span>
+                        </Link>
+                        <p className="text-sm text-primary-foreground/70 pr-4">
+                            Empowering researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.
+                        </p>
                     </div>
 
-                    {/* Column 2: Quick Links */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-4 relative">
-                            Quick Links
-                            <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
-                        </h3>
-                        <ul className="space-y-2 text-sm text-gray-400">
+                        <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul className="space-y-2 text-sm text-primary-foreground/70">
                             {quickLinks.map(link => (
                                 <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Column 3: Explore */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-4 relative">
-                            Explore
-                             <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
-                        </h3>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            {exploreLinks.map(link => (
+                        <h3 className="text-lg font-semibold mb-4">Our Services</h3>
+                        <ul className="space-y-2 text-sm text-primary-foreground/70">
+                            {serviceLinks.map(link => (
                                 <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
                             ))}
                         </ul>
                     </div>
-                    
-                    {/* Column 4: Map */}
-                    <div className="space-y-6">
-                        <div>
-                           <h3 className="text-lg font-semibold mb-4 relative">
-                                Our Location
-                                <span className="absolute bottom-[-4px] left-0 h-0.5 w-12 bg-[#D32F2F]"></span>
-                            </h3>
-                            <div className="overflow-hidden rounded-md">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3424623913434!2d79.08999457549149!3d21.098908680568048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bfc7aff3723f%3A0x3008e412fdbad687!2sCybrix!5e0!3m2!1sen!2sin!4v1758197039783!5m2!1sen!2sin" width="600" height="450" style={{ border:0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
+
+                    <div className="col-span-2 md:col-span-1 space-y-4">
+                        <h3 className="text-lg font-semibold">Contact Info</h3>
+                        <div className="space-y-2 text-sm text-primary-foreground/70">
+                             <p className="flex items-start gap-2">
+                                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                                <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
+                            </p>
+                             <p className="flex items-start gap-2">
+                                <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
+                                <span>+91-7020095748</span>
+                            </p>
+                             <p className="flex items-start gap-2">
+                                <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
+                                <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-white">pureresearchinsights@gmail.com</Link>
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-700 mt-10 pt-6">
-                    <div className="flex flex-col items-center mt-10">
-                        <h4 className="font-semibold mb-4">Follow us</h4>
-                        <div className="flex items-center space-x-3">
-                            {socialLinks.map((link, index) => (
-                                <Link key={index} href={link.href}>
-                                    <Button variant="outline" size="icon" className="bg-transparent border-white rounded-full text-white hover:bg-white hover:text-black transition-colors">
-                                        <link.icon className="h-5 w-5" />
-                                    </Button>
-                                </Link>
-                            ))}
-                        </div>
+                {/* Bottom bar */}
+                <div className="border-t border-sidebar-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between">
+                     <p className="text-sm text-primary-foreground/70 text-center sm:text-left">
+                        &copy; {new Date().getFullYear()} Cybrix. All rights reserved.
+                    </p>
+                    <div className="flex items-center space-x-4 mt-4 sm:mt-0">
+                        {socialLinks.map(link => (
+                            <Link key={link.label} href={link.href} className="text-primary-foreground/70 hover:text-white transition-colors" aria-label={link.label}>
+                                <link.icon className="h-5 w-5" />
+                            </Link>
+                        ))}
                     </div>
                 </div>
-
             </div>
         </footer>
     )

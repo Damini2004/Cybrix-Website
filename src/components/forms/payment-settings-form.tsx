@@ -83,7 +83,7 @@ export default function PaymentSettingsForm({ currentUrl }: PaymentSettingsFormP
           )}
         />
         <Button type="submit" disabled={isSubmitting}>
-            <Save className="mr-2 h-4 w-4" />
+            <Save className="mr-2 h-4 w-4 icon-pulse" />
             {isSubmitting ? "Saving..." : "Save Settings"}
         </Button>
       </form>

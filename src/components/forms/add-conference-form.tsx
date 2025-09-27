@@ -455,13 +455,13 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
                                                 </FormItem>
                                             )}
                                         />
-                                        <Button type="button" variant="destructive" size="sm" className="absolute top-2 right-2" onClick={() => remove(index)}>
-                                            <Trash2 className="h-4 w-4"/>
+                                        <Button type="button" variant="destructive" size="sm" className="absolute top-2 right-2">
+                                            <Trash2 className="h-4 w-4 icon-pulse"/>
                                         </Button>
                                     </div>
                                 ))}
                                 <Button type="button" variant="outline" size="sm" onClick={() => append({ question: "", answer: "" })}>
-                                    <PlusCircle className="mr-2 h-4 w-4" /> Add FAQ
+                                    <PlusCircle className="mr-2 h-4 w-4 icon-pulse" /> Add FAQ
                                 </Button>
                                 </div>
                             </div>
@@ -507,11 +507,11 @@ export default function AddConferenceForm({ onConferenceAdded }: AddConferenceFo
         </ScrollArea>
         <div className="flex-shrink-0 flex justify-between pt-4 border-t">
             <Button type="button" variant="outline" onClick={handleBack} disabled={currentStep === 1}>
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back
+                <ArrowLeft className="mr-2 h-4 w-4 icon-pulse" /> Back
             </Button>
             {currentStep < totalSteps ? (
                 <Button type="button" onClick={handleNext}>
-                    Next <ArrowRight className="ml-2 h-4 w-4" />
+                    Next <ArrowRight className="ml-2 h-4 w-4 icon-pulse" />
                 </Button>
             ) : (
                 <Button type="submit" size="lg" disabled={isSubmitting}>

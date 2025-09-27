@@ -31,22 +31,25 @@ const planningServices = [
 export default function PlanConferencePage() {
   return (
     <div className="bg-secondary/30">
-        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+        <section className="relative h-[500px] w-full flex items-center justify-center p-4">
             <Image
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Conference planning session"
                 data-ai-hint="team meeting"
                 fill
-                className="object-cover opacity-10"
+                className="object-cover"
             />
-            <div className="relative z-10">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    Partner with Us on Your Next Conference
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                    Collaborate with our experienced team to organize a successful and impactful scientific event. We provide end-to-end support to bring your vision to life.
-                </p>
-            </div>
+            <div className="absolute inset-0 bg-black/50 z-10" />
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Partner with Us on Your Next Conference
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                        Collaborate with our experienced team to organize a successful and impactful scientific event. We provide end-to-end support to bring your vision to life.
+                    </p>
+                </CardContent>
+            </Card>
         </section>
         
         <section className="w-full py-16 md:py-24 bg-background">
@@ -65,7 +68,7 @@ export default function PlanConferencePage() {
                          <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">A Partnership for Success</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Your Vision, Our Expertise</h2>
                         <p className="text-muted-foreground text-justify">
-                            Planning a scientific conference requires meticulous attention to detail and a deep understanding of the academic landscape. By partnering with Pure Research Insights, you gain access to a dedicated team of professionals who are committed to making your event a resounding success. We work closely with you to understand your goals, develop a comprehensive strategy, and execute every aspect of the conference with precision and care.
+                            Planning a scientific conference requires meticulous attention to detail and a deep understanding of the academic landscape. By partnering with Cybrix, you gain access to a dedicated team of professionals who are committed to making your event a resounding success. We work closely with you to understand your goals, develop a comprehensive strategy, and execute every aspect of the conference with precision and care.
                         </p>
                         <Button asChild>
                             <Link href="/contact-us">

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileCheck2, Presentation, Globe, Database, Link as LinkIcon, BookLock } from "lucide-react";
 import Image from "next/image";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 const benefits = [
     {
@@ -42,30 +43,28 @@ const services = [
 ]
 
 export default function ConferenceProceedingsPage() {
+    const bannerImages = [
+        { src: "/conference-proceeding.png", alt: "Conference Presentation", hint: "conference presentation" }
+    ];
     return (
-        <div>
-            <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
-                <Image
-                    src="/conference-proceeding.png"
-                    alt="Conference Presentation"
-                    data-ai-hint="conference presentation"
-                    fill
-                    className="object-cover opacity-10"
-                />
-                <div className="relative z-10">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                        Conference Proceedings
-                    </h1>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Share your research on a global stage. All accepted abstracts from our conferences are published in our prestigious, indexed Conference Proceedings.
-                    </p>
-                    <Button size="lg" className="mt-8" asChild>
-                        <a href="/conference">
-                            View Upcoming Conferences <ArrowRight className="ml-2 h-5 w-5" />
-                        </a>
-                    </Button>
-                </div>
-            </section>
+        <div className="bg-secondary/30">
+            <BannerCarousel images={bannerImages}>
+                 <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                    <CardContent className="p-8 md:p-12">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                            Conference Proceedings
+                        </h1>
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                            Share your research on a global stage. All accepted abstracts from our conferences are published in our prestigious, indexed Conference Proceedings.
+                        </p>
+                         <Button size="lg" className="mt-8" asChild>
+                            <a href="/conference">
+                                View Upcoming Conferences <ArrowRight className="ml-2 h-5 w-5 icon-pulse" />
+                            </a>
+                        </Button>
+                    </CardContent>
+                </Card>
+            </BannerCarousel>
             
             <section className="w-full py-16 md:py-24 bg-background">
                 <div className="container mx-auto px-4 md:px-6">
@@ -82,17 +81,17 @@ export default function ConferenceProceedingsPage() {
                         <div className="space-y-6">
                              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Why Publish With Us?</div>
                             <h2 className="text-3xl font-bold tracking-tighter">Amplify Your Research Impact</h2>
-                            <p className="text-muted-foreground">
+                            <p className="text-muted-foreground text-lg">
                                 Our conference proceedings offer a unique platform to disseminate your findings, gain valuable feedback, and connect with a global network of researchers and industry leaders.
                             </p>
-                            <ul className="space-y-4">
+                            <ul className="space-y-4 pt-4">
                                 {benefits.map((benefit) => (
                                     <li key={benefit.title} className="flex items-start gap-4">
                                         <div className="p-3 bg-primary/10 rounded-full mt-1">
                                             <benefit.icon className="h-5 w-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold">{benefit.title}</h4>
+                                            <h4 className="font-semibold text-foreground">{benefit.title}</h4>
                                             <p className="text-muted-foreground text-sm">{benefit.description}</p>
                                         </div>
                                     </li>
@@ -103,7 +102,7 @@ export default function ConferenceProceedingsPage() {
                 </div>
             </section>
 
-             <section className="w-full py-16 md:py-24 bg-secondary/30">
+             <section className="w-full pb-16 md:pb-24">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold tracking-tighter">Our Services</h2>
@@ -113,7 +112,7 @@ export default function ConferenceProceedingsPage() {
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
                         {services.map((service) => (
-                            <Card key={service.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                            <Card key={service.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-primary/10">
                                 <CardHeader className="items-center">
                                     <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
                                         <service.icon className="h-8 w-8 text-primary" />

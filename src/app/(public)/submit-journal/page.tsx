@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Image from "next/image";
 import { Globe, ShieldCheck, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 const submissionBenefits = [
     {
@@ -25,31 +26,30 @@ const submissionBenefits = [
 ]
 
 export default function SubmitJournalPage() {
+    const bannerImages = [
+        { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Researcher writing", hint: "research writing" },
+        { src: "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop", alt: "Open book", hint: "book study" }
+    ];
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
-          <Image
-              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop"
-              alt="Researcher writing"
-              data-ai-hint="research writing"
-              fill
-              className="object-cover opacity-10"
-          />
-          <div className="relative z-10 container mx-auto px-4 md:px-6">
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                  Submit Your Manuscript
-              </h1>
-              <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Join a global community of researchers. Share your work, get valuable feedback, and make an impact on your field.
-              </p>
-              <Button size="lg" className="mt-8" asChild>
-                  <a href="#submission-form">
-                      Start Your Submission <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
-              </Button>
-          </div>
-      </section>
+      <BannerCarousel images={bannerImages}>
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Submit Your Manuscript
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                        Join a global community of researchers. Share your work, get valuable feedback, and make an impact on your field.
+                    </p>
+                    <Button size="lg" className="mt-8" asChild>
+                        <a href="#submission-form">
+                            Start Your Submission <ArrowRight className="ml-2 h-5 w-5" />
+                        </a>
+                    </Button>
+                </CardContent>
+            </Card>
+      </BannerCarousel>
 
       {/* Benefits Section */}
       <section className="w-full py-16 md:py-24 bg-secondary">

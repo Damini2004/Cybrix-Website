@@ -1,3 +1,4 @@
+
 // src/app/(public)/conference/faq/page.tsx
 import {
   Accordion,
@@ -29,22 +30,25 @@ export default async function FaqPage() {
 
   return (
     <div className="bg-secondary/30">
-        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
+        <section className="relative h-[500px] w-full flex items-center justify-center p-4">
             <Image
                 src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Support"
                 data-ai-hint="questions support"
                 fill
-                className="object-cover opacity-10"
+                className="object-cover"
             />
-            <div className="relative z-10">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    Frequently Asked Questions
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                    Find answers to common questions about our conferences, submissions, and publications.
-                </p>
-            </div>
+            <div className="absolute inset-0 bg-black/50 z-10" />
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Frequently Asked Questions
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                        Find answers to common questions about our conferences, submissions, and publications.
+                    </p>
+                </CardContent>
+            </Card>
         </section>
 
         <section className="w-full py-16 md:py-24 bg-background">

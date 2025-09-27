@@ -1,6 +1,9 @@
+
 import { FileUp, Search, UserCheck, MessageSquare, CheckCircle, ShieldCheck } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 const reviewSteps = [
     {
@@ -31,27 +34,25 @@ const reviewSteps = [
 ];
 
 export default function PeerReviewPage() {
+    const bannerImages = [
+        { src: "/peer-review.png", alt: "Peer Review Process", hint: "research paper" }
+    ];
     return (
-        <div>
-            <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
-                <Image
-                    src="/peer-review.png"
-                    alt="Peer Review Process"
-                    data-ai-hint="research paper"
-                    fill
-                    className="object-cover opacity-10"
-                />
-                <div className="relative z-10">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                        Upholding Academic Integrity
-                    </h1>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Our commitment to quality through a rigorous, transparent, and constructive peer-review process.
-                    </p>
-                </div>
-            </section>
+        <div className="bg-background">
+            <BannerCarousel images={bannerImages}>
+                <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                    <CardContent className="p-8 md:p-12">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                            Upholding Academic Integrity
+                        </h1>
+                        <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                            Our commitment to quality through a rigorous, transparent, and constructive peer-review process.
+                        </p>
+                    </CardContent>
+                </Card>
+            </BannerCarousel>
 
-             <section className="w-full py-16 md:py-24 bg-background">
+             <section className="w-full py-16 md:py-24 bg-secondary/30">
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
@@ -64,17 +65,17 @@ export default function PeerReviewPage() {
                             />
                         </div>
                         <div className="space-y-6">
-                             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Our Philosophy</div>
+                             <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-semibold text-primary">Our Philosophy</div>
                             <h2 className="text-3xl font-bold tracking-tighter">A Foundation of Trust & Quality</h2>
-                            <p className="text-muted-foreground text-justify">
-                                At Pure Research Insights, we believe that rigorous peer review is the cornerstone of high-quality academic publishing. Our process is designed not only to validate research but also to provide constructive feedback that enhances the final publication. By engaging independent experts, we ensure that every article meets the highest standards of scientific merit, originality, and significance, thereby fostering trust within the global research community.
+                            <p className="text-muted-foreground text-justify text-lg">
+                                At Cybrix, we believe that rigorous peer review is the cornerstone of high-quality academic publishing. Our process is designed not only to validate research but also to provide constructive feedback that enhances the final publication. By engaging independent experts, we ensure that every article meets the highest standards of scientific merit, originality, and significance, thereby fostering trust within the global research community.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div className="bg-secondary/50 py-16 md:py-24">
+            <section className="bg-background py-16 md:py-24">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-20">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our <span className="text-primary">Peer Review</span> Process</h2>
@@ -92,7 +93,7 @@ export default function PeerReviewPage() {
                                 <div key={index} className="relative flex items-center justify-center">
                                     <div className={`flex w-full items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
                                         <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                                            <div className={`bg-background p-6 rounded-lg shadow-lg border border-primary/10 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                                            <div className={`bg-secondary/30 p-6 rounded-lg shadow-lg border border-primary/10 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
                                                 <h3 className="font-bold text-lg text-primary mb-2">{step.title}</h3>
                                                 <p className="text-muted-foreground">{step.description}</p>
                                             </div>
@@ -108,7 +109,7 @@ export default function PeerReviewPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

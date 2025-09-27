@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'The leading platform for academic journal submissions and management.',
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.pureresearchinsights.com', 
+    url: 'https://www.cybrix.com', 
   },
 };
 
@@ -28,8 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
         {children}

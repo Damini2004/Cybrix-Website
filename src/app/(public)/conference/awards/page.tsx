@@ -1,7 +1,9 @@
+
 // src/app/(public)/conference/awards/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, BookOpen, UserCheck, Lightbulb } from "lucide-react";
 import Image from "next/image";
+import BannerCarousel from "@/components/ui/banner-carousel";
 
 const awardCategories = [
     {
@@ -27,25 +29,24 @@ const awardCategories = [
 ];
 
 export default function AwardsPage() {
+    const bannerImages = [
+        { src: "https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Awards Ceremony", hint: "awards ceremony" },
+        { src: "https://images.unsplash.com/photo-1639149545952-3023a953d613?q=80&w=800&h=600&auto=format&fit=crop", alt: "Award Trophy", hint: "award trophy" }
+    ];
   return (
     <div className="bg-secondary/30">
-        <section className="relative w-full h-[400px] bg-primary/10 flex items-center justify-center text-center px-4">
-            <Image
-                src="https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop"
-                alt="Awards Ceremony"
-                data-ai-hint="awards ceremony"
-                fill
-                className="object-cover opacity-10"
-            />
-            <div className="relative z-10">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    Awards & Recognition
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                    PRI is committed to celebrating excellence in research and innovation. Our awards honor the outstanding contributions of researchers and scholars who are pushing the boundaries of knowledge.
-                </p>
-            </div>
-        </section>
+        <BannerCarousel images={bannerImages}>
+            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+                <CardContent className="p-8 md:p-12">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                        Awards & Recognition
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
+                        Cybrix is committed to celebrating excellence in research and innovation. Our awards honor the outstanding contributions of researchers and scholars who are pushing the boundaries of knowledge.
+                    </p>
+                </CardContent>
+            </Card>
+        </BannerCarousel>
 
         <section className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
@@ -63,7 +64,7 @@ export default function AwardsPage() {
                          <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Celebrating Excellence</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Honoring Groundbreaking Research</h2>
                         <p className="text-muted-foreground text-justify">
-                            The PRI Awards program is designed to recognize and celebrate the exceptional achievements of individuals and teams whose work demonstrates scientific rigor, innovation, and the potential for significant impact. By acknowledging these contributions, we aim to inspire the next generation of researchers and foster a culture of excellence within the global academic community. Each award is a testament to the dedication and intellectual curiosity that drives scientific progress forward.
+                            The Cybrix Awards program is designed to recognize and celebrate the exceptional achievements of individuals and teams whose work demonstrates scientific rigor, innovation, and the potential for significant impact. By acknowledging these contributions, we aim to inspire the next generation of researchers and foster a culture of excellence within the global academic community. Each award is a testament to the dedication and intellectual curiosity that drives scientific progress forward.
                         </p>
                     </div>
                 </div>
