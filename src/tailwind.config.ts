@@ -104,6 +104,10 @@ export default {
           'from': { transform: 'translateY(0)' },
           'to': { transform: 'translateY(-50%)' },
         },
+        'icon-pulse': {
+            '0%, 100%': { transform: 'scale(1)' },
+            '50%': { transform: 'scale(1.1)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -112,6 +116,7 @@ export default {
         'dance': 'dance 0.5s ease-in-out infinite',
         'scroll-x': 'scroll-x 60s linear infinite',
         'scroll-y': 'scroll-y 90s linear infinite',
+        'icon-pulse': 'icon-pulse 1.5s ease-in-out infinite',
       },
     },
   },
