@@ -11,18 +11,13 @@ import { getJournals, Journal } from "@/services/journalService";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Logo } from "@/components/icons";
-import BannerCarousel from "@/components/ui/banner-carousel";
 
 export default function PublicationsPage() {
   const [journals, setJournals] = useState<Journal[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const { toast } = useToast();
-   const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Library shelf", hint: "library books" },
-        { src: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Open book on a table", hint: "open book" }
-    ];
-
+  
   useEffect(() => {
     const fetchJournals = async () => {
       setIsLoading(true);
@@ -49,44 +44,39 @@ export default function PublicationsPage() {
   );
 
   return (
-    <div className="bg-secondary/30">
-        <BannerCarousel images={bannerImages}>
-            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
-                <CardContent className="p-8 md:p-12">
-                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-                        Our Publications
+    <div className="bg-background">
+        <section className="relative w-full py-20 md:py-32 bg-secondary/50">
+             <Image
+                src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=600&auto=format=fit=crop"
+                alt="Library shelf"
+                data-ai-hint="library books"
+                fill
+                className="object-cover opacity-10"
+            />
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="mx-auto max-w-3xl text-center">
+                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                        Explore Our Publications
                     </h1>
-                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
-                        Explore our comprehensive collection of peer-reviewed journals and discover the latest advancements in research and innovation.
+                    <p className="mt-6 text-lg leading-8 text-muted-foreground">
+                        Browse our extensive collection of peer-reviewed journals and discover the latest advancements in research and innovation.
                     </p>
-                </CardContent>
-            </Card>
-        </BannerCarousel>
-
-        <section className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-            <Card className="max-w-3xl mx-auto mb-16 shadow-lg border-primary/10">
-                <CardHeader className="text-center">
-                    <CardTitle className="text-3xl">Search Our Journals</CardTitle>
-                    <CardDescription>Find publications by title or subject matter.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <form className="flex items-center gap-2" onSubmit={(e) => e.preventDefault()}>
+                    <form className="mt-10 flex max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
                         <div className="relative flex-grow">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                             <Input 
-                                placeholder="Search journals by title, or description..." 
-                                className="pl-10 h-12 w-full"
+                                placeholder="Search journals by title, or keyword..." 
+                                className="pl-12 h-14 w-full rounded-full"
                                 value={filter}
                                 onChange={(e) => setFilter(e.target.value)}
                             />
                         </div>
-                        <Button type="submit" size="lg" className="h-12">
-                            Search
-                        </Button>
                     </form>
-                </CardContent>
-            </Card>
+                </div>
+            </div>
+        </section>
 
+        <section className="container mx-auto px-4 md:px-6 py-16 md:py-24">
             {isLoading ? (
                 <div className="flex items-center justify-center py-24">
                     <Logo className="h-32 w-32" />
@@ -95,26 +85,26 @@ export default function PublicationsPage() {
                 <>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredJournals.map(journal => (
-                            <Card key={journal.id} className="group flex flex-col text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-border/50 overflow-hidden">
-                                <div className="relative w-full h-48">
+                            <Card key={journal.id} className="group flex flex-col text-left overflow-hidden rounded-xl shadow-lg border-transparent transition-all duration-500 hover:shadow-primary/20 hover:border-primary/10 transform hover:-translate-y-2">
+                                 <div className="relative w-full h-48 overflow-hidden">
                                     <Image 
                                         src={journal.imageSrc}
                                         alt={`Cover for ${journal.journalName}`}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         data-ai-hint="journal cover"
-                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                 </div>
-                                <div className="flex flex-col flex-grow p-4">
-                                    <CardHeader className="p-0 items-center">
-                                        <CardTitle className="text-base font-bold leading-snug h-12 line-clamp-2">{journal.journalName}</CardTitle>
+                                <div className="flex flex-col flex-grow p-6">
+                                    <CardHeader className="p-0">
+                                        <CardTitle className="text-lg font-bold leading-snug h-14 line-clamp-2">{journal.journalName}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-0 flex-grow pt-2">
-                                        <p className="text-sm text-muted-foreground line-clamp-3 h-16">{journal.description}</p>
+                                        <p className="text-sm text-muted-foreground line-clamp-3 h-[60px]">{journal.description}</p>
                                     </CardContent>
-                                    <CardFooter className="p-0 pt-4">
-                                        <Button asChild className="w-full">
+                                    <CardFooter className="p-0 pt-6">
+                                        <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                                             <Link href="/publications/digital-library">
                                                 Explore Journal <ArrowRight className="ml-2 h-4 w-4 icon-pulse" />
                                             </Link>
