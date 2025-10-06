@@ -52,7 +52,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                     <div className="col-span-2 lg:col-span-1 space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <Logo className="h-16 w-16" />
+                            <Logo className="h-24 w-24" />
                         </Link>
                         <p className="text-sm text-sidebar-foreground/70 pr-4">
                             Empowering researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.
