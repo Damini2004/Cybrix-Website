@@ -41,7 +41,7 @@ export default function DigitalLibraryPage() {
   );
 
   return (
-    <div className="bg-secondary/30">
+    <div className="bg-background">
         <BannerCarousel images={bannerImages}>
             <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
                 <CardContent className="p-8 md:p-12">
