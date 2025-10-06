@@ -1,4 +1,3 @@
-
 // src/app/(public)/conference/faq/page.tsx
 import {
   Accordion,
@@ -64,7 +63,7 @@ export default async function FaqPage() {
                         />
                     </div>
                     <div className="space-y-6">
-                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Need More Help?</div>
+                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">Need More Help?</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Can't Find Your Answer?</h2>
                         <p className="text-muted-foreground text-justify">
                             We've compiled a list of the most common questions we receive. If you can't find what you're looking for in the list below, please don't hesitate to reach out to our support team. We're here to assist you with any questions you may have about our services, submission process, or upcoming events.
@@ -79,7 +78,7 @@ export default async function FaqPage() {
             </div>
         </section>
 
-      <section className="w-full pb-16 md:pb-24">
+      <section className="w-full pb-16 md:pb-24 bg-white">
         <div className="container mx-auto px-4">
           <Card className="max-w-4xl mx-auto shadow-lg border-primary/10">
               <CardHeader className="text-center">
