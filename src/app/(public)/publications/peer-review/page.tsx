@@ -84,29 +84,24 @@ export default function PeerReviewPage() {
                         </p>
                     </div>
 
-                    <div className="relative max-w-3xl mx-auto">
-                        {/* The vertical line */}
-                        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2" aria-hidden="true"></div>
-
-                        <div className="space-y-16">
+                    <div className="max-w-xl mx-auto">
+                        <ol className="relative border-l-2 border-primary/20">
                             {reviewSteps.map((step, index) => (
-                                <div key={index} className="relative flex items-center justify-center">
-                                    <div className={`flex w-full items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                                        <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                                            <div className={`bg-secondary/30 p-6 rounded-lg shadow-lg border border-primary/10 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
-                                                <h3 className="font-bold text-lg text-primary mb-2">{step.title}</h3>
-                                                <p className="text-muted-foreground">{step.description}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="absolute left-1/2 -translate-x-1/2 bg-background p-1 rounded-full border-2 border-primary/20">
-                                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <step.icon className="w-8 h-8 text-primary" />
-                                        </div>
-                                    </div>
-                                </div>
+                                <li key={index} className="mb-10 ml-10">
+                                    <span className="absolute flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full -left-6 ring-8 ring-background">
+                                        <step.icon className="w-6 h-6 text-primary" />
+                                    </span>
+                                    <Card className="shadow-md hover:shadow-xl transition-shadow border-border/50">
+                                        <CardHeader>
+                                            <CardTitle className="text-lg font-bold text-primary">{step.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-base font-normal text-muted-foreground">{step.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                </li>
                             ))}
-                        </div>
+                        </ol>
                     </div>
                 </div>
             </section>
