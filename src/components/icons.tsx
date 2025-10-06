@@ -8,7 +8,7 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <div className={props.className}>
       <Image
-        src="/Cybrix.png"
+        src="/Cybrix.jpeg"
         alt="Cybrix Logo"
         width={256} // Original width of the image for aspect ratio
         height={256} // Original height of the image for aspect ratio
