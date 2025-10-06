@@ -1,9 +1,9 @@
 
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, AlertTriangle } from "lucide-react";
+import { CheckCircle, AlertTriangle, Shield, BookCopy } from "lucide-react";
 import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BannerCarousel from "@/components/ui/banner-carousel";
 
 const plagiarismPolicies = [
@@ -70,42 +70,48 @@ export default function PublicationsOverviewPage() {
       </section>
 
       <section className="w-full pb-16 md:pb-24 bg-secondary/30">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="grid lg:grid-cols-2 gap-8">
-                    <Card className="transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-destructive/20 border-t-4 border-destructive">
-                        <CardHeader>
-                            <CardTitle className="text-2xl text-destructive">Plagiarism Policy & Publication Ethics</CardTitle>
+        <div className="container mx-auto px-4 md:px-6">
+            <Card className="max-w-4xl mx-auto shadow-2xl border-primary/10">
+                 <Tabs defaultValue="policy" className="w-full">
+                    <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
+                        <TabsTrigger value="policy" className="h-full text-lg gap-2 data-[state=active]:bg-destructive/10 data-[state=active]:text-destructive data-[state=active]:shadow-none">
+                            <Shield className="h-5 w-5" /> Plagiarism Policy
+                        </TabsTrigger>
+                        <TabsTrigger value="terms" className="h-full text-lg gap-2 data-[state=active]:bg-primary/10 data-[state=active]:text-primary data-[state=active]:shadow-none">
+                            <BookCopy className="h-5 w-5" /> Publication T&Cs
+                        </TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="policy" className="p-6 md:p-8">
+                         <CardHeader className="p-0 mb-6 text-center">
+                            <CardTitle className="text-2xl text-destructive">Publication Ethics & Plagiarism</CardTitle>
                             <CardDescription>Maintaining the integrity of academic research.</CardDescription>
                         </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-4">
-                                {plagiarismPolicies.map((policy, index) => (
-                                    <li key={index} className="flex items-start gap-3">
-                                        <policy.icon className={`h-5 w-5 mt-0.5 flex-shrink-0 ${policy.iconColor}`} />
-                                        <span className="text-muted-foreground">{policy.text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </CardContent>
-                    </Card>
-                    <Card className="transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 border-t-4 border-primary">
-                        <CardHeader>
-                            <CardTitle className="text-2xl text-primary">Publication Terms & Conditions</CardTitle>
+                        <ul className="space-y-4">
+                            {plagiarismPolicies.map((policy, index) => (
+                                <li key={index} className="flex items-start gap-4 p-3 rounded-lg bg-secondary/50 border-l-4" style={{ borderLeftColor: policy.iconColor.includes('destructive') ? 'hsl(var(--destructive))' : 'hsl(var(--primary))' }}>
+                                    <policy.icon className={`h-5 w-5 mt-0.5 flex-shrink-0 ${policy.iconColor}`} />
+                                    <span className="text-muted-foreground">{policy.text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </TabsContent>
+                    <TabsContent value="terms" className="p-6 md:p-8">
+                         <CardHeader className="p-0 mb-6 text-center">
+                            <CardTitle className="text-2xl text-primary">Terms & Conditions</CardTitle>
                             <CardDescription>Guidelines for authors submitting their work.</CardDescription>
                         </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-4">
-                                {termsAndConditions.map((term, index) => (
-                                    <li key={index} className="flex items-start gap-3">
-                                        <term.icon className={`h-5 w-5 mt-0.5 flex-shrink-0 ${term.iconColor}`} />
-                                        <span className="text-muted-foreground">{term.text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </CardContent>
-                    </Card>
-                </div>
-            </div>
+                         <ul className="space-y-4">
+                            {termsAndConditions.map((term, index) => (
+                                <li key={index} className="flex items-start gap-4 p-3 rounded-lg bg-secondary/50 border-l-4" style={{ borderLeftColor: term.iconColor.includes('destructive') ? 'hsl(var(--destructive))' : 'hsl(var(--primary))' }}>
+                                    <term.icon className={`h-5 w-5 mt-0.5 flex-shrink-0 ${term.iconColor}`} />
+                                    <span className="text-muted-foreground">{term.text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </TabsContent>
+                </Tabs>
+            </Card>
+        </div>
       </section>
     </div>
   );
