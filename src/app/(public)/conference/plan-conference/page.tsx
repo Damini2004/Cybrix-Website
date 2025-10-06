@@ -24,7 +24,7 @@ const planningServices = [
     {
         icon: BookOpen,
         title: "Publication & Proceedings",
-        description: "We manage the entire publication journey for your proceedings, from peer review and formatting to indexing in top academic databases."
+        description: "We manage the entire publication journey for your proceedings, from peer review and formatting, to indexing in top academic databases."
     }
 ];
 
@@ -52,7 +52,7 @@ export default function PlanConferencePage() {
             </Card>
         </section>
         
-        <section className="w-full py-16 md:py-24 bg-background">
+        <section className="w-full py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                      <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
@@ -65,12 +65,12 @@ export default function PlanConferencePage() {
                         />
                     </div>
                     <div className="space-y-6">
-                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">A Partnership for Success</div>
-                        <h2 className="text-3xl font-bold tracking-tighter">Your Vision, Our Expertise</h2>
+                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">A Partnership for Success</div>
+                        <h2 className="text-3xl font-bold tracking-tighter text-black">Your Vision, Our Expertise</h2>
                         <p className="text-muted-foreground text-justify">
                             Planning a scientific conference requires meticulous attention to detail and a deep understanding of the academic landscape. By partnering with Cybrix, you gain access to a dedicated team of professionals who are committed to making your event a resounding success. We work closely with you to understand your goals, develop a comprehensive strategy, and execute every aspect of the conference with precision and care.
                         </p>
-                        <Button asChild>
+                         <Button asChild>
                             <Link href="/contact-us">
                                 Inquire About Partnership <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
