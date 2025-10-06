@@ -126,11 +126,13 @@ export default function UserHeader() {
                     ))}
                 </nav>
             </div>
-            <div className="col-span-7 p-4 bg-secondary/30">
+            <div className="col-span-7 p-4 bg-background">
                 <div className="grid grid-cols-2 gap-2">
                     {conferenceSubMenuItems.map(item => (
-                        <Link key={item.label} href={item.href} className={cn("group flex flex-col items-center justify-center text-center p-2 text-foreground rounded-md transition-all duration-300", item.color)}>
-                            <item.icon className="h-8 w-8 mb-2 transition-transform duration-300 group-hover:rotate-6 text-primary" />
+                        <Link key={item.label} href={item.href} className={cn("group flex flex-col items-center justify-center text-center p-3 text-foreground rounded-md transition-all duration-300", item.color)}>
+                            <div className="p-3 bg-accent/10 rounded-full mb-2 group-hover:scale-110 transition-transform">
+                                <item.icon className="h-6 w-6 transition-transform duration-300 group-hover:rotate-6 text-primary" />
+                            </div>
                             <span className="text-xs font-semibold">{item.label}</span>
                         </Link>
                     ))}
@@ -289,7 +291,7 @@ export default function UserHeader() {
           <div className="hidden md:flex items-center ml-6">
             <Link href="/submit-journal">
               <Button>
-                <BookOpen className="mr-2 h-4 w-4" />
+                <BookOpen className="mr-2 h-4 w-4 icon-pulse" />
                 Submit Article
               </Button>
             </Link>
