@@ -57,11 +57,12 @@ const publicationSubMenu = [
 ]
 
 const iprServicesSubMenu = [
-    { href: "/ipr-services/eb1-consultancy", label: "EB1 Consultancy", icon: Briefcase },
-    { href: "/ipr-services/patent", label: "Patent", icon: Award },
-    { href: "/ipr-services/copyright", label: "Copyright", icon: FileText },
-    { href: "/ipr-services/trademark", label: "Trademark", icon: TrendingUp },
+    { href: "/ipr-services/eb1-consultancy", label: "EB-1 Consultancy", icon: Award, description: "Expert guidance for professionals of extraordinary ability." },
+    { href: "/ipr-services/patent", label: "Patent Services", icon: DraftingCompass, description: "Secure exclusive rights to your novel inventions." },
+    { href: "/ipr-services/copyright", label: "Copyright Registration", icon: PenTool, description: "Protect your original literary and artistic works." },
+    { href: "/ipr-services/trademark", label: "Trademark Filing", icon: TrendingUp, description: "Safeguard your brand identity and logos." },
 ]
+
 
 const conferenceSubMenuLinks = [
     { href: "/conference/about-conference", label: "About PRI Conference", icon: Info },
@@ -162,9 +163,29 @@ export default function UserHeader() {
     </PopoverContent>
   );
 
+  const ServicesMegaMenu = () => (
+    <PopoverContent className="w-screen max-w-lg p-0 overflow-hidden shadow-2xl border" sideOffset={15}>
+        <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+            {iprServicesSubMenu.map(link => (
+                <Link key={link.label} href={link.href} className="group flex items-start p-3 rounded-lg hover:bg-accent transition-colors">
+                    <div className="p-2 bg-primary/10 text-primary rounded-md mr-4">
+                        <link.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                        <p className="font-semibold text-sm text-foreground">{link.label}</p>
+                        <p className="text-xs text-muted-foreground">{link.description}</p>
+                    </div>
+                </Link>
+            ))}
+        </div>
+    </PopoverContent>
+  );
+
   const NavLink = ({ link }: { link: { href: string, label: string, children?: any[], isMegaMenu?: boolean } }) => {
     const isConference = link.label === "Conference";
     const isPublications = link.label === "Publications";
+    const isServices = link.label === "Services";
+
 
     if (isConference) {
       return (
@@ -198,6 +219,24 @@ export default function UserHeader() {
                 </button>
             </PopoverTrigger>
             <PublicationMegaMenu />
+        </Popover>
+      )
+    }
+
+    if (isServices) {
+      return (
+        <Popover>
+            <PopoverTrigger asChild>
+                <button
+                className={cn(
+                    "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
+                    pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
+                )}
+                >
+                {link.label}
+                </button>
+            </PopoverTrigger>
+            <ServicesMegaMenu />
         </Popover>
       )
     }
