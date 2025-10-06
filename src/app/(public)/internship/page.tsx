@@ -1,4 +1,3 @@
-
 // src/app/(public)/internship/page.tsx
 "use client";
 
@@ -89,51 +88,52 @@ export default function InternshipPage() {
             ) : internships.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                 {internships.map(internship => (
-                <Card key={internship.id} className="group flex flex-col w-full max-w-sm mx-auto overflow-hidden shadow-lg border-transparent transition-all duration-300 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2">
-                    <div className="relative h-56 w-full overflow-hidden">
-                        <Image src={internship.imageSrc} alt={internship.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint="internship opportunity"/>
+                <Card key={internship.id} className="group relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl shadow-2xl border-transparent transition-all duration-500 hover:shadow-primary/20">
+                    <div className="relative h-96 w-full">
+                        <Image src={internship.imageSrc} alt={internship.name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" data-ai-hint="internship opportunity"/>
                     </div>
-                    <div className="flex flex-col flex-grow p-6 bg-background">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-[calc(100%-100px)] group-hover:translate-y-0 transition-transform duration-500 ease-in-out bg-black/40 backdrop-blur-sm">
                         <CardHeader className="p-0 mb-4">
-                            <CardTitle className="text-lg font-semibold text-primary">{internship.name}</CardTitle>
+                            <CardTitle className="text-xl font-bold">{internship.name}</CardTitle>
                         </CardHeader>
-                        <CardContent className="p-0 flex-grow">
-                            <p className="text-sm text-muted-foreground line-clamp-4">{internship.description}</p>
-                        </CardContent>
-                        <CardFooter className="p-0 mt-6 flex flex-col items-start gap-3">
-                            <Dialog>
-                                <DialogTrigger asChild>
-                                <Button className="w-full">
-                                    Register Now <ArrowRight className="ml-2 h-4 w-4 icon-pulse" />
+                        <CardContent className="p-0">
+                            <p className="text-sm text-white/90 line-clamp-3 mb-6">{internship.description}</p>
+                            <div className="flex flex-col gap-3">
+                                <Dialog>
+                                    <DialogTrigger asChild>
+                                    <Button className="w-full bg-primary/80 hover:bg-primary text-primary-foreground border-primary-foreground/50 border">
+                                        Register Now <ArrowRight className="ml-2 h-4 w-4 icon-pulse" />
+                                    </Button>
+                                    </DialogTrigger>
+                                    <DialogContent className="sm:max-w-2xl max-h-[90vh] flex flex-col">
+                                    <DialogHeader>
+                                        <DialogTitle>Apply for: {internship.name}</DialogTitle>
+                                        <DialogDescription>
+                                        Please fill out your details below to apply. We will get back to you shortly.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <div className="flex-grow overflow-y-auto pr-6 -mr-2">
+                                        <ScrollArea className="h-full">
+                                            <ContactForm 
+                                                inquiryType="Internship Application"
+                                                details={internship.name}
+                                            />
+                                        </ScrollArea>
+                                    </div>
+                                    </DialogContent>
+                                </Dialog>
+                                <Button 
+                                    variant="outline" 
+                                    className="w-full bg-transparent text-white border-white/50 hover:bg-white/10"
+                                    disabled={!internship.brochureUrl}
+                                    onClick={() => handleDownloadBrochure(internship.brochureUrl!, internship.name)}
+                                >
+                                    <Download className="mr-2 h-4 w-4" />
+                                    Download Brochure
                                 </Button>
-                                </DialogTrigger>
-                                <DialogContent className="sm:max-w-2xl max-h-[90vh] flex flex-col">
-                                <DialogHeader>
-                                    <DialogTitle>Apply for: {internship.name}</DialogTitle>
-                                    <DialogDescription>
-                                    Please fill out your details below to apply. We will get back to you shortly.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <div className="flex-grow overflow-y-auto pr-6 -mr-2">
-                                    <ScrollArea className="h-full">
-                                        <ContactForm 
-                                            inquiryType="Internship Application"
-                                            details={internship.name}
-                                        />
-                                    </ScrollArea>
-                                </div>
-                                </DialogContent>
-                            </Dialog>
-                            <Button 
-                                variant="outline" 
-                                className="w-full"
-                                disabled={!internship.brochureUrl}
-                                onClick={() => handleDownloadBrochure(internship.brochureUrl!, internship.name)}
-                            >
-                                <Download className="mr-2 h-4 w-4" />
-                                Download Brochure
-                            </Button>
-                        </CardFooter>
+                            </div>
+                        </CardContent>
                     </div>
                 </Card>
                 ))}
