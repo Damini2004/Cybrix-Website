@@ -2,14 +2,6 @@
 "use client";
 
 import * as React from 'react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -17,16 +9,17 @@ import { getSubmissions, type Submission } from '@/services/submissionService';
 import { getSubAdmins, type SubAdmin } from '@/services/subAdminService';
 import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
-import { Eye, Search } from 'lucide-react';
+import { Eye, Search, FileText, User, Calendar, Type } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Skeleton } from '../ui/skeleton';
 
 const statusColors: { [key: string]: string } = {
-  Done: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-  "In Progress": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-  Canceled: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-  "Verification Pending": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-  "Re-Verification Pending": "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+  Done: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border-green-200 dark:border-green-700",
+  "In Progress": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-blue-200 dark:border-blue-700",
+  Canceled: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 border-red-200 dark:border-red-700",
+  "Verification Pending": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border-yellow-200 dark:border-yellow-700",
+  "Re-Verification Pending": "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 border-purple-200 dark:border-purple-700",
 };
 
 const statusOptions = ["Verification Pending", "Re-Verification Pending", "In Progress", "Done", "Canceled"];
@@ -43,7 +36,7 @@ export default function AllSubmissionsTable() {
   const [typeFilter, setTypeFilter] = React.useState("all");
 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(9);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -123,23 +116,21 @@ export default function AllSubmissionsTable() {
   );
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>All Manuscript Submissions</CardTitle>
-        <CardDescription>A complete list of all submissions in the system.</CardDescription>
-        <div className="flex flex-col md:flex-row gap-4 justify-between pt-4">
+    <Card className="border-0 shadow-none">
+      <CardHeader className="px-0">
+        <div className="flex flex-col md:flex-row gap-4 justify-between">
             <div className="relative flex-1">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                 placeholder="Search by title or author..."
-                className="pl-8"
+                className="pl-8 h-10"
                 value={searchFilter}
                 onChange={(e) => { setSearchFilter(e.target.value); setCurrentPage(1); }}
                 />
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-2">
                 <Select value={statusFilter} onValueChange={(value) => { setStatusFilter(value); setCurrentPage(1); }}>
-                    <SelectTrigger className="w-full md:w-[180px]">
+                    <SelectTrigger className="w-full sm:w-[180px] h-10">
                         <SelectValue placeholder="Filter by status" />
                     </SelectTrigger>
                     <SelectContent>
@@ -150,7 +141,7 @@ export default function AllSubmissionsTable() {
                     </SelectContent>
                 </Select>
                  <Select value={typeFilter} onValueChange={(value) => { setTypeFilter(value); setCurrentPage(1); }}>
-                    <SelectTrigger className="w-full md:w-[150px]">
+                    <SelectTrigger className="w-full sm:w-[150px] h-10">
                         <SelectValue placeholder="Filter by type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -163,58 +154,67 @@ export default function AllSubmissionsTable() {
             </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Title</TableHead>
-              <TableHead>Author</TableHead>
-              <TableHead>Assigned To</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {isLoading ? (
-              <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">Loading submissions...</TableCell>
-              </TableRow>
-            ) : paginatedSubmissions.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">No submissions found.</TableCell>
-              </TableRow>
-            ) : (
-              paginatedSubmissions.map((submission) => (
-                <TableRow key={submission.id}>
-                  <TableCell className="font-medium max-w-xs truncate">{submission.title}</TableCell>
-                  <TableCell>{submission.fullName}</TableCell>
-                  <TableCell>{getAdminNameById(submission.assignedSubAdminId)}</TableCell>
-                  <TableCell>
-                    <Badge className={cn("whitespace-nowrap capitalize", statusColors[submission.status])}>
-                      {submission.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{new Date(submission.submittedAt).toLocaleDateString()}</TableCell>
-                  <TableCell>
-                    <Button variant="outline" size="sm" onClick={() => handleViewFile(submission.manuscriptData, submission.title)}>
-                      <Eye className="h-4 w-4 mr-2" />
-                      View File
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
+      <CardContent className="px-0">
+        {isLoading ? (
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {Array.from({ length: 6 }).map((_, index) => (
+                    <Skeleton key={index} className="h-64 w-full" />
+                ))}
+             </div>
+        ) : paginatedSubmissions.length === 0 ? (
+             <div className="flex flex-col items-center justify-center text-center py-16 text-muted-foreground bg-secondary/30 rounded-lg">
+                <FileText className="h-12 w-12 mb-4" />
+                <h3 className="text-xl font-semibold">No Submissions Found</h3>
+                <p>Try adjusting your filters or check back later.</p>
+             </div>
+        ) : (
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {paginatedSubmissions.map((submission) => (
+                    <Card key={submission.id} className="group flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-l-4" style={{borderLeftColor: statusColors[submission.status].match(/#[0-9a-f]{6}|(rgb|hsl)a?\([^)]+\)/i)?.[0] || 'hsl(var(--border))'}}>
+                        <CardHeader>
+                            <div className="flex justify-between items-start">
+                                <CardTitle className="text-base line-clamp-2 pr-2">{submission.title}</CardTitle>
+                                <Badge variant="outline" className={cn("whitespace-nowrap capitalize", statusColors[submission.status])}>
+                                    {submission.status}
+                                </Badge>
+                            </div>
+                        </CardHeader>
+                        <CardContent className="space-y-3 text-sm">
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                                <User className="h-4 w-4" />
+                                <span>{submission.fullName}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                                <Type className="h-4 w-4" />
+                                <span className="capitalize">{submission.submissionType}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                                <Calendar className="h-4 w-4" />
+                                <span>{new Date(submission.submittedAt).toLocaleDateString()}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                                <User className="h-4 w-4" />
+                                <span>{getAdminNameById(submission.assignedSubAdminId)}</span>
+                            </div>
+                        </CardContent>
+                        <CardFooter>
+                             <Button variant="outline" size="sm" className="w-full" onClick={() => handleViewFile(submission.manuscriptData, submission.title)}>
+                                <Eye className="h-4 w-4 mr-2" />
+                                View Manuscript
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                ))}
+             </div>
+        )}
       </CardContent>
-       <CardFooter className="flex items-center justify-between">
+       <CardFooter className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 px-0">
             <div className="text-sm text-muted-foreground">
-                Showing {paginatedSubmissions.length} of {filteredSubmissions.length} submissions.
+                Showing <strong>{paginatedSubmissions.length}</strong> of <strong>{filteredSubmissions.length}</strong> submissions.
             </div>
             <div className="flex items-center gap-4">
                  <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium">Rows per page</p>
+                    <p className="text-sm font-medium">Rows</p>
                     <Select
                         value={`${rowsPerPage}`}
                         onValueChange={(value) => {
@@ -222,11 +222,11 @@ export default function AllSubmissionsTable() {
                             setCurrentPage(1)
                         }}
                     >
-                        <SelectTrigger className="h-8 w-[70px]">
+                        <SelectTrigger className="h-9 w-[70px]">
                             <SelectValue placeholder={`${rowsPerPage}`} />
                         </SelectTrigger>
                         <SelectContent side="top">
-                            {[10, 20, 30, 40, 50].map((pageSize) => (
+                            {[9, 12, 24, 48].map((pageSize) => (
                                 <SelectItem key={pageSize} value={`${pageSize}`}>
                                     {pageSize}
                                 </SelectItem>
