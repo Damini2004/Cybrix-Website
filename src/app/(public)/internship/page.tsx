@@ -20,7 +20,7 @@ export default function InternshipPage() {
   const { toast } = useToast();
 
    const bannerImages = [
-    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Students collaborating", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Students collaborating", hint: "team collaboration" },
   ];
 
   useEffect(() => {
@@ -107,20 +107,23 @@ export default function InternshipPage() {
                                     </Button>
                                     </DialogTrigger>
                                     <DialogContent className="sm:max-w-2xl max-h-[90vh] flex flex-col">
-                                    <DialogHeader>
-                                        <DialogTitle>Apply for: {internship.name}</DialogTitle>
-                                        <DialogDescription>
-                                        Please fill out your details below to apply. We will get back to you shortly.
-                                        </DialogDescription>
-                                    </DialogHeader>
-                                    <div className="flex-grow overflow-y-auto pr-6 -mr-2">
-                                        <ScrollArea className="h-full">
-                                            <ContactForm 
-                                                inquiryType="Internship Application"
-                                                details={internship.name}
-                                            />
-                                        </ScrollArea>
-                                    </div>
+                                        <DialogHeader>
+                                            <DialogTitle>Apply for: {internship.name}</DialogTitle>
+                                            <DialogDescription>
+                                            Please fill out your details below to apply. We will get back to you shortly.
+                                            </DialogDescription>
+                                        </DialogHeader>
+                                        <div className="flex-grow overflow-y-auto pr-6 -mr-2">
+                                            <ScrollArea className="h-full">
+                                                <div className="prose prose-sm max-w-none mb-6 text-muted-foreground">
+                                                    <p>{internship.description}</p>
+                                                </div>
+                                                <ContactForm 
+                                                    inquiryType="Internship Application"
+                                                    details={internship.name}
+                                                />
+                                            </ScrollArea>
+                                        </div>
                                     </DialogContent>
                                 </Dialog>
                                 <Button 
