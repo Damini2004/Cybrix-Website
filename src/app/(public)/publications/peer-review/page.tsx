@@ -52,7 +52,7 @@ export default function PeerReviewPage() {
                 </Card>
             </BannerCarousel>
 
-             <section className="w-full py-16 md:py-24 bg-secondary/30">
+             <section className="w-full py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
@@ -65,8 +65,8 @@ export default function PeerReviewPage() {
                             />
                         </div>
                         <div className="space-y-6">
-                             <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-semibold text-primary">Our Philosophy</div>
-                            <h2 className="text-3xl font-bold tracking-tighter">A Foundation of Trust & Quality</h2>
+                             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-secondary-foreground">Our Philosophy</div>
+                            <h2 className="text-3xl font-bold tracking-tighter text-foreground">A Foundation of Trust & Quality</h2>
                             <p className="text-muted-foreground text-justify text-lg">
                                 At Cybrix, we believe that rigorous peer review is the cornerstone of high-quality academic publishing. Our process is designed not only to validate research but also to provide constructive feedback that enhances the final publication. By engaging independent experts, we ensure that every article meets the highest standards of scientific merit, originality, and significance, thereby fostering trust within the global research community.
                             </p>
