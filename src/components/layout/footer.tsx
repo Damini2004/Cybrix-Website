@@ -49,49 +49,51 @@ const Footer = () => {
                 </div>
 
                 {/* Main footer content */}
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-                    <div className="col-span-2 lg:col-span-1 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div className="md:col-span-4 lg:col-span-3 space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <Logo className="h-24 w-24" />
+                            <Logo className="h-28 w-28" />
                         </Link>
                         <p className="text-sm text-sidebar-foreground/70 pr-4">
                             Empowering researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.
                         </p>
                     </div>
 
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                        <ul className="space-y-2 text-sm text-sidebar-foreground/70">
-                            {quickLinks.map(link => (
-                                <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
-                            ))}
-                        </ul>
-                    </div>
+                    <div className="md:col-span-8 lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+                            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
+                                {quickLinks.map(link => (
+                                    <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
+                                ))}
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Our Services</h3>
-                        <ul className="space-y-2 text-sm text-sidebar-foreground/70">
-                            {serviceLinks.map(link => (
-                                <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
-                            ))}
-                        </ul>
-                    </div>
+                        <div>
+                            <h3 className="text-lg font-semibold mb-4">Our Services</h3>
+                            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
+                                {serviceLinks.map(link => (
+                                    <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
+                                ))}
+                            </ul>
+                        </div>
 
-                    <div className="col-span-2 md:col-span-1 space-y-4">
-                        <h3 className="text-lg font-semibold">Contact Info</h3>
-                        <div className="space-y-2 text-sm text-sidebar-foreground/70">
-                             <p className="flex items-start gap-2">
-                                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                                <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
-                            </p>
-                             <p className="flex items-start gap-2">
-                                <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
-                                <span>+91-7020095748</span>
-                            </p>
-                             <p className="flex items-start gap-2">
-                                <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
-                                <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-white">pureresearchinsights@gmail.com</Link>
-                            </p>
+                        <div className="col-span-2 md:col-span-2 space-y-4">
+                            <h3 className="text-lg font-semibold">Contact Info</h3>
+                            <div className="space-y-2 text-sm text-sidebar-foreground/70">
+                                <p className="flex items-start gap-2">
+                                    <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                                    <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
+                                </p>
+                                <p className="flex items-start gap-2">
+                                    <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
+                                    <span>+91-7020095748</span>
+                                </p>
+                                <p className="flex items-start gap-2">
+                                    <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
+                                    <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-white">pureresearchinsights@gmail.com</Link>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
