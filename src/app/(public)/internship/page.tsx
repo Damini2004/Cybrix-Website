@@ -20,7 +20,7 @@ export default function InternshipPage() {
   const { toast } = useToast();
 
    const bannerImages = [
-    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Students collaborating", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Students collaborating", hint: "team collaboration" },
   ];
 
   useEffect(() => {
@@ -66,19 +66,33 @@ export default function InternshipPage() {
 
   return (
     <div className="bg-secondary/30">
-        <BannerCarousel images={bannerImages}>
-            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
-                <CardContent className="p-8 md:p-12">
-                    <BookUser className="mx-auto h-12 w-12 text-primary mb-4" />
-                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-                        Internship Opportunities
-                    </h1>
-                    <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
-                        Gain hands-on experience and build your career in the world of academic publishing and research.
-                    </p>
-                </CardContent>
-            </Card>
-        </BannerCarousel>
+       <section className="relative w-full overflow-hidden bg-background py-20 md:py-32">
+            <div className="container mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="space-y-6 text-center md:text-left">
+                        <BookUser className="mx-auto md:mx-0 h-12 w-12 text-primary" />
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl">
+                            Internship Opportunities
+                        </h1>
+                        <p className="max-w-xl mx-auto md:mx-0 text-lg text-foreground/80 md:text-xl">
+                            Gain hands-on experience and build your career in the world of academic publishing and research.
+                        </p>
+                    </div>
+                    <div className="relative h-80 md:h-full w-full">
+                         <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                         <div className="absolute inset-0 p-4">
+                             <Image 
+                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format=fit=crop" 
+                                alt="Students collaborating"
+                                data-ai-hint="team collaboration"
+                                fill
+                                className="object-cover rounded-lg shadow-2xl" 
+                            />
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section className="container mx-auto px-4 py-16 md:py-24">
             {isLoading ? (
@@ -98,7 +112,9 @@ export default function InternshipPage() {
                             <CardTitle className="text-xl font-bold">{internship.name}</CardTitle>
                         </CardHeader>
                         <CardContent className="p-0">
-                            <p className="text-sm text-white/90 line-clamp-3 mb-6">{internship.description}</p>
+                            <div className="prose prose-sm prose-invert line-clamp-3 mb-6">
+                                <p>{internship.description}</p>
+                            </div>
                             <div className="flex flex-col gap-3">
                                 <Dialog>
                                     <DialogTrigger asChild>
