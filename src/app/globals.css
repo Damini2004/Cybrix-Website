@@ -29,47 +29,47 @@
     --chart-4: 217 100% 54%;
     --chart-5: 222 93% 85%;
     --radius: 0.75rem;
-    --sidebar-background: 222 93% 19%;
+    --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 222 93% 19%;
-    --sidebar-accent: 222 93% 25%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 47% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 222 93% 25%;
+    --sidebar-border: 222 47% 18%;
     --sidebar-ring: 0 0% 100%;
   }
   .dark {
-    --background: 222 93% 19%;
+    --background: 222 47% 11%;
     --foreground: 0 0% 98%;
-    --card: 222 93% 19%;
+    --card: 222 47% 11%;
     --card-foreground: 0 0% 98%;
-    --popover: 222 93% 19%;
+    --popover: 222 47% 11%;
     --popover-foreground: 0 0% 98%;
     --primary: 217 100% 64%;
-    --primary-foreground: 222 93% 19%;
-    --secondary: 222 93% 10%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 222 47% 5%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 222 93% 10%;
+    --muted: 222 47% 5%;
     --muted-foreground: 0 0% 60%;
     --accent: 217 100% 44%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 222 93% 10%;
-    --input: 222 93% 10%;
+    --border: 222 47% 5%;
+    --input: 222 47% 5%;
     --ring: 217 100% 64%;
     --chart-1: 0 0% 100%;
     --chart-2: 217 100% 64%;
     --chart-3: 350 77.8% 51.2%;
     --chart-4: 28 80% 53.1%;
     --chart-5: 280 65.9% 55.1%;
-    --sidebar-background: 222 93% 10%;
+    --sidebar-background: 222 47% 5%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 222 93% 19%;
-    --sidebar-accent: 222 93% 15%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 47% 10%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 222 93% 15%;
+    --sidebar-border: 222 47% 10%;
     --sidebar-ring: 0 0% 100%;
   }
 }
@@ -282,5 +282,4 @@
   }
   
 }
-
     

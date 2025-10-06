@@ -28,21 +28,21 @@ const socialLinks = [
 
 const Footer = () => {
     return (
-        <footer className="bg-primary text-primary-foreground">
+        <footer className="bg-sidebar text-sidebar-foreground">
             <div className="container mx-auto px-4 pt-16 pb-8">
                 {/* Top section with Newsletter */}
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 border-b border-sidebar-border pb-12">
                     <div>
                         <h2 className="text-3xl font-headline font-bold">Stay Updated with Cybrix</h2>
-                        <p className="mt-2 text-primary-foreground/70">Subscribe to our newsletter for the latest news on conferences, publications, and more.</p>
+                        <p className="mt-2 text-sidebar-foreground/70">Subscribe to our newsletter for the latest news on conferences, publications, and more.</p>
                     </div>
                     <form className="flex w-full max-w-md items-center space-x-2">
                         <Input 
                             type="email" 
                             placeholder="Enter your email address" 
-                            className="h-12 bg-primary-foreground/10 border-sidebar-border text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20"
+                            className="h-12 bg-sidebar-foreground/10 border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/60 focus:bg-sidebar-foreground/20"
                         />
-                        <Button type="submit" size="lg" className="h-12 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                        <Button type="submit" size="lg" className="h-12 bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90">
                             <Send className="mr-2 h-4 w-4" /> Subscribe
                         </Button>
                     </form>
@@ -55,14 +55,14 @@ const Footer = () => {
                             <Logo className="h-12 w-12" />
                             <span className="font-bold text-2xl font-headline">Cybrix</span>
                         </Link>
-                        <p className="text-sm text-primary-foreground/70 pr-4">
+                        <p className="text-sm text-sidebar-foreground/70 pr-4">
                             Empowering researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.
                         </p>
                     </div>
 
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                        <ul className="space-y-2 text-sm text-primary-foreground/70">
+                        <ul className="space-y-2 text-sm text-sidebar-foreground/70">
                             {quickLinks.map(link => (
                                 <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
                             ))}
@@ -71,7 +71,7 @@ const Footer = () => {
 
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Our Services</h3>
-                        <ul className="space-y-2 text-sm text-primary-foreground/70">
+                        <ul className="space-y-2 text-sm text-sidebar-foreground/70">
                             {serviceLinks.map(link => (
                                 <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
                             ))}
@@ -80,7 +80,7 @@ const Footer = () => {
 
                     <div className="col-span-2 md:col-span-1 space-y-4">
                         <h3 className="text-lg font-semibold">Contact Info</h3>
-                        <div className="space-y-2 text-sm text-primary-foreground/70">
+                        <div className="space-y-2 text-sm text-sidebar-foreground/70">
                              <p className="flex items-start gap-2">
                                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                                 <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
@@ -99,12 +99,12 @@ const Footer = () => {
 
                 {/* Bottom bar */}
                 <div className="border-t border-sidebar-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between">
-                     <p className="text-sm text-primary-foreground/70 text-center sm:text-left">
+                     <p className="text-sm text-sidebar-foreground/70 text-center sm:text-left">
                         &copy; {new Date().getFullYear()} Cybrix. All rights reserved.
                     </p>
                     <div className="flex items-center space-x-4 mt-4 sm:mt-0">
                         {socialLinks.map(link => (
-                            <Link key={link.label} href={link.href} className="text-primary-foreground/70 hover:text-white transition-colors" aria-label={link.label}>
+                            <Link key={link.label} href={link.href} className="text-sidebar-foreground/70 hover:text-white transition-colors" aria-label={link.label}>
                                 <link.icon className="h-5 w-5" />
                             </Link>
                         ))}
