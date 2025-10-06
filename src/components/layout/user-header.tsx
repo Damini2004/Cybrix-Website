@@ -19,6 +19,8 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import Image from "next/image";
 
 
 // Custom Icons for Conference Menu
@@ -35,7 +37,7 @@ const UpcomingWebinarsIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
 );
 const PastConferencesIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9"cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
 );
 const ConferenceVideosIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://wwww.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
@@ -47,11 +49,11 @@ const topNavLinks = [
 ];
 
 const publicationSubMenu = [
-    { href: "/publications/overview", label: "Overview", icon: FileText },
-    { href: "/publications/journal-support", label: "Journals Publication Support", icon: Book },
-    { href: "/publications/conference-proceedings", label: "Conference Proceedings", icon: Presentation },
-    { href: "/publications/peer-review", label: "Pre-Submission Peer Review", icon: Users },
-    { href: "/publications/digital-library", label: "Journal Listing", icon: Library },
+    { href: "/publications/overview", label: "Overview", icon: FileText, description: "Get a complete picture of our publishing services and policies." },
+    { href: "/publications/journal-support", label: "Journals Publication Support", icon: Book, description: "Expert guidance for getting your manuscript published." },
+    { href: "/publications/conference-proceedings", label: "Conference Proceedings", icon: Presentation, description: "Publish your work in our prestigious, indexed proceedings." },
+    { href: "/publications/peer-review", label: "Pre-Submission Peer Review", icon: Users, description: "Ensure your paper meets the highest standards before submission." },
+    { href: "/publications/digital-library", label: "Journal Listing", icon: Library, description: "Explore our extensive collection of academic journals." },
 ]
 
 const iprServicesSubMenu = [
@@ -142,8 +144,42 @@ export default function UserHeader() {
     </PopoverContent>
   );
 
+  const PublicationMegaMenu = () => (
+    <PopoverContent className="w-screen max-w-2xl p-0 overflow-hidden shadow-2xl border" sideOffset={15}>
+        <div className="grid grid-cols-2">
+            <div className="flex flex-col space-y-1 p-4">
+                {publicationSubMenu.map(link => (
+                    <Link key={link.label} href={link.href} className="group flex items-start p-3 rounded-lg hover:bg-accent transition-colors">
+                        <div className="p-2 bg-primary/10 text-primary rounded-md mr-4">
+                            <link.icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                            <p className="font-semibold text-sm text-foreground">{link.label}</p>
+                            <p className="text-xs text-muted-foreground">{link.description}</p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+            <div className="bg-secondary/50 p-6">
+                 <Card className="bg-gradient-to-br from-primary/90 to-primary text-primary-foreground border-0 shadow-xl">
+                    <CardHeader>
+                        <CardTitle>Submit Your Manuscript</CardTitle>
+                        <CardDescription className="text-primary-foreground/80">Ready to share your research? Our submission process is simple and efficient.</CardDescription>
+                    </CardHeader>
+                    <div className="p-6 pt-0">
+                        <Button asChild className="w-full bg-background text-primary hover:bg-background/90">
+                           <Link href="/submit-journal">Start Submission <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                        </Button>
+                    </div>
+                </Card>
+            </div>
+        </div>
+    </PopoverContent>
+  );
+
   const NavLink = ({ link }: { link: { href: string, label: string, children?: any[], isMegaMenu?: boolean } }) => {
     const isConference = link.label === "Conference";
+    const isPublications = link.label === "Publications";
 
     if (isConference) {
       return (
@@ -162,6 +198,25 @@ export default function UserHeader() {
         </Popover>
       )
     }
+
+     if (isPublications) {
+      return (
+        <Popover>
+            <PopoverTrigger asChild>
+                <button
+                className={cn(
+                    "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
+                    pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
+                )}
+                >
+                {link.label}
+                </button>
+            </PopoverTrigger>
+            <PublicationMegaMenu />
+        </Popover>
+      )
+    }
+
 
     if (link.children) {
       return (
@@ -291,7 +346,7 @@ export default function UserHeader() {
           <div className="hidden md:flex items-center ml-6">
             <Link href="/submit-journal">
               <Button>
-                <BookOpen className="mr-2 h-4 w-4 icon-pulse" />
+                <BookOpen className="mr-2 h-4 w-4" />
                 Submit Article
               </Button>
             </Link>
