@@ -145,34 +145,19 @@ export default function UserHeader() {
   );
 
   const PublicationMegaMenu = () => (
-    <PopoverContent className="w-screen max-w-2xl p-0 overflow-hidden shadow-2xl border" sideOffset={15}>
-        <div className="grid grid-cols-2">
-            <div className="flex flex-col space-y-1 p-4">
-                {publicationSubMenu.map(link => (
-                    <Link key={link.label} href={link.href} className="group flex items-start p-3 rounded-lg hover:bg-accent transition-colors">
-                        <div className="p-2 bg-primary/10 text-primary rounded-md mr-4">
-                            <link.icon className="h-5 w-5" />
-                        </div>
-                        <div>
-                            <p className="font-semibold text-sm text-foreground">{link.label}</p>
-                            <p className="text-xs text-muted-foreground">{link.description}</p>
-                        </div>
-                    </Link>
-                ))}
-            </div>
-            <div className="bg-secondary/50 p-6">
-                 <Card className="bg-gradient-to-br from-primary/90 to-primary text-primary-foreground border-0 shadow-xl">
-                    <CardHeader>
-                        <CardTitle>Submit Your Manuscript</CardTitle>
-                        <CardDescription className="text-primary-foreground/80">Ready to share your research? Our submission process is simple and efficient.</CardDescription>
-                    </CardHeader>
-                    <div className="p-6 pt-0">
-                        <Button asChild className="w-full bg-background text-primary hover:bg-background/90">
-                           <Link href="/submit-journal">Start Submission <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                        </Button>
+    <PopoverContent className="w-screen max-w-lg p-0 overflow-hidden shadow-2xl border" sideOffset={15}>
+        <div className="p-4">
+            {publicationSubMenu.map(link => (
+                <Link key={link.label} href={link.href} className="group flex items-start p-3 rounded-lg hover:bg-accent transition-colors">
+                    <div className="p-2 bg-primary/10 text-primary rounded-md mr-4">
+                        <link.icon className="h-5 w-5" />
                     </div>
-                </Card>
-            </div>
+                    <div>
+                        <p className="font-semibold text-sm text-foreground">{link.label}</p>
+                        <p className="text-xs text-muted-foreground">{link.description}</p>
+                    </div>
+                </Link>
+            ))}
         </div>
     </PopoverContent>
   );
