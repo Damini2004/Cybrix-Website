@@ -30,7 +30,7 @@ const awardCategories = [
 
 export default function AwardsPage() {
     const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Awards Ceremony", hint: "awards ceremony" },
+        { src: "https://images.unsplash.com/photo-1578909196432-cbe5205d0491?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Awards Ceremony", hint: "awards ceremony" },
         { src: "https://images.unsplash.com/photo-1639149545952-3023a953d613?q=80&w=800&h=600&auto=format&fit=crop", alt: "Award Trophy", hint: "award trophy" }
     ];
   return (
@@ -61,7 +61,7 @@ export default function AwardsPage() {
                         />
                     </div>
                     <div className="space-y-6">
-                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Celebrating Excellence</div>
+                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">Celebrating Excellence</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Honoring Groundbreaking Research</h2>
                         <p className="text-muted-foreground text-justify">
                             The Cybrix Awards program is designed to recognize and celebrate the exceptional achievements of individuals and teams whose work demonstrates scientific rigor, innovation, and the potential for significant impact. By acknowledging these contributions, we aim to inspire the next generation of researchers and foster a culture of excellence within the global academic community. Each award is a testament to the dedication and intellectual curiosity that drives scientific progress forward.
