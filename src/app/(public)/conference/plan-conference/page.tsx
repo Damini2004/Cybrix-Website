@@ -8,23 +8,23 @@ import Image from "next/image";
 const planningServices = [
     {
         icon: CalendarCheck,
-        title: "End-to-End Event Management",
-        description: "From initial concept to post-conference follow-up, we handle all logistics, including venue selection, scheduling, and on-site coordination to ensure a seamless experience."
+        title: "Full-Scale Event Management",
+        description: "From concept to completion, we manage all logistics—venue, scheduling, and on-site coordination—for a flawless event."
     },
     {
         icon: Megaphone,
-        title: "Strategic Marketing & Promotion",
-        description: "We design and execute targeted promotional campaigns across multiple channels to attract a diverse and engaged audience of speakers and attendees."
+        title: "Targeted Marketing & Promotion",
+        description: "Our team creates and runs strategic promotional campaigns to draw in a varied and captivated audience of speakers and attendees."
     },
     {
         icon: Users,
-        title: "Speaker & Sponsor Coordination",
-        description: "Our team manages invitations, communications, and logistics for keynote speakers, presenters, and sponsors, fostering valuable partnerships for your event."
+        title: "Speaker & Sponsor Management",
+        description: "We handle all communications and logistics for keynote speakers, presenters, and sponsors to build valuable event partnerships."
     },
     {
         icon: BookOpen,
-        title: "Proceedings & Publication",
-        description: "We oversee the entire publication process for your conference proceedings, including peer review, formatting, and indexing in major academic databases."
+        title: "Publication & Proceedings",
+        description: "We manage the entire publication journey for your proceedings, from peer review and formatting to indexing in top academic databases."
     }
 ];
 
@@ -33,7 +33,7 @@ export default function PlanConferencePage() {
     <div className="bg-secondary/30">
         <section className="relative h-[500px] w-full flex items-center justify-center p-4">
             <Image
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=400&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=400&auto=format=fit=crop"
                 alt="Conference planning session"
                 data-ai-hint="team meeting"
                 fill
@@ -57,7 +57,7 @@ export default function PlanConferencePage() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                      <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                          <Image
-                            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&auto=format=fit=crop"
                             alt="Collaboration"
                             data-ai-hint="team collaboration"
                             fill
@@ -80,12 +80,12 @@ export default function PlanConferencePage() {
             </div>
         </section>
         
-        <section className="w-full py-16 md:py-24">
+        <section className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter">Our Conference Planning Services</h2>
+                    <h2 className="text-3xl font-bold tracking-tighter">Comprehensive Conference Solutions</h2>
                     <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-                        We offer a full suite of services to manage every detail of your conference.
+                        Our complete range of services covers every aspect of your conference, ensuring a successful and stress-free event.
                     </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
