@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -62,7 +63,7 @@ export default function JournalSupportPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
                     </div>
                     <div className="space-y-6">
-                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">
+                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">
                             Guidance for Authors
                         </div>
                         <h2 className="text-3xl font-bold tracking-tighter">Abstract Submission Guidelines</h2>
