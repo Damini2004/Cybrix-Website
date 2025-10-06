@@ -9,23 +9,23 @@ import BannerCarousel from "@/components/ui/banner-carousel";
 const supportInfo = [
     {
         icon: FileText,
-        title: "What to Submit",
-        description: "Researchers are encouraged to submit an abstract that addresses scientific questions, details engineering research observations, or contains primary scientific data."
+        title: "Submission Content",
+        description: "We invite researchers to submit abstracts that explore scientific inquiries, present observations from engineering research, or include primary scientific data."
     },
     {
         icon: Users,
-        title: "Peer Review Process",
-        description: "Abstracts are peer-reviewed by the Conferences Editorial Committee and will be considered for either oral or poster presentation."
+        title: "Review and Presentation",
+        description: "The Conference Editorial Committee conducts a peer review of all abstracts, which may be selected for an oral presentation or a poster session."
     },
     {
         icon: BookUp,
-        title: "Publication of Abstracts",
-        description: "All accepted abstracts are published in the Conference Proceedings, which serves as an online supplement to our Journals."
+        title: "Abstract Publication",
+        description: "Every accepted abstract is featured in the official Conference Proceedings, available as an online supplement to our journals."
     },
     {
         icon: Sparkles,
-        title: "Unique Meeting Themes",
-        description: "Each meeting, conference, and workshop is unique in the specific types of engineering & technology-related research that are eligible for submission."
+        title: "Event-Specific Themes",
+        description: "Each meeting, conference, and workshop has distinct themes, accepting only research related to specific fields of engineering and technology."
     }
 ]
 
@@ -83,9 +83,9 @@ export default function JournalSupportPage() {
         <section className="w-full pb-16 md:pb-24">
              <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight">Key Information for Authors</h2>
+                    <h2 className="text-3xl font-bold tracking-tight">Essential Author Information</h2>
                     <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-                        Understand the journey of your abstract from submission to publication. Here’s what you need to know.
+                        Follow your abstract's path from submission to becoming a published work. Here is what you should know.
                     </p>
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
