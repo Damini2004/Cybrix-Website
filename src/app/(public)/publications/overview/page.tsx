@@ -88,7 +88,7 @@ export default function PublicationsOverviewPage() {
                         </CardHeader>
                         <ul className="space-y-4">
                             {plagiarismPolicies.map((policy, index) => (
-                                <li key={index} className="flex items-start gap-4 p-3 rounded-lg bg-secondary/50 border-l-4" style={{ borderLeftColor: policy.iconColor.includes('destructive') ? 'hsl(var(--destructive))' : 'hsl(var(--primary))' }}>
+                                <li key={index} className="flex items-start gap-4 p-3 rounded-lg border-l-4" style={{ borderLeftColor: policy.iconColor.includes('destructive') ? 'hsl(var(--destructive))' : 'hsl(var(--primary))' }}>
                                     <policy.icon className={`h-5 w-5 mt-0.5 flex-shrink-0 ${policy.iconColor}`} />
                                     <span className="text-muted-foreground">{policy.text}</span>
                                 </li>
@@ -102,7 +102,7 @@ export default function PublicationsOverviewPage() {
                         </CardHeader>
                          <ul className="space-y-4">
                             {termsAndConditions.map((term, index) => (
-                                <li key={index} className="flex items-start gap-4 p-3 rounded-lg bg-secondary/50 border-l-4" style={{ borderLeftColor: term.iconColor.includes('destructive') ? 'hsl(var(--destructive))' : 'hsl(var(--primary))' }}>
+                                <li key={index} className="flex items-start gap-4 p-3 rounded-lg border-l-4" style={{ borderLeftColor: term.iconColor.includes('destructive') ? 'hsl(var(--destructive))' : 'hsl(var(--primary))' }}>
                                     <term.icon className={`h-5 w-5 mt-0.5 flex-shrink-0 ${term.iconColor}`} />
                                     <span className="text-muted-foreground">{term.text}</span>
                                 </li>
