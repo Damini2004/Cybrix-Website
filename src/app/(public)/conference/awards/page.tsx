@@ -1,4 +1,3 @@
-
 // src/app/(public)/conference/awards/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, BookOpen, UserCheck, Lightbulb } from "lucide-react";
@@ -9,22 +8,22 @@ const awardCategories = [
     {
         icon: Award,
         title: "Best Paper Award",
-        description: "Presented to the author(s) of the most outstanding paper, selected for its originality, technical excellence, and clarity of presentation."
+        description: "Honoring the most outstanding paper, recognized for its originality, technical excellence, and clarity."
     },
     {
         icon: BookOpen,
         title: "Best Poster Award",
-        description: "Awarded to the most innovative and well-presented research poster, recognizing the quality of the research and the effectiveness of the visual display."
+        description: "Celebrating the most innovative and effectively presented research poster based on quality and visual impact."
     },
     {
         icon: UserCheck,
         title: "Young Researcher Award",
-        description: "Recognizing an outstanding young scientist who has shown exceptional promise and has made a significant contribution to their field early in their career."
+        description: "Recognizing a brilliant young scientist who has demonstrated exceptional promise and made a significant early-career contribution."
     },
     {
         icon: Lightbulb,
         title: "Innovation in Technology Award",
-        description: "This award celebrates a groundbreaking technological innovation presented at the conference that has the potential for significant real-world impact."
+        description: "Awarded for a groundbreaking technological innovation with the potential for significant real-world impact."
     }
 ];
 
@@ -71,7 +70,7 @@ export default function AwardsPage() {
             </div>
         </section>
 
-        <section className="w-full pb-16 md:pb-24">
+        <section className="w-full pb-16 md:pb-24 bg-white">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter">Award Categories</h2>
