@@ -57,7 +57,7 @@ export default function PeerReviewPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
                             <Image
-                                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&h=800&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&h=800&auto=format=fit=crop"
                                 alt="Collaborative Review"
                                 data-ai-hint="team collaboration"
                                 fill
@@ -84,24 +84,20 @@ export default function PeerReviewPage() {
                         </p>
                     </div>
 
-                    <div className="max-w-xl mx-auto">
-                        <ol className="relative border-l-2 border-primary/20">
+                    <div className="relative">
+                        <div className="flex items-center justify-between">
                             {reviewSteps.map((step, index) => (
-                                <li key={index} className="mb-10 ml-10">
-                                    <span className="absolute flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full -left-6 ring-8 ring-background">
-                                        <step.icon className="w-6 h-6 text-primary" />
-                                    </span>
-                                    <Card className="shadow-md hover:shadow-xl transition-shadow border-border/50">
-                                        <CardHeader>
-                                            <CardTitle className="text-lg font-bold text-primary">{step.title}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <p className="text-base font-normal text-muted-foreground">{step.description}</p>
-                                        </CardContent>
-                                    </Card>
-                                </li>
+                                <div key={index} className="flex flex-col items-center text-center w-64 z-10">
+                                    <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full ring-8 ring-background mb-4">
+                                        <step.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-primary mb-1">{`Step ${index + 1}`}</h3>
+                                    <h4 className="font-semibold text-foreground mb-2">{step.title}</h4>
+                                    <p className="text-sm text-muted-foreground">{step.description}</p>
+                                </div>
                             ))}
-                        </ol>
+                        </div>
+                        <div className="absolute top-8 left-0 w-full h-0.5 bg-primary/20 -z-0"></div>
                     </div>
                 </div>
             </section>
