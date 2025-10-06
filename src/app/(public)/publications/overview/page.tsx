@@ -69,7 +69,7 @@ export default function PublicationsOverviewPage() {
             </div>
       </section>
 
-      <section className="w-full pb-16 md:pb-24 bg-secondary/30">
+      <section className="w-full pb-16 md:pb-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
             <Card className="max-w-4xl mx-auto shadow-2xl border-primary/10">
                  <Tabs defaultValue="policy" className="w-full">
