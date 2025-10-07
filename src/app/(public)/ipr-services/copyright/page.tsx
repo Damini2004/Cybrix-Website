@@ -45,32 +45,33 @@ export default function CopyrightPage() {
                     </CardContent>
                 </Card>
             </section>
-            <section className="w-full py-16 md:py-24">
-                <div className="container px-4 md:px-6">
-                    <div className="grid gap-12 lg:grid-cols-2 items-center">
-                         <Image
-                            src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop"
-                            width="600"
-                            height="400"
-                            alt="Copyright Symbol"
-                            data-ai-hint="copyright symbol"
-                            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl transform transition-transform duration-500 hover:scale-105"
-                        />
-                        <div className="space-y-6">
-                            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">Protect Your Creations</div>
-                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                                Secure Your Creative Works
-                            </h2>
-                            <p className="max-w-[600px] text-muted-foreground md:text-xl">
+            <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="space-y-6 text-center md:text-left">
+                            <BookCopy className="mx-auto md:mx-0 h-12 w-12 text-primary" />
+                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Secure Your Creative Works</h2>
+                             <p className="max-w-[600px] text-muted-foreground md:text-xl">
                                 Safeguard your literary, artistic, and musical creations with formal copyright registration. We provide expert assistance to ensure your original works are legally protected from unauthorized use.
                             </p>
-                            <Button asChild size="lg">
+                             <Button asChild size="lg">
                                 <Link href="/contact-us">
                                     Register Your Copyright <ArrowRight className="ml-2 h-5 w-5" />
                                 </Link>
                             </Button>
                         </div>
-                       
+                        <div className="relative h-80 md:h-full w-full">
+                             <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                             <div className="absolute inset-0 p-4">
+                                 <Image 
+                                    src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop" 
+                                    alt="Copyright Symbol"
+                                    data-ai-hint="copyright symbol"
+                                    fill
+                                    className="object-cover rounded-lg shadow-2xl" 
+                                />
+                             </div>
+                        </div>
                     </div>
                 </div>
             </section>
