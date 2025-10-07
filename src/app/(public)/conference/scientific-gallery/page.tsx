@@ -76,37 +76,6 @@ export default function ScientificGalleryPage() {
                 </p>
             </div>
             <div className="flex flex-col gap-6 max-w-7xl mx-auto">
-                <Carousel
-                    setApi={setThumbApi}
-                    opts={{
-                        containScroll: "keepSnaps",
-                        dragFree: true,
-                        loop: true,
-                    }}
-                    className="w-full"
-                >
-                    <CarouselContent className="-ml-2">
-                    {galleryItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-2 basis-1/4 md:basis-1/6 lg:basis-1/8">
-                        <div
-                            onClick={() => onThumbClick(index)}
-                            className={cn(
-                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
-                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                            )}
-                        >
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        </CarouselItem>
-                    ))}
-                    </CarouselContent>
-                </Carousel>
                 <Carousel 
                     setApi={setMainApi} 
                     className="w-full"
@@ -132,6 +101,36 @@ export default function ScientificGalleryPage() {
                             </div>
                             </CardContent>
                         </Card>
+                        </CarouselItem>
+                    ))}
+                    </CarouselContent>
+                </Carousel>
+                <Carousel
+                    setApi={setThumbApi}
+                    opts={{
+                        containScroll: "keepSnaps",
+                        dragFree: true,
+                    }}
+                    className="w-full"
+                >
+                    <CarouselContent className="-ml-2">
+                    {galleryItems.map((item, index) => (
+                        <CarouselItem key={index} className="pl-2 basis-1/4 md:basis-1/6 lg:basis-1/8">
+                        <div
+                            onClick={() => onThumbClick(index)}
+                            className={cn(
+                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
+                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
+                            )}
+                        >
+                            <Image 
+                                src={item.src}
+                                alt={item.alt}
+                                fill
+                                data-ai-hint={item.hint}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                         </CarouselItem>
                     ))}
                     </CarouselContent>
