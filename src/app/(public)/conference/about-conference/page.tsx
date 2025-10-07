@@ -55,7 +55,7 @@ export default function AboutConferencePage() {
     <div className="bg-secondary/30">
         <section className="relative w-full py-20 md:py-32 text-center text-white bg-primary">
              <Image
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format=fit=crop"
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop"
                 alt="Conference audience"
                 fill
                 className="object-cover opacity-20"
