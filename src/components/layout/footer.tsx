@@ -26,7 +26,7 @@ const socialLinks = [
 
 const Footer = () => {
     return (
-        <footer className="bg-border text-foreground">
+        <footer className="bg-background text-foreground border-t">
             <div className="container mx-auto px-4 pt-16 pb-8">
                 {/* Main footer content */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
