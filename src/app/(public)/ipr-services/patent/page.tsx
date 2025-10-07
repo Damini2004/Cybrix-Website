@@ -52,20 +52,10 @@ export default function PatentPage() {
                 </Card>
             </section>
 
-            <section className="w-full py-16 md:py-24">
+            <section className="w-full py-16 md:py-24 overflow-hidden">
                 <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-3xl font-bold tracking-tight">Protect Your Inventions</h2>
-                            <p className="mt-6 text-lg text-muted-foreground">
-                                From initial search and drafting to filing and prosecution, our experienced team guides you through every step of the complex patenting process to protect your valuable intellectual property.
-                            </p>
-                            <Button size="lg" asChild>
-                                <Link href="/contact-us">
-                                    Consult a Patent Expert <ArrowRight className="ml-2 h-5 w-5" />
-                                </Link>
-                            </Button>
-                        </div>
+                    <div className="relative grid md:grid-cols-2 gap-12 items-center">
+                        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl -translate-y-1/2 -z-10" />
                         <div className="flex justify-center">
                             <Image
                                 src="/photo4.png"
@@ -75,6 +65,19 @@ export default function PatentPage() {
                                 data-ai-hint="patent invention"
                                 className="rounded-xl shadow-2xl transform transition-transform duration-500 hover:scale-105"
                             />
+                        </div>
+                        <div className="space-y-6">
+                            <Card className="bg-secondary/10 border-primary/20 shadow-lg p-8">
+                                <h2 className="text-3xl font-bold tracking-tight">Protect Your Inventions</h2>
+                                <p className="mt-6 text-lg text-muted-foreground">
+                                    From initial search and drafting to filing and prosecution, our experienced team guides you through every step of the complex patenting process to protect your valuable intellectual property.
+                                </p>
+                                <Button size="lg" asChild className="mt-6">
+                                    <Link href="/contact-us">
+                                        Consult a Patent Expert <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Link>
+                                </Button>
+                            </Card>
                         </div>
                     </div>
                 </div>
