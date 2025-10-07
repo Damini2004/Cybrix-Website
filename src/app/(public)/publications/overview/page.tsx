@@ -5,6 +5,7 @@ import { CheckCircle, AlertTriangle, Shield, BookCopy } from "lucide-react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BannerCarousel from "@/components/ui/banner-carousel";
+import { BookOpen } from "lucide-react";
 
 const plagiarismPolicies = [
     { text: "Plagiarized articles will be rejected (Must be 20% below including references).", icon: AlertTriangle, iconColor: "text-destructive" },
@@ -27,7 +28,7 @@ const termsAndConditions = [
 
 export default function PublicationsOverviewPage() {
     const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200&h=400&auto=format=fit=crop", alt: "Library with books", hint: "library books" }
+        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200&h=400&auto=format&fit=crop", alt: "Library with books", hint: "library books" }
     ];
 
   return (
@@ -45,28 +46,35 @@ export default function PublicationsOverviewPage() {
             </Card>
       </BannerCarousel>
 
-      <section className="w-full py-16 md:py-24">
-            <div className="container mx-auto px-4 md:px-6">
-                <Card className="overflow-hidden shadow-xl border-primary/10">
-                    <div className="grid md:grid-cols-2">
-                        <div className="p-8 md:p-10 flex flex-col justify-center">
-                            <h2 className="text-3xl font-bold tracking-tight text-primary mb-4">Expert Publishing Assistance</h2>
-                            <p className="text-muted-foreground text-lg">
-                                Cybrix provides help, assistance, and direction in preparation for SCI and SCIE journal publishing. The SCI & SCIE Indexed Journal Search might be exhausting. Get help with SCI and SCIE Indexed journal publishing.
-                            </p>
-                        </div>
-                        <div className="relative min-h-[300px] md:min-h-0">
-                            <Image
-                                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&h=400&auto=format=fit=crop"
-                                alt="Researchers collaborating"
-                                data-ai-hint="research collaboration"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-                </Card>
+      <section className="relative w-full overflow-hidden bg-background py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6 text-center md:text-left">
+              <BookOpen className="mx-auto md:mx-0 h-12 w-12 text-primary" />
+              <h2 className="text-3xl font-bold tracking-tight text-primary">
+                Expert Publishing Assistance
+              </h2>
+              <p className="max-w-xl mx-auto md:mx-0 text-lg text-foreground/80 md:text-xl">
+                Cybrix provides help, assistance, and direction in preparation
+                for SCI and SCIE journal publishing. The SCI & SCIE Indexed
+                Journal Search might be exhausting. Get help with SCI and SCIE
+                Indexed journal publishing.
+              </p>
             </div>
+            <div className="relative h-80 md:h-full w-full">
+              <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+              <div className="absolute inset-0 p-4">
+                <Image
+                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&h=400&auto=format&fit=crop"
+                  alt="Researchers collaborating"
+                  data-ai-hint="research collaboration"
+                  fill
+                  className="object-cover rounded-lg shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="w-full pb-16 md:pb-24 bg-background">
