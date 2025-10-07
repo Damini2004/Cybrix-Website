@@ -39,6 +39,8 @@ export default function ScientificGalleryPage() {
   const [mainApi, setMainApi] = React.useState<CarouselApi>()
   const [thumbApi, setThumbApi] = React.useState<CarouselApi>()
   const [selectedIndex, setSelectedIndex] = React.useState(0)
+  const [bgImage, setBgImage] = React.useState(galleryItems[0].src);
+
 
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
@@ -54,9 +56,11 @@ export default function ScientificGalleryPage() {
 
   const onSelect = React.useCallback(() => {
     if (!mainApi || !thumbApi) return
-    setSelectedIndex(mainApi.selectedScrollSnap())
-    thumbApi.scrollTo(mainApi.selectedScrollSnap())
-  }, [mainApi, thumbApi, setSelectedIndex])
+    const newSelectedIndex = mainApi.selectedScrollSnap();
+    setSelectedIndex(newSelectedIndex)
+    setBgImage(galleryItems[newSelectedIndex].src);
+    thumbApi.scrollTo(newSelectedIndex)
+  }, [mainApi, thumbApi])
 
   React.useEffect(() => {
     if (!mainApi) return
@@ -67,79 +71,83 @@ export default function ScientificGalleryPage() {
 
   return (
     <div className="bg-secondary/30">
-      <section className="w-full py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-12">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Scientific Gallery</h1>
-                 <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-                    A visual journey through groundbreaking research and discoveries presented at our conferences.
-                </p>
-            </div>
-            <div className="flex flex-col gap-6 max-w-7xl mx-auto">
-                <Carousel 
-                    setApi={setMainApi} 
-                    className="w-full"
-                    plugins={[plugin.current]}
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
-                >
-                    <CarouselContent>
-                    {galleryItems.map((item, index) => (
-                        <CarouselItem key={index}>
-                        <Card className="overflow-hidden rounded-xl shadow-lg">
-                            <CardContent className="p-0 relative aspect-video">
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-auto object-cover"
-                            />
-                            <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                                <h3 className="font-bold text-lg">{item.title}</h3>
-                                <p className="text-sm">{item.author}</p>
+        <section 
+            className="w-full py-16 md:py-24 relative bg-cover bg-center bg-no-repeat transition-all duration-500"
+            style={{ backgroundImage: `url(${bgImage})` }}
+        >
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+            <div className="container relative z-10 mx-auto px-4 md:px-6">
+                <div className="text-center mb-12">
+                    <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Scientific Gallery</h1>
+                    <p className="mt-2 text-white/80 max-w-2xl mx-auto">
+                        A visual journey through groundbreaking research and discoveries presented at our conferences.
+                    </p>
+                </div>
+                <div className="flex flex-col gap-6 max-w-7xl mx-auto">
+                    <Carousel 
+                        setApi={setMainApi} 
+                        className="w-full"
+                        plugins={[plugin.current]}
+                        onMouseEnter={plugin.current.stop}
+                        onMouseLeave={plugin.current.reset}
+                    >
+                        <CarouselContent>
+                        {galleryItems.map((item, index) => (
+                            <CarouselItem key={index}>
+                            <Card className="overflow-hidden rounded-xl shadow-lg border-white/20 bg-white/10">
+                                <CardContent className="p-0 relative aspect-video">
+                                <Image 
+                                    src={item.src}
+                                    alt={item.alt}
+                                    fill
+                                    data-ai-hint={item.hint}
+                                    className="w-full h-auto object-cover"
+                                />
+                                <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                                    <h3 className="font-bold text-lg">{item.title}</h3>
+                                    <p className="text-sm">{item.author}</p>
+                                </div>
+                                </CardContent>
+                            </Card>
+                            </CarouselItem>
+                        ))}
+                        </CarouselContent>
+                    </Carousel>
+                    <Carousel
+                        setApi={setThumbApi}
+                        opts={{
+                            containScroll: "keepSnaps",
+                            dragFree: true,
+                        }}
+                        className="w-full"
+                    >
+                        <CarouselContent className="-ml-2">
+                        {galleryItems.map((item, index) => (
+                            <CarouselItem key={index} className="pl-2 basis-1/4 md:basis-1/6 lg:basis-1/8">
+                            <div
+                                onClick={() => onThumbClick(index)}
+                                className={cn(
+                                "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
+                                selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
+                                )}
+                            >
+                                <Image 
+                                    src={item.src}
+                                    alt={item.alt}
+                                    fill
+                                    data-ai-hint={item.hint}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
-                            </CardContent>
-                        </Card>
-                        </CarouselItem>
-                    ))}
-                    </CarouselContent>
-                </Carousel>
-                <Carousel
-                    setApi={setThumbApi}
-                    opts={{
-                        containScroll: "keepSnaps",
-                        dragFree: true,
-                    }}
-                    className="w-full"
-                >
-                    <CarouselContent className="-ml-2">
-                    {galleryItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-2 basis-1/4 md:basis-1/6 lg:basis-1/8">
-                        <div
-                            onClick={() => onThumbClick(index)}
-                            className={cn(
-                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
-                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                            )}
-                        >
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        </CarouselItem>
-                    ))}
-                    </CarouselContent>
-                </Carousel>
+                            </CarouselItem>
+                        ))}
+                        </CarouselContent>
+                    </Carousel>
+                </div>
             </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="w-full pb-16 md:pb-24 overflow-hidden">
+      <section className="w-full pb-16 md:pb-24 overflow-hidden bg-background">
           <div className="container mx-auto px-4 md:px-6">
               <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold tracking-tighter">More Highlights</h2>
