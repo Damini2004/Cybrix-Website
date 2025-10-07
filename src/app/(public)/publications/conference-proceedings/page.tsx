@@ -66,25 +66,16 @@ export default function ConferenceProceedingsPage() {
                 </Card>
             </BannerCarousel>
             
-            <section className="w-full py-16 md:py-24 bg-background">
-                <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                            <Image
-                                src="/photo3.jpg"
-                                alt="Researchers collaborating"
-                                data-ai-hint="research collaboration"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className="space-y-6">
-                             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Why Publish With Us?</div>
+            <section className="relative w-full overflow-hidden bg-background py-20 md:py-32">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="space-y-6 text-center md:text-left">
+                            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary">Why Publish With Us?</div>
                             <h2 className="text-3xl font-bold tracking-tighter">Amplify Your Research Impact</h2>
-                            <p className="text-muted-foreground text-lg">
+                            <p className="max-w-xl mx-auto md:mx-0 text-lg text-foreground/80 md:text-xl">
                                 Our conference proceedings offer a unique platform to disseminate your findings, gain valuable feedback, and connect with a global network of researchers and industry leaders.
                             </p>
-                            <ul className="space-y-4 pt-4">
+                             <ul className="space-y-4 pt-4 text-left">
                                 {benefits.map((benefit) => (
                                     <li key={benefit.title} className="flex items-start gap-4">
                                         <div className="p-3 bg-primary/10 rounded-full mt-1">
@@ -97,6 +88,18 @@ export default function ConferenceProceedingsPage() {
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+                        <div className="relative h-80 md:h-full w-full">
+                            <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                            <div className="absolute inset-0 p-4">
+                                <Image 
+                                    src="/photo3.jpg"
+                                    alt="Researchers collaborating"
+                                    data-ai-hint="research collaboration"
+                                    fill
+                                    className="object-cover rounded-lg shadow-2xl" 
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
