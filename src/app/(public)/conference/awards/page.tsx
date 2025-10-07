@@ -47,24 +47,27 @@ export default function AwardsPage() {
             </Card>
         </BannerCarousel>
 
-        <section className="w-full py-16 md:py-24 bg-background">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                         <Image
-                            src="https://images.unsplash.com/photo-1639149545952-3023a953d613?q=80&w=800&h=600&auto=format&fit=crop"
-                            alt="Award Trophy"
-                            data-ai-hint="award trophy"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                    <div className="space-y-6">
-                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">Celebrating Excellence</div>
+        <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
+            <div className="container mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="space-y-6 text-center md:text-left">
+                        <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">Celebrating Excellence</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Honoring Groundbreaking Research</h2>
                         <p className="text-muted-foreground text-justify">
                             The Cybrix Awards program is designed to recognize and celebrate the exceptional achievements of individuals and teams whose work demonstrates scientific rigor, innovation, and the potential for significant impact. By acknowledging these contributions, we aim to inspire the next generation of researchers and foster a culture of excellence within the global academic community. Each award is a testament to the dedication and intellectual curiosity that drives scientific progress forward.
                         </p>
+                    </div>
+                     <div className="relative h-80 md:h-full w-full">
+                         <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                         <div className="absolute inset-0 p-4">
+                             <Image 
+                                src="https://images.unsplash.com/photo-1639149545952-3023a953d613?q=80&w=800&h=600&auto=format&fit=crop" 
+                                alt="Award Trophy"
+                                data-ai-hint="award trophy"
+                                fill
+                                className="object-cover rounded-lg shadow-2xl" 
+                            />
+                         </div>
                     </div>
                 </div>
             </div>
