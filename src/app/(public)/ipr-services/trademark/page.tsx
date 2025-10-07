@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -27,43 +28,49 @@ export default function TrademarkPage() {
                     </CardContent>
                 </Card>
             </section>
-            <section className="container mx-auto px-4 py-16 md:py-24">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                     <div className="relative h-full min-h-[300px] md:min-h-[400px] rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                        <Image src="/photo5.jpg" alt="Trademark" data-ai-hint="brand logo" layout="fill" objectFit="cover" />
-                    </div>
-                    <div className="space-y-8">
-                        <h2 className="text-3xl font-bold tracking-tight">Why Register a Trademark?</h2>
-                        <ul className="space-y-6 text-muted-foreground">
-                            <li className="flex items-start gap-4">
-                                <ShieldCheck className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                                <div>
-                                    <h4 className="font-semibold text-foreground text-lg">Nationwide Priority</h4>
-                                    <p>Establishes your rights to use the mark nationwide for your specific goods or services.</p>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-4">
-                                <ShieldCheck className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                                <div>
-                                    <h4 className="font-semibold text-foreground text-lg">Legal Presumption of Ownership</h4>
-                                    <p>A registered trademark serves as legal evidence of your ownership and exclusive rights.</p>
-                                </div>
-                            </li>
-                             <li className="flex items-start gap-4">
-                                <ShieldCheck className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                                <div>
-                                    <h4 className="font-semibold text-foreground text-lg">Deters Others</h4>
-                                    <p>Discourages others from using confusingly similar marks and makes it easier to stop them if they do.</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <Button asChild size="lg">
-                            <Link href="/contact-us">
-                                Start Your Application <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
+            <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="space-y-8 text-center md:text-left">
+                            <h2 className="text-3xl font-bold tracking-tight">Why Register a Trademark?</h2>
+                            <ul className="space-y-6 text-muted-foreground text-left">
+                                <li className="flex items-start gap-4">
+                                    <ShieldCheck className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                                    <div>
+                                        <h4 className="font-semibold text-foreground text-lg">Nationwide Priority</h4>
+                                        <p>Establishes your rights to use the mark nationwide for your specific goods or services.</p>
+                                    </div>
+                                </li>
+                                <li className="flex items-start gap-4">
+                                    <ShieldCheck className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                                    <div>
+                                        <h4 className="font-semibold text-foreground text-lg">Legal Presumption of Ownership</h4>
+                                        <p>A registered trademark serves as legal evidence of your ownership and exclusive rights.</p>
+                                    </div>
+                                </li>
+                                <li className="flex items-start gap-4">
+                                    <ShieldCheck className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                                    <div>
+                                        <h4 className="font-semibold text-foreground text-lg">Deters Others</h4>
+                                        <p>Discourages others from using confusingly similar marks and makes it easier to stop them if they do.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <Button asChild size="lg">
+                                <Link href="/contact-us">
+                                    Start Your Application <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </div>
+                        <div className="relative h-80 md:h-full w-full">
+                            <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                            <div className="absolute inset-0 p-4">
+                                <Image src="/photo5.jpg" alt="Trademark" data-ai-hint="brand logo" fill className="object-cover rounded-lg shadow-2xl" />
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
                 <div className="text-center mt-24 mb-16">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Trademark Services</h2>
@@ -71,7 +78,7 @@ export default function TrademarkPage() {
                         We provide a full suite of services to protect and enforce your brand.
                     </p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-8 container mx-auto px-4 pb-16 md:pb-24">
                     <Card className="text-center p-6 border-0 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
                         <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
                             <Search className="h-8 w-8 text-primary"/>
@@ -106,7 +113,6 @@ export default function TrademarkPage() {
                         </CardContent>
                     </Card>
                 </div>
-            </section>
         </div>
     )
 }
