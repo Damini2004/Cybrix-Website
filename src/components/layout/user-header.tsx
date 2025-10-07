@@ -332,39 +332,26 @@ export default function UserHeader() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-sm shadow-sm">
-      {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto flex h-10 items-center justify-end px-4">
-          <div className="flex items-center space-x-6 text-sm font-medium">
-            {topNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-white/80"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* Main Header */}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto flex h-20 items-center px-4">
-        <div className="flex items-center">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo className="h-16 w-16" />
-          </Link>
-        </div>
+        <Link href="/" className="mr-6 flex items-center">
+          <Logo className="h-16 w-16" />
+        </Link>
+        
+        <nav className="hidden md:flex items-center space-x-1 flex-grow">
+          {mainNavLinks.map((link) => (
+            <NavLink key={link.href} link={link} />
+          ))}
+        </nav>
 
-        <div className="flex flex-1 items-center justify-end">
-          <nav className="hidden md:flex items-center space-x-1">
-            {mainNavLinks.map((link) => (
-              <NavLink key={link.href} link={link} />
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center ml-6">
+        <div className="flex items-center justify-end md:flex-1">
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/research-support" className="text-sm font-medium text-muted-foreground hover:text-primary">
+                Research Support
+            </Link>
+            <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-primary">
+                Login
+            </Link>
             <Link href="/submit-journal">
               <Button>
                 <BookOpen className="mr-2 h-4 w-4" />
@@ -372,45 +359,52 @@ export default function UserHeader() {
               </Button>
             </Link>
           </div>
-        </div>
 
-        <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              className="ml-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-            >
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="pr-0 flex flex-col">
-            <SheetHeader className="text-left p-4 border-b">
-                 <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                 <Link
-                    href="/"
-                    className="flex items-center space-x-2"
-                    onClick={() => setMenuOpen(false)}
-                    >
-                    <Logo className="h-8 w-8" />
-                    <span className="font-bold">Cybrix</span>
-                </Link>
-            </SheetHeader>
-            <ScrollArea className="flex-1">
-                <div className="py-4">
-                    <Accordion type="multiple" className="w-full">
-                        {[...mainNavLinks, ...topNavLinks].map((link) =>
-                            link.children ? (
-                                <MobileNavAccordion key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
-                            ) : (
-                                <MobileNavLink key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
-                            )
-                        )}
-                    </Accordion>
+          <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                className="ml-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+              >
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="pr-0 flex flex-col">
+                <SheetHeader className="text-left p-4 border-b">
+                    <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                    <Link
+                        href="/"
+                        className="flex items-center space-x-2"
+                        onClick={() => setMenuOpen(false)}
+                        >
+                        <Logo className="h-8 w-8" />
+                    </Link>
+                </SheetHeader>
+                <ScrollArea className="flex-1">
+                    <div className="py-4">
+                        <Accordion type="multiple" className="w-full">
+                            {[...mainNavLinks, ...topNavLinks].map((link) =>
+                                link.children ? (
+                                    <MobileNavAccordion key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
+                                ) : (
+                                    <MobileNavLink key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
+                                )
+                            )}
+                        </Accordion>
+                    </div>
+                </ScrollArea>
+                <div className="p-4 border-t">
+                    <Link href="/submit-journal">
+                        <Button className="w-full" onClick={() => setMenuOpen(false)}>
+                            <BookOpen className="mr-2 h-4 w-4" />
+                            Submit Article
+                        </Button>
+                    </Link>
                 </div>
-            </ScrollArea>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
