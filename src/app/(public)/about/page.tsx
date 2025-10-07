@@ -1,3 +1,4 @@
+
 // src/app/(public)/about/page.tsx
 import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -89,27 +90,26 @@ export default async function AboutPage() {
 
       <section className="bg-secondary/30">
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-          <div className="relative grid md:grid-cols-2 gap-x-12 max-w-5xl mx-auto">
-              <Separator orientation="vertical" className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 hidden md:block" />
-              <div className="flex flex-col items-center md:items-end text-center md:text-right p-8">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit mb-4">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <Card className="text-center p-8 bg-background border-primary/20 shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+                     <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                       <Target className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
-                  <p className="text-muted-foreground">
-                      To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
-                  </p>
-              </div>
-              <div className="flex flex-col items-center md:items-start text-center md:text-left p-8">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit mb-4">
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
+                    <p className="text-muted-foreground">
+                        To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
+                    </p>
+                </Card>
+                <Card className="text-center p-8 bg-background border-primary/20 shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+                    <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                       <Eye className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Our Vision</h3>
-                  <p className="text-muted-foreground">
-                      To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
-                  </p>
-              </div>
-          </div>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">Our Vision</h3>
+                    <p className="text-muted-foreground">
+                        To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
+                    </p>
+                </Card>
+            </div>
         </div>
       </section>
 
