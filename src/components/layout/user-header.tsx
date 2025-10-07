@@ -332,9 +332,9 @@ export default function UserHeader() {
   );
 
   return (
-    <header className="w-full bg-background border-b shadow-sm">
+    <div className="fixed top-0 left-0 right-0 z-50 p-4">
       <div className="container mx-auto">
-        <div className="flex h-16 items-center justify-between px-4">
+        <div className="flex h-16 items-center justify-between rounded-full border border-border/50 bg-background/80 px-4 shadow-lg backdrop-blur-md">
           <Link href="/" className="mr-6 flex items-center">
             <Logo className="h-10 w-10" />
           </Link>
@@ -408,6 +408,6 @@ export default function UserHeader() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
