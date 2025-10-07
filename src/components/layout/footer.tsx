@@ -30,24 +30,6 @@ const Footer = () => {
     return (
         <footer className="bg-background text-foreground border-t">
             <div className="container mx-auto px-4 pt-16 pb-8">
-                {/* Top section with Newsletter */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 border-b pb-12">
-                    <div>
-                        <h2 className="text-3xl font-headline font-bold">Stay Updated with Cybrix</h2>
-                        <p className="mt-2 text-muted-foreground">Subscribe to our newsletter for the latest news on conferences, publications, and more.</p>
-                    </div>
-                    <form className="flex w-full max-w-md items-center space-x-2">
-                        <Input 
-                            type="email" 
-                            placeholder="Enter your email address" 
-                            className="h-12"
-                        />
-                        <Button type="submit" size="lg" className="h-12">
-                            <Send className="mr-2 h-4 w-4" /> Subscribe
-                        </Button>
-                    </form>
-                </div>
-
                 {/* Main footer content */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     <div className="md:col-span-4 lg:col-span-3 space-y-4">
