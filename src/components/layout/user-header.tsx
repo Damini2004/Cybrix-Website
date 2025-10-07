@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -65,7 +64,7 @@ const iprServicesSubMenu = [
 
 
 const conferenceSubMenuLinks = [
-    { href: "/conference/about-conference", label: "About PRI Conference", icon: Info },
+    { href: "/conference/about-conference", label: "About Cybrix Conference", icon: Info },
     { href: "/conference/plan-conference", label: "Plan a Scientific Conference", icon: BookOpen },
     { href: "/conference/awards", label: "Awards & Recognition", icon: Award },
     { href: "/conference/faq", label: "Conference FAQ", icon: HelpCircle },
@@ -86,7 +85,6 @@ const mainNavLinks = [
   { 
     href: "/conference", 
     label: "Conference",
-    isMegaMenu: true,
     children: [...conferenceSubMenuLinks, ...conferenceSubMenuItems],
   },
   { 
@@ -100,6 +98,7 @@ const mainNavLinks = [
     children: iprServicesSubMenu
   },
   { href: "/internship", label: "Internship" },
+  { href: "/contact-us", label: "Contact Us" },
 ];
 
 
@@ -178,68 +177,67 @@ export default function UserHeader() {
     </PopoverContent>
   );
 
-  const NavLink = ({ link }: { link: { href: string, label: string, children?: any[], isMegaMenu?: boolean } }) => {
+  const NavLink = ({ link }: { link: { href: string, label: string, children?: any[] } }) => {
     const isConference = link.label === "Conference";
     const isPublications = link.label === "Publications";
     const isServices = link.label === "Services";
 
+    const hasChildren = link.children && link.children.length > 0;
 
-    if (isConference) {
-      return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <button
-                className={cn(
-                    "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
-                    pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
-                )}
-                >
-                {link.label}
-                </button>
-            </PopoverTrigger>
-            <ConferenceMegaMenu />
-        </Popover>
-      )
-    }
+    if (hasChildren) {
+      if (isConference) {
+        return (
+          <Popover>
+              <PopoverTrigger asChild>
+                  <button
+                  className={cn(
+                      "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
+                      pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
+                  )}
+                  >
+                  {link.label}
+                  </button>
+              </PopoverTrigger>
+              <ConferenceMegaMenu />
+          </Popover>
+        )
+      }
+      if (isPublications) {
+        return (
+          <Popover>
+              <PopoverTrigger asChild>
+                  <button
+                  className={cn(
+                      "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
+                      pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
+                  )}
+                  >
+                  {link.label}
+                  </button>
+              </PopoverTrigger>
+              <PublicationMegaMenu />
+          </Popover>
+        )
+      }
+  
+      if (isServices) {
+        return (
+          <Popover>
+              <PopoverTrigger asChild>
+                  <button
+                  className={cn(
+                      "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
+                      pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
+                  )}
+                  >
+                  {link.label}
+                  </button>
+              </PopoverTrigger>
+              <ServicesMegaMenu />
+          </Popover>
+        )
+      }
 
-     if (isPublications) {
-      return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <button
-                className={cn(
-                    "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
-                    pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
-                )}
-                >
-                {link.label}
-                </button>
-            </PopoverTrigger>
-            <PublicationMegaMenu />
-        </Popover>
-      )
-    }
-
-    if (isServices) {
-      return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <button
-                className={cn(
-                    "px-3 py-2 rounded-md transition-colors hover:text-primary flex items-center gap-1 text-sm font-medium",
-                    pathname.startsWith(link.href) ? "text-primary bg-primary/10" : "text-foreground/70"
-                )}
-                >
-                {link.label}
-                </button>
-            </PopoverTrigger>
-            <ServicesMegaMenu />
-        </Popover>
-      )
-    }
-
-
-    if (link.children) {
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -272,6 +270,7 @@ export default function UserHeader() {
         </DropdownMenu>
       )
     }
+
     return (
       <Link
         href={link.href}
