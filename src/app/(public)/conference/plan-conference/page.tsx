@@ -33,7 +33,7 @@ export default function PlanConferencePage() {
     <div className="bg-secondary/30">
         <section className="relative h-[500px] w-full flex items-center justify-center p-4">
             <Image
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=400&auto=format=fit=crop"
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=400&auto=format&fit=crop"
                 alt="Conference planning session"
                 data-ai-hint="team meeting"
                 fill
@@ -52,21 +52,12 @@ export default function PlanConferencePage() {
             </Card>
         </section>
         
-        <section className="w-full py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                     <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                         <Image
-                            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&auto=format=fit=crop"
-                            alt="Collaboration"
-                            data-ai-hint="team collaboration"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                    <div className="space-y-6">
-                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">A Partnership for Success</div>
-                        <h2 className="text-3xl font-bold tracking-tighter text-black">Your Vision, Our Expertise</h2>
+        <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
+            <div className="container mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="space-y-6 text-center md:text-left">
+                        <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">A Partnership for Success</div>
+                        <h2 className="text-3xl font-bold tracking-tighter">Your Vision, Our Expertise</h2>
                         <p className="text-muted-foreground text-justify">
                             Planning a scientific conference requires meticulous attention to detail and a deep understanding of the academic landscape. By partnering with Cybrix, you gain access to a dedicated team of professionals who are committed to making your event a resounding success. We work closely with you to understand your goals, develop a comprehensive strategy, and execute every aspect of the conference with precision and care.
                         </p>
@@ -75,6 +66,18 @@ export default function PlanConferencePage() {
                                 Inquire About Partnership <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                         </Button>
+                    </div>
+                    <div className="relative h-80 md:h-full w-full">
+                         <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                         <div className="absolute inset-0 p-4">
+                             <Image 
+                                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&auto=format&fit=crop" 
+                                alt="Collaboration"
+                                data-ai-hint="team collaboration"
+                                fill
+                                className="object-cover rounded-lg shadow-2xl" 
+                            />
+                         </div>
                     </div>
                 </div>
             </div>
