@@ -75,20 +75,50 @@ export default function ScientificGalleryPage() {
                     A visual journey through groundbreaking research and discoveries presented at our conferences.
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              <div className="md:col-span-3">
-                <Carousel 
-                  setApi={setMainApi} 
-                  className="w-full"
-                  plugins={[plugin.current]}
-                  onMouseEnter={plugin.current.stop}
-                  onMouseLeave={plugin.current.reset}
+            <div className="flex flex-col gap-6 max-w-7xl mx-auto">
+                <Carousel
+                    setApi={setThumbApi}
+                    opts={{
+                        containScroll: "keepSnaps",
+                        dragFree: true,
+                        loop: true,
+                    }}
+                    className="w-full"
                 >
-                  <CarouselContent>
+                    <CarouselContent className="-ml-2">
                     {galleryItems.map((item, index) => (
-                      <CarouselItem key={index}>
+                        <CarouselItem key={index} className="pl-2 basis-1/4 md:basis-1/6 lg:basis-1/8">
+                        <div
+                            onClick={() => onThumbClick(index)}
+                            className={cn(
+                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
+                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
+                            )}
+                        >
+                            <Image 
+                                src={item.src}
+                                alt={item.alt}
+                                fill
+                                data-ai-hint={item.hint}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        </CarouselItem>
+                    ))}
+                    </CarouselContent>
+                </Carousel>
+                <Carousel 
+                    setApi={setMainApi} 
+                    className="w-full"
+                    plugins={[plugin.current]}
+                    onMouseEnter={plugin.current.stop}
+                    onMouseLeave={plugin.current.reset}
+                >
+                    <CarouselContent>
+                    {galleryItems.map((item, index) => (
+                        <CarouselItem key={index}>
                         <Card className="overflow-hidden rounded-xl shadow-lg">
-                          <CardContent className="p-0 relative aspect-video">
+                            <CardContent className="p-0 relative aspect-video">
                             <Image 
                                 src={item.src}
                                 alt={item.alt}
@@ -100,47 +130,12 @@ export default function ScientificGalleryPage() {
                                 <h3 className="font-bold text-lg">{item.title}</h3>
                                 <p className="text-sm">{item.author}</p>
                             </div>
-                          </CardContent>
+                            </CardContent>
                         </Card>
-                      </CarouselItem>
+                        </CarouselItem>
                     ))}
-                  </CarouselContent>
+                    </CarouselContent>
                 </Carousel>
-              </div>
-              <div className="md:col-span-1">
-                <Carousel
-                  setApi={setThumbApi}
-                  opts={{
-                    containScroll: "keepSnaps",
-                    dragFree: true,
-                    loop: true,
-                  }}
-                  orientation="vertical"
-                  className="w-full h-[400px] md:h-full"
-                >
-                  <CarouselContent className="h-full -mt-2">
-                    {galleryItems.map((item, index) => (
-                      <CarouselItem key={index} className="pt-2 basis-1/4">
-                        <div
-                          onClick={() => onThumbClick(index)}
-                          className={cn(
-                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
-                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                          )}
-                        >
-                          <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                </Carousel>
-              </div>
             </div>
         </div>
       </section>
