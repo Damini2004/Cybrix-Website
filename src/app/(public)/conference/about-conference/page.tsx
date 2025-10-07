@@ -1,7 +1,7 @@
 
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CheckCircle, Presentation, Users, Award } from "lucide-react";
+import { CheckCircle, Presentation, Users, Award, BookOpen } from "lucide-react";
 import Image from "next/image";
 
 const corePrinciples = [
@@ -73,7 +73,7 @@ export default function AboutConferencePage() {
             <div className="container mx-auto px-4 md:px-6">
                  <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-4">
-                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">Our Purpose</div>
+                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary-foreground">Our Purpose</div>
                         <h2 className="text-3xl font-bold tracking-tight">Our Mission in Conferencing</h2>
                         <p className="text-lg text-muted-foreground">
                              At Cybrix, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
