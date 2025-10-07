@@ -1,9 +1,7 @@
 
 import Link from "next/link";
 import { Logo } from "@/components/icons";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone, Send, Linkedin, Twitter, Youtube, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
 
 const quickLinks = [
     { href: "/about", label: "About Us" },
@@ -28,7 +26,7 @@ const socialLinks = [
 
 const Footer = () => {
     return (
-        <footer className="bg-background text-foreground border-t">
+        <footer className="bg-border text-foreground">
             <div className="container mx-auto px-4 pt-16 pb-8">
                 {/* Main footer content */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
