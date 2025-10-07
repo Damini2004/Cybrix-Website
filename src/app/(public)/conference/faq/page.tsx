@@ -50,20 +50,23 @@ export default async function FaqPage() {
             </Card>
         </section>
 
-        <section className="w-full py-16 md:py-24 bg-background">
-            <div className="container mx-auto px-4 md:px-6">
+        <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
+            <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                         <Image
-                            src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=800&h=600&auto=format&fit=crop"
-                            alt="Contact support"
-                            data-ai-hint="customer support"
-                            fill
-                            className="object-cover"
-                        />
+                    <div className="relative h-80 md:h-full w-full">
+                         <div className="absolute -top-8 -bottom-8 -left-8 w-2/3 bg-primary/10 transform skew-x-6"></div>
+                         <div className="absolute inset-0 p-4">
+                            <Image
+                                src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=800&h=600&auto=format&fit=crop"
+                                alt="Contact support"
+                                data-ai-hint="customer support"
+                                fill
+                                className="object-cover rounded-lg shadow-2xl"
+                            />
+                         </div>
                     </div>
-                    <div className="space-y-6">
-                         <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">Need More Help?</div>
+                    <div className="space-y-6 text-center md:text-left">
+                         <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">Need More Help?</div>
                         <h2 className="text-3xl font-bold tracking-tighter">Can't Find Your Answer?</h2>
                         <p className="text-muted-foreground text-justify">
                             We've compiled a list of the most common questions we receive. If you can't find what you're looking for in the list below, please don't hesitate to reach out to our support team. We're here to assist you with any questions you may have about our services, submission process, or upcoming events.
