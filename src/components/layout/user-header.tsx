@@ -354,9 +354,6 @@ export default function UserHeader() {
         <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Logo className="h-16 w-16" />
-            <span className="hidden font-bold sm:inline-block text-xl">
-              Cybrix
-            </span>
           </Link>
         </div>
 
