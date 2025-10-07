@@ -1,6 +1,4 @@
 // src/app/(public)/layout.tsx
-"use client";
-
 import Footer from "@/components/layout/footer";
 import UserHeader from "@/components/layout/user-header";
 import WhatsappFab from "@/components/layout/whatsapp-fab";

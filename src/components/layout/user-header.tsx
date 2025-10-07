@@ -112,9 +112,6 @@ export default function UserHeader() {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) {
-    return null; 
-  }
 
   const ConferenceMegaMenu = () => (
     <PopoverContent className="w-screen max-w-xl p-0 overflow-hidden shadow-2xl border bg-card" sideOffset={15}>
@@ -332,9 +329,8 @@ export default function UserHeader() {
   );
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 p-4">
-      <div className="container mx-auto">
-        <div className="flex h-16 items-center justify-between rounded-full border border-border/50 bg-background/80 px-4 shadow-lg backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
+        <div className="container mx-auto flex h-24 items-center">
           <Link href="/" className="mr-6 flex items-center">
             <Logo className="h-10 w-10" />
           </Link>
@@ -361,53 +357,54 @@ export default function UserHeader() {
               </Link>
             </div>
 
-            <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="ml-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-                >
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle Menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="pr-0 flex flex-col">
-                  <SheetHeader className="text-left p-4 border-b">
-                      <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                      <Link
-                          href="/"
-                          className="flex items-center space-x-2"
-                          onClick={() => setMenuOpen(false)}
-                          >
-                          <Logo className="h-8 w-8" />
-                      </Link>
-                  </SheetHeader>
-                  <ScrollArea className="flex-1">
-                      <div className="py-4">
-                          <Accordion type="multiple" className="w-full">
-                              {[...mainNavLinks, ...topNavLinks].map((link) =>
-                                  link.children ? (
-                                      <MobileNavAccordion key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
-                                  ) : (
-                                      <MobileNavLink key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
-                                  )
-                              )}
-                          </Accordion>
-                      </div>
-                  </ScrollArea>
-                  <div className="p-4 border-t">
-                      <Link href="/submit-journal">
-                          <Button className="w-full" onClick={() => setMenuOpen(false)}>
-                              <BookOpen className="mr-2 h-4 w-4" />
-                              Submit Article
-                          </Button>
-                      </Link>
-                  </div>
-              </SheetContent>
-            </Sheet>
+            {isMounted && (
+              <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="ml-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+                  >
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Toggle Menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="pr-0 flex flex-col">
+                    <SheetHeader className="text-left p-4 border-b">
+                        <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                        <Link
+                            href="/"
+                            className="flex items-center space-x-2"
+                            onClick={() => setMenuOpen(false)}
+                            >
+                            <Logo className="h-8 w-8" />
+                        </Link>
+                    </SheetHeader>
+                    <ScrollArea className="flex-1">
+                        <div className="py-4">
+                            <Accordion type="multiple" className="w-full">
+                                {[...mainNavLinks, ...topNavLinks].map((link) =>
+                                    link.children ? (
+                                        <MobileNavAccordion key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
+                                    ) : (
+                                        <MobileNavLink key={link.href} link={link} onLinkClick={() => setMenuOpen(false)} />
+                                    )
+                                )}
+                            </Accordion>
+                        </div>
+                    </ScrollArea>
+                    <div className="p-4 border-t">
+                        <Link href="/submit-journal">
+                            <Button className="w-full" onClick={() => setMenuOpen(false)}>
+                                <BookOpen className="mr-2 h-4 w-4" />
+                                Submit Article
+                            </Button>
+                        </Link>
+                    </div>
+                </SheetContent>
+              </Sheet>
+            )}
           </div>
         </div>
-      </div>
-    </div>
+    </header>
   );
 }
