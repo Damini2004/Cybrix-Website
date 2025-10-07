@@ -62,7 +62,7 @@ export default function AboutConferencePage() {
                 data-ai-hint="conference audience"
             />
             <div className="container relative z-10 px-4 md:px-6">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">About PRI Conferences</h1>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">About Cybrix Conferences</h1>
                 <p className="mt-4 max-w-[900px] mx-auto text-white/90 md:text-xl/relaxed">
                     Advancing knowledge and fostering innovation by connecting the brightest minds from around the globe.
                 </p>
@@ -75,7 +75,7 @@ export default function AboutConferencePage() {
                     <div>
                         <h2 className="text-3xl font-bold tracking-tight mb-4">Our Mission in Conferencing</h2>
                         <p className="text-lg text-muted-foreground">
-                             At PRI, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
+                             At Cybrix, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
                         </p>
                     </div>
                     <div className="relative h-96 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]">
