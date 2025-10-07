@@ -329,10 +329,10 @@ export default function UserHeader() {
   );
 
   return (
-     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4">
-        <div className="flex h-16 items-center justify-between rounded-full border border-border/50 bg-background/80 px-4 shadow-lg backdrop-blur-md">
+     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
+        <div className="flex h-20 items-center justify-between rounded-full border border-border/50 bg-background/80 px-4 shadow-lg backdrop-blur-md">
           <Link href="/" className="mr-6 flex items-center">
-            <Logo className="h-10 w-10" />
+            <Logo className="h-12 w-12" />
           </Link>
           
           <nav className="hidden md:flex items-center space-x-1">
@@ -350,7 +350,7 @@ export default function UserHeader() {
                   Login
               </Link>
               <Link href="/submit-journal">
-                <Button size="sm">
+                <Button>
                   <BookOpen className="mr-2 h-4 w-4" />
                   Submit Article
                 </Button>

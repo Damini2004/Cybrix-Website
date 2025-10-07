@@ -139,7 +139,7 @@ function IndexedJournalsSection() {
 export default function HomePage() {
   return (
     <>
-      <section className="relative w-full h-[600px] bg-secondary/30 overflow-hidden">
+      <section className="relative w-full h-[700px] bg-secondary/30 overflow-hidden">
         <Image
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop"
             alt="Team collaborating in a modern office"
