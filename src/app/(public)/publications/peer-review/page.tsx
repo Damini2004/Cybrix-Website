@@ -55,14 +55,17 @@ export default function PeerReviewPage() {
              <section className="w-full py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                            <Image
-                                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&h=800&auto=format=fit=crop"
-                                alt="Collaborative Review"
-                                data-ai-hint="team collaboration"
-                                fill
-                                className="object-cover"
-                            />
+                        <div className="relative h-80 md:h-full w-full">
+                            <div className="absolute -top-8 -bottom-8 -left-8 w-2/3 bg-primary/10 transform skew-x-6"></div>
+                            <div className="absolute inset-0 p-4">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&h=800&auto=format&fit=crop"
+                                    alt="Collaborative Review"
+                                    data-ai-hint="team collaboration"
+                                    fill
+                                    className="object-cover rounded-lg shadow-2xl"
+                                />
+                            </div>
                         </div>
                         <div className="space-y-6">
                              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-secondary-foreground">Our Philosophy</div>
