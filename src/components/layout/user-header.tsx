@@ -329,19 +329,19 @@ export default function UserHeader() {
   );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
-        <div className="container mx-auto flex h-24 items-center">
+     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4">
+        <div className="flex h-16 items-center justify-between rounded-full border border-border/50 bg-background/80 px-4 shadow-lg backdrop-blur-md">
           <Link href="/" className="mr-6 flex items-center">
             <Logo className="h-10 w-10" />
           </Link>
           
-          <nav className="hidden md:flex items-center space-x-1 flex-grow">
+          <nav className="hidden md:flex items-center space-x-1">
             {mainNavLinks.map((link) => (
               <NavLink key={link.href} link={link} />
             ))}
           </nav>
 
-          <div className="flex items-center justify-end md:flex-1">
+          <div className="flex items-center justify-end flex-1">
             <div className="hidden md:flex items-center space-x-2">
               <Link href="/research-support" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary">
                   Research Support
