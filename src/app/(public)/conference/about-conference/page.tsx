@@ -1,7 +1,7 @@
 
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CheckCircle, Presentation, BookOpen, Users, Award } from "lucide-react";
+import { CheckCircle, Presentation, Users, Award } from "lucide-react";
 import Image from "next/image";
 
 const corePrinciples = [
