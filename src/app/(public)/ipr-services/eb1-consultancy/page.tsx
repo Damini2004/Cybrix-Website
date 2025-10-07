@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { ArrowRight, UserCheck, Star, Trophy } from "lucide-react";
+import { ArrowRight, UserCheck, Star, Trophy, Plane } from "lucide-react";
 import Link from "next/link";
 
 const eb1Criteria = [
@@ -28,7 +28,7 @@ export default function EB1ConsultancyPage() {
         <div className="bg-background">
             <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format=fit=crop"
+                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&h=600&auto=format&fit=crop"
                     alt="EB1 Consultancy"
                     data-ai-hint="business meeting"
                     fill
@@ -47,22 +47,13 @@ export default function EB1ConsultancyPage() {
                 </Card>
             </section>
 
-            <section className="w-full py-16 md:py-24">
-                <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105">
-                            <Image
-                                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&h=600&auto=format=fit=crop"
-                                alt="Innovation"
-                                data-ai-hint="team innovation"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className="space-y-6">
-                            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">Your Pathway to a Green Card</div>
+             <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="space-y-6 text-center md:text-left">
+                            <Plane className="mx-auto md:mx-0 h-12 w-12 text-primary" />
                             <h2 className="text-3xl font-bold tracking-tighter">Navigate the EB-1 Visa with Confidence</h2>
-                            <p className="text-muted-foreground text-justify md:text-xl">
+                            <p className="max-w-xl mx-auto md:mx-0 text-muted-foreground md:text-xl">
                                 The EB-1 visa is a prestigious category for professionals at the very top of their field. The application process is rigorous and requires meticulous documentation of your achievements. Our experienced consultants provide personalized support to build a compelling case that highlights your extraordinary abilities and meets the stringent USCIS criteria.
                             </p>
                             <Button asChild size="lg">
@@ -70,6 +61,18 @@ export default function EB1ConsultancyPage() {
                                     Schedule a Consultation <ArrowRight className="ml-2 h-5 w-5" />
                                 </Link>
                             </Button>
+                        </div>
+                        <div className="relative h-80 md:h-full w-full">
+                             <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                             <div className="absolute inset-0 p-4">
+                                 <Image 
+                                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&h=600&auto=format&fit=crop" 
+                                    alt="Innovation"
+                                    data-ai-hint="team innovation"
+                                    fill
+                                    className="object-cover rounded-lg shadow-2xl" 
+                                />
+                             </div>
                         </div>
                     </div>
                 </div>
