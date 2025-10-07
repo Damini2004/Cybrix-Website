@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -52,32 +53,32 @@ export default function PatentPage() {
                 </Card>
             </section>
 
-            <section className="w-full py-16 md:py-24 overflow-hidden">
+            <section className="relative w-full overflow-hidden bg-background py-16 md:py-24">
                 <div className="container mx-auto px-4">
-                    <div className="relative grid md:grid-cols-2 gap-12 items-center">
-                        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl -translate-y-1/2 -z-10" />
-                        <div className="flex justify-center">
-                            <Image
-                                src="/photo4.png"
-                                width={500}
-                                height={500}
-                                alt="Patent Document"
-                                data-ai-hint="patent invention"
-                                className="rounded-xl shadow-2xl transform transition-transform duration-500 hover:scale-105"
-                            />
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="space-y-6 text-center md:text-left">
+                            <h2 className="text-3xl font-bold tracking-tighter">Protect Your Inventions</h2>
+                            <p className="max-w-xl mx-auto md:mx-0 text-muted-foreground md:text-xl">
+                                From initial search and drafting to filing and prosecution, our experienced team guides you through every step of the complex patenting process to protect your valuable intellectual property.
+                            </p>
+                             <Button size="lg" asChild className="mt-6">
+                                <Link href="/contact-us">
+                                    Consult a Patent Expert <ArrowRight className="ml-2 h-5 w-5" />
+                                </Link>
+                            </Button>
                         </div>
-                        <div className="space-y-6">
-                            <Card className="bg-secondary/10 border-primary/20 shadow-lg p-8">
-                                <h2 className="text-3xl font-bold tracking-tight">Protect Your Inventions</h2>
-                                <p className="mt-6 text-lg text-muted-foreground">
-                                    From initial search and drafting to filing and prosecution, our experienced team guides you through every step of the complex patenting process to protect your valuable intellectual property.
-                                </p>
-                                <Button size="lg" asChild className="mt-6">
-                                    <Link href="/contact-us">
-                                        Consult a Patent Expert <ArrowRight className="ml-2 h-5 w-5" />
-                                    </Link>
-                                </Button>
-                            </Card>
+                        <div className="relative h-80 md:h-full w-full">
+                             <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
+                             <div className="absolute inset-0 p-4">
+                                 <Image 
+                                    src="/photo4.png"
+                                    width={500}
+                                    height={500}
+                                    alt="Patent Document"
+                                    data-ai-hint="patent invention"
+                                    className="object-cover rounded-lg shadow-2xl h-full w-full" 
+                                />
+                             </div>
                         </div>
                     </div>
                 </div>
