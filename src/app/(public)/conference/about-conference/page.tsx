@@ -55,7 +55,7 @@ export default function AboutConferencePage() {
     <div className="bg-secondary/30">
         <section className="relative w-full py-20 md:py-32 text-center text-white bg-primary">
              <Image
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format=fit=crop"
                 alt="Conference audience"
                 fill
                 className="object-cover opacity-20"
@@ -69,25 +69,26 @@ export default function AboutConferencePage() {
             </div>
         </section>
         
-        <section className="relative w-full py-16 md:py-24">
-            <div className="container relative z-10 mx-auto px-4 md:px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold tracking-tight mb-4">Our Mission in Conferencing</h2>
+        <section className="w-full py-16 md:py-24 bg-background overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6">
+                 <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-4">
+                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-white">Our Purpose</div>
+                        <h2 className="text-3xl font-bold tracking-tight">Our Mission in Conferencing</h2>
                         <p className="text-lg text-muted-foreground">
                              At Cybrix, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
                         </p>
                     </div>
                     <div className="relative h-96 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]">
-                        <div className="w-full animate-scroll-y space-y-4">
+                        <div className="flex w-max animate-scroll-y flex-col">
                             {[...corePrinciples, ...corePrinciples].map((principle, index) => (
-                                <Card key={`${principle.title}-${index}`} className="bg-background/80 backdrop-blur-sm border-white/20">
+                                <Card key={`${principle.title}-${index}`} className="m-2 shrink-0 bg-secondary/30 border-primary/10">
                                     <CardHeader className="flex flex-row items-center gap-4">
                                         <div className="p-3 bg-primary/10 rounded-full">
                                             <principle.icon className="h-6 w-6 text-primary" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-lg text-card-foreground">{principle.title}</CardTitle>
+                                            <CardTitle className="text-lg">{principle.title}</CardTitle>
                                         </div>
                                     </CardHeader>
                                 </Card>
@@ -125,3 +126,4 @@ export default function AboutConferencePage() {
     </div>
   );
 }
+
