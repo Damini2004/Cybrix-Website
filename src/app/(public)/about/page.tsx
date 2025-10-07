@@ -90,8 +90,11 @@ export default async function AboutPage() {
 
       <section className="bg-secondary/30">
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <Card className="text-center p-8 bg-background border-primary/20 shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+            <div className="relative grid md:grid-cols-2 gap-x-12 max-w-5xl mx-auto">
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <Separator orientation="vertical" className="h-2/3" />
+                </div>
+                <Card className="relative text-center p-8 bg-background border-none shadow-none">
                      <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                       <Target className="h-10 w-10 text-primary" />
                     </div>
@@ -100,7 +103,7 @@ export default async function AboutPage() {
                         To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
                     </p>
                 </Card>
-                <Card className="text-center p-8 bg-background border-primary/20 shadow-xl transform transition-all duration-300 hover:-translate-y-2">
+                <Card className="relative text-center p-8 bg-background border-none shadow-none">
                     <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                       <Eye className="h-10 w-10 text-primary" />
                     </div>
@@ -123,14 +126,14 @@ export default async function AboutPage() {
             </div>
             <div className="grid gap-8 md:grid-cols-3">
                 {services.map((service, index) => (
-                    <Card key={service.title} className="text-center group transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-primary/20 border-2 border-transparent bg-secondary/30">
-                        <CardHeader className="items-center">
-                            <div className="p-4 bg-white rounded-full w-fit mb-3 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                    <Card key={service.title} className="text-center group p-6 bg-secondary/20 border-border/30 shadow-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/40 hover:shadow-primary/20">
+                        <CardHeader className="items-center p-0 mb-4">
+                            <div className="p-4 bg-background rounded-full w-fit mb-3 shadow-md group-hover:scale-110 transition-transform duration-300">
                                 <service.icon className="h-8 w-8 text-primary" />
                             </div>
                         </CardHeader>
-                        <CardContent>
-                           <CardTitle className="mb-2 text-lg">{service.title}</CardTitle>
+                        <CardContent className="p-0">
+                           <CardTitle className="mb-2 text-xl font-semibold">{service.title}</CardTitle>
                             <p className="text-muted-foreground text-sm">{service.description}</p>
                         </CardContent>
                     </Card>
