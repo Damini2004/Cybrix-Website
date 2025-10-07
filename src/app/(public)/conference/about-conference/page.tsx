@@ -73,7 +73,7 @@ export default function AboutConferencePage() {
             <div className="container mx-auto px-4 md:px-6">
                  <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-4">
-                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-primary-foreground">Our Purpose</div>
+                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-semibold text-secondary-foreground">Our Purpose</div>
                         <h2 className="text-3xl font-bold tracking-tight">Our Mission in Conferencing</h2>
                         <p className="text-lg text-muted-foreground">
                              At Cybrix, our mission is to provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of engineering and technology.
@@ -109,14 +109,15 @@ export default function AboutConferencePage() {
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
                     {conferenceServices.map((service, index) => (
-                        <Card key={service.title} className="group relative overflow-hidden rounded-xl border bg-background text-center shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2">
-                            <CardContent className="p-6">
-                                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
-                                    <service.icon className="h-8 w-8 text-primary transition-colors duration-300 group-hover:text-white" />
+                        <Card key={service.title} className="text-center flex flex-col transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-primary/10">
+                            <CardHeader className="items-center">
+                                <div className="p-4 bg-primary/10 rounded-full w-fit mb-3">
+                                    <service.icon className="h-8 w-8 text-primary" />
                                 </div>
-                                <h3 className="text-lg font-bold text-foreground">{service.title}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground">{service.description}</p>
+                                <CardTitle>{service.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                                <p className="text-muted-foreground">{service.description}</p>
                             </CardContent>
                         </Card>
                     ))}
