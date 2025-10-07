@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { ArrowRight, UserCheck, Star, Trophy, Plane } from "lucide-react";
+import { ArrowRight, UserCheck, Star, Trophy } from "lucide-react";
 import Link from "next/link";
 
 const eb1Criteria = [
@@ -51,7 +51,6 @@ export default function EB1ConsultancyPage() {
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="space-y-6 text-center md:text-left">
-                            <Plane className="mx-auto md:mx-0 h-12 w-12 text-primary" />
                             <h2 className="text-3xl font-bold tracking-tighter">Navigate the EB-1 Visa with Confidence</h2>
                             <p className="max-w-xl mx-auto md:mx-0 text-muted-foreground md:text-xl">
                                 The EB-1 visa is a prestigious category for professionals at the very top of their field. The application process is rigorous and requires meticulous documentation of your achievements. Our experienced consultants provide personalized support to build a compelling case that highlights your extraordinary abilities and meets the stringent USCIS criteria.
