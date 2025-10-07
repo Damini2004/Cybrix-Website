@@ -1,4 +1,3 @@
-
 // src/app/(public)/conference/scientific-gallery/page.tsx
 "use client"
 
@@ -114,6 +113,7 @@ export default function ScientificGalleryPage() {
                   opts={{
                     containScroll: "keepSnaps",
                     dragFree: true,
+                    loop: true,
                   }}
                   orientation="vertical"
                   className="w-full h-[400px] md:h-full"
