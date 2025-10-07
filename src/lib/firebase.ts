@@ -5,13 +5,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAD7HC9rZerF1dSpZzeiNylfCVJFMTlV08",
-  authDomain: "pure-research-insights.firebaseapp.com",
-  projectId: "pure-research-insights",
-  storageBucket: "pure-research-insights.firebasestorage.app",
-  messagingSenderId: "633801776834",
-  appId: "1:633801776834:web:7c944b51a6daded1b9a55b",
-  measurementId: "G-TJR558GW98"
+  apiKey: "AIzaSyA3SqoWiA-DwTs20Ja2zIHat8XduhYDyyU",
+  authDomain: "cybrix-2fac3.firebaseapp.com",
+  projectId: "cybrix-2fac3",
+  storageBucket: "cybrix-2fac3.appspot.com",
+  messagingSenderId: "802382312991",
+  appId: "1:802382312991:web:cbe1e2a141d95e9f94072a",
+  measurementId: "G-Y46W6VLHZ3"
 };
 
 // Initialize Firebase
