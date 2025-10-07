@@ -28,21 +28,21 @@ const socialLinks = [
 
 const Footer = () => {
     return (
-        <footer className="bg-sidebar text-sidebar-foreground">
+        <footer className="bg-background text-foreground border-t">
             <div className="container mx-auto px-4 pt-16 pb-8">
                 {/* Top section with Newsletter */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 border-b border-sidebar-border pb-12">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 border-b pb-12">
                     <div>
                         <h2 className="text-3xl font-headline font-bold">Stay Updated with Cybrix</h2>
-                        <p className="mt-2 text-sidebar-foreground/70">Subscribe to our newsletter for the latest news on conferences, publications, and more.</p>
+                        <p className="mt-2 text-muted-foreground">Subscribe to our newsletter for the latest news on conferences, publications, and more.</p>
                     </div>
                     <form className="flex w-full max-w-md items-center space-x-2">
                         <Input 
                             type="email" 
                             placeholder="Enter your email address" 
-                            className="h-12 bg-sidebar-foreground/10 border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/60 focus:bg-sidebar-foreground/20"
+                            className="h-12"
                         />
-                        <Button type="submit" size="lg" className="h-12 bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90">
+                        <Button type="submit" size="lg" className="h-12">
                             <Send className="mr-2 h-4 w-4" /> Subscribe
                         </Button>
                     </form>
@@ -54,7 +54,7 @@ const Footer = () => {
                         <Link href="/" className="flex items-center space-x-2">
                             <Logo className="h-16 w-16" />
                         </Link>
-                        <p className="text-sm text-sidebar-foreground/70 pr-4">
+                        <p className="text-sm text-muted-foreground pr-4">
                             Empowering researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.
                         </p>
                     </div>
@@ -62,36 +62,36 @@ const Footer = () => {
                     <div className="md:col-span-8 lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div>
                             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
+                            <ul className="space-y-2 text-sm text-muted-foreground">
                                 {quickLinks.map(link => (
-                                    <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
+                                    <li key={link.label}><Link href={link.href} className="hover:text-primary transition-colors">{link.label}</Link></li>
                                 ))}
                             </ul>
                         </div>
 
                         <div>
                             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
-                            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
+                            <ul className="space-y-2 text-sm text-muted-foreground">
                                 {serviceLinks.map(link => (
-                                    <li key={link.label}><Link href={link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
+                                    <li key={link.label}><Link href={link.href} className="hover:text-primary transition-colors">{link.label}</Link></li>
                                 ))}
                             </ul>
                         </div>
 
                         <div className="col-span-2 md:col-span-2 space-y-4">
                             <h3 className="text-lg font-semibold">Contact Info</h3>
-                            <div className="space-y-2 text-sm text-sidebar-foreground/70">
+                            <div className="space-y-2 text-sm text-muted-foreground">
                                 <p className="flex items-start gap-2">
-                                    <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                                    <MapPin className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
                                     <span>202-Cybrix, Planet Apartment, Jaywant Nagar, Omkar Nagar, Nagpur, Maharashtra 440027</span>
                                 </p>
                                 <p className="flex items-start gap-2">
-                                    <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
+                                    <Phone className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
                                     <span>+91-7020095748</span>
                                 </p>
                                 <p className="flex items-start gap-2">
-                                    <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
-                                    <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-white">pureresearchinsights@gmail.com</Link>
+                                    <Mail className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
+                                    <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-primary">pureresearchinsights@gmail.com</Link>
                                 </p>
                             </div>
                         </div>
@@ -99,13 +99,13 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="border-t border-sidebar-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between">
-                     <p className="text-sm text-sidebar-foreground/70 text-center sm:text-left">
+                <div className="border-t mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between">
+                     <p className="text-sm text-muted-foreground text-center sm:text-left">
                         &copy; {new Date().getFullYear()} Cybrix. All rights reserved.
                     </p>
                     <div className="flex items-center space-x-4 mt-4 sm:mt-0">
                         {socialLinks.map(link => (
-                            <Link key={link.label} href={link.href} className="text-sidebar-foreground/70 hover:text-white transition-colors" aria-label={link.label}>
+                            <Link key={link.label} href={link.href} className="text-muted-foreground hover:text-primary transition-colors" aria-label={link.label}>
                                 <link.icon className="h-5 w-5" />
                             </Link>
                         ))}
