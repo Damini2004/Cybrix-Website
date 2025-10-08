@@ -177,7 +177,7 @@ export default function HomePage() {
   return (
     <>
       <section 
-        className="w-full relative bg-cover bg-center bg-no-repeat transition-all duration-500 h-[800px] flex items-center"
+        className="w-full relative bg-cover bg-center bg-no-repeat transition-all duration-500 h-screen flex items-center"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
@@ -217,7 +217,7 @@ export default function HomePage() {
                         containScroll: "keepSnaps",
                         dragFree: true,
                     }}
-                    className="w-full max-w-md"
+                    className="w-full max-w-xl"
                 >
                     <CarouselContent className="-ml-4">
                     {bannerItems.map((item, index) => (
