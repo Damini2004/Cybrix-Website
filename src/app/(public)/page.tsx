@@ -171,7 +171,7 @@ export default function HomePage() {
     if (!mainApi) return
     onSelect()
     mainApi.on("select", onSelect)
-    mainai.on("reInit", onSelect)
+    mainApi.on("reInit", onSelect)
   }, [mainApi, onSelect])
 
   return (
