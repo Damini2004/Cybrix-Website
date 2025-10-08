@@ -219,9 +219,9 @@ export default function HomePage() {
                     }}
                     className="w-full max-w-md"
                 >
-                    <CarouselContent className="-ml-2">
+                    <CarouselContent className="-ml-4">
                     {bannerItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-2 basis-1/3">
+                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3">
                         <div
                             onClick={() => onThumbClick(index)}
                             className={cn(
