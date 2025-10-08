@@ -1,4 +1,5 @@
-
+// src/app/(public)/page.tsx
+'use client';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
@@ -7,37 +8,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { getJournals, Journal } from "@/services/journalService";
 import BannerCarousel from '@/components/ui/banner-carousel';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-
-export const metadata: Metadata = {
-  title: 'Home | Academic Publishing & Conference Management',
-  description: 'Cybrix empowers researchers and businesses with expert solutions for journal submissions, conference organization, and publication consultancy.',
-};
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import Autoplay from "embla-carousel-autoplay";
 
 
 const indexedJournalCategories = [
   {
     title: "Scopus Indexed Journals",
     description: "Scopus Q1/Q2, A Scopus journal is a scholarly journal that is indexed (listed) in Scopus, which is one of the largest abstract and citation databases of peer-reviewed literature, maintained by a Elsevier.",
-    imageSrc: "https://images.unsplash.com/photo-1579547945413-49751d66aa68?q=80&w=800&auto=format=fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1579547945413-49751d66aa68?q=80&w=800&auto=format&fit=crop",
     imageHint: "medical biology",
   },
   {
     title: "Web of Science (WoS) Indexed Journals",
     description: "Featuring top-tier journals from SCIE, SSCI, and AHCI for maximum impact and citation.Globally recognized journals ensures high-quality, impactful research",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format=fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
     imageHint: "science research",
   },
   {
     title: "IEEE Xplore Indexed Journals",
     description: "IEEE Xplore is a leading digital library that hosts high-quality journals, conference papers, Journals and standards in engineering, technology, and computer science.",
-    imageSrc: "https://images.unsplash.com/photo-1532187644165-ba22fb5d6d36?q=80&w=800&auto=format=fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1532187644165-ba22fb5d6d36?q=80&w=800&auto=format&fit=crop",
     imageHint: "engineering technology",
   },
   {
     title: "UGC Care / Peer Review Journals",
     description: "Trusted journals approved by UGC for authentic and credible research publications. Scholarly articles reviewed by experts to ensure quality, accuracy, and reliability.",
-    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format=fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format&fit=crop",
     imageHint: "academic books",
   },
 ];
@@ -76,16 +75,16 @@ const keyServices = [
 ]
 
 const partnerLogos = [
-  { src: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 1', hint: 'team meeting' },
-  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
-  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 3', hint: 'business meeting' },
-  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 4', hint: 'office work' },
-  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 5', hint: 'team working' },
-  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 6', hint: 'group discussion' },
-  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 7', hint: 'presentation' },
-  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 8', hint: 'business workshop' },
-  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 9', hint: 'tech team' },
-  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format=fit=crop', alt: 'Partner 10', hint: 'diverse team' },
+  { src: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 1', hint: 'team meeting' },
+  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
+  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 3', hint: 'business meeting' },
+  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 4', hint: 'office work' },
+  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 5', hint: 'team working' },
+  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 6', hint: 'group discussion' },
+  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 7', hint: 'presentation' },
+  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 8', hint: 'business workshop' },
+  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 9', hint: 'tech team' },
+  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 10', hint: 'diverse team' },
 ];
                                                       
 
@@ -135,56 +134,119 @@ function IndexedJournalsSection() {
   )
 }
 
+const bannerItems = [
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Team collaborating", title: "Creative Portfolio", description: "Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Professionals in a meeting", title: "Innovative Solutions", description: "We provide cutting-edge tools and expert guidance to accelerate your research and development.", hint: "business meeting" },
+    { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Team brainstorming", title: "Collaborative Success", description: "Partner with us to turn your innovative ideas into impactful realities.", hint: "team working" },
+];
+
 
 export default function HomePage() {
+  const [mainApi, setMainApi] = React.useState<CarouselApi>()
+  const [thumbApi, setThumbApi] = React.useState<CarouselApi>()
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [bgImage, setBgImage] = React.useState(bannerItems[0].src);
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  )
+
+  const onThumbClick = React.useCallback(
+    (index: number) => {
+      if (!mainApi || !thumbApi) return
+      mainApi.scrollTo(index)
+    },
+    [mainApi, thumbApi]
+  )
+
+  const onSelect = React.useCallback(() => {
+    if (!mainApi || !thumbApi) return
+    const newSelectedIndex = mainApi.selectedScrollSnap();
+    setSelectedIndex(newSelectedIndex)
+    setBgImage(bannerItems[newSelectedIndex].src);
+    thumbApi.scrollTo(newSelectedIndex)
+  }, [mainApi, thumbApi])
+
+  React.useEffect(() => {
+    if (!mainApi) return
+    onSelect()
+    mainApi.on("select", onSelect)
+    mainApi.on("reInit", onSelect)
+  }, [mainApi, onSelect])
+
   return (
     <>
-      <section className="relative w-full h-[700px] bg-secondary/30 overflow-hidden">
-        <Image
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop"
-            alt="Team collaborating in a modern office"
-            fill
-            className="object-cover opacity-10"
-            data-ai-hint="team collaboration"
-        />
-        <div className="container mx-auto px-4 h-full grid md:grid-cols-2 gap-8 items-center">
-          <div className="z-10">
-              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-                  Creative Portfolio
-              </h1>
-              <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">
-                  Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.
-              </p>
-              <div className="flex gap-4 mt-8">
-                  <Button size="lg" asChild>
-                      <Link href="/about">Learn More</Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                      <Link href="/publications">View Portfolio</Link>
-                  </Button>
-              </div>
-          </div>
-          <div className="relative h-full w-full hidden md:flex items-center justify-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]">
-            <div className="w-max animate-scroll-y space-y-4">
-                {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-                    <div 
-                        key={index} 
-                        className="p-2 rounded-lg shadow-md w-80 h-40 flex items-center justify-center"
+      <section 
+        className="w-full py-16 md:py-24 relative bg-cover bg-center bg-no-repeat transition-all duration-500 h-[700px] flex items-center"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        <div className="container relative z-10 mx-auto px-4 md:px-6">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+                 <div className="flex flex-col gap-6 max-w-xl mx-auto">
+                    <Carousel 
+                        setApi={setMainApi} 
+                        className="w-full"
+                        plugins={[plugin.current]}
+                        onMouseEnter={plugin.current.stop}
+                        onMouseLeave={plugin.current.reset}
                     >
-                        <Image 
-                            src={logo.src} 
-                            width={400} 
-                            height={220} 
-                            alt={logo.alt} 
-                            data-ai-hint={logo.hint}
-                            className="h-full w-full object-cover rounded-lg"
-                        />
-                    </div>
-                ))}
+                        <CarouselContent>
+                        {bannerItems.map((item, index) => (
+                            <CarouselItem key={index} className="text-white">
+                                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                                  {item.title}
+                                </h1>
+                                <p className="mt-6 text-lg text-white/80 md:text-xl">
+                                  {item.description}
+                                </p>
+                                <div className="flex gap-4 mt-8">
+                                    <Button size="lg" asChild>
+                                        <Link href="/about">Learn More</Link>
+                                    </Button>
+                                    <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-primary">
+                                        <Link href="/publications">View Portfolio</Link>
+                                    </Button>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                        </CarouselContent>
+                    </Carousel>
+                    <Carousel
+                        setApi={setThumbApi}
+                        opts={{
+                            containScroll: "keepSnaps",
+                            dragFree: true,
+                        }}
+                        className="w-full"
+                    >
+                        <CarouselContent className="-ml-2">
+                        {bannerItems.map((item, index) => (
+                            <CarouselItem key={index} className="pl-2 basis-1/3 md:basis-1/4">
+                            <div
+                                onClick={() => onThumbClick(index)}
+                                className={cn(
+                                "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
+                                selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
+                                )}
+                            >
+                                <Image 
+                                    src={item.src}
+                                    alt={item.alt}
+                                    fill
+                                    data-ai-hint={item.hint}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            </CarouselItem>
+                        ))}
+                        </CarouselContent>
+                    </Carousel>
+                </div>
+                <div>
+                  {/* Can be empty or add another visual element */}
+                </div>
             </div>
-        </div>
-
-
         </div>
       </section>
 
