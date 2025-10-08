@@ -171,81 +171,76 @@ export default function HomePage() {
     if (!mainApi) return
     onSelect()
     mainApi.on("select", onSelect)
-    mainApi.on("reInit", onSelect)
+    mainai.on("reInit", onSelect)
   }, [mainApi, onSelect])
 
   return (
     <>
       <section 
-        className="w-full py-16 md:py-24 relative bg-cover bg-center bg-no-repeat transition-all duration-500 h-[700px] flex items-center"
+        className="w-full relative bg-cover bg-center bg-no-repeat transition-all duration-500 h-[800px] flex items-center"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
         <div className="container relative z-10 mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-                 <div className="flex flex-col gap-6 max-w-xl mx-auto">
-                    <Carousel 
-                        setApi={setMainApi} 
-                        className="w-full"
-                        plugins={[plugin.current]}
-                        onMouseEnter={plugin.current.stop}
-                        onMouseLeave={plugin.current.reset}
-                    >
-                        <CarouselContent>
-                        {bannerItems.map((item, index) => (
-                            <CarouselItem key={index} className="text-white">
-                                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
-                                  {item.title}
-                                </h1>
-                                <p className="mt-6 text-lg text-white/80 md:text-xl">
-                                  {item.description}
-                                </p>
-                                <div className="flex gap-4 mt-8">
-                                    <Button size="lg" asChild>
-                                        <Link href="/about">Learn More</Link>
-                                    </Button>
-                                    <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-primary">
-                                        <Link href="/publications">View Portfolio</Link>
-                                    </Button>
-                                </div>
-                            </CarouselItem>
-                        ))}
-                        </CarouselContent>
-                    </Carousel>
-                    <Carousel
-                        setApi={setThumbApi}
-                        opts={{
-                            containScroll: "keepSnaps",
-                            dragFree: true,
-                        }}
-                        className="w-full"
-                    >
-                        <CarouselContent className="-ml-2">
-                        {bannerItems.map((item, index) => (
-                            <CarouselItem key={index} className="pl-2 basis-1/3 md:basis-1/4">
-                            <div
-                                onClick={() => onThumbClick(index)}
-                                className={cn(
-                                "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
-                                selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                                )}
-                            >
-                                <Image 
-                                    src={item.src}
-                                    alt={item.alt}
-                                    fill
-                                    data-ai-hint={item.hint}
-                                    className="w-full h-full object-cover"
-                                />
+            <div className="flex flex-col items-center text-center gap-8 max-w-4xl mx-auto">
+                <Carousel 
+                    setApi={setMainApi} 
+                    className="w-full"
+                    plugins={[plugin.current]}
+                    onMouseEnter={plugin.current.stop}
+                    onMouseLeave={plugin.current.reset}
+                >
+                    <CarouselContent>
+                    {bannerItems.map((item, index) => (
+                        <CarouselItem key={index} className="text-white">
+                            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
+                              {item.title}
+                            </h1>
+                            <p className="mt-6 text-lg text-white/80 md:text-xl">
+                              {item.description}
+                            </p>
+                            <div className="flex gap-4 mt-8 justify-center">
+                                <Button size="lg" asChild>
+                                    <Link href="/about">Learn More</Link>
+                                </Button>
+                                <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-primary">
+                                    <Link href="/publications">View Portfolio</Link>
+                                </Button>
                             </div>
-                            </CarouselItem>
-                        ))}
-                        </CarouselContent>
-                    </Carousel>
-                </div>
-                <div>
-                  {/* Can be empty or add another visual element */}
-                </div>
+                        </CarouselItem>
+                    ))}
+                    </CarouselContent>
+                </Carousel>
+                <Carousel
+                    setApi={setThumbApi}
+                    opts={{
+                        containScroll: "keepSnaps",
+                        dragFree: true,
+                    }}
+                    className="w-full max-w-md"
+                >
+                    <CarouselContent className="-ml-2">
+                    {bannerItems.map((item, index) => (
+                        <CarouselItem key={index} className="pl-2 basis-1/3">
+                        <div
+                            onClick={() => onThumbClick(index)}
+                            className={cn(
+                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
+                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
+                            )}
+                        >
+                            <Image 
+                                src={item.src}
+                                alt={item.alt}
+                                fill
+                                data-ai-hint={item.hint}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        </CarouselItem>
+                    ))}
+                    </CarouselContent>
+                </Carousel>
             </div>
         </div>
       </section>
