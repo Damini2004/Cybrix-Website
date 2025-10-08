@@ -190,13 +190,13 @@ export default function HomePage() {
                     onMouseEnter={plugin.current.stop}
                     onMouseLeave={plugin.current.reset}
                 >
-                    <CarouselContent>
+                    <CarouselContent className="h-[250px]">
                     {bannerItems.map((item, index) => (
-                        <CarouselItem key={index} className="text-white">
+                        <CarouselItem key={index} className="text-white flex flex-col justify-center">
                             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                               {item.title}
                             </h1>
-                            <p className="mt-6 text-lg text-white/80 md:text-xl">
+                            <p className="mt-6 text-lg text-white/80 md:text-xl max-w-2xl mx-auto">
                               {item.description}
                             </p>
                             <div className="flex gap-4 mt-8 justify-center">
@@ -221,7 +221,7 @@ export default function HomePage() {
                 >
                     <CarouselContent className="-ml-4">
                     {bannerItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/4">
+                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3">
                         <div
                             onClick={() => onThumbClick(index)}
                             className={cn(
