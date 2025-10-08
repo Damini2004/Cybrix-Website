@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Logo } from "@/components/icons";
 import { Mail, MapPin, Phone, Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
@@ -32,7 +31,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     <div className="md:col-span-4 lg:col-span-3 space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <Logo className="h-40 w-40" />
+                            <Logo className="h-28 w-28" />
                         </Link>
                     </div>
 
@@ -68,7 +67,7 @@ const Footer = () => {
                                 </p>
                                 <p className="flex items-start gap-2">
                                     <Mail className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
-                                    <Link href="mailto:pureresearchinsights@gmail.com" className="hover:text-primary">pureresearchinsights@gmail.com</Link>
+                                    <Link href="mailto:cybrix@gmail.com" className="hover:text-primary">cybrix@gmail.com</Link>
                                 </p>
                             </div>
                         </div>

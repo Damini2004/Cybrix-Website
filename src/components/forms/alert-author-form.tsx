@@ -36,7 +36,7 @@ const defaultMessageTemplate = `I hope this message finds you in good health and
 
 We are reaching out to faculty members, research supervisors, and postgraduate coordinators from leading institutions to offer a collaborative opportunity for publishing research articles in Scopus-indexed journals — without the complexities of identifying suitable journals or managing the publishing process alone.
 
-At Researcher Connect, we provide complete assistance for:
+At Cybrix, we provide complete assistance for:
 
 - Publishing student research, PhD-level articles, and postgraduate project outcomes
 - Collaborative authorship on pre-reviewed articles to enable faster publication in indexed journals
