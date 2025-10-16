@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -163,13 +164,13 @@ export default function UserHeader() {
     <PopoverContent className="w-screen max-w-lg p-0 overflow-hidden shadow-2xl border" sideOffset={15}>
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-2">
             {iprServicesSubMenu.map(link => (
-                <Link key={link.label} href={link.href} className="group flex items-start p-3 rounded-lg hover:bg-accent transition-colors">
-                    <div className="p-2 bg-primary/10 text-primary rounded-md mr-4">
+                <Link key={link.label} href={link.href} className="group flex items-start p-3 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors">
+                    <div className="p-2 bg-primary/10 text-primary rounded-md mr-4 group-hover:text-accent-foreground">
                         <link.icon className="h-5 w-5" />
                     </div>
                     <div>
-                        <p className="font-semibold text-sm text-foreground">{link.label}</p>
-                        <p className="text-xs text-muted-foreground">{link.description}</p>
+                        <p className="font-semibold text-sm text-foreground group-hover:text-accent-foreground">{link.label}</p>
+                        <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">{link.description}</p>
                     </div>
                 </Link>
             ))}
