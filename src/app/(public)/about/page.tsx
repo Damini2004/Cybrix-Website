@@ -50,7 +50,7 @@ export default async function AboutPage() {
   return (
     <>
       <BannerCarousel images={bannerImages}>
-        <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+        <Card className="relative z-20 w-full max-w-3xl bg-background/60 backdrop-blur-md text-center">
             <CardContent className="p-8 md:p-12">
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                     About Cybrix
@@ -126,7 +126,7 @@ export default async function AboutPage() {
             </div>
             <div className="grid gap-8 md:grid-cols-3">
                 {services.map((service, index) => (
-                    <Card key={service.title} className="text-center group p-6 bg-secondary/20 border-transparent border-2 hover:border-primary/20 shadow-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/40 hover:shadow-primary/20">
+                    <Card key={service.title} className="text-center group p-6 bg-secondary/20 border-transparent border-2 hover:border-primary/20 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/20">
                         <CardHeader className="items-center p-0 mb-4">
                             <div className="p-4 bg-background rounded-full w-fit mb-3 shadow-inner group-hover:scale-110 transition-transform duration-300">
                                 <service.icon className="h-8 w-8 text-primary" />

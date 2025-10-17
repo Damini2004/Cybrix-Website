@@ -17,7 +17,7 @@ export default function DigitalLibraryPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Digital Library", hint: "library books" },
+        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Digital Library", hint: "library books" },
   ];
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function DigitalLibraryPage() {
   return (
     <div className="bg-background">
         <BannerCarousel images={bannerImages}>
-            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+            <Card className="relative z-20 w-full max-w-3xl bg-background/60 backdrop-blur-md text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                         Journal Listing

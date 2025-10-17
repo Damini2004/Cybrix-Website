@@ -1,3 +1,4 @@
+
 // src/app/(public)/internship/page.tsx
 "use client";
 
@@ -20,7 +21,7 @@ export default function InternshipPage() {
   const { toast } = useToast();
 
    const bannerImages = [
-    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format=fit=crop", alt: "Students collaborating", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Students collaborating", hint: "team collaboration" },
   ];
 
   useEffect(() => {
@@ -82,7 +83,7 @@ export default function InternshipPage() {
                          <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
                          <div className="absolute inset-0 p-4">
                              <Image 
-                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format=fit=crop" 
+                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop" 
                                 alt="Students collaborating"
                                 data-ai-hint="team collaboration"
                                 fill

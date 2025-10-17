@@ -1,5 +1,4 @@
 
-
 import JournalSubmissionForm from "@/components/forms/journal-submission-form";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
@@ -34,7 +33,7 @@ export default function SubmitJournalPage() {
     <>
       {/* Hero Section */}
       <BannerCarousel images={bannerImages}>
-            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+            <Card className="relative z-20 w-full max-w-3xl bg-background/60 backdrop-blur-md text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                         Submit Your Manuscript
@@ -62,7 +61,7 @@ export default function SubmitJournalPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {submissionBenefits.map((benefit, index) => (
-                      <Card key={index} className="text-center bg-background transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                      <Card key={index} className="text-center bg-background transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                           <CardHeader className="items-center">
                               <div className="p-4 bg-primary/10 rounded-full w-fit">
                                   <benefit.icon className="h-8 w-8 text-primary" />

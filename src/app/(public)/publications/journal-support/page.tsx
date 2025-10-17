@@ -1,5 +1,4 @@
 
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -37,7 +36,7 @@ export default function JournalSupportPage() {
   return (
     <div className="bg-secondary/30">
         <BannerCarousel images={bannerImages}>
-            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+            <Card className="relative z-20 w-full max-w-3xl bg-background/60 backdrop-blur-md text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                         Journal Publication Support
@@ -56,7 +55,7 @@ export default function JournalSupportPage() {
                         <div className="absolute -top-8 -bottom-8 -left-8 w-2/3 bg-primary/10 transform skew-x-6"></div>
                         <div className="absolute inset-0 p-4">
                              <Image 
-                                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&h=600&auto=format=fit=crop"
+                                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&h=600&auto=format&fit=crop"
                                 alt="Team working on a project"
                                 data-ai-hint="team working"
                                 fill

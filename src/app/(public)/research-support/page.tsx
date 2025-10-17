@@ -45,7 +45,7 @@ export default function ResearchSupportPage() {
                 className="object-cover"
             />
             <div className="absolute inset-0 bg-black/50 z-10" />
-            <Card className="relative z-20 w-full max-w-3xl bg-background/80 backdrop-blur-sm text-center">
+            <Card className="relative z-20 w-full max-w-3xl bg-background/60 backdrop-blur-md text-center">
                 <CardContent className="p-8 md:p-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                         Research Support Services
