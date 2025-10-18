@@ -148,11 +148,11 @@ export default function HomePage() {
   const [bgImage, setBgImage] = React.useState(bannerItems[0].src);
 
   const mainCarouselPlugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false })
+    Autoplay({ delay: 3000, stopOnInteraction: false })
   );
 
   const thumbCarouselPlugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: false })
+    Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: false })
   );
 
 
