@@ -148,7 +148,7 @@ export default function HomePage() {
   const [bgImage, setBgImage] = React.useState(bannerItems[0].src);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   )
 
   const onThumbClick = React.useCallback(
@@ -177,22 +177,23 @@ export default function HomePage() {
   return (
     <>
       <section 
-        className="w-full relative bg-cover bg-center bg-no-repeat transition-all duration-500 h-screen flex items-center"
+        className="w-full relative bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out h-screen flex items-center group/banner"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-        <div className="container relative z-10 mx-auto px-4 md:px-6">
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/50 to-transparent z-10" />
+        <div className="container relative z-20 mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center text-center gap-8 max-w-4xl mx-auto">
                 <Carousel 
                     setApi={setMainApi} 
                     className="w-full"
                     plugins={[plugin.current]}
+                    opts={{ loop: true }}
                     onMouseEnter={plugin.current.stop}
                     onMouseLeave={plugin.current.reset}
                 >
-                    <CarouselContent className="h-[250px]">
+                    <CarouselContent className="h-[300px]">
                     {bannerItems.map((item, index) => (
-                        <CarouselItem key={index} className="text-white flex flex-col justify-center">
+                        <CarouselItem key={index} className="text-white flex flex-col justify-center animate-fade-in-up">
                             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight xl:text-6xl mt-2">
                               {item.title}
                             </h1>
@@ -216,12 +217,13 @@ export default function HomePage() {
                     opts={{
                         containScroll: "keepSnaps",
                         dragFree: true,
+                        loop: true,
                     }}
                     className="w-full max-w-xl"
                 >
                     <CarouselContent className="-ml-4">
                     {bannerItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3">
+                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/4">
                         <div
                             onClick={() => onThumbClick(index)}
                             className={cn(
