@@ -1,3 +1,4 @@
+
 // src/app/(public)/page.tsx
 'use client';
 import { Metadata } from 'next';
@@ -143,34 +144,17 @@ const bannerItems = [
 
 export default function HomePage() {
   const [mainApi, setMainApi] = React.useState<CarouselApi>()
-  const [thumbApi, setThumbApi] = React.useState<CarouselApi>()
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [bgImage, setBgImage] = React.useState(bannerItems[0].src);
 
   const mainCarouselPlugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
+    Autoplay({ delay: 1500, stopOnInteraction: false })
   );
-
-  const thumbCarouselPlugin = React.useRef(
-    Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: false })
-  );
-
-
-  const onThumbClick = React.useCallback(
-    (index: number) => {
-      if (!mainApi || !thumbApi) return
-      mainApi.scrollTo(index)
-    },
-    [mainApi, thumbApi]
-  )
 
   const onSelect = React.useCallback(() => {
-    if (!mainApi || !thumbApi) return
+    if (!mainApi) return
     const newSelectedIndex = mainApi.selectedScrollSnap();
-    setSelectedIndex(newSelectedIndex)
     setBgImage(bannerItems[newSelectedIndex].src);
-    thumbApi.scrollTo(newSelectedIndex)
-  }, [mainApi, thumbApi])
+  }, [mainApi])
 
   React.useEffect(() => {
     if (!mainApi) return
@@ -211,38 +195,6 @@ export default function HomePage() {
                                     <Link href="/publications">View Portfolio</Link>
                                 </Button>
                             </div>
-                        </CarouselItem>
-                    ))}
-                    </CarouselContent>
-                </Carousel>
-                <Carousel
-                    setApi={setThumbApi}
-                    plugins={[thumbCarouselPlugin.current]}
-                    opts={{
-                        containScroll: "keepSnaps",
-                        dragFree: true,
-                        loop: true,
-                    }}
-                    className="w-full max-w-xl"
-                >
-                    <CarouselContent className="-ml-4">
-                    {bannerItems.map((item, index) => (
-                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3">
-                        <div
-                            onClick={() => onThumbClick(index)}
-                            className={cn(
-                            "block aspect-video relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ring-offset-background ring-offset-4 h-full",
-                            selectedIndex === index ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                            )}
-                        >
-                            <Image 
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                data-ai-hint={item.hint}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
                         </CarouselItem>
                     ))}
                     </CarouselContent>
