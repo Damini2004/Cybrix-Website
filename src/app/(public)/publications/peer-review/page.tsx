@@ -35,7 +35,7 @@ const reviewSteps = [
 
 export default function PeerReviewPage() {
     const bannerImages = [
-        { src: "/peer-review.png", alt: "Peer Review Process", hint: "research paper" }
+        { src: "https://picsum.photos/seed/peer1/1600/600", alt: "Peer Review Process", hint: "research paper" }
     ];
     return (
         <div className="bg-background">

@@ -27,7 +27,7 @@ export default function CopyrightPage() {
         <div className="bg-background">
              <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
-                    src="/copyright-registration.png"
+                    src="https://picsum.photos/seed/copyright1/1600/500"
                     alt="Copyright Law"
                     data-ai-hint="legal books"
                     fill

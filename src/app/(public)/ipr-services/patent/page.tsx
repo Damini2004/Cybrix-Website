@@ -34,7 +34,7 @@ export default function PatentPage() {
         <div className="bg-background">
             <section className="relative h-[500px] w-full flex items-center justify-center p-4">
                 <Image
-                    src="/patent-services.png"
+                    src="https://picsum.photos/seed/patent1/1600/500"
                     alt="Patent Law"
                     data-ai-hint="legal documents"
                     fill
@@ -71,7 +71,7 @@ export default function PatentPage() {
                              <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
                              <div className="absolute inset-0 p-4">
                                  <Image 
-                                    src="/photo4.png"
+                                    src="https://picsum.photos/seed/patent2/500/500"
                                     width={500}
                                     height={500}
                                     alt="Patent Document"

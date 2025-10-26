@@ -14,25 +14,25 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const galleryItems = [
-    { src: "/scientific-gallery.png", alt: "Scientific Poster 1", title: "Quantum Entanglement", author: "Dr. Evelyn Reed", hint: "science research" },
-    { src: "/scientific-gallery.png", alt: "Scientific Poster 2", title: "AI in Medicine", author: "Dr. Samuel Chen", hint: "medical technology" },
-    { src: "/scientific-gallery.png", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
-    { src: "/scientific-gallery.png", alt: "Scientific Poster 3", title: "Climate Change Models", author: "Dr. Aisha Khan", hint: "earth climate" },
-    { src: "/scientific-gallery.png", alt: "Event Photo 2", title: "Networking Session", author: "Symposium 2024", hint: "team collaboration" },
-    { src: "/scientific-gallery.png", alt: "Scientific Poster 4", title: "Nanotechnology Breakthroughs", author: "Dr. Ben Carter", hint: "science technology" },
-    { src: "/scientific-gallery.png", alt: "Scientific Poster 5", title: "Genomic Sequencing", author: "Dr. Lena Petrova", hint: "dna helix" },
-    { src: "/scientific-gallery.png", alt: "Event Photo 3", title: "Poster Session", author: "Innovation Summit 2024", hint: "poster session" },
+    { src: "https://picsum.photos/seed/sci1/800/450", alt: "Scientific Poster 1", title: "Quantum Entanglement", author: "Dr. Evelyn Reed", hint: "science research" },
+    { src: "https://picsum.photos/seed/sci2/800/450", alt: "Scientific Poster 2", title: "AI in Medicine", author: "Dr. Samuel Chen", hint: "medical technology" },
+    { src: "https://picsum.photos/seed/sci3/800/450", alt: "Event Photo 1", title: "Keynote Address", author: "Conference 2023", hint: "conference presentation" },
+    { src: "https://picsum.photos/seed/sci4/800/450", alt: "Scientific Poster 3", title: "Climate Change Models", author: "Dr. Aisha Khan", hint: "earth climate" },
+    { src: "https://picsum.photos/seed/sci5/800/450", alt: "Event Photo 2", title: "Networking Session", author: "Symposium 2024", hint: "team collaboration" },
+    { src: "https://picsum.photos/seed/sci6/800/450", alt: "Scientific Poster 4", title: "Nanotechnology Breakthroughs", author: "Dr. Ben Carter", hint: "science technology" },
+    { src: "https://picsum.photos/seed/sci7/800/450", alt: "Scientific Poster 5", title: "Genomic Sequencing", author: "Dr. Lena Petrova", hint: "dna helix" },
+    { src: "https://picsum.photos/seed/sci8/800/450", alt: "Event Photo 3", title: "Poster Session", author: "Innovation Summit 2024", hint: "poster session" },
 ];
 
 const moreGalleryItems = [
-    { src: "/scientific-gallery.png", alt: "Gallery Image 1", hint: "science research" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 2", hint: "medical technology" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 3", hint: "conference presentation" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 4", hint: "earth climate" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 5", hint: "team collaboration" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 6", hint: "science technology" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 7", hint: "science lab" },
-    { src: "/scientific-gallery.png", alt: "Gallery Image 8", hint: "researcher writing" },
+    { src: "https://picsum.photos/seed/moresci1/400/300", alt: "Gallery Image 1", hint: "science research" },
+    { src: "https://picsum.photos/seed/moresci2/400/300", alt: "Gallery Image 2", hint: "medical technology" },
+    { src: "https://picsum.photos/seed/moresci3/400/300", alt: "Gallery Image 3", hint: "conference presentation" },
+    { src: "https://picsum.photos/seed/moresci4/400/300", alt: "Gallery Image 4", hint: "earth climate" },
+    { src: "https://picsum.photos/seed/moresci5/400/300", alt: "Gallery Image 5", hint: "team collaboration" },
+    { src: "https://picsum.photos/seed/moresci6/400/300", alt: "Gallery Image 6", hint: "science technology" },
+    { src: "https://picsum.photos/seed/moresci7/400/300", alt: "Gallery Image 7", hint: "science lab" },
+    { src: "https://picsum.photos/seed/moresci8/400/300", alt: "Gallery Image 8", hint: "researcher writing" },
 ];
 
 export default function ScientificGalleryPage() {

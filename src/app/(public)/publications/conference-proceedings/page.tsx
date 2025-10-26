@@ -1,4 +1,3 @@
-
 // src/app/(public)/publications/conference-proceedings/page.tsx
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -44,7 +43,7 @@ const services = [
 
 export default function ConferenceProceedingsPage() {
     const bannerImages = [
-        { src: "/conference-proceeding.png", alt: "Conference Presentation", hint: "conference presentation" }
+        { src: "https://picsum.photos/seed/proceedings1/1600/600", alt: "Conference Presentation", hint: "conference presentation" }
     ];
     return (
         <div className="bg-secondary/30">
@@ -93,7 +92,7 @@ export default function ConferenceProceedingsPage() {
                             <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
                             <div className="absolute inset-0 p-4">
                                 <Image 
-                                    src="/photo3.jpg"
+                                    src="https://picsum.photos/seed/proceedings2/800/600"
                                     alt="Researchers collaborating"
                                     data-ai-hint="research collaboration"
                                     fill

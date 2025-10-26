@@ -125,7 +125,7 @@ export default function ConferencesPage() {
                                             <div className="mt-4 pt-4 border-t border-gray-200 text-sm space-y-2 text-muted-foreground">
                                                 <p className="flex items-center justify-center gap-2"><Calendar className="h-4 w-4 text-primary"/><span>{conference.date}</span></p>
                                                 <p className="flex items-center justify-center gap-2">
-                                                    <Image src="/gps-tracker.gif" alt="Location" width={24} height={24} unoptimized />
+                                                    <Image src="https://picsum.photos/seed/gps/24/24" alt="Location" width={24} height={24} unoptimized />
                                                     <span>{conference.location}</span>
                                                 </p>
                                             </div>
@@ -162,7 +162,7 @@ export default function ConferencesPage() {
                                             </div>
                                             <div className="text-center md:text-right space-y-2">
                                                  <p className="text-sm font-bold flex items-center justify-center md:justify-end gap-2 text-primary hover:underline">
-                                                    <Image src="/gps-tracker.gif" alt="Location" width={24} height={24} unoptimized />
+                                                    <Image src="https://picsum.photos/seed/gps2/24/24" alt="Location" width={24} height={24} unoptimized />
                                                     {conference.location}
                                                  </p>
                                                  <Link href={`/conference/${conference.id}`} className="text-sm text-muted-foreground hover:text-primary flex items-center justify-center md:justify-end gap-1">
@@ -241,14 +241,14 @@ export default function ConferencesPage() {
                         </CardHeader>
                         <CardContent className="p-4">
                              <div className="grid grid-cols-2 gap-4">
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (1).png" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (2).png" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (3).png" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (4).png" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (5).png" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (6).png" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (7).png" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="/photo (8).png" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx1/120/50" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx2/120/50" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx3/120/50" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx4/120/50" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx5/120/50" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx6/120/50" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx7/120/50" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx8/120/50" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
                            
                            </div>
                         </CardContent>

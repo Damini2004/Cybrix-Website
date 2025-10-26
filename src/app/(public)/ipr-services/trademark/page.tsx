@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -65,7 +66,7 @@ export default function TrademarkPage() {
                         <div className="relative h-80 md:h-full w-full">
                             <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
                             <div className="absolute inset-0 p-4">
-                                <Image src="/photo5.jpg" alt="Trademark" data-ai-hint="brand logo" fill className="object-cover rounded-lg shadow-2xl" />
+                                <Image src="https://picsum.photos/seed/trademark1/800/600" alt="Trademark" data-ai-hint="brand logo" fill className="object-cover rounded-lg shadow-2xl" />
                             </div>
                         </div>
                     </div>

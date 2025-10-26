@@ -30,7 +30,7 @@ const supportInfo = [
 
 export default function JournalSupportPage() {
     const bannerImages = [
-        { src: "/journal-support.png", alt: "Journal Support", hint: "researcher writing" }
+        { src: "https://picsum.photos/seed/support1/1600/600", alt: "Journal Support", hint: "researcher writing" }
     ];
 
   return (
