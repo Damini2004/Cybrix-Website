@@ -97,4 +97,3 @@ export default function AdminCredentialsTable() {
     </Table>
   );
 }
-
