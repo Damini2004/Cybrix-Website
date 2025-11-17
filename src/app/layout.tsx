@@ -4,15 +4,15 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Cybrix - Academic Publishing & Conference Management',
+    default: 'Cybrix - Academic & Research Publication Services',
     template: '%s | Cybrix',
   },
-  description: 'Cybrix is a premier platform for academic publishing, conference organization, and research support. Submit your manuscript, find a conference, or get PhD guidance.',
-  keywords: ['academic publishing', 'research journals', 'scientific conferences', 'manuscript submission', 'peer review', 'PhD services', 'IPR services'],
+  description: 'Expert academic and research publication services. We offer journal publication support, manuscript preparation, and help with publishing in Scopus, WoS, and peer-reviewed journals.',
+  keywords: ['research publication', 'academic publication', 'scientific research papers', 'journal publication', 'publish research paper', 'research journal submission', 'international journal publication', 'scholarly articles', 'peer-reviewed journals', 'academic writing services'],
   manifest: '/manifest.json',
   openGraph: {
-    title: 'Cybrix - Academic Publishing & Conference Management',
-    description: 'The leading platform for academic journal submissions, conference management, and publication support.',
+    title: 'Cybrix - Premier Academic & Research Publication Services',
+    description: 'Fast-track your academic career with our end-to-end publication support, from manuscript writing to getting published in high-impact international journals.',
     type: 'website',
     locale: 'en_US',
     url: 'https://www.cybrix.com', 
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cybrix - Academic Publishing & Conference Management',
-    description: 'The leading platform for academic journal submissions, conference management, and publication support.',
+    title: 'Cybrix - Academic & Research Publication Services',
+    description: 'Expert support for journal publication, manuscript writing, and getting published in Scopus, WoS, and other peer-reviewed journals.',
     // images: ['https://www.cybrix.com/og-image.jpg'], // Add a relevant OG image URL
   },
 };

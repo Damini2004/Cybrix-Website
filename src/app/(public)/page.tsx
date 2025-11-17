@@ -1,4 +1,3 @@
-
 // src/app/(public)/page.tsx
 'use client';
 import { Metadata } from 'next';
@@ -98,7 +97,7 @@ function IndexedJournalsSection() {
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Indexed Journals</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Publish in High-Impact Journals</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              We provide comprehensive support for publishing in a wide range of prestigious, indexed journals.
+             We offer expert academic writing services and research paper writing help to get your scholarly articles published in top peer-reviewed journals, including Scopus and Web of Science.
             </p>
           </div>
         </div>
@@ -136,9 +135,9 @@ function IndexedJournalsSection() {
 }
 
 const bannerItems = [
-    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Team collaborating", title: "Creative Portfolio", description: "Our solutions empower researchers and businesses to save time, gain deeper understanding, and move forward with confidence.", hint: "team collaboration" },
-    { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Professionals in a meeting", title: "Innovative Solutions", description: "We provide cutting-edge tools and expert guidance to accelerate your research and development.", hint: "business meeting" },
-    { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Team brainstorming", title: "Collaborative Success", description: "Partner with us to turn your innovative ideas into impactful realities.", hint: "team working" },
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Team collaborating on a research paper", title: "Accelerate Your Research Publication", description: "From manuscript preparation to international journal publication, our expert services empower researchers to achieve their goals with confidence.", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Professionals in a meeting discussing a scientific manuscript", title: "End-to-End Publication Support", description: "We provide cutting-edge tools and expert guidance for academic writing, manuscript editing, and journal submission.", hint: "business meeting" },
+    { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1920&h=1080&auto=format&fit=crop", alt: "Team brainstorming research ideas", title: "From Idea to Impactful Publication", description: "Partner with us to turn your innovative ideas into high-quality, peer-reviewed scholarly articles.", hint: "team working" },
 ];
 
 
@@ -147,7 +146,7 @@ export default function HomePage() {
   const [bgImage, setBgImage] = React.useState(bannerItems[0].src);
 
   const mainCarouselPlugin = React.useRef(
-    Autoplay({ delay: 1500, stopOnInteraction: false })
+    Autoplay({ delay: 3000, stopOnInteraction: false })
   );
 
   const onSelect = React.useCallback(() => {
@@ -209,7 +208,7 @@ export default function HomePage() {
                 <div className="space-y-2">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Key Services</h2>
                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                        Get expert consultancy and support with our advisory firm that stands by your side always.
+                        From research paper writing help to conference management, we provide a complete suite of publication support services.
                     </p>
                 </div>
             </div>

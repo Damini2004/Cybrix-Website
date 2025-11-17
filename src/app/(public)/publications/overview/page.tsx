@@ -5,6 +5,13 @@ import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BannerCarousel from "@/components/ui/banner-carousel";
 import { BookOpen } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Research Publication Policies & Ethics | Cybrix",
+    description: "Understand our publication ethics, plagiarism policy, and terms for submitting scholarly articles. Learn about our commitment to peer-reviewed journals and academic integrity.",
+    keywords: ["publication support services", "plagiarism policy", "academic integrity", "peer-review process", "scholarly articles", "publication ethics", "journal submission guidelines"],
+};
 
 const plagiarismPolicies = [
     { text: "Plagiarized articles will be rejected (Must be 20% below including references).", icon: AlertTriangle, iconColor: "text-destructive" },
@@ -27,7 +34,7 @@ const termsAndConditions = [
 
 export default function PublicationsOverviewPage() {
     const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200&h=400&auto=format&fit=crop", alt: "Library with books", hint: "library books" }
+        { src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200&h=400&auto=format&fit=crop", alt: "Library with books for academic publication", hint: "library books" }
     ];
 
   return (
@@ -39,7 +46,7 @@ export default function PublicationsOverviewPage() {
                         <span className="text-primary">Cybrix</span> Publications
                     </h1>
                     <p className="mt-6 max-w-2xl mx-auto text-lg text-foreground/80 md:text-xl">
-                        Cybrix Journals are peer-reviewed and collaborative journals that strive to publish the most fascinating and dependable source of current information on Arts & Science, Management, Engineering, and Technology.
+                        Cybrix Journals are peer-reviewed, open access journals that strive to publish the most fascinating and dependable source of current information on Arts & Science, Management, Engineering, and Technology.
                     </p>
                 </CardContent>
             </Card>
@@ -54,10 +61,7 @@ export default function PublicationsOverviewPage() {
                 Expert Publishing Assistance
               </h2>
               <p className="max-w-xl mx-auto md:mx-0 text-lg text-foreground/80 md:text-xl">
-                Cybrix provides help, assistance, and direction in preparation
-                for SCI and SCIE journal publishing. The SCI & SCIE Indexed
-                Journal Search might be exhausting. Get help with SCI and SCIE
-                Indexed journal publishing.
+                Cybrix provides comprehensive publication support services, offering help, assistance, and direction in preparation for SCI and SCIE journal publishing. The SCI & SCIE Indexed Journal Search can be exhausting; let us help you with your international journal publication.
               </p>
             </div>
             <div className="relative h-80 md:h-full w-full">
@@ -65,7 +69,7 @@ export default function PublicationsOverviewPage() {
               <div className="absolute inset-0 p-4">
                 <Image
                   src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&h=400&auto=format&fit=crop"
-                  alt="Researchers collaborating"
+                  alt="Researchers collaborating on a scientific research paper"
                   data-ai-hint="research collaboration"
                   fill
                   className="object-cover rounded-lg shadow-2xl"
@@ -91,7 +95,7 @@ export default function PublicationsOverviewPage() {
                     <TabsContent value="policy" className="p-6 md:p-8">
                          <CardHeader className="p-0 mb-6 text-center">
                             <CardTitle className="text-2xl text-destructive">Publication Ethics & Plagiarism</CardTitle>
-                            <CardDescription>Maintaining the integrity of academic research.</CardDescription>
+                            <CardDescription>Maintaining integrity in scholarly articles and academic writing.</CardDescription>
                         </CardHeader>
                         <ul className="space-y-4">
                             {plagiarismPolicies.map((policy, index) => (
@@ -104,8 +108,8 @@ export default function PublicationsOverviewPage() {
                     </TabsContent>
                     <TabsContent value="terms" className="p-6 md:p-8">
                          <CardHeader className="p-0 mb-6 text-center">
-                            <CardTitle className="text-2xl text-primary">Terms & Conditions</CardTitle>
-                            <CardDescription>Guidelines for authors submitting their work.</CardDescription>
+                            <CardTitle className="text-2xl text-primary">Terms & Conditions for Publication</CardTitle>
+                            <CardDescription>Guidelines for authors submitting their research for journal publication.</CardDescription>
                         </CardHeader>
                          <ul className="space-y-4">
                             {termsAndConditions.map((term, index) => (

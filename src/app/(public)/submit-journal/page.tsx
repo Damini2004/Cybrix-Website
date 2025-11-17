@@ -1,10 +1,16 @@
-
 import JournalSubmissionForm from "@/components/forms/journal-submission-form";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
 import { Globe, ShieldCheck, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BannerCarousel from "@/components/ui/banner-carousel";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Submit Research Paper for Publication | Cybrix",
+  description: "Submit your research paper for publication in our peer-reviewed journals. Our streamlined research journal submission process is designed to help you publish your scholarly articles.",
+  keywords: ["submit research paper", "research journal submission", "publish research paper", "conference paper submission", "manuscript submission", "academic publication", "call for papers"],
+};
 
 const submissionBenefits = [
     {
@@ -26,8 +32,8 @@ const submissionBenefits = [
 
 export default function SubmitJournalPage() {
     const bannerImages = [
-        { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Researcher writing", hint: "research writing" },
-        { src: "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop", alt: "Open book", hint: "book study" }
+        { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Researcher writing a research paper for journal publication", hint: "research writing" },
+        { src: "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format=fit=crop", alt: "Open book representing a published scholarly article", hint: "book study" }
     ];
   return (
     <>
@@ -39,7 +45,7 @@ export default function SubmitJournalPage() {
                         Submit Your Manuscript
                     </h1>
                     <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
-                        Join a global community of researchers. Share your work, get valuable feedback, and make an impact on your field.
+                        Join a global community of researchers. Our journal submission process is simple and designed to help you make an impact. Share your work and get valuable feedback.
                     </p>
                     <Button size="lg" className="mt-8" asChild>
                         <a href="#submission-form">
@@ -56,7 +62,7 @@ export default function SubmitJournalPage() {
               <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold tracking-tighter">Why Submit with Cybrix?</h2>
                   <p className="max-w-[700px] mx-auto text-muted-foreground mt-2">
-                      We provide the tools and support you need to publish successfully.
+                      Our publication support services provide the tools and guidance you need to publish successfully in peer-reviewed journals.
                   </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

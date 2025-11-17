@@ -11,6 +11,15 @@ import { getJournals, Journal } from "@/services/journalService";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Logo } from "@/components/icons";
+import { Metadata } from "next";
+
+// This is a client component, so we can't export metadata directly.
+// This metadata would be placed in a parent server component or layout if needed.
+const metadata: Metadata = {
+  title: "Scholarly & Academic Publications | Cybrix",
+  description: "Explore a wide range of peer-reviewed journals and scholarly articles. Cybrix is your gateway to international journal publication and high-impact scientific research papers.",
+  keywords: ["scholarly articles", "peer-reviewed journals", "academic publication", "international journal publication", "open access journals", "scientific research papers", "journal indexing"],
+};
 
 export default function PublicationsPage() {
   const [journals, setJournals] = useState<Journal[]>([]);
@@ -19,6 +28,8 @@ export default function PublicationsPage() {
   const { toast } = useToast();
   
   useEffect(() => {
+    document.title = "Scholarly & Academic Publications | Cybrix";
+
     const fetchJournals = async () => {
       setIsLoading(true);
       try {
@@ -47,8 +58,8 @@ export default function PublicationsPage() {
     <div className="bg-background">
         <section className="relative w-full py-20 md:py-32 bg-secondary/50">
              <Image
-                src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=600&auto=format=fit=crop"
-                alt="Library shelf"
+                src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=600&auto=format&fit=crop"
+                alt="Library shelf with books for academic publications"
                 data-ai-hint="library books"
                 fill
                 className="object-cover opacity-10"
@@ -56,10 +67,10 @@ export default function PublicationsPage() {
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="mx-auto max-w-3xl text-center">
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                        Explore Our Publications
+                        Explore Our Scholarly Publications
                     </h1>
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                        Browse our extensive collection of peer-reviewed journals and discover the latest advancements in research and innovation.
+                        Browse our extensive collection of peer-reviewed journals. Find the perfect home for your research or discover the latest advancements in your field of study.
                     </p>
                     <form className="mt-10 flex max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
                         <div className="relative flex-grow">

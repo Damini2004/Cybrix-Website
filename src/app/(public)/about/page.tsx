@@ -1,4 +1,3 @@
-
 // src/app/(public)/about/page.tsx
 import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,9 +8,9 @@ import BannerCarousel from "@/components/ui/banner-carousel";
 import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
-  title: "About Cybrix - Our Mission in Academic Excellence",
-  description: "Learn about Cybrix's mission to advance knowledge and foster innovation. We connect the brightest minds globally through expert conference management, publication consultancy, and PhD services.",
-  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation"],
+  title: "About Cybrix - Academic & Research Publication Services",
+  description: "Learn about Cybrix's mission to advance knowledge through expert research publication, conference management, and scholarly articles support. We are a leader in international journal publication.",
+  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation", "scholarly articles", "academic publication"],
 };
 
 async function getAboutContent() {
@@ -43,8 +42,8 @@ const services = [
 export default async function AboutPage() {
   const content = await getAboutContent();
   const bannerImages = [
-    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "A diverse team collaborating on a project in a modern office", hint: "team collaboration" },
-    { src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop", alt: "A group of professionals working together around a laptop", hint: "team working" }
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&h=800&auto=format&fit=crop", alt: "A diverse team collaborating on a research publication project", hint: "team collaboration" },
+    { src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop", alt: "A group of professionals working together on scholarly articles", hint: "team working" }
   ];
   
   return (
@@ -56,7 +55,7 @@ export default async function AboutPage() {
                     About Cybrix
                 </h1>
                 <p className="mt-6 max-w-xl mx-auto text-lg text-foreground/80 md:text-xl">
-                    Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe.
+                    Discover our mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe for research publication.
                 </p>
             </CardContent>
         </Card>
@@ -71,7 +70,7 @@ export default async function AboutPage() {
                   <div className="relative h-64 md:h-full min-h-[400px]">
                   <Image
                       src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop"
-                      alt="A group of professionals working together around a laptop at Cybrix"
+                      alt="A group of professionals working together around a laptop at Cybrix for journal publication"
                       data-ai-hint="team collaboration"
                       fill
                       className="object-cover"
@@ -102,7 +101,7 @@ export default async function AboutPage() {
                       </div>
                       <h2 className="text-2xl font-bold mb-2">Our Mission</h2>
                       <p className="text-muted-foreground">
-                          To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
+                          To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for academic publication.
                       </p>
                   </div>
                   <div className="relative text-center p-8">
@@ -111,7 +110,7 @@ export default async function AboutPage() {
                       </div>
                       <h2 className="text-2xl font-bold mb-2">Our Vision</h2>
                       <p className="text-muted-foreground">
-                          To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
+                          To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact scientific research papers.
                       </p>
                   </div>
               </div>
@@ -123,7 +122,7 @@ export default async function AboutPage() {
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter">Our Services</h2>
                 <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-                    We offer a comprehensive range of services to support your research and publication goals.
+                    We offer a comprehensive range of academic writing services to support your research and publication goals.
                 </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
