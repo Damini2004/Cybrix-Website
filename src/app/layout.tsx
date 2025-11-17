@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   },
   description: 'Cybrix is a premier platform for academic publishing, conference organization, and research support. Submit your manuscript, find a conference, or get PhD guidance.',
   keywords: ['academic publishing', 'research journals', 'scientific conferences', 'manuscript submission', 'peer review', 'PhD services', 'IPR services'],
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Cybrix - Academic Publishing & Conference Management',
     description: 'The leading platform for academic journal submissions, conference management, and publication support.',
@@ -36,6 +37,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-body antialiased">
         {children}

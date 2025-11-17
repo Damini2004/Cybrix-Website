@@ -1,0 +1,21 @@
+{
+  "name": "Cybrix - Academic Publishing & Conference Management",
+  "short_name": "Cybrix",
+  "description": "Cybrix is a premier platform for academic publishing, conference organization, and research support. Submit your manuscript, find a conference, or get PhD guidance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF9F8",
+  "theme_color": "#5D4037",
+  "icons": [
+    {
+      "src": "/Cybrix_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Cybrix_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

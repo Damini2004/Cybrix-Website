@@ -1,0 +1,21 @@
+# humanstxt.org/
+# The humans behind the screen
+
+# TEAM
+Project Lead: Cybrix Team
+Developer: Firebase Studio
+Contact: cybrix@gmail.com
+Twitter: @cybrix
+From: Nagpur, Maharashtra, India
+
+# THANKS
+Name: Google
+Name: Next.js
+Name: Vercel
+Name: ShadCN
+
+# SITE
+Last update: 2024/07/27
+Standards: HTML5, CSS3, JavaScript
+Components: React, ShadCN/UI, TailwindCSS
+Software: VS Code, Firebase
