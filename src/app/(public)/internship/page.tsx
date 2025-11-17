@@ -13,18 +13,25 @@ import { useToast } from "@/hooks/use-toast";
 import { Logo } from "@/components/icons";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Download, ArrowRight, BookUser } from "lucide-react";
-import BannerCarousel from "@/components/ui/banner-carousel";
+import type { Metadata } from "next";
+
+// This is a client component, so metadata needs to be handled in a parent layout or via a dynamic export if this were a server component.
+// For SEO on client pages, it's often better to set titles/descriptions via useEffect or a library like react-helmet.
+// However, since we can't add libraries, we'll suggest a static metadata object for now.
+export const metadata: Metadata = {
+  title: "Internship Opportunities at Cybrix",
+  description: "Find and apply for academic and research internship opportunities at Cybrix. Gain hands-on experience in publishing, conference management, and more.",
+  keywords: ["internships", "academic internships", "research jobs", "publishing careers", "student opportunities"],
+};
+
 
 export default function InternshipPage() {
   const [internships, setInternships] = useState<Internship[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
-   const bannerImages = [
-    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Students collaborating", hint: "team collaboration" },
-  ];
-
   useEffect(() => {
+    document.title = "Internship Opportunities at Cybrix";
     const fetchInternships = async () => {
       try {
         const data = await getInternships();
@@ -83,8 +90,8 @@ export default function InternshipPage() {
                          <div className="absolute -top-8 -bottom-8 -right-8 w-2/3 bg-primary/10 transform -skew-x-6"></div>
                          <div className="absolute inset-0 p-4">
                              <Image 
-                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format&fit=crop" 
-                                alt="Students collaborating"
+                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&h=900&auto=format=fit=crop" 
+                                alt="Students collaborating on an internship project at Cybrix"
                                 data-ai-hint="team collaboration"
                                 fill
                                 className="object-cover rounded-lg shadow-2xl" 
@@ -103,16 +110,16 @@ export default function InternshipPage() {
             ) : internships.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                 {internships.map(internship => (
-                <Card key={internship.id} className="group relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl shadow-2xl border-transparent transition-all duration-500 hover:shadow-primary/20">
+                <article key={internship.id} className="group relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl shadow-2xl border-transparent transition-all duration-500 hover:shadow-primary/20">
                     <div className="relative h-96 w-full">
                         <Image src={internship.imageSrc} alt={internship.name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" data-ai-hint="internship opportunity"/>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-[calc(100%-100px)] group-hover:translate-y-0 transition-transform duration-500 ease-in-out bg-black/40 backdrop-blur-sm">
-                        <CardHeader className="p-0 mb-4">
-                            <CardTitle className="text-xl font-bold">{internship.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-0">
+                        <header className="p-0 mb-4">
+                            <h2 className="text-xl font-bold">{internship.name}</h2>
+                        </header>
+                        <div className="p-0">
                             <div className="prose prose-sm prose-invert line-clamp-3 mb-6">
                                 <p>{internship.description}</p>
                             </div>
@@ -153,9 +160,9 @@ export default function InternshipPage() {
                                     Download Brochure
                                 </Button>
                             </div>
-                        </CardContent>
+                        </div>
                     </div>
-                </Card>
+                </article>
                 ))}
             </div>
             ) : (

@@ -9,9 +9,9 @@ import BannerCarousel from "@/components/ui/banner-carousel";
 import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn about Cybrix's mission to advance knowledge and foster innovation by connecting the brightest minds from around the globe through conference management, publications, and PhD services.",
-  keywords: ["about us", "mission", "vision", "academic services", "conference management"],
+  title: "About Cybrix - Our Mission in Academic Excellence",
+  description: "Learn about Cybrix's mission to advance knowledge and foster innovation. We connect the brightest minds globally through expert conference management, publication consultancy, and PhD services.",
+  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation"],
 };
 
 async function getAboutContent() {
@@ -65,26 +65,28 @@ export default async function AboutPage() {
 
       <section className="bg-background">
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-            <Card className="shadow-xl overflow-hidden border-primary/10 bg-secondary/30">
-            <div className="grid md:grid-cols-2 items-center">
-                <div className="relative h-64 md:h-full min-h-[400px]">
-                <Image
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop"
-                    alt="A group of professionals working together around a laptop"
-                    data-ai-hint="team collaboration"
-                    fill
-                    className="object-cover"
-                />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-                <div className="p-8 md:p-12">
-                    <div 
-                    className="prose prose-lg max-w-none prose-img:rounded-lg prose-img:shadow-md prose-img:mx-auto text-foreground"
-                    dangerouslySetInnerHTML={{ __html: content || "" }} 
-                    />
-                </div>
-            </div>
-            </Card>
+            <article>
+              <Card className="shadow-xl overflow-hidden border-primary/10 bg-secondary/30">
+              <div className="grid md:grid-cols-2 items-center">
+                  <div className="relative h-64 md:h-full min-h-[400px]">
+                  <Image
+                      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&h=600&auto=format&fit=crop"
+                      alt="A group of professionals working together around a laptop at Cybrix"
+                      data-ai-hint="team collaboration"
+                      fill
+                      className="object-cover"
+                  />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                  <div className="p-8 md:p-12">
+                      <div 
+                      className="prose prose-lg max-w-none prose-img:rounded-lg prose-img:shadow-md prose-img:mx-auto text-foreground"
+                      dangerouslySetInnerHTML={{ __html: content || "" }} 
+                      />
+                  </div>
+              </div>
+              </Card>
+            </article>
         </div>
       </section>
 
@@ -94,24 +96,24 @@ export default async function AboutPage() {
                   <div className="absolute inset-0 flex items-center justify-center">
                       <Separator orientation="vertical" className="h-2/3" />
                   </div>
-                  <Card className="relative text-center p-8 bg-transparent border-none shadow-none">
+                  <div className="relative text-center p-8">
                        <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                         <Target className="h-10 w-10 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
+                      <h2 className="text-2xl font-bold mb-2">Our Mission</h2>
                       <p className="text-muted-foreground">
                           To provide a premier platform for researchers, academics, and industry professionals to present and discuss the most recent innovations, trends, and concerns in various fields of study, fostering a collaborative environment for the advancement of knowledge.
                       </p>
-                  </Card>
-                  <Card className="relative text-center p-8 bg-transparent border-none shadow-none">
+                  </div>
+                  <div className="relative text-center p-8">
                       <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                         <Eye className="h-10 w-10 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">Our Vision</h3>
+                      <h2 className="text-2xl font-bold mb-2">Our Vision</h2>
                       <p className="text-muted-foreground">
                           To be a leading global facilitator of scientific and technological innovation, recognized for our commitment to quality, integrity, and the dissemination of high-impact research that addresses the challenges of today and shapes the world of tomorrow.
                       </p>
-                  </Card>
+                  </div>
               </div>
           </div>
       </section>
@@ -133,7 +135,7 @@ export default async function AboutPage() {
                             </div>
                         </CardHeader>
                         <CardContent className="p-0">
-                           <CardTitle className="mb-2 text-xl font-semibold">{service.title}</CardTitle>
+                           <h3 className="mb-2 text-xl font-semibold">{service.title}</h3>
                             <p className="text-muted-foreground text-sm">{service.description}</p>
                         </CardContent>
                     </Card>

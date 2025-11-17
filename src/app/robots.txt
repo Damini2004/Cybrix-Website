@@ -6,4 +6,4 @@ Disallow: /sub-admin/
 Disallow: /super-admin/
 Allow: /
 
-Sitemap: https://www.pureresearchinsights.com/sitemap.xml
+Sitemap: https://www.cybrix.com/sitemap.xml
