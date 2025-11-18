@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Submit Research Paper for Publication | Cybrix",
   description: "Submit your research paper for publication in our peer-reviewed journals. Our streamlined research journal submission process is designed to help you publish your scholarly articles.",
-  keywords: ["submit research paper", "research journal submission", "publish research paper", "conference paper submission", "manuscript submission", "academic publication", "call for papers"],
+  keywords: ["submit research paper", "research journal submission", "publish research paper", "conference paper submission", "manuscript submission", "academic publication", "call for papers", "how to get research paper published", "journal submission guidelines"],
 };
 
 const submissionBenefits = [
@@ -33,7 +33,7 @@ const submissionBenefits = [
 export default function SubmitJournalPage() {
     const bannerImages = [
         { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&h=400&auto=format&fit=crop", alt: "Researcher writing a research paper for journal publication", hint: "research writing" },
-        { src: "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format=fit=crop", alt: "Open book representing a published scholarly article", hint: "book study" }
+        { src: "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=400&auto=format&fit=crop", alt: "Open book representing a published scholarly article", hint: "book study" }
     ];
   return (
     <>

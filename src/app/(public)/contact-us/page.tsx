@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us - Cybrix Support & Inquiries",
   description: "Get in touch with the Cybrix team. Contact us via our online form, email, or phone for support with publications, conferences, or any other questions.",
-  keywords: ["contact cybrix", "cybrix support", "academic inquiry", "email cybrix", "cybrix phone number", "cybrix address"],
+  keywords: ["contact cybrix", "cybrix support", "academic inquiry", "email cybrix", "cybrix phone number", "cybrix address", "research publication help"],
 };
 
 

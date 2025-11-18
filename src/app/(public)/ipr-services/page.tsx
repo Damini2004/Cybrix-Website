@@ -3,13 +3,20 @@ import { ShieldCheck, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "IPR Services - Patent, Trademark, Copyright | Cybrix",
+  description: "Protect your intellectual property with Cybrix's expert IPR services. We offer patent filing, trademark registration, and copyright protection for researchers and innovators.",
+  keywords: ["IPR services", "intellectual property rights", "patent filing", "trademark registration", "copyright protection", "innovation protection", "IPR for researchers"],
+};
 
 const iprServices = [
     {
         title: "Patent Filing",
         description: "End-to-end assistance with provisional and complete patent applications, both nationally and internationally.",
         href: "/ipr-services/patent",
-        imageSrc: "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=800&h=600&auto=format&fit=crop",
+        imageSrc: "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=800&h=600&auto=format=fit=crop",
         imageHint: "invention patent"
     },
     {

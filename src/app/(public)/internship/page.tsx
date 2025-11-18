@@ -21,7 +21,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Internship Opportunities at Cybrix",
   description: "Find and apply for academic and research internship opportunities at Cybrix. Gain hands-on experience in publishing, conference management, and more.",
-  keywords: ["internships", "academic internships", "research jobs", "publishing careers", "student opportunities"],
+  keywords: ["internships", "academic internships", "research jobs", "publishing careers", "student opportunities", "paid internships", "internships for students"],
 };
 
 

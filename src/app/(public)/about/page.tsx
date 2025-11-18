@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator";
 export const metadata: Metadata = {
   title: "About Cybrix - Academic & Research Publication Services",
   description: "Learn about Cybrix's mission to advance knowledge through expert research publication, conference management, and scholarly articles support. We are a leader in international journal publication.",
-  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation", "scholarly articles", "academic publication"],
+  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation", "scholarly articles", "academic publication", "our mission", "company vision"],
 };
 
 async function getAboutContent() {
