@@ -27,13 +27,6 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ConferenceSidebarForm from "@/components/forms/conference-sidebar-form";
 import { countries } from "@/lib/countries";
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Upcoming International Conferences 2025 | Academic & Research Events",
-  description: "Find and register for upcoming international conferences in 2025. Cybrix hosts academic and research events across engineering, science, and technology. Submit your paper today.",
-  keywords: ["upcoming conferences 2025", "international conferences", "academic conferences", "research conferences", "engineering conferences", "call for papers 2025", "conference alerts", "submit research paper"],
-};
 
 const months = [
     { name: "January", value: 0 }, { name: "February", value: 1 }, { name: "March", value: 2 },
@@ -54,6 +47,7 @@ export default function ConferencesPage() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
    useEffect(() => {
+    document.title = "Upcoming International Conferences 2025 | Academic & Research Events";
     setCurrentDate(getCurrentDateInIndia());
   }, []);
 
