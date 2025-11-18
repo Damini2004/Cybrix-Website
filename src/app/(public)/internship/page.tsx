@@ -13,17 +13,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Logo } from "@/components/icons";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Download, ArrowRight, BookUser } from "lucide-react";
-import type { Metadata } from "next";
-
-// This is a client component, so metadata needs to be handled in a parent layout or via a dynamic export if this were a server component.
-// For SEO on client pages, it's often better to set titles/descriptions via useEffect or a library like react-helmet.
-// However, since we can't add libraries, we'll suggest a static metadata object for now.
-export const metadata: Metadata = {
-  title: "Internship Opportunities at Cybrix",
-  description: "Find and apply for academic and research internship opportunities at Cybrix. Gain hands-on experience in publishing, conference management, and more.",
-  keywords: ["internships", "academic internships", "research jobs", "publishing careers", "student opportunities", "paid internships", "internships for students"],
-};
-
 
 export default function InternshipPage() {
   const [internships, setInternships] = useState<Internship[]>([]);
