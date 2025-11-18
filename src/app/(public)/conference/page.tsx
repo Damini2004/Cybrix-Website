@@ -1,4 +1,4 @@
-
+// src/app/(public)/conference/page.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,13 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ConferenceSidebarForm from "@/components/forms/conference-sidebar-form";
 import { countries } from "@/lib/countries";
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "Upcoming International Conferences 2025 | Academic & Research Events",
+  description: "Find and register for upcoming international conferences in 2025. Cybrix hosts academic and research events across engineering, science, and technology. Submit your paper today.",
+  keywords: ["upcoming conferences 2025", "international conferences", "academic conferences", "research conferences", "engineering conferences", "call for papers 2025", "conference alerts", "submit research paper"],
+};
 
 const months = [
     { name: "January", value: 0 }, { name: "February", value: 1 }, { name: "March", value: 2 },
@@ -97,15 +103,15 @@ export default function ConferencesPage() {
         <section className="relative w-full py-16 md:py-20 bg-gray-800 text-white overflow-hidden">
             <Image
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop"
-                alt="Conference background"
+                alt="Audience at an international academic conference"
                 fill
                 className="object-cover opacity-20"
                 data-ai-hint="conference audience"
             />
             <div className="relative z-10 container mx-auto px-4">
-                <h2 className="text-3xl font-bold tracking-tight text-center mb-10">
+                <h1 className="text-3xl font-bold tracking-tight text-center mb-10 sm:text-4xl md:text-5xl">
                     Upcoming International <span className="text-amber-400">Conference 2025</span>
-                </h2>
+                </h1>
                 {isLoading ? (
                     <div className="flex justify-center"><Skeleton className="h-64 w-full max-w-4xl" /></div>
                 ) : upcomingConferences.length > 0 && (
@@ -119,13 +125,13 @@ export default function ConferencesPage() {
                                     <div className="p-1 h-full">
                                         <Card className="flex flex-col h-full bg-white text-black text-center p-6 shadow-lg transform transition-all hover:-translate-y-2">
                                             <div className="flex-grow space-y-3">
-                                                <Image src={conference.imageSrc || 'https://placehold.co/100x100.png'} alt={conference.shortTitle} width={100} height={100} className="w-24 h-24 object-contain mx-auto" data-ai-hint="logo brand"/>
-                                                <h4 className="font-semibold text-sm line-clamp-3">{conference.title}</h4>
+                                                <Image src={conference.imageSrc || 'https://placehold.co/100x100.png'} alt={`${conference.shortTitle} conference logo`} width={100} height={100} className="w-24 h-24 object-contain mx-auto" data-ai-hint="logo brand"/>
+                                                <h2 className="font-semibold text-sm line-clamp-3">{conference.title}</h2>
                                             </div>
                                             <div className="mt-4 pt-4 border-t border-gray-200 text-sm space-y-2 text-muted-foreground">
                                                 <p className="flex items-center justify-center gap-2"><Calendar className="h-4 w-4 text-primary"/><span>{conference.date}</span></p>
                                                 <p className="flex items-center justify-center gap-2">
-                                                    <Image src="https://picsum.photos/seed/gps/24/24" alt="Location" width={24} height={24} unoptimized />
+                                                    <Image src="https://logodix.com/logo/771122.png" alt="Location Pin" width={24} height={24} unoptimized />
                                                     <span>{conference.location}</span>
                                                 </p>
                                             </div>
@@ -155,14 +161,14 @@ export default function ConferencesPage() {
                                 paginatedConferences.map(conference => (
                                     <Card key={conference.id} className="overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                                         <div className="p-4 flex flex-col md:flex-row items-center gap-4">
-                                            <Image src={conference.imageSrc || 'https://placehold.co/120x120.png'} alt={conference.shortTitle} width={120} height={120} className="w-28 h-28 object-contain" data-ai-hint="logo brand"/>
+                                            <Image src={conference.imageSrc || 'https://placehold.co/120x120.png'} alt={`${conference.shortTitle} logo`} width={120} height={120} className="w-28 h-28 object-contain" data-ai-hint="logo brand"/>
                                             <div className="text-center md:text-left flex-1 space-y-2">
-                                                <h4 className="font-bold text-base hover:text-primary"><Link href={`/conference/${conference.id}`}>{conference.title}</Link></h4>
+                                                <h3 className="font-bold text-base hover:text-primary"><Link href={`/conference/${conference.id}`}>{conference.title}</Link></h3>
                                                 <p className="text-sm text-primary font-semibold flex items-center justify-center md:justify-start gap-2"><Calendar className="h-4 w-4"/>{conference.date}</p>
                                             </div>
                                             <div className="text-center md:text-right space-y-2">
                                                  <p className="text-sm font-bold flex items-center justify-center md:justify-end gap-2 text-primary hover:underline">
-                                                    <Image src="https://picsum.photos/seed/gps2/24/24" alt="Location" width={24} height={24} unoptimized />
+                                                    <Image src="https://logodix.com/logo/771122.png" alt="Location pin icon" width={24} height={24} unoptimized />
                                                     {conference.location}
                                                  </p>
                                                  <Link href={`/conference/${conference.id}`} className="text-sm text-muted-foreground hover:text-primary flex items-center justify-center md:justify-end gap-1">
@@ -241,14 +247,14 @@ export default function ConferencesPage() {
                         </CardHeader>
                         <CardContent className="p-4">
                              <div className="grid grid-cols-2 gap-4">
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx1/120/50" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx2/120/50" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx3/120/50" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx4/120/50" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx5/120/50" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx6/120/50" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx7/120/50" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
-                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://picsum.photos/seed/idx8/120/50" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/1988856.png" width={120} height={50} alt="DOAJ Logo" data-ai-hint="logo brand" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/1988895.png" width={120} height={50} alt="Scopus Logo" data-ai-hint="logo company" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://logodix.com/logo/1988901.png" width={120} height={50} alt="EBSCO Logo" data-ai-hint="logo tech" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://topazconsultancy.in/images/conference-publication-services-in-india.png" width={120} height={50} alt="Crossref Logo" data-ai-hint="logo business" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://raw.githubusercontent.com/cybrix-research/website/main/public/images/partners/crossref.png" width={120} height={50} alt="DOAJ" data-ai-hint="logo brand" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://raw.githubusercontent.com/cybrix-research/website/main/public/images/partners/doaj.png" width={120} height={50} alt="Scopus" data-ai-hint="logo company" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://raw.githubusercontent.com/cybrix-research/website/main/public/images/partners/ebsco.png" width={120} height={50} alt="EBSCO" data-ai-hint="logo tech" className="object-contain" /></div>
+                                <div className="p-2 border rounded-md flex items-center justify-center"><Image src="https://fourwaves.com/blog/wp-content/uploads/2021/08/logo-fourwaves-transparent.png" width={120} height={50} alt="Crossref" data-ai-hint="logo business" className="object-contain" /></div>
                            
                            </div>
                         </CardContent>

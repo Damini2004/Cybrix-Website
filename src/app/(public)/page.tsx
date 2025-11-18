@@ -75,16 +75,14 @@ const keyServices = [
 ]
 
 const partnerLogos = [
-  { src: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 1', hint: 'team meeting' },
-  { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 2', hint: 'team collaboration' },
-  { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 3', hint: 'business meeting' },
-  { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 4', hint: 'office work' },
-  { src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 5', hint: 'team working' },
-  { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 6', hint: 'group discussion' },
-  { src: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 7', hint: 'presentation' },
-  { src: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 8', hint: 'business workshop' },
-  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 9', hint: 'tech team' },
-  { src: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&h=200&auto=format&fit=crop', alt: 'Partner 10', hint: 'diverse team' },
+  { src: 'https://logodix.com/logo/1988856.png', alt: 'Partner 1 Logo - Scopus', hint: 'logo scopus' },
+  { src: 'https://logodix.com/logo/1988895.png', alt: 'Partner 2 Logo - Web of Science', hint: 'logo web of science' },
+  { src: 'https://logodix.com/logo/1988901.png', alt: 'Partner 3 Logo - IEEE', hint: 'logo ieee' },
+  { src: 'https://topazconsultancy.in/images/conference-publication-services-in-india.png', alt: 'Partner 4 Logo - UGC', hint: 'logo ugc' },
+  { src: 'https://fourwaves.com/blog/wp-content/uploads/2021/08/logo-fourwaves-transparent.png', alt: 'Partner 5 Logo - Fourwaves', hint: 'logo fourwaves' },
+  { src: 'https://raw.githubusercontent.com/cybrix-research/website/main/public/images/partners/crossref.png', alt: 'Partner 6 Logo - Crossref', hint: 'logo crossref' },
+  { src: 'https://raw.githubusercontent.com/cybrix-research/website/main/public/images/partners/doaj.png', alt: 'Partner 7 Logo - DOAJ', hint: 'logo doaj' },
+  { src: 'https://raw.githubusercontent.com/cybrix-research/website/main/public/images/partners/ebsco.png', alt: 'Partner 8 Logo - EBSCO', hint: 'logo ebsco' },
 ];
                                                       
 

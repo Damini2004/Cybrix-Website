@@ -1,4 +1,3 @@
-
 // src/app/(public)/conference/[id]/page.tsx
 "use client";
 
@@ -21,6 +20,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { RenderHtmlContent } from "@/components/ui/render-html-content";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import Head from 'next/head';
 
 function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {  
   const [conference, setConference] = useState<Conference | null>(null);
@@ -305,24 +305,32 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
 
 
   return (
+    <>
+    <Head>
+        <title>{`${conference.title} | Cybrix`}</title>
+        <meta name="description" content={`Join the ${conference.title} on ${conference.date} in ${conference.location}. ${conference.tagline || ''}`} />
+        <meta name="keywords" content={`${conference.shortTitle}, ${conference.keywords}, academic conference, research conference, ${conference.location} conference`} />
+    </Head>
     <div className="bg-secondary/30">
        <section className="relative w-full h-[500px] bg-gray-800 text-white">
         <Image
           src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&h=500&auto=format&fit=crop"
-          alt="Conference background"
+          alt={`${conference.title} banner image`}
           fill
           className="object-cover opacity-20"
           data-ai-hint="conference audience"
         />
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-between py-8">
             <div>
-              <div className="flex items-center text-sm text-white/80">
-                  <Link href="/" className="hover:text-white">Home</Link>
-                  <ChevronRight className="h-4 w-4 mx-1" />
-                  <Link href="/conference" className="hover:text-white">Conferences</Link>
-                   <ChevronRight className="h-4 w-4 mx-1" />
-                  <span className="font-semibold text-white">{conference.shortTitle}</span>
-              </div>
+              <nav aria-label="Breadcrumb">
+                <ol className="flex items-center text-sm text-white/80">
+                    <li><Link href="/" className="hover:text-white">Home</Link></li>
+                    <li><ChevronRight className="h-4 w-4 mx-1" /></li>
+                    <li><Link href="/conference" className="hover:text-white">Conferences</Link></li>
+                    <li><ChevronRight className="h-4 w-4 mx-1" /></li>
+                    <li><span className="font-semibold text-white">{conference.shortTitle}</span></li>
+                </ol>
+              </nav>
             </div>
 
             <div className="flex-grow flex items-center">
@@ -367,7 +375,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
                 <EyecatchyCard icon={Users}>
                     <div className="space-y-6">
                         <div>
-                            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><Info className="h-5 w-5 text-primary/80 transition-transform duration-300 group-hover:animate-dance"/>About the Conference</h3>
+                            <h2 className="text-lg font-semibold mb-2 flex items-center gap-2"><Info className="h-5 w-5 text-primary/80 transition-transform duration-300 group-hover:animate-dance"/>About the Conference</h2>
                             <Separator className="my-2 bg-primary/20 animate-width-pulse" />
                             <div className="pt-4">
                                 {renderRichContent(conference.aboutConference)}
@@ -449,7 +457,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
                         <div className="flex items-start gap-3"><MapPin className="h-5 w-5 text-primary flex-shrink-0 animate-pulse" /><div><p className="font-semibold">Venue</p><p className="text-sm text-muted-foreground">{conference.venueName}<br />{conference.location}</p></div></div>
                          {conference.keywords && <>
                             <Separator />
-                            <div><p className="font-semibold mb-2">Keywords</p><div className="flex flex-wrap gap-1">{conference.keywords.split(',').map((k, index) => k.trim() && <Badge key={`${k.trim()}-${index}`} variant="secondary">{k.trim()}</Badge>)}</div></div>
+                            <div><h3 className="font-semibold mb-2">Keywords</h3><div className="flex flex-wrap gap-1">{conference.keywords.split(',').map((k, index) => k.trim() && <Badge key={`${k.trim()}-${index}`} variant="secondary">{k.trim()}</Badge>)}</div></div>
                         </>}
                     </CardContent>
                 </Card>
@@ -459,6 +467,7 @@ function ConferenceDetailClient({ conferenceId }: { conferenceId: string }) {
       </div>
       
     </div>
+    </>
   );
 }
 

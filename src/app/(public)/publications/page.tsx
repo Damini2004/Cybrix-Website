@@ -18,7 +18,7 @@ import { Metadata } from "next";
 const metadata: Metadata = {
   title: "Scholarly & Academic Publications | Cybrix",
   description: "Explore a wide range of peer-reviewed journals and scholarly articles. Cybrix is your gateway to international journal publication and high-impact scientific research papers.",
-  keywords: ["scholarly articles", "peer-reviewed journals", "academic publication", "international journal publication", "open access journals", "scientific research papers", "journal indexing", "find academic journals", "browse journals"],
+  keywords: ["scholarly articles", "peer-reviewed journals", "academic publication", "international journal publication", "open access journals", "scientific research papers", "journal indexing", "find academic journals", "browse journals", "Scopus indexed journals", "Web of Science journals"],
 };
 
 export default function PublicationsPage() {
@@ -58,7 +58,7 @@ export default function PublicationsPage() {
     <div className="bg-background">
         <section className="relative w-full py-20 md:py-32 bg-secondary/50">
              <Image
-                src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=600&auto=format=fit=crop"
+                src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&h=600&auto=format&fit=crop"
                 alt="Library shelf with books for academic publications"
                 data-ai-hint="library books"
                 fill
@@ -109,7 +109,7 @@ export default function PublicationsPage() {
                                 </div>
                                 <div className="flex flex-col flex-grow p-6">
                                     <CardHeader className="p-0">
-                                        <CardTitle className="text-lg font-bold leading-snug h-14 line-clamp-2">{journal.journalName}</CardTitle>
+                                        <h2 className="text-lg font-bold leading-snug h-14 line-clamp-2">{journal.journalName}</h2>
                                     </CardHeader>
                                     <CardContent className="p-0 flex-grow pt-2">
                                         <p className="text-sm text-muted-foreground line-clamp-3 h-[60px]">{journal.description}</p>

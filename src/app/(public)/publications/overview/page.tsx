@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, AlertTriangle, Shield, BookCopy } from "lucide-react";
 import Image from "next/image";
@@ -10,7 +9,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Research Publication Policies & Ethics | Cybrix",
     description: "Understand our publication ethics, plagiarism policy, and terms for submitting scholarly articles. Learn about our commitment to peer-reviewed journals and academic integrity.",
-    keywords: ["publication support services", "plagiarism policy", "academic integrity", "peer-review process", "scholarly articles", "publication ethics", "journal submission guidelines"],
+    keywords: ["publication support services", "plagiarism policy", "academic integrity", "peer-review process", "scholarly articles", "publication ethics", "journal submission guidelines", "research manuscript preparation", "how to avoid plagiarism in research paper"],
 };
 
 const plagiarismPolicies = [
