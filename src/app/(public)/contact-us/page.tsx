@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -7,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us - Cybrix Support & Inquiries",
   description: "Get in touch with the Cybrix team. Contact us via our online form, email, or phone for support with publications, conferences, or any other questions.",
-  keywords: ["contact cybrix", "cybrix support", "academic inquiry", "email cybrix", "cybrix phone number", "cybrix address", "research publication help"],
+  keywords: ["contact cybrix", "cybrix support", "academic inquiry", "email cybrix", "cybrix phone number", "cybrix address", "research publication help", "Professional publication services in Nagpur", "Top publishing companies in Nagpur", "Affordable publishing solutions"],
 };
 
 

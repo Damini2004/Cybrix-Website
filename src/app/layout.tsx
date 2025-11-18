@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Cybrix',
   },
   description: 'Expert academic and research publication services. We offer journal publication support, manuscript preparation, and help with publishing in Scopus, WoS, and peer-reviewed journals.',
-  keywords: ['research publication', 'academic publication', 'scientific research papers', 'journal publication', 'publish research paper', 'research journal submission', 'international journal publication', 'scholarly articles', 'peer-reviewed journals', 'academic writing services', 'research paper writing help', 'PhD thesis publication', 'fast track journal publication', 'Scopus indexed journals', 'Web of Science journals', 'UGC CARE list journals',],
+  keywords: ['research publication', 'academic publication', 'scientific research papers', 'journal publication', 'publish research paper', 'research journal submission', 'international journal publication', 'scholarly articles', 'peer-reviewed journals', 'academic writing services', 'research paper writing help', 'PhD thesis publication', 'fast track journal publication', 'Scopus indexed journals', 'Web of Science journals', 'UGC CARE list journals', 'Renowned publication house', 'Trusted publisher in Nagpur', 'Professional publishing support', 'Affordable publishing solutions'],
   manifest: '/manifest.json',
   openGraph: {
     title: 'Cybrix - Premier Academic & Research Publication Services',

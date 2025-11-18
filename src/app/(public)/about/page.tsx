@@ -1,3 +1,4 @@
+
 // src/app/(public)/about/page.tsx
 import { getPageContent } from "@/services/cmsService";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 export const metadata: Metadata = {
   title: "About Cybrix - Academic & Research Publication Services",
   description: "Learn about Cybrix's mission to advance knowledge through expert research publication, conference management, and scholarly articles support. We are a leader in international journal publication.",
-  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation", "scholarly articles", "academic publication", "our mission", "company vision", "research paper writing help"],
+  keywords: ["about us", "academic services", "conference management", "publication consultancy", "PhD services", "research innovation", "scholarly articles", "academic publication", "our mission", "company vision", "research paper writing help", "Best publication in Nagpur", "Top publication in Nagpur", "Leading publication house in Nagpur", "Top-rated publication in Nagpur", "No.1 publication in Nagpur", "Award-winning publication in Nagpur", "Most trusted publication in Nagpur"],
 };
 
 async function getAboutContent() {
